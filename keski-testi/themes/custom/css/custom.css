@@ -1,0 +1,85 @@
+.introduction {
+    /*
+    border: solid 6px yellow;
+    background: red;
+    */
+}
+
+/* navigointimenun taustaväri ym. 
+.content-navigation-menu{margin:20px 0}.main.template-dir-content.template-name-content .content-navigation-menu h2{background:#000000;color:#fff;padding:10px;font-size:16px;margin-bottom:5px;margin-top:0;transition:background .2s linear}.main.template-dir-content.template-name-content .content-navigation-menu h2:hover{background:#747474;cursor:pointer}@media (min-width:768px){.main.template-dir-content.template-name-content .content-navigation-menu.attached{position:fixed;top:0}}@media (min-width:1200px){.main.template-dir-content.template-name-content .content-navigation-menu.attached{width:262px}}@media (min-width:992px) and (max-width:1199px){.main.template-dir-content.template-name-content .content-navigation-menu.attached{width:212px}}@media (min-width:768px) and 
+*/
+
+
+
+body {background-color: #fff; background-image: url("/finna2_tuotantodemo/themes/custom/images/logo_background.jpg");}
+.logo .finnalogo {background-image: none;
+}
+
+    .ex {
+   max-width: 500px;
+}
+
+/* kirhakemiston sulkuteksti ja osoiteteksti */
+ .organisation-info .closed{color: #d50000;} 
+
+ .map-address {color: #0000b5;} 
+ .details {color: #0000b5;} 
+
+/* kansikuvat */
+.myresearch-grid-list .cover-image {
+    max-width: 75px;
+    max-height: 175px;
+}
+
+/* valkoinen logo 
+.clearfix{
+    -webkit-filter: invert(100%);
+}
+*/
+
+/* Väli */
+.spacer { margin:0; padding:0; height:265px; }
+
+.spacer2 { color: #0000b5; margin:0; padding:0; height:65px; }
+
+/* kuvan erotus kappaletekstiin */
+.kuvaleft {
+    float: left;
+    margin-right: 10px;
+    clear:both;
+}
+
+.kuvaright {
+    float: right;
+    margin-right: 80px;
+    clear:both;
+}
+
+.kuvacentered {
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+/* Pikaohjeet-lohko */
+.pika-header {
+ display:inline-block;
+ color:#fff;
+ padding:10px;
+ background:#595959
+}
+
+/*Nidenäytön Aineiston tarjoamiskohdan piilotus*/
+.organisation-menu .recordProvidedBy,
+.image-rights .recordProvidedBy{
+    display:none;
+}
+
+/* Kirjallisuus-karusellit */
+.kirjallisuus {
+    font-size:125%;
+}
+
+/* Tarkan haun kartan piilotus */
+.search-map-container{
+    display:none;
+}

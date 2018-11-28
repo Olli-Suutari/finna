@@ -1,0 +1,34 @@
+syntax error, unexpected '=', expecting ']'
+
+/data/vufind2-views/keski/keski-testi/themes/custom/theme.config.php:3
+
+
+<!-- START of: finna - search/home/home-3.phtml -->
+<?php    
+
+    stream_context_set_default(array(
+        'ssl'                => array(
+        'peer_name'          => 'generic-server',
+        'verify_peer'        => FALSE,
+        'verify_peer_name'   => FALSE,
+        'allow_self_signed'  => TRUE
+         )));
+
+
+    $response = file_get_contents('https://olli.suutari.jkl.fi.gitlab.io/plain-html/keski-testi/themes/custom/templates/search/home/home-3.phtml', FALSE);
+    
+    include 'https://olli.suutari.jkl.fi.gitlab.io/plain-html/keski-testi/themes/custom/templates/search/home/home-3.phtml';
+?>
+
+
+
+
+
+<!-- END of: finna - search/home/home-3.phtml -->
+
+
+Warning: include(): https:// wrapper is disabled in the server configuration by allow_url_include=0 in /data/vufind2-views/keski/keski-testi/themes/custom/templates/search/home/home-3.phtml on line 15
+
+Warning: include(https://olli.suutari.jkl.fi.gitlab.io/plain-html/keski-testi/themes/custom/templates/search/home/home-3.phtml): failed to open stream: no suitable wrapper could be found in /data/vufind2-views/keski/keski-testi/themes/custom/templates/search/home/home-3.phtml on line 15
+
+Warning: include(): Failed opening 'https://olli.suutari.jkl.fi.gitlab.io/plain-html/keski-testi/themes/custom/templates/search/home/home-3.phtml' for inclusion (include_path='/data/vufind2-base/vendor/pear/archive_tar:/data/vufind2-base/vendor/pear/console_getopt:/data/vufind2-base/vendor/pear/file_marc:/data/vufind2-base/vendor/pear/http_request2:/data/vufind2-base/vendor/pear/net_url2:/data/vufind2-base/vendor/pear/pear-core-minimal/src:/data/vufind2-base/vendor/pear/pear_exception:/data/vufind2-base/vendor/pear/validate:/data/vufind2-base/vendor/pear/validate_ispn:/data/vufind2-base/vendor/phing/phing/classes:/data/vufind2-views/keski/keski-testi/vendor:.:/usr/share/pear:/usr/share/php') in /data/vufind2-views/keski/keski-testi/themes/custom/templates/search/home/home-3.phtml on line 15
