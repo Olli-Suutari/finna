@@ -83,3 +83,7 @@ body {background-color: #fff; background-image: url("/finna2_tuotantodemo/themes
 .search-map-container{
     display:none;
 }
+
+.title {
+    font-size: 4em!important;
+}
