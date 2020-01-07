@@ -1,0 +1,64 @@
+/*body {
+  background-color: red;
+}*/
+
+/*
+Perusväri
+(@brand-primary)
+#ff6600
+
+Toissijainen perusväri
+(@brand-secondary)
+#333333
+
+Kolmas perusväri
+(@brand-third)
+#007c90
+
+Neljäs perusväri
+(@brand-fourth)
+#007c90
+}*/
+
+.finna-navbar {
+}
+
+.finna-navbar, .navbar-logo {
+
+}
+
+.floating-feedback-btn {
+    
+}
+
+.introduction .clearfix {
+    display: none;
+}
+
+.tooltip-button .tooltip-search-local .pull-right {
+    margin-left: -30px;
+}
+
+
+header {
+    background-color: #BCD4EC;
+}
+
+footer {
+    display: flex;
+    position: static;
+    bottom: -20px;
+    background-color: #BCD4EC;
+    width: 100%;
+    padding-bottom: 2em;
+    margin-bottom: -15px;
+    margin-top: 3em;
+    max-height: 400px;
+    font-size: 1.15em
+}
+
+
+
+
+footer .hidden-print {
+}
