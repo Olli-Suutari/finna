@@ -2,23 +2,10 @@
   background-color: red;
 }*/
 
-/*
-Perusväri
-(@brand-primary)
-#ff6600
+html {
+    font-size: 1.06em;
+}
 
-Toissijainen perusväri
-(@brand-secondary)
-#333333
-
-Kolmas perusväri
-(@brand-third)
-#007c90
-
-Neljäs perusväri
-(@brand-fourth)
-#007c90
-}*/
 
 .finna-navbar {
 }
@@ -27,8 +14,8 @@ Neljäs perusväri
 
 }
 
-.floating-feedback-btn {
-    
+.floating-feedback-btn, .browsebar, .search-tooltip {
+    display: none!important;
 }
 
 .introduction .clearfix {
@@ -39,26 +26,27 @@ Neljäs perusväri
     margin-left: -30px;
 }
 
-
 header {
-    background-color: #BCD4EC;
 }
 
 footer {
     display: flex;
-    position: static;
+    position: relative;
     bottom: -20px;
     background-color: #BCD4EC;
     width: 100%;
     padding-bottom: 2em;
     margin-bottom: -15px;
     margin-top: 3em;
-    max-height: 400px;
     font-size: 1.15em
 }
 
-
-
-
 footer .hidden-print {
+}
+
+@media screen and ( min-height: 768px )
+{
+    .page-content{
+        min-height: 30vmin;
+    }
 }
