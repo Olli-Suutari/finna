@@ -12,18 +12,22 @@ html, body {
 }
 
 .browsebar {
-display: none;
+    display: none;
 }
 
 .finna-navbar {
+}
+
+.search {
+    // background: https://keski.finna-test.fi//beta/themes/custom/images/logo_background.jpg?1578907836
 }
 
 .finna-navbar, .navbar-logo {
 
 }
 
-.floating-feedback-btn {
-    display: none;
+.floating-feedback-btn, .search-tooltip {
+    display: none!important;
 }
 
 .introduction .clearfix {
@@ -43,9 +47,12 @@ header {
 footer {
     background-color: #a3c4e4;
     width: 100%;
-    padding-bottom: 2em;
+    padding-bottom: 4em!important;
     margin-top: 3em;
     margin-bottom: -20px;
+    position: static;
+    bottom: -20px;
+    display: flex;
     max-height: 100%!important;
     min-height: auto;
     font-size: 1.15em
@@ -80,3 +87,8 @@ footer .hidden-print {
     }
 }
 
+
+
+.searchContent {
+    background: hotpink!important;
+}

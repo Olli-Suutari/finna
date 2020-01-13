@@ -33,6 +33,13 @@ function appendSearchHistory () {
 }
 
 
+function replaceHomeSearch() {
+
+    $('.searchbox-home').removeClass('searchbox-home');
+
+}
+
+
 function finnaCustomInit() {
     var locationUrl = window.location.href;
     // Re-direct to /Content/Foo if using lowercase /content/
@@ -54,5 +61,5 @@ function finnaCustomInit() {
     }
     
     appendSearchHistory();
-       
+    replaceHomeSearch();
 }
