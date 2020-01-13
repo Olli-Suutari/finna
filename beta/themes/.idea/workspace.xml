@@ -4,6 +4,7 @@
     <list default="true" id="48b4400c-cc76-44d7-9482-6d8378d8d3be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/custom/css/custom.css" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/custom/css/custom.less" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom/less/custom.less" beforeDir="false" afterPath="$PROJECT_DIR$/custom/less/custom.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +48,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1578479155139</updated>
-      <workItem from="1578479156339" duration="4231000" />
+      <workItem from="1578479156339" duration="5239000" />
     </task>
     <servers />
   </component>

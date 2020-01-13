@@ -7,6 +7,14 @@ html {
 }
 
 
+html, body {
+    height: 100%;
+}
+
+.browsebar {
+display: none;
+}
+
 .finna-navbar {
 }
 
@@ -14,8 +22,8 @@ html {
 
 }
 
-.floating-feedback-btn, .browsebar, .search-tooltip {
-    display: none!important;
+.floating-feedback-btn {
+    display: none;
 }
 
 .introduction .clearfix {
@@ -26,27 +34,49 @@ html {
     margin-left: -30px;
 }
 
+
 header {
+    background-color: #d8e7e3;
+    padding: .76em .4em;
 }
 
 footer {
-    display: flex;
-    position: relative;
-    bottom: -20px;
-    background-color: #BCD4EC;
+    background-color: #a3c4e4;
     width: 100%;
     padding-bottom: 2em;
-    margin-bottom: -15px;
     margin-top: 3em;
+    margin-bottom: -20px;
+    max-height: 100%!important;
+    min-height: auto;
     font-size: 1.15em
 }
+
+.footer-container {
+    margin-top: 1.8em;
+    width: 100%;
+    justify-content: space-between;
+    display: flex!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-column {
+    justify-content: space-between;
+}
+
+
 
 footer .hidden-print {
 }
 
-@media screen and ( min-height: 768px )
-{
-    .page-content{
-        min-height: 30vmin;
+
+    
+
+
+@media screen and ( min-height: 76px ){
+    
+    section[role=main] {
+        min-height: 60vmin!important;
     }
 }
+
