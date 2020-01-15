@@ -12,7 +12,17 @@ function checkUrlForContent(url) {
     }
 }
 
-function appendSearchHistory () {
+function appendSearchBar () {
+
+
+    if(window.location.href == "https://keski.finna-test.fi/beta/") {
+        $('.searchbox-home').removeClass('searchbox-home');
+        $('.search-links').css("display", "none");
+        $('.search').append('<a href="/beta/Search/Advanced" class="btn btn-link btn-advanced"><i class="fa fa-search-adv"></i>Tarkennettu haku</a>')
+    }
+    else {
+        $('.search').append('<a href="/beta/Search/Advanced" class="btn btn-link btn-advanced"><i class="fa fa-search-adv"></i>Tarkennettu haku</a>')
+    }
 
     if (window.location.href.indexOf('/Search/History') > -1) {
         return;
@@ -35,7 +45,6 @@ function appendSearchHistory () {
 
 function replaceHomeSearch() {
 
-    $('.searchbox-home').removeClass('searchbox-home');
 
 }
 
@@ -60,6 +69,6 @@ function finnaCustomInit() {
         '/Content' + locationUrl.substring(locationUrl.lastIndexOf('/')))
     }
     
-    appendSearchHistory();
+    appendSearchBar();
     replaceHomeSearch();
 }

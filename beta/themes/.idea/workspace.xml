@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="48b4400c-cc76-44d7-9482-6d8378d8d3be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/custom/css/custom.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom/css/custom.less" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/custom/less/custom.less" beforeDir="false" afterPath="$PROJECT_DIR$/custom/less/custom.less" afterDir="false" />
-    </list>
+    <list default="true" id="48b4400c-cc76-44d7-9482-6d8378d8d3be" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -49,6 +45,7 @@
       <option name="presentableId" value="Default" />
       <updated>1578479155139</updated>
       <workItem from="1578479156339" duration="5239000" />
+      <workItem from="1579071844611" duration="19000" />
     </task>
     <servers />
   </component>
