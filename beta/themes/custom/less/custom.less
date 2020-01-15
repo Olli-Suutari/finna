@@ -12,8 +12,35 @@ body {
 
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: 'Ibarra Real Nova', serif!important;
+h1, h2, h3, h4, h5, h6, header, section[role=search] {
+    font-family: 'Lato', sans-serif!important;
+
+}
+
+h1, h2, h3, h4 {
+    padding-bottom: 7px!important;
+    padding-left: 9px!important;
+    padding-right: 18px!important;
+    border-bottom: 2px solid #414141;
+}
+
+.infobox h1, .infobox h2, .infobox h3, .content-header {
+    text-align: center;
+}
+
+footer h1, footer h2, footer h3, footer h4 {
+    padding-left: 0!important;
+    padding-right: 0!important;
+    border-bottom: none
+}
+
+.content-navigation-menu h1, .content-navigation-menu h2 {
+    border-bottom: none
+
+}
+
+.content-header {
+
 }
 
 p {
@@ -39,6 +66,14 @@ html, body {
 
 }
 
+#menu_Vinkit {
+
+}
+
+#menu_Vinkit i {
+
+}
+
 .floating-feedback-btn, .search-tooltip {
     display: none!important;
 }
@@ -57,8 +92,42 @@ header {
     padding: .76em .4em;
 }
 
+.navbar-header {
+    margin-left: -20px!important;
+    margin-right: 20px!important;
+}
+
+header i {
+    margin-right: 2px;
+}
+
+[role=menubar] li {
+    margin-right: 12px!important;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+[role=menubar] li a:hover {
+    background: rgb(148, 224, 212);
+    border-left: solid 4px #fc6c43;
+    margin-left: -4px;
+}
+
+.navbar-brand {
+    padding-left: 9px;
+}
+
+.navbar-brand:hover {
+    border-left: solid 4px #fc6c43;
+    margin-left: -4px;
+}
+
+[role=menubar] li  {
+
+}
+
 footer {
-    background-color: #a3c4e4;
+    background-color: #abc9e7;
     width: 100%;
     padding-bottom: 4em!important;
     margin-top: 3em;
@@ -111,6 +180,9 @@ footer .hidden-print {
     height: auto!important;
 }
 
+section[role=main] {
+
+}
 
 section[role=search] {
     margin-bottom: 1.8em!important;
@@ -127,7 +199,9 @@ section[role=search], .search-form-container  {
 }
 
 .search-query {
+
 }
+
 .logo-clearfix {
     display: none!important;
 }

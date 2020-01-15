@@ -13,8 +13,6 @@ function checkUrlForContent(url) {
 }
 
 function appendSearchBar () {
-
-
     if(window.location.href == "https://keski.finna-test.fi/beta/") {
         $('.searchbox-home').removeClass('searchbox-home');
         $('.search-links').css("display", "none");
@@ -42,6 +40,16 @@ function appendSearchBar () {
     $('.search').append('<a href="/beta/Search/History" class="btn btn-link btn-advanced"><i class="fa fa-history"></i>Hakuhistoria</a>')
 }
 
+function addIconsToMainNavigation() {
+    $('a[href$="/kirjastot"]').prepend('<i class="fa fa-building"></i> ')
+    $('a[href$="/info"]').prepend('<i class="fa fa-question-circle"></i> ')
+    $('a[href$="/ekirjasto"]').prepend('<i class="fa fa-globe"></i> ')
+    $('.fa-nav-menu_Vinkit').append('<i class="fa fa-archive"></i> ')
+    $('a[href$="/Feedback/Home"]').prepend('<i class="fa fa-comment"></i> ')
+
+    //$('a[href$="/kirjastot"]').prepend('<i class="fa fa-history"></i> ')
+}
+
 
 function loadjscssfile(filename, filetype){
     if (filetype=="js"){ //if filename is a external JavaScript file
@@ -61,9 +69,12 @@ function loadjscssfile(filename, filetype){
 
 
 function finnaCustomInit() {
-    loadjscssfile("https://fonts.googleapis.com/css?family=Lobster|Raleway", "css") ////dynamically load and add this .css file
+    loadjscssfile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css") 
 
-    loadjscssfile("https://fonts.googleapis.com/css?family=Ibarra+Real+Nova|Open+Sans&display=swap", "css") 
+    //loadjscssfile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css") 
+    //loadjscssfile("https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css", "css")
+    //loadjscssfile("https://use.fontawesome.com/releases/v5.12.0/js/all.js", "js")
+    //loadjscssfile("https://use.fontawesome.com/releases/v5.12.0/js/v4-shims.js", "js")
 
     var locationUrl = window.location.href;
     // Re-direct to /Content/Foo if using lowercase /content/
@@ -83,5 +94,7 @@ function finnaCustomInit() {
         checkUrlForContent(locationUrl.substring(0, locationUrl.lastIndexOf('/')) + 
         '/Content' + locationUrl.substring(locationUrl.lastIndexOf('/')))
     }
+    addIconsToMainNavigation();
     appendSearchBar();
+
 }
