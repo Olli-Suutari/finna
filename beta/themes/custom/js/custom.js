@@ -43,13 +43,28 @@ function appendSearchBar () {
 }
 
 
-function replaceHomeSearch() {
-
-
+function loadjscssfile(filename, filetype){
+    if (filetype=="js"){ //if filename is a external JavaScript file
+        var fileref=document.createElement('script')
+        fileref.setAttribute("type","text/javascript")
+        fileref.setAttribute("src", filename)
+    }
+    else if (filetype=="css"){ //if filename is an external CSS file
+        var fileref=document.createElement("link")
+        fileref.setAttribute("rel", "stylesheet")
+        fileref.setAttribute("type", "text/css")
+        fileref.setAttribute("href", filename)
+    }
+    if (typeof fileref!="undefined")
+        document.getElementsByTagName("head")[0].appendChild(fileref)
 }
 
 
 function finnaCustomInit() {
+    loadjscssfile("https://fonts.googleapis.com/css?family=Lobster|Raleway", "css") ////dynamically load and add this .css file
+
+    loadjscssfile("https://fonts.googleapis.com/css?family=Ibarra+Real+Nova|Open+Sans&display=swap", "css") 
+
     var locationUrl = window.location.href;
     // Re-direct to /Content/Foo if using lowercase /content/
     if (locationUrl.indexOf('/content/') > -1) {
@@ -68,7 +83,5 @@ function finnaCustomInit() {
         checkUrlForContent(locationUrl.substring(0, locationUrl.lastIndexOf('/')) + 
         '/Content' + locationUrl.substring(locationUrl.lastIndexOf('/')))
     }
-    
     appendSearchBar();
-    replaceHomeSearch();
 }
