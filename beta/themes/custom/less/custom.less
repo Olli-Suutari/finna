@@ -12,7 +12,7 @@ body {
 
 }
 
-h1, h2, h3, h4, h5, h6, header, section[role=search] {
+h1, h2, h3, h4, h5, h6, header, section[role=search], footer {
     font-family: 'Lato', sans-serif!important;
 
 }
@@ -141,21 +141,53 @@ header li a {
 }
 
 footer {
-    background-color: #abc9e7;
+    //background-color: #abc9e7;
+    background: #ebebed;
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)!important;
     width: 100%;
-    padding-bottom: 4em!important;
-    margin-top: 3em;
-    margin-bottom: -20px;
+    padding-top: 1em;
+    padding-bottom: 2.5em!important;
+    margin-top: 4m;
+    margin-bottom: -40px;
     position: static;
     bottom: -20px;
     display: flex;
     max-height: 100%!important;
     min-height: auto;
-    font-size: 1.15em
+    font-size: 1.25em
+}
+
+footer .container {
+    width: 95vmax!important;
+    margin-left: 2vmax!important;
+    margin-right: 2vmax;
+}
+
+.footer-left-side {
+    float: left;
+    position: relative;
+    top: 100px;
+    transform: rotate(208deg);
+}
+
+.footer-right-side  {
+    position: flex-end;
+    float: right;
+    transform: rotate(-215deg);
+    margin-bottom: 50px;
+}
+
+@media screen and ( max-width: 1300px ){
+    .footer-left-side, .footer-right-side {
+        display: none;
+    }
+    
+
 }
 
 .footer-container {
-    margin-top: 1.8em;
+    margin-top: 1.3em;
     width: 100%;
     justify-content: space-between;
     display: flex!important;
@@ -184,23 +216,23 @@ footer {
 }
   
 .footer-links li a {
-display: block;
-text-align: center;
-padding: 3px 11px;
+    display: block;
+    text-align: center;
+    padding: 3px 18px;
 }
 
 .footer-links li a:hover {
 }
 
-footer .hidden-print {
+.footer-logo-links li {
+    padding: 0 2em;
+    border: none;
 }
-
 
     
 
 
 @media screen and ( min-height: 76px ){
-    
     section[role=main] {
         min-height: 60vmin!important;
     }
@@ -212,6 +244,7 @@ footer .hidden-print {
     background: #d8e7e3;
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)!important;
+    //background: lightblue url("/beta/themes/custom/images/logo_background.jpg") no-repeat fixed center;
     padding: .5em!important;
     margin: 0!important;
     height: auto!important;
