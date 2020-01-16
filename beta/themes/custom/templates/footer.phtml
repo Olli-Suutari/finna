@@ -1,24 +1,26 @@
 <!-- START of: finna - footer.phtml -->
-<div class="footer-container">
-  <div class="footer-column">
-    <h4><strong><?=$this->transEsc('About')?></strong></h4>
-    <ul>
-      <li><a href="<?=$this->url('content-page', ['page' => 'about'])?>"><?=$this->transEsc('About Us')?></a></li>
-      <li><a href="<?=$this->url('content-page', ['page' => 'about_finna'])?>"><?=$this->transEsc('What is Finna')?></a></li>
-      <li><a href="<?=$this->url('content-page', ['page' => 'terms'])?>"><?=$this->transEsc('Terms')?></a></li>
-      <li><a href="<?=$this->url('content-page', ['page' => 'privacy'])?>"><?=$this->transEsc('Privacy')?></a></li>
+<div class="footer-container row">
+    <ul class="footer-links">
+      <li>
+        <a href="<?=$this->url('content-page', ['page' => 'terms'])?>">
+        <?=$this->transEsc('Terms')?></a>
+      </li>
+      <li>
+        <a href="<?=$this->url('content-page', ['page' => 'privacy'])?>">
+        <?=$this->transEsc('Privacy') ?></a>
+      </li>
+      <li>
+        <a href="<?=$this->url('content-page', ['page' => 'privacy'])?>#cookies">
+          <?=$this->transEsc('cookies') ?></a>
+      </li>
+      <li>
+        <a href="<?=$this->url('content-page', ['page' => 'accessibility-statement'])?>">
+        <?=$this->transEsc('accessibility_statement')?></a>
+      </li>
     </ul>
-  </div>
-  <div class="footer-column">
-     <h4><strong><?=$this->transEsc('Need Help?')?></strong></h4>
-    <ul>
-      <li><a href="<?=$this->url('content-page', ['page' => 'help'])?>" title="<?=$this->transEsc('Search Tips')?>"><?=$this->transEsc('Help')?></a></li>
-      <li><a href="<?=$this->url('feedback-home') ?>"><?=$this->transEsc('Feedback')?></a></li>
-    </ul>
-  </div>
-  <div class="footer-column">
-  </div>
-  <div class="footer-column">
+</div>
+<hr>
+<div class="footer-container row">
   <a href="<?=$this->url('content-page', ['page' => 'about_finna'])?>" title="<?=$this->escapeHtmlAttr($this->translate('About Finna'))?>">
       <img src="<?=$this->imageLink('powered-by-finna_' . $this->layout()->userLang . '-black.png')?>" alt=""/>
       <span class="sr-only"><?=$this->transEsc('About Finna')?></span>
@@ -28,14 +30,7 @@
       <img src="<?=$this->imageLink('vufind-logo-black.png')?>" alt=""/>
       <span class="sr-only"><?=$this->transEsc('About VuFind')?></span>
     </a>
-  </div>
-</div>
-<hr>
-<div class="footer-container">
-  <div class="footer-column">
-  </div>
-  <div class="footer-column">
-  </div>
+    <a href="http://www.kirjastot.fi/"><img src="https://vaski.finna.fi/themes/custom/images/kifi-logo.png?_=1516782463" alt="Kirjastot.fi logo"></a>
 </div>
 <!-- https://vaski.finna.fi/ has a nice footer; to DO: copy? + https://vaski.finna.fi/Content/help -->
 <!-- END of: finna - footer.phtml -->
