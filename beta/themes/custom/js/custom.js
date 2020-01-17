@@ -34,16 +34,6 @@ function appendSearchBar () {
         $('.searchContent').css('display', 'none')
         return;
     }
-    if (locationUrl == "https://keski.finna-test.fi/beta/") {
-        $('.searchbox-home').removeClass('searchbox-home');
-        $('.search-links').css("display", "none");
-        $('.search').append('<a href="/beta/Search/Advanced" class="btn btn-link btn-advanced"><i class="fa fa-search-adv"></i> Tarkennettu haku</a>')
-        $('.search').append('<a href="/beta/Content/Help" class="btn btn-link btn-advanced"><i class="fa fa-info-circle"></i> Hakuohjeet</a>')
-    }
-    else {
-        $('.search').append('<a href="/beta/Search/Advanced" class="btn btn-link btn-advanced"><i class="fa fa-search-adv"></i> Tarkennettu haku</a>')
-        $('.search').append('<a href="/beta/Content/Help" class="btn btn-link btn-advanced"><i class="fa fa-info-circle"></i> Hakuohjeet</a>')
-    }
     if (locationUrl.indexOf('/Search/History') > -1) {
         return;
     }
@@ -57,15 +47,14 @@ function appendSearchBar () {
                 return;
             }
             else {
-                $('.search').append('<a href="/beta/Search/History" class="btn btn-link btn-advanced"><i class="fa fa-history"></i>Hakuhistoria</a>')
+                $('.history-btn').css('visibility', 'visible');
             }
           });
     }
     catch(e) {
         // Page not found... console.log(e)
-        $('.search').append('<a href="/beta/Search/History" class="btn btn-link btn-advanced"><i class="fa fa-history"></i>Hakuhistoria</a>')
+        $('.history-btn').css('visibility', 'visible');
     }
-
 }
 
 function addSelectedNav() {

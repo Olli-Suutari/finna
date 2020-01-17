@@ -37,9 +37,7 @@ function endsWith($string, $endString)
             <li class="dropdown" id="<?= $val['label'] ?>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <?php 
-                  //consoleLog($val['label']);
                   if ($val['label'] == 'menu_Vinkit') {
-                      consoleLog('Menu Vinkit');
                       echo '<i class="fa fa-archive"></i> ';
                   } ?>
                   <i class="fa fa-nav-<?=$val['label'] ?>" aria-hidden="true"></i><?= $this->transEsc($val['label']) ?> <b class="caret" aria-hidden="true"></b></a>
