@@ -1,7 +1,6 @@
 /* Add your custom template javascript here */
 var locationUrl = "";
 
-
 function loadJsOrCssFile(filename, filetype){
     if (filetype=="js"){ //if filename is a external JavaScript file
         var fileref=document.createElement('script')
@@ -31,13 +30,11 @@ function checkUrlForContent(url) {
 }
 
 function appendSearchBar () {
-
-    if (window.location.href == "https://keski.finna-test.fi/beta/Search/Advanced") {
+    if (locationUrl == "https://keski.finna-test.fi/beta/Search/Advanced") {
         $('.searchContent').css('display', 'none')
         return;
     }
-
-    if(window.location.href == "https://keski.finna-test.fi/beta/") {
+    if (locationUrl == "https://keski.finna-test.fi/beta/") {
         $('.searchbox-home').removeClass('searchbox-home');
         $('.search-links').css("display", "none");
         $('.search').append('<a href="/beta/Search/Advanced" class="btn btn-link btn-advanced"><i class="fa fa-search-adv"></i> Tarkennettu haku</a>')
@@ -47,14 +44,15 @@ function appendSearchBar () {
         $('.search').append('<a href="/beta/Search/Advanced" class="btn btn-link btn-advanced"><i class="fa fa-search-adv"></i> Tarkennettu haku</a>')
         $('.search').append('<a href="/beta/Content/Help" class="btn btn-link btn-advanced"><i class="fa fa-info-circle"></i> Hakuohjeet</a>')
     }
-
-    if (window.location.href.indexOf('/Search/History') > -1) {
+    if (locationUrl.indexOf('/Search/History') > -1) {
         return;
     }
+    // If user has a search historry, append the history button.
     try {
         $.get( 'https://keski.finna-test.fi/beta/Search/History', function( data ) {
             //console.log(data)
-            if (data.indexOf('<h4>Hakuhistoria on tyhj') > -1) {
+            if (data.indexOf('<h4>Hakuhistoria on tyhj') > -1 || 
+            data.indexOf('There are currently no') > -1) {
                 console.log("IS EMPTY SEARCH HISTORY!")
                 return;
             }
@@ -77,19 +75,19 @@ function addIconsToMainNavigation() {
     $('header .fa-nav-menu_Vinkit').append('<i class="fa fa-archive"></i> ')
     $('header li a[href$="/Feedback/Home"]').prepend('<i class="fa fa-comment"></i> ')
     //$('a[href$="/kirjastot"]').prepend('<i class="fa fa-history"></i> ')
-    if (window.location.href == 'https://keski.finna-test.fi/beta/') {
+    if (locationUrl == 'https://keski.finna-test.fi/beta/') {
         $('.navbar-brand').addClass("selected-nav");
     }
-    if (window.location.href.indexOf('/Content/kirjastot') > -1) {
+    if (locationUrl.indexOf('/Content/kirjastot') > -1) {
         $('header li a[href$="/kirjastot"]').addClass("selected-nav");
     }
-    else if (window.location.href.indexOf('/Content/info') > -1) {
+    else if (locationUrl.indexOf('/Content/info') > -1) {
         $('header li a[href$="/info"]').addClass("selected-nav");
     }
-    else if (window.location.href.indexOf('/Content/ekirjasto') > -1) {
+    else if (locationUrl.indexOf('/Content/ekirjasto') > -1) {
         $('header li a[href$="/ekirjasto"]').addClass("selected-nav");
     }
-    else if (window.location.href.indexOf('/Feedback/Home') > -1) {
+    else if (locationUrl.indexOf('/Feedback/Home') > -1) {
         $('header li a[href$="/Feedback/Home"]').addClass("selected-nav");
     }
     else {
@@ -97,7 +95,7 @@ function addIconsToMainNavigation() {
         $('#menu_Vinkit a').each(function(){
             //do something with the link element
             //console.log(this.href)
-            if (window.location.href.indexOf(this.href) > -1) {
+            if (locationUrl.indexOf(this.href) > -1) {
                 $('#menu_Vinkit').addClass("selected-nav");
                 $('#menu_Vinkit').addClass("selected-nav");
                 var linkEnding = this.href.substring(this.href.lastIndexOf("/") + 1);
@@ -113,13 +111,18 @@ function addIconsToMainNavigation() {
 function finnaCustomInit() {
 
     loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css") 
-
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css") 
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css", "css")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/all.js", "js")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/v4-shims.js", "js")
 
     locationUrl = window.location.href;
+    if (locationUrl.indexOf('?lng=fi') > -1) {
+        locationUrl = locationUrl.replace('?lng=fi', '');
+    }
+    else if(locationUrl.indexOf('?lng=en-gb') > -1) {
+        locationUrl = locationUrl.replace('?lng=en-gb', '');
+    }
     // Re-direct to /Content/Foo if using lowercase /content/
     if (locationUrl.indexOf('/content/') > -1) {
         window.location = locationUrl.replace('/content/', '/Content/');
@@ -139,5 +142,16 @@ function finnaCustomInit() {
     }
     addIconsToMainNavigation();
     appendSearchBar();
+
+    // Change English to "In English" and "Suomi" to "Suomeksi"
+    /*
+    if (document.documentElement.lang.toLowerCase() === "fi") {
+        console.log("HEY HEY")
+        $('.lang a[href$="=en-gb"]').text("In English")
+    }
+    else {
+        $('.lang a[href$="=fi"]').text("Suomeksi")
+    }
+    */
 
 }
