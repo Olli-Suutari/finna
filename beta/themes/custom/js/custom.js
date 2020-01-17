@@ -68,13 +68,7 @@ function appendSearchBar () {
 
 }
 
-function addIconsToMainNavigation() {
-    $('header a[href$="/kirjastot"]').prepend('<i class="fa fa-building"></i> ')
-    $('header a[href$="/info"]').prepend('<i class="fa fa-question-circle"></i> ')
-    $('header a[href$="/ekirjasto"]').prepend('<i class="fa fa-globe"></i> ')
-    $('header .fa-nav-menu_Vinkit').append('<i class="fa fa-archive"></i> ')
-    $('header li a[href$="/Feedback/Home"]').prepend('<i class="fa fa-comment"></i> ')
-    //$('a[href$="/kirjastot"]').prepend('<i class="fa fa-history"></i> ')
+function addSelectedNav() {
     if (locationUrl == 'https://keski.finna-test.fi/beta/') {
         $('.navbar-brand').addClass("selected-nav");
     }
@@ -110,7 +104,7 @@ function addIconsToMainNavigation() {
 
 function finnaCustomInit() {
 
-    loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css") 
+    loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css") 
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css", "css")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/all.js", "js")
@@ -140,7 +134,7 @@ function finnaCustomInit() {
         checkUrlForContent(locationUrl.substring(0, locationUrl.lastIndexOf('/')) + 
         '/Content' + locationUrl.substring(locationUrl.lastIndexOf('/')))
     }
-    addIconsToMainNavigation();
+    addSelectedNav();
     appendSearchBar();
 
     // Change English to "In English" and "Suomi" to "Suomeksi"

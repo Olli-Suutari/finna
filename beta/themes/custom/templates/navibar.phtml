@@ -1,11 +1,22 @@
 <!-- START of: finna - navibar.phtml -->
-<?php 
+<?php
 // Function for logging to browser console. TO DO: Find a better place for it.
 function consoleLog($data) {
     $output = $data;
     if (is_array($output))
         $output = implode(',', $output);
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
+}
+
+// Function to check the string is ends
+// with given substring or not
+function endsWith($string, $endString)
+{
+    $len = strlen($endString);
+    if ($len == 0) {
+        return true;
+    }
+    return (substr($string, -$len) === $endString);
 }
 ?>
 
@@ -24,7 +35,14 @@ function consoleLog($data) {
         <?php foreach ($this->navibar()->getMenuItems($this->layout()->userLang) as $key => $val): ?>
           <?php if (count($val['items']) > 1): ?>
             <li class="dropdown" id="<?= $val['label'] ?>">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-nav-<?=$val['label'] ?>" aria-hidden="true"></i><?= $this->transEsc($val['label']) ?> <b class="caret" aria-hidden="true"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php 
+                  //consoleLog($val['label']);
+                  if ($val['label'] == 'menu_Vinkit') {
+                      consoleLog('Menu Vinkit');
+                      echo '<i class="fa fa-archive"></i> ';
+                  } ?>
+                  <i class="fa fa-nav-<?=$val['label'] ?>" aria-hidden="true"></i><?= $this->transEsc($val['label']) ?> <b class="caret" aria-hidden="true"></b></a>
               <ul role="group" class="dropdown-menu" aria-labelledby="<?= $val['label'] ?>">
                 <?php foreach ($val['items'] as $itemKey => $itemVal): ?>
                 <?php
@@ -55,8 +73,19 @@ function consoleLog($data) {
             $url = $itemUrl['url'];
             $target = $itemUrl['target'] ?? null;
             $label = $itemVal['label'];
+            $menuIcon = '';
+            if (endsWith($url, '/kirjastot')) {
+                $menuIcon = '<i class="fa fa-building" aria-hidden="true"></i> ';
+            }
+            else if (endsWith($url, '/info')) {
+                $menuIcon = '<i class="fa fa-question-circle" aria-hidden="true"></i> ';
+            }
+            else if (endsWith($url, '/ekirjasto')) {
+                $menuIcon = '<i class="fa fa-globe" aria-hidden="true"></i> ';
+            }
+            // Feedback and menus with sub links are constructed later.
           ?>
-            <li><a <?= $target ? ' target="' . $this->escapeHtmlAttr($target) . '"' : ''?> href="<?= $url ?>"><i class="fa fa-nav-<?=$label ?>" aria-hidden="true"></i><?= $this->transEsc($label) ?></a></li>
+            <li><a <?= $target ? ' target="' . $this->escapeHtmlAttr($target) . '"' : ''?> href="<?= $url ?>"><?= $menuIcon ?><i class="fa fa-nav-<?=$label ?>" aria-hidden="true"></i><?= $this->transEsc($label) ?></a></li>
           <?php endif; ?>
         <?php endforeach; ?>
         <?php $cart = $this->cart(); if ($cart->isActive()): ?>
@@ -66,7 +95,8 @@ function consoleLog($data) {
         <?php endif; ?>
         <?php if ($this->feedback()->tabEnabled()): ?>
           <li>
-          <a  role="menuitem" id="feedback-link" href="<?=$this->url('feedback-home') ?>"><?=$this->transEsc("Feedback")?></a>
+          <a  role="menuitem" id="feedback-link" href="<?=$this->url('feedback-home') ?>"> <i class="fa fa-comment" aria-hidden="true"></i>
+          <?=$this->transEsc("Feedback")?></a>
         </li>
         <?php endif; ?>
         <?php if (isset($this->layout()->themeOptions) && count($this->layout()->themeOptions) > 1): ?>
