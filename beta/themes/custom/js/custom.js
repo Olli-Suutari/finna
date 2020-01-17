@@ -31,6 +31,12 @@ function checkUrlForContent(url) {
 }
 
 function appendSearchBar () {
+
+    if (window.location.href == "https://keski.finna-test.fi/beta/Search/Advanced") {
+        $('.searchContent').css('display', 'none')
+        return;
+    }
+
     if(window.location.href == "https://keski.finna-test.fi/beta/") {
         $('.searchbox-home').removeClass('searchbox-home');
         $('.search-links').css("display", "none");
@@ -52,12 +58,16 @@ function appendSearchBar () {
                 console.log("IS EMPTY SEARCH HISTORY!")
                 return;
             }
+            else {
+                $('.search').append('<a href="/beta/Search/History" class="btn btn-link btn-advanced"><i class="fa fa-history"></i>Hakuhistoria</a>')
+            }
           });
     }
     catch(e) {
         // Page not found... console.log(e)
+        $('.search').append('<a href="/beta/Search/History" class="btn btn-link btn-advanced"><i class="fa fa-history"></i>Hakuhistoria</a>')
     }
-    $('.search').append('<a href="/beta/Search/History" class="btn btn-link btn-advanced"><i class="fa fa-history"></i>Hakuhistoria</a>')
+
 }
 
 function addIconsToMainNavigation() {
