@@ -144,21 +144,30 @@ header li a {
 
 }
 
+
+section[role=main] {
+
+}
+
 footer {
+    font-size: 1.2em;
     //background-color: #abc9e7;
     background: #ebebed;
     background: rgb(238,174,202);
     background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)!important;
     width: 100%;
     padding-top: 2.2em;
-    padding-bottom: 1.8em!important;
+    padding-bottom: 2em!important;
     margin-top: 5.5em!important;
-    position: static;
+    margin-bottom: -40px!important;
+    position: static!important;
+    bottom: 0!important;
+    left: 0!important;
     display: flex;
-    max-height: 100%!important;
-    min-height: auto;
-    font-size: 1.2em
+    height: auto!important;
+    min-height: 25vmin; // TO DO: https://keski.finna-test.fi/beta/Feedback/Home has empty space after the footer in 1080 * 1920.
 }
+
 
 footer .container {
     width: 95vmax!important;
@@ -244,9 +253,6 @@ footer .container {
     height: auto!important;
 }
 
-section[role=main] {
-
-}
 
 section[role=search] {
     margin-bottom: 1.8em!important;
