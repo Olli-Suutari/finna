@@ -92,7 +92,6 @@ function addSelectedNav() {
 }
 
 function finnaCustomInit() {
-
     loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css") 
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css", "css")
@@ -105,23 +104,6 @@ function finnaCustomInit() {
     }
     else if(locationUrl.indexOf('?lng=en-gb') > -1) {
         locationUrl = locationUrl.replace('?lng=en-gb', '');
-    }
-    // Re-direct to /Content/Foo if using lowercase /content/
-    if (locationUrl.indexOf('/content/') > -1) {
-        window.location = locationUrl.replace('/content/', '/Content/');
-    }
-    // Check for 404 page.
-    if ($('.content-404').length > 0) {
-        /* Remove duplicated //
-        https://stackoverflow.com/questions/24381480/remove-duplicate-forward-slashes-from-the-url */
-        if (locationUrl.indexOf('//') > -1) {
-            if (locationUrl !== locationUrl.replace(/([^:]\/)\/+/g, '$1')) {
-                window.location = locationUrl.replace(/([^:]\/)\/+/g, '$1');
-            }
-        }
-        // Check if /Content/ page for the url exists.
-        checkUrlForContent(locationUrl.substring(0, locationUrl.lastIndexOf('/')) + 
-        '/Content' + locationUrl.substring(locationUrl.lastIndexOf('/')))
     }
     addSelectedNav();
     appendSearchBar();
