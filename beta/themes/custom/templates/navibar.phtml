@@ -214,8 +214,11 @@ function endsWith($string, $endString)
                     $langText = "Suomeksi";
                 }
                 ?>
-              <li class="lang">
-                <a role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>"><?=$this->displayLanguageOption($langText)?></a>
+              <!-- Replaced class lang with lang-selector -->
+              <li class="lang-selector">
+                <a role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
+                <i class="fa fa-language" aria-hidden="true"></i> 
+                <?=$this->displayLanguageOption($langText)?></a>
               </li>
               <?php $i++; ?>
             <?php endif ?>
