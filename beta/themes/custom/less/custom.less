@@ -59,6 +59,42 @@ html, body {
     display: none;
 }
 
+.btn-uppercase {
+    text-transform: capitalize;
+}
+
+header .btn-primary {
+    padding: 13px 15px!important;
+    color: #ffecdb;
+}
+
+header .btn-primary:hover {
+    background: #4674df!important;
+    color: #ffecdb;
+}
+
+#loginOptions div a {
+}
+
+#loginOptions div a:hover {
+    border-left: none!important;
+    background: #5887f5!important;
+}
+
+.btn-primary {
+    //background: #6789d8!important;
+    //background: #7a9ae7!important;
+    background: #4674df!important;
+    font-size: 1.07em;
+}
+
+.btn-primary:hover {
+    //background: #6789d8!important;
+    //background: #7a9ae7!important;
+    background: #5887f5!important;
+}
+
+
 .finna-navbar {
 }
 
@@ -104,8 +140,7 @@ header {
     margin-left: 0;
 }
 
-[role=menubar] {
-
+[role=menubar] li a {
 
 }
 
@@ -120,8 +155,8 @@ header i {
 
 [role=menubar] li {
     margin-right: 6vmin!important;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding-top: 14px;
+    padding-bottom: 14px;
 }
 
 header li a {
@@ -129,32 +164,47 @@ header li a {
 }
 
 
-[role=menubar] li a:hover, .dropdown-open {
+[role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"]{
     background: rgb(183, 233, 224)!important;
     border-left: solid 4px #fd9171!important;
     margin-left: -4px;
-
 }
 
 .dropdown-menu li {
     margin-left: 13px;
     width: auto!important;
     margin-right: 0!important;
+    margin-bottom: 0!important;
+    margin-top: 0!important;
     border-bottom: none;
 }
 
+.dropdown-menu li a {
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 10px;
+    padding-bottom: 10px!important;
+}
+
 .dropdown-menu > :first-child {
-    margin-top: 10px!important;
+    margin-top: 15px!important;
 }
 
 .dropdown-menu > :last-child {
-    margin-top: 10px!important;
+    margin-bottom: 13px!important;
 }
 
 .dropdown-menu > :first-child a, .dropdown-menu > :last-child a {
     border-radius: 0!important;
 }
 
+.dropdown-menu li , .dropdown-menu li:hover {
+
+}
+
+.dropdown {
+    padding-bottom: 0!important;
+}
 
 .dropdown-menu li .selected-nav, .dropdown-menu li .selected-nav:hover {
     border-bottom: none;
@@ -187,12 +237,17 @@ header li a {
 }
 
 [role=menubar] li  {
-
+    font-size: 1.0718em;
 }
 
 
 section[role=main] {
 
+}
+
+.searchbox-toolbar a {
+    font-size: 1.05em!important;
+    font-weight: 400!important;
 }
 
 footer {

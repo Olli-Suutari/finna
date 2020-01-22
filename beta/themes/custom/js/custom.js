@@ -107,7 +107,6 @@ function finnaCustomInit() {
     }
     addSelectedNav();
     appendSearchBar();
-
     // Change English to "In English" and "Suomi" to "Suomeksi"
     /*
     if (document.documentElement.lang.toLowerCase() === "fi") {
