@@ -1,4 +1,153 @@
 // We cannot replace the original navigation .less, thus we have to manully replace EVERYTHING.
+
+header {
+  background-color: #ebebed;
+  padding: .76em .4em;
+  justify-content: space-evenly;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+[role=menubar] li a {
+
+}
+@media screen and ( min-width: 990px ){
+  .navbar-header {
+      margin-left: -20px!important;
+      margin-right: 20px!important;
+  }
+}
+
+header i {
+  margin-right: 2px;
+}
+
+[role=menubar] li {
+  margin-right: 6vmin!important;
+}
+
+[role=menubar] li a {
+  padding-top: 6px!important;
+  padding-bottom: 6px!important;
+}
+
+header li a {
+  padding-bottom: 5px!important;
+}
+
+
+[role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"]{
+  background: rgb(183, 233, 224)!important;
+  border-left: solid 4px #fd9171!important;
+  margin-left: -4px;
+}
+
+.dropdown-menu li {
+  margin-left: 13px;
+  width: auto!important;
+  margin-right: 0!important;
+  margin-bottom: 0!important;
+  margin-top: 0!important;
+  border-bottom: none;
+}
+
+.dropdown-menu li a {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px!important;
+}
+
+.dropdown-menu > :first-child {
+  margin-top: 15px!important;
+}
+
+.dropdown-menu > :last-child {
+  margin-bottom: 13px!important;
+}
+
+.dropdown-menu > :first-child a, .dropdown-menu > :last-child a {
+  border-radius: 0!important;
+}
+
+.dropdown-menu li , .dropdown-menu li:hover {
+
+}
+
+.dropdown {
+  padding-bottom: 0!important;
+}
+
+.dropdown-menu li .selected-nav, .dropdown-menu li .selected-nav:hover {
+  border-bottom: none;
+  border-left: solid 4px #7bc578!important;
+  margin-left: 0;
+}
+
+.dropdown-menu li a div {
+  padding-left: 10px!important;
+}
+
+.dropdown-menu li a div:hover {
+  //border-left: solid 2px red;
+}
+
+header .btn-primary {
+  color: #ffecdb;
+}
+
+#loginOptions a {
+  padding: 13px 15px!important;
+}
+
+header .btn-primary:hover {
+  background: #4674df!important;
+  color: #ffecdb;
+}
+
+.lang {
+  text-align: right;
+  width: auto!important;
+  margin-left: auto;
+  margin-right: 0!important;
+  padding-right: 0!important;
+}
+
+.lang li {
+  text-align: right;
+  width: 120px;
+  margin-left: auto;
+  margin-right: 0!important;
+  padding-right: 0!important;
+}
+
+.lang-selector a {
+  padding: 10px 15px!important;
+  margin-top: 7px!important;
+
+}
+
+.navbar-brand {
+  margin-right: 20px;
+  padding-left: 9px;
+}
+
+.navbar-header .selected-nav {
+  border-bottom: none;
+  //border-left: solid 2px #78c57d;
+}
+
+.navbar-brand:hover {
+  border-left: solid 4px #fd9171;
+  margin-left: -4px;
+}
+
+[role=menubar] li  {
+  font-size: 1.0718em;
+}
+
+// Default config / modifications
+
 .swipe-arrow-navigation {
     position: fixed;
     width: 50px;
@@ -48,7 +197,7 @@
   }
 
   .navbar .navbar-logo {
-    height: @navbar-logo-height;
+    height: @navbar-logo-height + 6;
     margin-top: ((@navbar-height/2)-(@navbar-logo-height/2));
     margin-right: 10px;
   }
@@ -606,7 +755,7 @@
   }
   .navbar-nav.nav-login {
     border-top: 1px solid @gray-lighter;
-    display: none;
+    display: none!important;
     line-height: 64px;
     text-align: center;
   }

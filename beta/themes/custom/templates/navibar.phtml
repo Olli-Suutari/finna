@@ -202,29 +202,29 @@ function endsWith($string, $endString)
         </li>
       <?php endif; ?>
     </ul>
-    <!-- Language changer moved to after login. -->
-    <ul role="menubar" class="nav navbar-nav lang">
-        <?php if (isset($this->layout()->allLangs) && count($this->layout()->allLangs) > 1): ?>
-          <?php $i = 1;?>
-          <?php foreach ($this->layout()->allLangs as $langCode => $langName): ?>
-            <?php if ($this->layout()->userLang != $langCode):
-                // Replace "Suomi" with "Suomeksi" and "English" with "In English".
-                $langText = "In English";
-                if ($langName == "Finnish") {
-                    $langText = "Suomeksi";
-                }
-                ?>
-              <!-- Replaced class lang with lang-selector -->
-              <li class="lang-selector">
-                <a role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
-                <i class="fa fa-language" aria-hidden="true"></i> 
-                <?=$this->displayLanguageOption($langText)?></a>
-              </li>
-              <?php $i++; ?>
-            <?php endif ?>
-          <?php endforeach; ?>
-        <?php endif; ?>
-      </ul>
+      <!-- Language changer moved to after login. -->
+      <ul role="menubar" class="nav navbar-nav lang">
+      <?php if (isset($this->layout()->allLangs) && count($this->layout()->allLangs) > 1): ?>
+        <?php $i = 1;?>
+        <?php foreach ($this->layout()->allLangs as $langCode => $langName): ?>
+          <?php if ($this->layout()->userLang != $langCode):
+              // Replace "Suomi" with "Suomeksi" and "English" with "In English".
+              $langText = "In English";
+              if ($langName == "Finnish") {
+                  $langText = "Suomeksi";
+              }
+              ?>
+            <!-- Replaced class lang with lang-selector -->
+            <li class="lang-selector">
+              <a role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
+              <i class="fa fa-language" aria-hidden="true"></i> 
+              <?=$this->displayLanguageOption($langText)?></a>
+            </li>
+            <?php $i++; ?>
+          <?php endif ?>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </ul>
   <?php endif; ?>
 </div>
 <!-- END of: finna - navibar.phtml -->
