@@ -1,0 +1,671 @@
+// We cannot replace the original navigation .less, thus we have to manully replace EVERYTHING.
+.swipe-arrow-navigation {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: @link-color;
+    top: 50%;
+    color: @body-bg;
+    border-radius: 50%;
+    &.arrow-navigation-left {
+      left: 0px;
+      border-top-left-radius: 0px;
+      border-bottom-left-radius: 0px;
+    }
+    &.arrow-navigation-right {
+      right: 0px;
+      border-top-right-radius: 0px;
+      border-bottom-right-radius: 0px
+    }
+    .fa-arrow-right, .fa-arrow-left {
+      color: @body-bg;
+      top: 10px;
+      left: 8px;
+      position: absolute;
+      font-size: 30px;
+    }
+  }
+
+  .nav {
+    margin-bottom: 12px;
+    margin-top: 12px;
+    > li {
+      display: block;
+      > a {
+        transition: background .2s ease-in-out;
+      }
+    }
+  }
+  @media (min-width:@screen-md-min) {
+    .nav > li {
+      display: inline-block;
+    }
+  }
+  @media (max-width: @screen-md-max) {
+    .finna-navbar .nav >li>a {
+      padding: 0 6px;
+    }
+  }
+
+  .navbar .navbar-logo {
+    height: @navbar-logo-height;
+    margin-top: ((@navbar-height/2)-(@navbar-logo-height/2));
+    margin-right: 10px;
+  }
+
+  .navbar-nav>li.lang>a {
+    line-height: @line-height-computed;
+    margin: 0;
+  }
+
+  .navbar-nav>li.lang {
+    display: inline-block;
+    border-left: 1px solid @text-color;
+  }
+
+  .navbar-nav>li.lang:first-child {
+    border-left: none;
+  }
+
+  // fix navbar for logoutoptions
+  .finna-navbar .navbar-nav .logoutOptions {
+    @media(max-width: @screen-sm) {
+      margin: 0;
+    }
+    a {
+      color: @action-link-color;
+    }
+    .dropdown-menu {
+      right: 5px;
+      left: auto;
+      > li {
+        > a {
+          color: @text-color;
+          width: 250px;
+          i {
+            padding-top: 3px;
+          }
+        }
+      }
+      @media (max-width: @screen-xxs) {
+        right: -30px;
+      }
+    }
+    .username {
+      display: inline-block;
+      max-width: 150px;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      vertical-align: top;
+      font-size: @font-size-base;
+      font-weight: 600;
+      @media (max-width: @screen-sm) {
+        max-width: 80px;
+      }
+      @media (max-width: @screen-xxs) {
+        display: none;
+      }
+    }
+    .description {
+      font-size: 0.9em;
+      line-height: 1.2em;
+    }
+  }
+
+  .navbar {
+    max-width: 1300px; // dont fully scale the navigation bar text
+
+    .logoutOptions, #loginOptions {
+      .login-text {
+        padding-left: 0.5em;
+        @media (max-width: @screen-xxs) {
+          display: none;
+        }
+      }
+    }
+    #loginOptions-navi .login-text {
+      padding-left: 0.5em;
+      @media (max-width: @screen-xxs) {
+        display: inherit;
+      }
+    }
+  }
+
+  @media(max-width: @grid-float-breakpoint) {
+    #loginOptions button {
+      background-color: @body-bg;
+      a {
+        color: @action-link-color;
+      }
+    }
+  }
+
+  // content-navigation-menu
+  .main.template-dir-content.template-name-content .content-navigation-menu {
+    margin: 20px 0px;
+    h2 {
+      font-size: 1em;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: @facet-header-background;
+      color: @text-color;
+      border-left: 4px solid @action-link-color;
+      padding: 15px;
+      margin-bottom: 5px;
+      margin-top: 0;
+      transition: background 0.2s linear;
+      &:hover {
+        background: @gray-lighter;
+        cursor: pointer;
+      }
+    }
+    @media (min-width:@screen-sm-min) {
+      &.attached {
+        position: fixed;
+        top: 0px;
+      }
+    }
+    @media (min-width:@screen-lg-min) {
+      &.attached {
+        width: 262px;
+      }
+    }
+    @media (min-width:@screen-md-min) and (max-width: @screen-md-max) {
+      &.attached {
+        width: 212px;
+      }
+    }
+    @media (min-width:@screen-sm-min) and (max-width: @screen-sm-max) {
+      &.attached {
+        max-width: 22%;
+      }
+    }
+  }
+
+  .navbar {
+    .dropdown .dropdown-menu > li > a > div:not(.description) {
+      font-weight: bold;
+    }
+    .dropdown .dropdown-menu > li > a > div.description {
+      font-size: .9em;
+    }
+  }
+
+  .navbar-collapse {
+    border-top: 3px solid @brand-primary;
+    @media (min-width: @grid-float-breakpoint) {
+      border-top: 0;
+      box-shadow: none;
+    }
+  }
+
+  .navbar-brand {
+    padding: 0;
+    line-height: @navbar-height;
+    max-width: 200px;
+    .navbar-logo {
+      font-size: @navbar-logo-height;
+      color: @logo-color;
+    }
+    img {
+      height: @navbar-logo-height;
+      width: auto;
+    }
+  }
+
+  .navbar-toggle {
+    position: absolute;
+    z-index: 30;
+    right:0;
+    height: @navbar-height;
+    width: @navbar-height;
+    margin:0;
+    color: @btn-primary-color;
+    background-color: @brand-primary;
+    padding: 0;
+    border-radius: 0;
+    i {
+      font-size: 24px;
+      cursor: pointer;
+    }
+    &.collapsed .fa.fa-times{
+      display: none;
+    }
+    &:not(.collapsed) .fa.fa-bars {
+      display: none;
+    }
+  }
+
+  &.dropdown-toggle:focus {
+    outline: 1px dotted #212121;
+    outline: 5px auto -webkit-focus-ring-color;
+  }
+
+  .navbar-nav {
+    margin: (@navbar-padding-vertical / 2) -@navbar-padding-horizontal;
+
+    > li > a {
+      padding-top: @navbar-padding-vertical;
+      padding-bottom: @navbar-padding-vertical;
+      line-height: @navbar-height / 2;
+      margin-top: @navbar-height / 4;
+      margin-bottom: @navbar-height / 4;
+      font-size: @navbar-font-size;
+      font-weight: @navbar-font-weight;
+      @media (min-width:@screen-md-min) {
+        margin-bottom: 0;
+      }
+    }
+    &.language:not(.lang-1):before {
+      color: @navbar-default-link-color;
+      content: '';
+      @media (min-width: @grid-float-breakpoint) {
+        border-left: solid 1px @navbar-default-link-color;
+      }
+      height: ((@navbar-height) - 24);
+      margin-top: ((@navbar-height - (@navbar-height - 24)) / 2);
+    }
+    &.lang-1 {
+      margin-left: 10px;
+    }
+    @media (max-width: @grid-float-breakpoint-max) {
+      &.lang-1 {
+        margin-left: -15px;
+        border-top: 1px solid #000;
+        box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        &:before {
+          border-left: none;
+        }
+      }
+      // Dropdowns get custom display when collapsed
+      .open:not(.logoutOptions):not(.browsebar-dropdown) .dropdown-menu {
+        position: static;
+        float: none;
+        width: auto;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0;
+        box-shadow: none;
+        transition: background-color 0.2s ease-in-out;
+        padding: 0;
+        > li > a,
+        .dropdown-header {
+          padding: 5px 15px 5px 25px;
+        }
+        > li {
+          border-bottom: none;
+          &:first-child, &:last-child, &:first-child > a, &:last-child > a {
+            .border-top-radius(0px);
+            .border-bottom-radius(0px);
+          }
+        }
+        > li > a {
+          line-height: @line-height-computed;
+          white-space: normal;
+          &:hover,
+          &:focus {
+            background-image: none;
+            background-color: @nav-link-hover-bg;
+          }
+        }
+      }
+      .open .dropdown-menu {
+        position: absolute;
+        float: left;
+        width: initial;
+        margin-top: 0;
+        background-color: @dropdown-bg;
+        border: 1px solid @dropdown-fallback-border; // IE8 fallback
+        border: 1px solid @dropdown-border;
+        border-radius: @border-radius-base;
+        .box-shadow(0 6px 12px rgba(0,0,0,.275));
+        > li > a,
+        .dropdown-header {
+          padding: 5px 15px 5px 25px;
+        }
+        > li > a {
+          padding: 7px 15px;
+          line-height: @line-height-computed;
+          &:hover,
+          &:focus,
+          &:active {
+            text-decoration: none;
+            color: @dropdown-link-hover-color;
+            background-color: @dropdown-link-hover-bg;
+          }
+        }
+      }
+    }
+    // Uncollapse the nav
+    @media (min-width: @grid-float-breakpoint) {
+      flex-grow: 1;
+      flex-shrink: 1;
+      float: initial;
+      margin: 0;
+
+      &.navbar-main {
+        margin-bottom: @navbar-height / 4;
+      }
+    }
+    .btn {
+      vertical-align: baseline;
+    }
+  }
+
+  .finna-navbar {
+    .navbar-nav > li > a,
+    .navbar-collapse.in .dropdown-menu a {
+      color: @header-text-color;
+      padding: 0 10px;
+    }
+  }
+
+  // Menu position and menu carets
+  .navbar-nav > li > .dropdown-menu {
+    margin-top: 0;
+    .border-top-radius(@border-radius-base);
+  }
+
+  // Specified Finna styles for navbar
+  .nav.nav-absolute {
+    position: absolute;
+    margin:0;
+    line-height: @navbar-height;
+    top: 0px;
+    right: 15px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    .dropdown-menu > li > a {
+      white-space: normal;
+    }
+  }
+
+  @media (max-width: @screen-sm-max) {
+    .nav.nav-absolute {
+      right: @navbar-right;
+      #loginOptions {
+        margin-right: 16px;
+      }
+    }
+  }
+
+  // Fix dropdowns in navbar for wide screen
+  @media (min-width: @screen-md-min) {
+    .navbar .dropdown-menu > li > a {
+      width: 280px;
+      white-space: normal;
+      transition: none;
+    }
+  }
+
+  //Finna breadcrumbs
+  .breadcrumb {
+    display: none;
+    margin: 0px;
+    margin-top: 15px;
+    background-color: transparent;
+
+    > li {
+      background-color: @breadcrumb-bg;
+      margin: 0px -2px;
+      padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
+      + li:before {
+        content: @breadcrumb-separator;
+        font-size: 12px;
+      }
+    }
+    > li a {
+      color: @breadcrumb-color;
+    }
+  }
+
+  .dropdown-menu {
+    padding: 0px 1px;
+    border: 1px solid @dropdown-border;
+    border-radius: @border-radius-base;
+    min-width: 0;
+    .box-shadow(0 6px 12px rgba(0, 0, 0, .275));
+
+    > li {
+      border-bottom: 1px solid @gray-lighter;
+    }
+    > li:last-child > a, li:last-child {
+      border-bottom: none;
+      .border-bottom-radius(8px);
+    }
+    > li:first-child > a, li:first-child {
+      .border-top-radius(8px);
+    }
+
+    > li > a {
+      padding: 7px 15px;
+    }
+  }
+
+  .dropdown-menu > li > a {
+    &:hover,
+    &:focus,
+    &:active {
+      text-decoration: none;
+      color: @dropdown-link-hover-color;
+      background-color: @dropdown-link-hover-bg;
+    }
+  }
+
+  #my-info-dropdown-menu {
+    width: 280px;
+    background-color: @body-bg;
+    margin-top: 0;
+    @media (max-width: @screen-xxs) {
+      right: -90%;
+    }
+    .box-shadow(0 6px 12px rgba(0, 0, 0, .275));
+
+    .card-selection {
+      @media (max-width: @screen-sm-max) {
+        overflow-y: scroll;
+        overflow-x: hidden;
+        max-height: 200px;
+      }
+      p {
+        padding-left: 15px;
+        margin-bottom: 0px;
+      }
+      #select-card-label-dropdown {
+        display: none;
+      }
+      > a:not(.card-header) {
+        padding-left: 32px;
+      }
+      i.fa-check {
+        margin-left: -17px;
+        color: @brand-primary;
+      }
+    }
+    > li {
+      border-bottom: 1px solid @gray-lighter;
+      line-height: 30px;
+      cursor: pointer;
+
+      > ul {
+        line-height: 20px;
+        > li > a {
+          text-indent: 5%;
+          li {
+            height: 25px;
+          }
+        }
+      }
+      a {
+        width: 100%;
+        &:hover {
+          text-decoration: none;
+          color: @dropdown-link-hover-color;
+          background-color: @dropdown-link-hover-bg;
+        }
+      }
+    }
+
+    > li:last-child > a, li:last-child {
+      border-bottom: none;
+      .border-bottom-radius(8px);
+    }
+    > li:first-child > a, li:first-child {
+      .border-top-radius(8px);
+    }
+  }
+
+  // Default styling of Finna Jump menus
+  .jumpMenuForm {
+    height: 38px;
+    label {
+      font-weight: normal;
+      margin-left: 10px;
+    }
+  }
+  .jump-menu-style {
+    padding: 0;
+    position: relative;
+    width: auto;
+    z-index: 1;
+    display: inline-block;
+    min-width: 60px;
+    select {
+      background-color: transparent;
+      border: 0 none;
+      box-shadow: none;
+      display: block;
+      font-size: 100%;
+      font-weight: 600;
+      line-height: 1em;
+      margin: 0;
+      width: 100%;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      &:focus {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+    option {
+      background: @body-bg;
+      color: @gray;
+      padding: 5px;
+      &:hover {
+        background-color: @gray-light;
+      }
+    }
+
+    &:before {
+      display: block;
+      font-size: 1em;
+      height: 100%;
+      padding: 0 20px 0px 2px;
+      position: absolute;
+      top: 0;
+      right: 0px;
+      text-align: center;
+      width: 1em;
+      z-index: -1;
+    }
+    &.controls {
+      border-radius: @finna-button-radius;
+      background-color: @brand-primary;
+      padding-top: 0px;
+      transition: background-color .1s linear;
+      option:checked {
+        background: @btn-primary-bg;
+        color: @body-bg;
+      }
+    }
+    &.controls:before {
+      transition: background-color .1s linear;
+      background: @btn-primary-bg;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+      color: @body-bg;
+      line-height: 40px;
+    }
+    &.disabled {
+      .opacity(0.5);
+    }
+  }
+  .jump-menu-style select::-ms-expand {
+    display: none; /* to ie 10 */
+  }
+  :-moz-any(.prefilter-select,.jump-menu-style.controls):before {
+    background-color:  @body-bg; /* this is necessary for overcome the caret default browser */
+    pointer-events: none; /* https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  */
+    z-index: 1; /* this is necessary for overcome the pseudo element */
+  }
+
+  .navbar-nav.lang {
+    line-height: 64px;
+  }
+  .navbar-nav.nav-login {
+    border-top: 1px solid @gray-lighter;
+    display: none;
+    line-height: 64px;
+    text-align: center;
+  }
+
+  /* Mobile navbar */
+  @media(max-width: @grid-float-breakpoint-max) {
+    .finna-navbar {
+      position: relative;
+      right: 0;
+      left: 0;
+      z-index: 100;
+      top: 0;
+      border-width: 0 0 1px;
+      background-color: @header-background-color;
+      width: 100;
+      margin: 0;
+      box-shadow: none;
+      .navbar-collapse > ul > li {
+        border-bottom: 1px solid @gray-lighter;
+      }
+      .navbar-nav > li.lang, .navbar-nav > li.nav-login {
+        border-bottom: none;
+      }
+      .navbar-nav.nav-login {
+        display: inherit;
+      }
+    }
+    .navbar-collapse.in {
+      box-shadow: 0 3px 5px @gray;
+      max-height: ~"calc(100vh - "@navbar-height~")";
+    }
+    .navbar-header {
+      padding-left: 10px;
+    }
+  }
+
+  @media(min-width: @grid-float-breakpoint) {
+    .finna-navbar {
+      display: flex;
+      .nav.nav-absolute {
+        position: relative;
+      }
+      .navbar-collapse {
+        flex: 1;
+        display: flex !important; // Needed to override bootstrap defaults
+      }
+      .navbar-nav.lang {
+        flex-grow: 0;
+        flex-shrink: 0;
+      }
+    }
+  }
+
+  .navbar-nav>li>.dropdown-menu {
+    margin-top: -5px;
+  }
+
+  header {
+    box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
+    z-index: 1020;
+    position: relative;
+  }
