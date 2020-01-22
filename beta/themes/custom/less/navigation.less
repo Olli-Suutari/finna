@@ -119,17 +119,29 @@ header .btn-primary:hover {
   margin-left: auto;
   margin-right: 0!important;
   padding-right: 0!important;
+  height: auto!important;
+
 }
 
 .lang-selector a {
   padding: 10px 15px!important;
   margin-top: 7px!important;
-
+  height: auto!important;
 }
 
+.navbar-brand img {
+  padding-left: 12px!important;
+  padding-bottom: 5px!important;
+  padding-top: 5px!important;
+  margin: 0!important;
+}
+
+
 .navbar-brand {
-  margin-right: 20px;
-  padding-left: 9px;
+  margin-right: 16px;
+}
+
+.navbar-header {
 }
 
 .navbar-header .selected-nav {
@@ -144,6 +156,10 @@ header .btn-primary:hover {
 
 [role=menubar] li  {
   font-size: 1.0718em;
+}
+
+.mobile-lang-selector {
+  display: none!important;
 }
 
 // Default config / modifications
@@ -197,13 +213,13 @@ header .btn-primary:hover {
   }
 
   .navbar .navbar-logo {
-    height: @navbar-logo-height + 6;
+    height: @navbar-logo-height + 10;
     margin-top: ((@navbar-height/2)-(@navbar-logo-height/2));
     margin-right: 10px;
   }
 
   .navbar-nav>li.lang>a {
-    line-height: @line-height-computed;
+    line-height: inherit;
     margin: 0;
   }
 
@@ -342,7 +358,7 @@ header .btn-primary:hover {
   }
 
   .navbar-collapse {
-    border-top: 3px solid @brand-primary;
+    border-top: none;
     @media (min-width: @grid-float-breakpoint) {
       border-top: 0;
       box-shadow: none;
@@ -751,7 +767,7 @@ header .btn-primary:hover {
   }
 
   .navbar-nav.lang {
-    line-height: 64px;
+    line-height: inherit;
   }
   .navbar-nav.nav-login {
     border-top: 1px solid @gray-lighter;
@@ -774,7 +790,8 @@ header .btn-primary:hover {
       margin: 0;
       box-shadow: none;
       .navbar-collapse > ul > li {
-        border-bottom: 1px solid @gray-lighter;
+        border-bottom: none;
+        margin-left: 20px;
       }
       .navbar-nav > li.lang, .navbar-nav > li.nav-login {
         border-bottom: none;
@@ -790,6 +807,19 @@ header .btn-primary:hover {
     .navbar-header {
       padding-left: 10px;
     }
+    #header-collapse {
+      float: right;
+      width: auto;
+      padding: 3vmin 10vmin;
+      margin-bottom: 18px;
+    }
+    // Display the mobile language switcher and hide the default language switcher.
+    .mobile-lang-selector {
+      display: block!important;
+    }
+    .lang-selector {
+      display: none!important;
+    }
   }
 
   @media(min-width: @grid-float-breakpoint) {
@@ -803,8 +833,8 @@ header .btn-primary:hover {
         display: flex !important; // Needed to override bootstrap defaults
       }
       .navbar-nav.lang {
-        flex-grow: 0;
-        flex-shrink: 0;
+        flex-grow: initial;
+        flex-shrink: initial;
       }
     }
   }

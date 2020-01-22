@@ -113,6 +113,26 @@ function endsWith($string, $endString)
         <?php if ($template = $this->content()->findTemplateForLng("content/Additions/header-navibar")): ?>
           <?=$this->render($template)?>
         <?php endif; ?>
+        <?php if (isset($this->layout()->allLangs) && count($this->layout()->allLangs) > 1): ?>
+        <?php $i = 1;?>
+        <?php foreach ($this->layout()->allLangs as $langCode => $langName): ?>
+          <?php if ($this->layout()->userLang != $langCode):
+              // Replace "Suomi" with "Suomeksi" and "English" with "In English".
+              $langText = "In English";
+              if ($langName == "Finnish") {
+                  $langText = "Suomeksi";
+              }
+              ?>
+            <!-- Replaced class lang with lang-selector -->
+            <li class="mobile-lang-selector">
+              <a role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
+              <i class="fa fa-language" aria-hidden="true"></i> 
+              <?=$this->displayLanguageOption($langText)?></a>
+            </li>
+            <?php $i++; ?>
+          <?php endif ?>
+        <?php endforeach; ?>
+      <?php endif; ?>
       </ul>
     <?php //hide login if unavailable ?>
     <?php if (is_object($account) && $account->loginEnabled()): ?>
@@ -204,7 +224,10 @@ function endsWith($string, $endString)
     </ul>
       <!-- Language changer moved to after login. -->
       <ul role="menubar" class="nav navbar-nav lang">
-      <?php if (isset($this->layout()->allLangs) && count($this->layout()->allLangs) > 1): ?>
+      <?php if ($template = $this->content()->findTemplateForLng("content/Additions/header-navibar")): ?>
+          <?=$this->render($template)?>
+        <?php endif; ?>
+        <?php if (isset($this->layout()->allLangs) && count($this->layout()->allLangs) > 1): ?>
         <?php $i = 1;?>
         <?php foreach ($this->layout()->allLangs as $langCode => $langName): ?>
           <?php if ($this->layout()->userLang != $langCode):
