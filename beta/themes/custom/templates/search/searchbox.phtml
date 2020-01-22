@@ -198,7 +198,7 @@
       <?php endif; ?>
     </form>
     <div class="searchbox-toolbar">
-        <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : 'hidden-xs'?>">
+        <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : ''?>">
             <i class="fa fa-search-adv"></i> <?=$this->transEsc("Advanced Search")?>
         </a>
         <a href="/beta/Content/Help" class="btn btn-link btn-advanced">
