@@ -67,6 +67,60 @@ html, body {
 }
 
 
+.browsebar-custom div span {
+    color: black!important;
+}
+
+.browsebar-custom {
+    .priority-nav__dropdown {
+      left: 0;
+      top: 30px;
+      li > a.iconlabel {
+        margin: 0px;
+      }
+    }
+    .nav-dropdown-toggle {
+      height: 64px;
+      font-size: 1.1em;
+      border: none;
+      background-color: transparent;
+      //color: @finna-browsebar-link-color;
+      padding: 0;
+      padding-left: 1em;
+      line-height: normal;
+      &:before {
+        font-family: 'icomoon';
+        content: "\e00d";
+        margin-right: 5px;
+        font-size: 1.3em;
+        vertical-align: bottom;
+      }
+      &:after {
+        font-family: icomoon;
+        content: "\e613";
+        vertical-align: middle;
+        margin-left: 5px;
+      }
+      &:hover {
+        //background-color: darken(@finna-browsebar-background, 5%);
+      }
+      .nav-dropdown-label {
+        min-width: 200px;
+        line-height: 64px;
+        .caret {
+          margin-left: 5px;
+        }
+      }
+    }
+    nav.navbar {
+      width: 100%;
+      float: left;
+      .nav-wrapper {
+        margin-left: 75px;
+      }
+    }
+  }
+
 .btn-uppercase {
     text-transform: capitalize;
     visibility: visible!important;
