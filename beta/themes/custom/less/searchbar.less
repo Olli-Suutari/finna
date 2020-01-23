@@ -1,0 +1,126 @@
+.search {
+    // background: https://keski.finna-test.fi//beta/themes/custom/images/logo_background.jpg?1578907836
+  }
+
+.searchbox-toolbar a {
+    font-size: 1.05em!important;
+    font-weight: 400!important;
+}
+
+.searchContent {
+    background: rgb(90,246,188);
+    background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 80%)!important;
+    padding: .5em!important;
+    margin: 0!important;
+    height: auto!important;
+}
+
+section[role=search] {
+    margin-bottom: 1.8em!important;
+  }
+
+  section[role=search], .search-form-container  {
+    padding: .5em!important;
+    height: auto!important;
+  }
+
+  .search-form-container .container {
+    padding: .5em!important;
+    height: auto!important;
+  }
+
+// Browsebar
+
+.browsebar {
+    //display: none;
+}
+
+.browse-is-open {
+  display: inline!important;
+  visibility: visible!important;
+}
+
+.searchbox-toolbar li {
+  display: inline;
+}
+
+
+.priority-nav {
+}
+
+.searchbox-toolbar, #browseContainer, .browsebar-custom {
+    margin-top: 0!important;
+    padding-top: 0!important;
+    font-size: 1.01em!important;
+}
+
+.searchbox-toolbar i {
+    margin-right: 3px;
+}
+
+@media screen and ( max-width: 460 ){
+    .searchbox-toolbar .history-btn {
+
+    }
+}
+
+
+
+.browsebar-custom div span, #browseContainer ul li a {
+    color: black!important;
+}
+
+.browsebar-custom div span:hover, #browseContainer ul li a:hover {
+    //text-decoration: underline;
+}
+
+
+.browsebar-custom {
+    .priority-nav__dropdown {
+      left: 0;
+      top: 30px;
+      li > a.iconlabel {
+        margin: 0px;
+      }
+    }
+    .nav-dropdown-toggle {
+      height: 32px;
+      font-size: 1.1em;
+      border: none;
+      background-color: transparent;
+      //color: @finna-browsebar-link-color;
+      padding: 0;
+      padding-left: 1em;
+      line-height: normal;
+      &:before {
+        font-family: 'icomoon';
+        content: "\e00d";
+        margin-right: 5px;
+        font-size: 1.01em;
+        vertical-align: bottom;
+      }
+      &:after {
+        font-family: icomoon;
+        content: "\e613";
+        vertical-align: middle;
+        margin-left: 5px;
+      }
+      &:hover {
+        //background-color: darken(@finna-browsebar-background, 5%);
+      }
+      .nav-dropdown-label {
+        min-width: 200px;
+        line-height: 64px;
+        .caret {
+          margin-left: 5px;
+        }
+      }
+    }
+    nav.navbar {
+      width: 100%;
+      float: left;
+      .nav-wrapper {
+        margin-left: 75px;
+      }
+    }
+}
