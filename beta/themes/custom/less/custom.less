@@ -66,10 +66,33 @@ html, body {
     visibility: visible!important;
 }
 
+.searchbox-toolbar, #browseContainer, .browsebar-custom {
+    margin-top: 0!important;
+    padding-top: 0!important;
+    font-size: 1.01em!important;
 
-.browsebar-custom div span {
+}
+
+.searchbox-toolbar i {
+    margin-right: 3px;
+}
+
+@media screen and ( max-width: 460 ){
+    .searchbox-toolbar .history-btn {
+
+    }
+}
+
+
+
+.browsebar-custom div span, #browseContainer ul li a {
     color: black!important;
 }
+
+.browsebar-custom div span:hover, #browseContainer ul li a:hover {
+    //text-decoration: underline;
+}
+
 
 .browsebar-custom {
     .priority-nav__dropdown {
@@ -80,7 +103,7 @@ html, body {
       }
     }
     .nav-dropdown-toggle {
-      height: 64px;
+      height: 32px;
       font-size: 1.1em;
       border: none;
       background-color: transparent;
@@ -92,7 +115,7 @@ html, body {
         font-family: 'icomoon';
         content: "\e00d";
         margin-right: 5px;
-        font-size: 1.3em;
+        font-size: 1.01em;
         vertical-align: bottom;
       }
       &:after {
@@ -155,18 +178,6 @@ html, body {
 .search {
     // background: https://keski.finna-test.fi//beta/themes/custom/images/logo_background.jpg?1578907836
 }
-
-.searchbox-toolbar i {
-    margin-right: 3px;
-}
-
-@media screen and ( max-width: 460 ){
-    .searchbox-toolbar .history-btn {
-
-    }
-}
-
-
 
 .finna-navbar, .navbar-logo {
 

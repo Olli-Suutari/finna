@@ -197,16 +197,26 @@
         <input type="hidden" name="sort" value="<?=($defaultFilterState ? $this->escapeHtmlAttr($lastSort) : '')?>" data-value="<?=$this->escapeHtmlAttr($lastSort)?>" />
       <?php endif; ?>
     </form>
-    <div class="searchbox-toolbar">
+    </nav>
+        <!-- Custom browsebutton -->
+        <div class="searchbox-toolbar">
+  <nav id="browseContainer" class="browsebar-custom navbar wrapper resize-drag nav-wrapper priority-nav priority-nav-has-dropdown">
+    <ul>
+      <li>
         <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : ''?>">
             <i class="fa fa-search-adv"></i> <?=$this->transEsc("Advanced Search")?>
         </a>
+      </li>
+      <li>
         <a href="/beta/Content/Help" class="btn btn-link btn-advanced">
             <i class="fa fa-question-circle"></i> <?=$this->transEsc("search_help")?>
         </a>
+      </li>
+      <li>
         <a href="/beta/Search/History" class="btn btn-link btn-advanced history-btn" style="visibility: hidden">
             <i class="fa fa-history"></i> <?=$this->transEsc("menu_history")?>
         </a>
+      </li>
         <? /*
         //$searchHistory = file_get_contents('https://keski.finna-test.fi/beta/Search/History');
         // This does not work because Warning: include(): https:// wrapper is disabled in the server configuration by allow_url_include=0
@@ -214,39 +224,40 @@
         // https://github.com/ttodua/useful-php-scripts/blob/master/get-remote-url-content-data.php could work.ace_content
         // Use JQuery for now within custom.js ...
         */ ?>
-		<nav class="browsebar-custom navbar">
-			<div id="browseContainer" class="wrapper resize-drag nav-wrapper priority-nav priority-nav-has-dropdown" instance="0">
-				<span class="dropdown-menu-wrapper priority-nav__wrapper" aria-haspopup="true" id="browseTrigger">
-					<button aria-controls="menu" type="button" class="nav-dropdown-toggle priority-nav__dropdown-toggle priority-nav-is-visible" prioritynav-count="11">Selaa kategorioita</button>
-					<ul id="browseList" aria-hidden="true" class="dropdown-menu priority-nav__dropdown">
-						<li>
-							<a class="iconlabel format-1journalarticle" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FJournal%2F%22">Lehtiä ja artikkeleita</a>
-						</li>
-						<li>
-							<a class="iconlabel format-1videovideo" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FVideo%2F%22">Videot ja elokuvat</a>
-						</li>
-						<li>
-							<a class="iconlabel format-1soundrecord" href="Search/Results?type=AllFields&amp;filter%5B0%5D=~format%3A%220%2FSound%2F%22">Äänitteitä</a>
-						</li>
-						<li>
-							<a class="iconlabel format-1bookbook" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FBook%2F%22">Kirjoja</a>
-						</li>
-            <li>
-              <a class="iconlabel format-ebook" href="Search/Results?filter%5B%5D=~genre_facet%3A%22E-kirjat%22&type=AllFields"><?=$this->transEsc("browsebar_ematerial")?></a>
-            </li>
-						<li>
-							<a class="iconlabel format-1mapmap" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMap%2F%22">Karttoja</a>
-						</li>
-						<li>
-							<a class="iconlabel format-0note" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMusicalScore%2F%22">Nuotteja</a>
-						</li>
-            <li>
-              <a href="Search/Results?limit=0&filter%5B%5D=%7Egenre_facet%3A%22Lastenkirjallisuus%22&filter%5B%5D=%7Egenre_facet%3A%22Nuortenkirjallisuus%22&type=AllFields"><i class="fa fa-child" aria-hidden="true"></i> <?=$this->transEsc("browsebar_children");?></a>
-            </li>
-					</ul>
-				</span>
-			</div>
-		</nav>
+        <li>
+          <span class="dropdown-menu-wrapper priority-nav__wrapper" aria-haspopup="true" id="browseTrigger">
+            <button aria-controls="menu" type="button" class="nav-dropdown-toggle priority-nav__dropdown-toggle priority-nav-is-visible" prioritynav-count="11">Selaa kategorioita</button>
+            <ul id="browseList" aria-hidden="true" class="dropdown-menu priority-nav__dropdown">
+              <li>
+                <a class="iconlabel format-1journalarticle" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FJournal%2F%22"> Lehtiä ja artikkeleita</a>
+              </li>
+              <li>
+                <a class="iconlabel format-1videovideo" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FVideo%2F%22"> Videot ja elokuvat</a>
+              </li>
+              <li>
+                <a class="iconlabel format-1soundrecord" href="Search/Results?type=AllFields&amp;filter%5B0%5D=~format%3A%220%2FSound%2F%22"> Äänitteitä</a>
+              </li>
+              <li>
+                <a class="iconlabel format-1bookbook" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FBook%2F%22"> Kirjoja</a>
+              </li>
+              <li>
+                <a class="iconlabel format-ebook" href="Search/Results?filter%5B%5D=~genre_facet%3A%22E-kirjat%22&type=AllFields"><?=$this->transEsc("browsebar_ematerial")?></a>
+              </li>
+              <li>
+                <a class="iconlabel format-1mapmap" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMap%2F%22"> Karttoja</a>
+              </li>
+              <li>
+                <a class="iconlabel format-0note" href="Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMusicalScore%2F%22"> Nuotteja</a>
+              </li>
+              <li>
+                <a href="Search/Results?limit=0&filter%5B%5D=%7Egenre_facet%3A%22Lastenkirjallisuus%22&filter%5B%5D=%7Egenre_facet%3A%22Nuortenkirjallisuus%22&type=AllFields"><i class="fa fa-child" aria-hidden="true"></i> <?=$this->transEsc("browsebar_children");?></a>
+              </li>
+            </ul>
+          </span>
+      </li>
+    </ul>
+  </nav>
+</div>
 <script>
   var browseBar = document.getElementById('browseTrigger');
 
@@ -263,8 +274,8 @@
     toggleHidden('browseList');
     $('#browseList').toggleClass( 'browse-is-open' );
   };
-  </script>
-    </div>
+</script>
+ <!-- End custom browsebutton -->
     </div>
     <div class="search-tooltip">
         <!-- removed ! from $mainPage condition, we want to use the same search in home too -->
