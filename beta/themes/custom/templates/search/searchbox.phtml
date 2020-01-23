@@ -200,7 +200,7 @@
     </nav>
         <!-- Custom browsebutton -->
         <div class="searchbox-toolbar">
-  <nav id="browseContainer" class="browsebar-custom navbar wrapper resize-drag nav-wrapper priority-nav priority-nav-has-dropdown">
+  <nav id="browseContainer" class="browsebar-custom navbar wrapper resize-drag nav-wrapper priority-nav-has-dropdown">
     <ul>
       <li>
         <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : ''?>">
@@ -213,7 +213,7 @@
         </a>
       </li>
       <li>
-        <a href="/beta/Search/History" class="btn btn-link btn-advanced history-btn" style="visibility: hidden">
+        <a href="/beta/Search/History" class="btn btn-link btn-advanced history-btn" style="display: none">
             <i class="fa fa-history"></i> <?=$this->transEsc("menu_history")?>
         </a>
       </li>
@@ -224,7 +224,8 @@
         // https://github.com/ttodua/useful-php-scripts/blob/master/get-remote-url-content-data.php could work.ace_content
         // Use JQuery for now within custom.js ...
         */ ?>
-        <li>
+        <!-- Browse categories button, hide in search results -->
+        <li class="browse-categories-li-item">
           <span class="dropdown-menu-wrapper priority-nav__wrapper" aria-haspopup="true" id="browseTrigger">
             <button aria-controls="menu" type="button" class="nav-dropdown-toggle priority-nav__dropdown-toggle priority-nav-is-visible" prioritynav-count="11">Selaa kategorioita</button>
             <ul id="browseList" aria-hidden="true" class="dropdown-menu priority-nav__dropdown">
@@ -260,7 +261,6 @@
 </div>
 <script>
   var browseBar = document.getElementById('browseTrigger');
-
   // https://codepen.io/kelss/pen/pZBZog
   function toggleHidden(id) {
     var attr = document.getElementById(id).attributes;

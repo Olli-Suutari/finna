@@ -30,6 +30,11 @@ function checkUrlForContent(url) {
 }
 
 function appendSearchBar () {
+    /* Hide category browse button on search results?
+    if (locationUrl.indexOf('/Search/') > -1) {
+        console.log("DO HIDE!");
+        $('.browse-categories-li-item').css('display', 'none')
+    }*/
     if (locationUrl == "https://keski.finna-test.fi/beta/Search/Advanced") {
         $('.searchContent').css('display', 'none')
         return;
@@ -41,19 +46,19 @@ function appendSearchBar () {
     try {
         $.get( 'https://keski.finna-test.fi/beta/Search/History', function( data ) {
             //console.log(data)
-            if (data.indexOf('<h4>Hakuhistoria on tyhj') > -1 || 
+            if (data.indexOf('<h4>Hakuhistoria on tyhj') > -1 ||
             data.indexOf('There are currently no') > -1) {
                 console.log("IS EMPTY SEARCH HISTORY!")
                 return;
             }
             else {
-                $('.history-btn').css('visibility', 'visible');
+                $('.history-btn').css('display', 'inline');
             }
           });
     }
     catch(e) {
         // Page not found... console.log(e)
-        $('.history-btn').css('visibility', 'visible');
+        $('.history-btn').css('display', 'inline');
     }
 }
 
@@ -117,5 +122,8 @@ function finnaCustomInit() {
         $('.lang a[href$="=fi"]').text("Suomeksi")
     }
     */
+   var base = document.createElement('base');
+   base.href = 'https://keski.finna-test.fi/beta/';
+   document.getElementsByTagName('head')[0].appendChild(base);
 
 }
