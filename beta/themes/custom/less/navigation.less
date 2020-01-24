@@ -52,7 +52,7 @@ header li a {
 
 [role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"]{
   background: rgb(183, 233, 224)!important;
-  border-left: solid 4px #fd9171!important;
+  border-left: solid 4px @nav-hover-border-color!important;
   margin-left: -4px;
 }
 
@@ -107,16 +107,19 @@ header li a {
 }
 
 header .btn-primary {
-  color: #ffecdb;
 }
 
 #loginOptions a {
   padding: 13px 15px!important;
 }
 
+header .btn-primary {
+
+}
+
+
 header .btn-primary:hover {
-  background: #4674df!important;
-  color: #ffecdb;
+  //background: #4674df!important;
 }
 
 .lang {
@@ -164,7 +167,7 @@ header .btn-primary:hover {
 }
 
 .navbar-brand:hover {
-  border-left: solid 4px #fd9171;
+  border-left: solid 4px @nav-hover-border-color;
   margin-left: -4px;
 }
 

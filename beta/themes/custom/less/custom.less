@@ -1,7 +1,6 @@
 /*body {
   background-color: red;
 }*/
-
 @import "navigation";
 @import "searchbar";
 
@@ -68,20 +67,14 @@ html, body {
 
 #loginOptions div a:hover {
     border-left: none!important;
-    background: #5887f5!important;
 }
 
 .btn-primary {
-    //background: #6789d8!important;
-    //background: #7a9ae7!important;
-    background: #4674df!important;
     font-size: 1.07em;
 }
 
 .btn-primary:hover {
-    //background: #6789d8!important;
-    //background: #7a9ae7!important;
-    background: #5887f5!important;
+    background: @btn-primary-hover!important;
 }
 
 section[role=main] {
@@ -89,11 +82,6 @@ section[role=main] {
 }
 footer {
     font-size: 1.2em;
-    //background-color: #abc9e7;
-    background: #ebebed;
-    background: rgb(238,174,202);
-    //background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)!important;
-    //background: linear-gradient(-171deg, #A1CFEF, #71B6E5 57%, #B4C526,rgb(255, 205, 68))!important;
     background: rgb(113,164,229);
     background: radial-gradient(circle, rgba(113,164,229,1) 0%, rgb(182, 215, 221) 100%);
     width: 100%;
@@ -191,4 +179,3 @@ footer .container {
 .search-form-container .container::before {
 
 }
-
