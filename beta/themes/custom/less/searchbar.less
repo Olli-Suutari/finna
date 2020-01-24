@@ -42,9 +42,15 @@ section[role=search] {
 
 .searchbox-toolbar li {
   display: inline-flex;
-  margin-right: 10px;
-  margin-left: 0;
+  margin-left: 0!important;
   font-size: 1.05em;
+  padding-left: 5px!important;
+  padding-right: 5px!important;
+}
+
+.searchbox-toolbar li a {
+    padding-bottom: 8px!important;
+    border-radius: 0!important;
 }
 
 .browse-a:before {
@@ -58,12 +64,7 @@ section[role=search] {
 }
 
 #browseLi ul li {
-    display: flex!important;
     margin-bottom: 7px!important;
-    align-items: center!important;
-    justify-content: center!important;
-    align-items: center!important;   /* <---- NEW    */
-
 }
 
 #browseLi ul li a {
@@ -73,9 +74,6 @@ section[role=search] {
 #browseLi ul li a:before {
     margin-right: 10px!important;
     font-size: 1em;
-}
-
-.priority-nav {
 }
 
 .searchbox-toolbar, #browseContainer, .browsebar-custom {
@@ -88,21 +86,61 @@ section[role=search] {
     margin-right: 3px;
 }
 
-@media screen and ( max-width: 460 ){
-    .searchbox-toolbar .history-btn {
-
-    }
-}
-
-
 
 .browsebar-custom div span, #browseContainer ul li a {
-    color: black!important;
+    color: black;
+    margin-bottom: 3px;
 }
 
+
 .browsebar-custom div span:hover, #browseContainer ul li a:hover {
-    //text-decoration: underline;
+   border-bottom: solid 3px #fd9171;
+   margin-bottom: 0;
 }
+
+#browseLi {
+    margin-left: 10px!important;
+}
+
+#browseLi li {
+    margin-left: 10px!important;
+    width: 100%!important;
+}
+
+#browseLi li .fa-child {
+    margin-right: 15px!important;
+}
+
+
+#browseLi li a:hover {
+    background: rgb(183, 233, 224)!important;
+    border-left: solid 4px #fd9171!important;
+    margin-left: -4px;
+    border-bottom: none!important;
+}
+
+@media only screen and (max-width: 730px) {
+    #browseLi {
+        position: initial;
+    }
+
+    .browse-list-container {
+        width: 100%!important;
+        max-height: 1200px;
+        margin-left: auto;
+    }
+  }
+
+@media ( max-width: 560 ) {
+
+}
+
+
+
+
+
+.browsebar-custom div span:hover, #browseContainer ul li a:hover {
+ }
 
 
 .browsebar-custom {
