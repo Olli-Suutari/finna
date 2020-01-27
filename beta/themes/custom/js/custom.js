@@ -40,10 +40,11 @@ function appendSearchBar () {
         $('.searchContent').css('display', 'none')
         return;
     }
-    if (locationUrl.indexOf ('/Content/Help') > -1) {
+    if (locationUrl.toLowerCase().indexOf ('/content/help') > -1) {
         $('#searchHelpLink').css('display', 'none')
     }
     if (locationUrl.indexOf('/Search/History') > -1) {
+        $('.history-btn').css('display', 'none');
         return;
     }
     // If user has a search historry, append the history button.
@@ -53,16 +54,14 @@ function appendSearchBar () {
             if (data.indexOf('<h4>Hakuhistoria on tyhj') > -1 ||
             data.indexOf('There are currently no') > -1) {
                 console.log("IS EMPTY SEARCH HISTORY!")
+                $('.history-btn').css('display', 'none');
                 return;
-            }
-            else {
-                $('.history-btn').css('display', 'inline');
             }
           });
     }
     catch(e) {
         // Page not found... console.log(e)
-        $('.history-btn').css('display', 'inline');
+        //$('.history-btn').css('display', 'inline');
     }
 }
 
@@ -86,15 +85,11 @@ function addSelectedNav() {
         var linksInTipsMenu = [];
         $('#menu_Vinkit a').each(function(){
             //do something with the link element
-            //console.log(this.href)
             if (locationUrl.indexOf(this.href) > -1) {
                 $('#menu_Vinkit').addClass("selected-nav");
                 $('#menu_Vinkit').addClass("selected-nav");
                 var linkEnding = this.href.substring(this.href.lastIndexOf("/") + 1);
-                console.log(linkEnding)
-
                 $('li a[href$="' + linkEnding + '"]').addClass("selected-nav");
-
             }
          });
     }
@@ -115,7 +110,6 @@ function leftNavigationScrollDisplay() {
             navSections.push(selector);
 
        });
-       console.log(navSections);
        var navSectitionsWithPos = [];
        for (i = 0; i < navSections.length; i++) {
             var position = window.scrollY + document.getElementById(navSections[i]).getBoundingClientRect().top
@@ -128,6 +122,7 @@ function leftNavigationScrollDisplay() {
             if (i < navSectitionsWithPos.length -1) {
                 positionEnd = navSectitionsWithPos[i + 1].pos;
             }
+            // Add end pos + adjusted -+ 80px to accommodate margins.
             navSectitionsWithPosEnd.push( { 'id': navSectitionsWithPos[i].id,
             'pos':  navSectitionsWithPos[i].pos -80, 'posEnd': positionEnd + 80 } );
         }
@@ -137,22 +132,16 @@ function leftNavigationScrollDisplay() {
         let ticking = false;
         function doSomething(scroll_pos) {
             // Do something with the scroll position
-            //console.log(scroll_pos);
             for (i = 0; i < navSectitionsWithPosEnd.length; i++) {
                 if (scroll_pos >= navSectitionsWithPosEnd[i].pos &&
                     scroll_pos <= navSectitionsWithPosEnd[i].posEnd) {
-                     //console.log("SCROLL IS " + navSectitionsWithPosEnd[i].id);
                      $('.selected-sub-nav').removeClass('selected-sub-nav');
-
                      var newSelected = $('h2 a[href$="#' + navSectitionsWithPosEnd[i].id + '"');
-                     //console.log(newSelected)
                      newSelected.parent().addClass('selected-sub-nav');
-
                 }
             }
-
         }
-
+        // Add/remove selected nav element class based on scroll pos.
         window.addEventListener('scroll', function(e) {
         last_known_scroll_position = window.scrollY;
         if (!ticking) {
@@ -193,8 +182,9 @@ function finnaCustomInit() {
         $('.lang a[href$="=fi"]').text("Suomeksi")
     }
     */
-   var base = document.createElement('base');
-   base.href = 'https://keski.finna-test.fi/beta/';
+   // Adding base url would break # navigation in sidebars.
+   //var base = document.createElement('base');
+   //base.href = 'https://keski.finna-test.fi/beta/';
    //document.getElementsByTagName('head')[0].appendChild(base);
 
    addSelectedNav();
