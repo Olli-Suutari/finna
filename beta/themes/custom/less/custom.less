@@ -29,9 +29,9 @@ h1, h2, h3, h4 {
     top: unset!important;
     left: 50%;
     transform: translateX(-50%);
-    color: black!important;
+    color: @text-color!important;
     background-color: #ebebed;
-    font-size: 1.18em;
+    font-size: 1.15em;
     font-weight: 400;
     flex-direction: row;
     border-radius: 8px;
@@ -47,13 +47,11 @@ h1, h2, h3, h4 {
     }
 }
 
-
 @media screen and ( max-width: 768px ){
  .cookie-consent {
      width: 100%;
  }
 }
-
 
 
 .cookie-consent p {
@@ -114,6 +112,7 @@ html, body {
 
 .btn-primary {
     font-size: 1.07em;
+    font-weight: 600;
 }
 
 .btn-primary:hover {
@@ -121,8 +120,10 @@ html, body {
 }
 
 section[role=main] {
-
+    //margin-top: 2.3em;
+    // top margin is also applied to advanced search title...
 }
+
 footer {
     font-size: 1.2em;
     background: rgb(113,164,229);
@@ -225,16 +226,20 @@ footer .container {
 
 .content-navigation-menu {
     margin-bottom: 5em!important;
-    margin-right: 1em;
+    margin-right: 1.5em;
 }
 
 .content-navigation-menu h2 {
-    margin-bottom: .75em!important;
+    margin-bottom: 1.2em!important;
+    background: none!important;
+}
+
+.content-navigation-menu h2 a {
+    color: @text-color!important;
 }
 
 .selected-sub-nav {
-    background: hotpink!important;
-    border-left: 3px solid hotpink;
+    border-left: 5px solid @brand-third!important;
 }
 
 .content-section {

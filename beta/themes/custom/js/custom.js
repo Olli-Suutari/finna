@@ -53,7 +53,6 @@ function appendSearchBar () {
             //console.log(data)
             if (data.indexOf('<h4>Hakuhistoria on tyhj') > -1 ||
             data.indexOf('There are currently no') > -1) {
-                console.log("IS EMPTY SEARCH HISTORY!")
                 $('.history-btn').css('display', 'none');
                 return;
             }
