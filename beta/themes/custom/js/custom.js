@@ -129,7 +129,7 @@ function leftNavigationScrollDisplay() {
                 positionEnd = navSectitionsWithPos[i + 1].pos;
             }
             navSectitionsWithPosEnd.push( { 'id': navSectitionsWithPos[i].id,
-            'pos':  navSectitionsWithPos[i].pos -50, 'posEnd': positionEnd + 50} );
+            'pos':  navSectitionsWithPos[i].pos -80, 'posEnd': positionEnd + 80 } );
         }
 
         // Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
