@@ -52,7 +52,6 @@
     }
 
     $searchTabs = $this->searchtabs()->getTabConfig($this->searchClassId, $this->lookfor, $this->searchIndex, $this->searchType, $hiddenFilters, $this->layout()->savedTabs);
-
     // Set up Finna Main Tabs:
     if (!$browse) {
       if (($module === 'search' && ($action === 'results' || $action === 'blended') && $this->searchType != 'advanced')
@@ -202,14 +201,14 @@
         <div class="searchbox-toolbar">
   <nav id="browseContainer" class="browsebar-custom navbar wrapper resize-drag nav-wrapper priority-nav-has-dropdown">
     <ul>
-      <li>
-        <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : ''?>">
-            <i class="fa fa-search-adv"></i> <?=$this->transEsc("Advanced Search")?>
+      <li id="searchHelpLink">
+        <a href="/beta/Content/Help" class="btn btn-link btn-advanced">
+            <i class="fa fa-question-circle"></i> <?=$this->transEsc("search_help")?>
         </a>
       </li>
       <li>
-        <a href="/beta/Content/Help" class="btn btn-link btn-advanced">
-            <i class="fa fa-question-circle"></i> <?=$this->transEsc("search_help")?>
+        <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : ''?>">
+            <i class="fa fa-search-adv"></i> <?=$this->transEsc("Advanced Search")?>
         </a>
       </li>
       <li>
@@ -260,6 +259,7 @@
     </ul>
   </nav>
 </div>
+
  <!-- End custom browsebutton -->
     </div>
     <div class="search-tooltip">
@@ -288,7 +288,7 @@
     </div>
     <?php if ($module != 'record' && $module != 'collection'): ?>
       <?php if ($browse || $mainPage): ?>
-        <?php /* Commenting this code block removes the search-links as we us our own searchbox-toolbar
+        <?php /* Commenting this code block removes the search-links as we use our own searchbox-toolbar
         <div class="search-links">
           <?php if ($advSearch): ?>
           <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced"><i class="fa fa-search-adv"></i><?=$this->transEsc("Advanced Search")?></a>

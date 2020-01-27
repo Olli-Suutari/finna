@@ -2,12 +2,12 @@
 var locationUrl = "";
 
 function loadJsOrCssFile(filename, filetype){
-    if (filetype=="js"){ //if filename is a external JavaScript file
+    if (filetype=="js") { //if filename is a external JavaScript file
         var fileref=document.createElement('script')
         fileref.setAttribute("type","text/javascript")
         fileref.setAttribute("src", filename)
     }
-    else if (filetype=="css"){ //if filename is an external CSS file
+    else if (filetype=="css") { //if filename is an external CSS file
         var fileref=document.createElement("link")
         fileref.setAttribute("rel", "stylesheet")
         fileref.setAttribute("type", "text/css")
@@ -35,9 +35,13 @@ function appendSearchBar () {
         console.log("DO HIDE!");
         $('.browse-categories-li-item').css('display', 'none')
     }*/
-    if (locationUrl == "https://keski.finna-test.fi/beta/Search/Advanced") {
+    if (locationUrl == "https://keski.finna-test.fi/beta/Search/Advanced" ||
+        $('.adv_search_links').length) {
         $('.searchContent').css('display', 'none')
         return;
+    }
+    if (locationUrl.indexOf ('/Content/Help') > -1) {
+        $('#searchHelpLink').css('display', 'none')
     }
     if (locationUrl.indexOf('/Search/History') > -1) {
         return;
@@ -96,6 +100,75 @@ function addSelectedNav() {
     }
 }
 
+function leftNavigationScrollDisplay() {
+    if ($('.content-navigation-menu').length) {
+        var navSections = [];
+        $(".content-navigation-menu h2 a").each(function(){
+            //alert($(this).text());
+            //console.log($(this));
+            //console.log($(this.hash).selector);
+
+            //console.log($(this).text());
+
+            var selector = $(this.hash).selector;
+            selector = selector.substr(1);
+            navSections.push(selector);
+
+       });
+       console.log(navSections);
+       var navSectitionsWithPos = [];
+       for (i = 0; i < navSections.length; i++) {
+            var position = window.scrollY + document.getElementById(navSections[i]).getBoundingClientRect().top
+            navSectitionsWithPos.push( { 'id': navSections[i], 'pos':  position } );
+        }
+
+        var navSectitionsWithPosEnd = [];
+        for (i = 0; i < navSectitionsWithPos.length; i++) {
+            var positionEnd = 99999999;
+            if (i < navSectitionsWithPos.length -1) {
+                positionEnd = navSectitionsWithPos[i + 1].pos;
+            }
+            navSectitionsWithPosEnd.push( { 'id': navSectitionsWithPos[i].id,
+            'pos':  navSectitionsWithPos[i].pos -50, 'posEnd': positionEnd + 50} );
+        }
+
+        // Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
+        let last_known_scroll_position = 0;
+        let ticking = false;
+        function doSomething(scroll_pos) {
+            // Do something with the scroll position
+            //console.log(scroll_pos);
+            for (i = 0; i < navSectitionsWithPosEnd.length; i++) {
+                if (scroll_pos >= navSectitionsWithPosEnd[i].pos &&
+                    scroll_pos <= navSectitionsWithPosEnd[i].posEnd) {
+                     //console.log("SCROLL IS " + navSectitionsWithPosEnd[i].id);
+                     $('.selected-sub-nav').removeClass('selected-sub-nav');
+
+                     var newSelected = $('h2 a[href$="#' + navSectitionsWithPosEnd[i].id + '"');
+                     //console.log(newSelected)
+                     newSelected.parent().addClass('selected-sub-nav');
+
+                }
+            }
+
+        }
+
+        window.addEventListener('scroll', function(e) {
+        last_known_scroll_position = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+            doSomething(last_known_scroll_position);
+            ticking = false;
+            });
+
+            ticking = true;
+        }
+        });
+
+    }
+}
+
+
 function finnaCustomInit() {
     loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css") 
@@ -110,8 +183,6 @@ function finnaCustomInit() {
     else if(locationUrl.indexOf('?lng=en-gb') > -1) {
         locationUrl = locationUrl.replace('?lng=en-gb', '');
     }
-    addSelectedNav();
-    appendSearchBar();
     // Change English to "In English" and "Suomi" to "Suomeksi"
     /*
     if (document.documentElement.lang.toLowerCase() === "fi") {
@@ -124,6 +195,10 @@ function finnaCustomInit() {
     */
    var base = document.createElement('base');
    base.href = 'https://keski.finna-test.fi/beta/';
-   document.getElementsByTagName('head')[0].appendChild(base);
+   //document.getElementsByTagName('head')[0].appendChild(base);
+
+   addSelectedNav();
+   appendSearchBar();
+   leftNavigationScrollDisplay();
 
 }
