@@ -10,8 +10,7 @@ html {
 }
 
 body {
-        font-family: 'Open Sans', sans-serif!important;
-
+    font-family: 'Open Sans', sans-serif!important;
 }
 
 h1, h2, h3, h4, h5, h6, header, section[role=search], footer {
@@ -24,10 +23,10 @@ h1, h2, h3, h4 {
 }
 
 .cookie-consent {
-    width: auto!important;
     padding: 1.6em 2.4em;
     position: fixed!important;
     bottom: 0!important;
+    top: unset!important;
     left: 50%;
     transform: translateX(-50%);
     color: black!important;
@@ -38,7 +37,24 @@ h1, h2, h3, h4 {
     border-radius: 8px;
     align-content: center;
     vertical-align: center;
+    width: auto;
+    max-width: 100%!important;
 }
+
+@media screen and ( max-width: 1000px ){
+    .cookie-consent {
+        width: 65%;
+    }
+}
+
+
+@media screen and ( max-width: 768px ){
+ .cookie-consent {
+     width: 100%;
+ }
+}
+
+
 
 .cookie-consent p {
     margin: 0;
