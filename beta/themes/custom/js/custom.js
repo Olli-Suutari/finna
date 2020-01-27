@@ -96,14 +96,9 @@ function addSelectedNav() {
 
 function leftNavigationScrollDisplay() {
     if ($('.content-navigation-menu').length) {
+        $(".content-navigation-menu h2 a").first().parent().addClass('selected-sub-nav');
         var navSections = [];
         $(".content-navigation-menu h2 a").each(function(){
-            //alert($(this).text());
-            //console.log($(this));
-            //console.log($(this.hash).selector);
-
-            //console.log($(this).text());
-
             var selector = $(this.hash).selector;
             selector = selector.substr(1);
             navSections.push(selector);
