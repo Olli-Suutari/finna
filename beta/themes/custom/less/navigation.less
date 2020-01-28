@@ -128,28 +128,43 @@ header .btn-primary:hover {
 }
 
 .lang {
-  text-align: right;
-  width: auto!important;
-  margin-left: auto;
-  margin-right: 0!important;
-  padding-right: 0!important;
-  color: @brand-primary!important;
+
+}
+
+header .primary-btn {
+  border-radius: 5px!important;
 }
 
 .lang li {
-  text-align: right;
-  width: 120px;
-  margin-left: auto;
-  margin-right: 0!important;
-  padding-right: 0!important;
-  height: auto!important;
 
 }
 
+.lang-selector {
+  margin-left: 20px;
+}
+
+// Unless we add a hacky border to lang selector btn, it will be a tiny bit smaller than the login button. TO DO: Non-hacky fix.
 .lang-selector a {
-  padding: 10px 15px!important;
-  margin-top: 7px!important;
-  height: auto!important;
+  padding: 13px 15px!important;
+  border: solid 2px @btn-primary;
+  font-weight: 600!important;
+}
+
+.lang-selector a:hover {
+  border: solid 2px @btn-primary-hover;
+}
+
+.lang-selector span {
+}
+
+.navbar-nav>li>a {
+}
+
+.lang-selector {
+
+}
+
+.lang-btn span {
 }
 
 .navbar-brand img {
@@ -159,9 +174,8 @@ header .btn-primary:hover {
   margin: 0!important;
 }
 
-
 .navbar-brand {
-  margin-right: 16px;
+  margin-right: 16px!important;
 }
 
 .navbar-header {
