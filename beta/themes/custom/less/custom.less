@@ -195,12 +195,10 @@ footer .container {
 }
 
 .footer-links li:first-child {
-    border-left: none
 }
 
 .footer-links li a {
     display: block;
-    text-align: center;
     margin: 0 22px;
     padding: 9px 11px;
 }
@@ -216,8 +214,32 @@ footer .container {
     border: none;
 }
 
+@media (max-width: @screen-sm-min) {
 
-@media screen and ( min-height: 76px ){
+    .footer-container {
+
+    }
+
+    .footer-links {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .footer-container li {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 1.1rem;
+    }
+
+    .footer-container li a {
+        width: auto;
+    }
+
+
+  }
+
+@media screen and ( min-height: 76px ) {
     section[role=main] {
         min-height: 60vmin!important;
     }
