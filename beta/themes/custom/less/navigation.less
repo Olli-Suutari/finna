@@ -51,10 +51,15 @@ header li a {
 
 
 [role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"]{
-  background: rgb(183, 233, 224)!important;
+  background: @btn-primary!important;
   border-left: solid 4px @nav-hover-border-color!important;
   margin-left: -4px;
 }
+
+[role=menubar] .btn-primary:hover {
+  background: @btn-primary-hover!important;
+}
+
 
 .dropdown-menu li {
   margin-left: 13px;
@@ -128,6 +133,7 @@ header .btn-primary:hover {
   margin-left: auto;
   margin-right: 0!important;
   padding-right: 0!important;
+  color: @brand-primary!important;
 }
 
 .lang li {

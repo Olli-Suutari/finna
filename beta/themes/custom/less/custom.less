@@ -1,6 +1,7 @@
 /*body {
   background-color: red;
 }*/
+@import "custom-variables";
 @import "navigation";
 @import "searchbar";
 
@@ -113,6 +114,7 @@ html, body {
 .btn-primary {
     font-size: 1.07em;
     font-weight: 600;
+    background: @btn-primary!important;
 }
 
 .btn-primary:hover {
@@ -125,9 +127,12 @@ section[role=main] {
 }
 
 footer {
-    font-size: 1.2em;
-    background: rgb(113,164,229);
-    background: radial-gradient(circle, rgba(113,164,229,1) 0%, rgb(182, 215, 221) 100%);
+    box-shadow: 0 -2px 2px -2px #333;
+    font-size: 1.28em;
+    //background: rgb(113,164,229);
+    //background: radial-gradient(circle, rgba(113,164,229,1) 0%, rgb(182, 215, 221) 100%);
+    background: rgb(90,246,188);
+    background: linear-gradient(2deg,rgba(250, 185, 142, 0.863) 0%, rgb(183, 233, 224) 70%)!important;
     width: 100%;
     padding-top: 2.2em;
     padding-bottom: 2em!important;
@@ -186,7 +191,7 @@ footer .container {
 
 .footer-links li {
     float: left;
-    border-left: solid 1px black;
+    //border-left: solid 1px black;
 }
 
 .footer-links li:first-child {
@@ -196,10 +201,14 @@ footer .container {
 .footer-links li a {
     display: block;
     text-align: center;
-    padding: 3px 18px;
+    margin: 0 22px;
+    padding: 9px 11px;
 }
 
 .footer-links li a:hover {
+    text-decoration: none;
+    border-bottom: solid 2px @brand-secondary;
+    margin-bottom: -2px;
 }
 
 .footer-logo-links li {
