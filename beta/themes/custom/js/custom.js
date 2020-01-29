@@ -155,8 +155,6 @@ function leftNavigationScrollDisplay() {
 function smartPaginationDisplay() {
     if ($('.fa-last-page').length) {
         var parentLink = $('.fa-last-page').parent();
-        console.log(parentLink)
-        console.log(parentLink[0]);
         //var matchPageNum = new RegExp('\page=\d*/g');
         var matchPageNum = new RegExp(/page=\d*/g);
         var totalPages = matchPageNum.exec(parentLink[0]);
@@ -171,7 +169,7 @@ function smartPaginationDisplay() {
             currentPage = currentPage[0].replace('page=', '');
         }
         var pagesLeft = totalPages - currentPage;
-        if (pagesLeft > 5) {
+        if (pagesLeft > 2) {
             $('.fa-last-page').prepend(' ' + totalPages);
         }
         else if (pagesLeft < 2) {
