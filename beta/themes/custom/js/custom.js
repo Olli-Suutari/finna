@@ -151,10 +151,47 @@ function leftNavigationScrollDisplay() {
     }
 }
 
+// Function for displaying last page number if more than 5 pages remain and hiding prev/next navigations if on 2nd last/first pages.
+function smartPaginationDisplay() {
+    if ($('.fa-last-page').length) {
+        var parentLink = $('.fa-last-page').parent();
+        console.log(parentLink)
+        console.log(parentLink[0]);
+        //var matchPageNum = new RegExp('\page=\d*/g');
+        var matchPageNum = new RegExp(/page=\d*/g);
+        var totalPages = matchPageNum.exec(parentLink[0]);
+        totalPages = totalPages[0].replace('page=', '');
+        // Unless we re-init the RegExp, it will be null.
+        matchPageNum = new RegExp(/page=\d*/g);
+        var currentPage = matchPageNum.exec(locationUrl);
+        if (currentPage == null) {
+            currentPage = 0;
+        }
+        else {
+            currentPage = currentPage[0].replace('page=', '');
+        }
+        var pagesLeft = totalPages - currentPage;
+        if (pagesLeft > 5) {
+            $('.fa-last-page').prepend(' ' + totalPages);
+        }
+        else if (pagesLeft < 2) {
+            console.log("HEY")
+            $('.fa-arrow-alt-right').addClass('fa-last-page');
+            $('.fa-arrow-alt-right').removeClass('fa-arrow-alt-right');
+            $(parentLink).parent().css('display', 'none');
+        }
+        if (currentPage == 2) {
+            $('.fa-first-page').parent().css('display', 'none');
+            $('.fa-arrow-alt-left').addClass('fa-first-page');
+            $('.fa-arrow-alt-left').removeClass('fa-arrow-alt-left');
+        }
+    }
+}
+
 
 function finnaCustomInit() {
     loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");
-    //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css") 
+    //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css", "css")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/all.js", "js")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/v4-shims.js", "js")
@@ -185,4 +222,7 @@ function finnaCustomInit() {
    appendSearchBar();
    leftNavigationScrollDisplay();
 
+   if (locationUrl.indexOf('/Search/Results')) {
+    smartPaginationDisplay();
+   }
 }
