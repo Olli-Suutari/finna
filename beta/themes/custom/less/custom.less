@@ -126,6 +126,19 @@ section[role=main] {
     // top margin is also applied to advanced search title...
 }
 
+.searchtools-background {
+    text-align: center;
+}
+
+// Do not add margin between search results and footer... But do on advanced search page and home  where the class .template-dir-search is also used.
+section[role=main]:not(.template-dir-search), .template-name-advanced {
+    margin-bottom: 4em!important;
+}
+
+.template-name-home {
+    margin-bottom: 3em!important;
+}
+
 footer {
     box-shadow: 0 -2px 2px -2px #333;
     font-size: 1.28em;
@@ -136,7 +149,6 @@ footer {
     width: 100%;
     padding-top: 2.2em;
     padding-bottom: 2em!important;
-    margin-top: 5.5em!important;
     margin-bottom: -40px!important;
     position: static!important;
     bottom: 0!important;
@@ -239,7 +251,7 @@ footer .container {
 
   }
 
-@media screen and ( min-height: 76px ) {
+@media screen and ( min-height: 768px ) {
     section[role=main] {
         min-height: 60vmin!important;
     }
@@ -295,9 +307,12 @@ footer .container {
 
 }
 
-.side-facets-container-ajax {
-    margin-right: 1.9em;
+@media screen and ( min-width: 1000px ) {
+    .side-facets-container-ajax {
+        margin-right: 1.9em;
+    }
 }
+
 
 /*
 .sidebar-on-left {
