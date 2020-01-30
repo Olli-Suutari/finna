@@ -88,7 +88,7 @@ header li a {
   margin-left: 13px;
   width: auto!important;
   margin-right: 0!important;
-  margin-bottom: 0!important;
+  margin-bottom: 9px!important;
   margin-top: 0!important;
   border-bottom: none;
 }
@@ -101,11 +101,11 @@ header li a {
 }
 
 .dropdown-menu > :first-child {
-  margin-top: 15px!important;
+  margin-top: 18px!important;
 }
 
 .dropdown-menu > :last-child {
-  margin-bottom: 13px!important;
+  margin-bottom: 16px!important;
 }
 
 .dropdown-menu > :first-child a, .dropdown-menu > :last-child a {
@@ -121,9 +121,13 @@ header li a {
 }
 
 .dropdown-menu li .selected-nav, .dropdown-menu li .selected-nav:hover {
-  border-bottom: none;
+  border-bottom: none!important;
   border-left: solid 4px @brand-third!important;
   margin-left: 0;
+}
+
+#my-info-dropdown-menu>li {
+  border-bottom: none!important;
 }
 
 .dropdown-menu li a div {
@@ -139,6 +143,10 @@ header .btn-primary {
 
 #loginOptions a {
   padding: 10px 13px!important;
+}
+
+#logoutOptions, #logoutOptions a, #logoutOptions a span, .username, .fa-user, .caret {
+  color: @text-color!important;
 }
 
 header .btn-primary {
