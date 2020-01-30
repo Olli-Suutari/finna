@@ -162,6 +162,7 @@ function smartPaginationDisplay() {
         // Unless we re-init the RegExp, it will be null.
         matchPageNum = new RegExp(/page=\d*/g);
         var currentPage = matchPageNum.exec(locationUrl);
+
         if (currentPage == null) {
             currentPage = 0;
         }
@@ -169,11 +170,16 @@ function smartPaginationDisplay() {
             currentPage = currentPage[0].replace('page=', '');
         }
         var pagesLeft = totalPages - currentPage;
+        if ($(window).width() < 475) {
+            $('.fa-arrow-alt-right').parent().css('display', 'none')
+            if (currentPage != 2) {
+                $('.fa-arrow-alt-left').parent().css('display', 'none');
+            }
+        }
         if (pagesLeft > 2) {
             $('.fa-last-page').prepend(' ' + totalPages);
         }
         else if (pagesLeft < 2) {
-            console.log("HEY")
             $('.fa-arrow-alt-right').addClass('fa-last-page');
             $('.fa-arrow-alt-right').removeClass('fa-arrow-alt-right');
             $(parentLink).parent().css('display', 'none');
@@ -183,6 +189,7 @@ function smartPaginationDisplay() {
             $('.fa-arrow-alt-left').addClass('fa-first-page');
             $('.fa-arrow-alt-left').removeClass('fa-arrow-alt-left');
         }
+
     }
 }
 
