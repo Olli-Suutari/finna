@@ -226,15 +226,26 @@ footer .container {
 }
 
 @media (max-width: @screen-sm-min) {
-
-    .footer-container {
-
+    // Footer gradient should be able to fill 100% of mobile screen.
+    footer {
+        min-height: 100vh;
     }
 
-    .footer-links {
+    .footer-links, .footer-logo-links {
         display: flex;
         align-items: center;
         flex-direction: column;
+    }
+
+
+    .footer-logo-links img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    li a[title="About VuFind"] {
+        padding-left: 16px!important;
     }
 
     .footer-container li {
