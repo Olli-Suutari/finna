@@ -104,12 +104,6 @@ html, body {
     visibility: visible!important;
 }
 
-#loginOptions div a {
-}
-
-#loginOptions div a:hover {
-    border-left: none!important;
-}
 
 .btn-primary {
     font-size: 1.07em;
@@ -119,6 +113,7 @@ html, body {
 
 .btn-primary:hover {
     background: @btn-primary-hover!important;
+    border: none!important;
 }
 
 section[role=main] {
@@ -247,9 +242,7 @@ footer .container {
     .footer-container li a {
         width: auto
     }
-
-
-  }
+}
 
 @media screen and ( min-height: 768px ) {
     section[role=main] {
@@ -279,7 +272,7 @@ footer .container {
 
 
 .content-navigation-menu h2:hover {
-    background: @btn-primary!important;
+    background: @nav-hover-bg!important;
     border-left: 5px solid @brand-secondary!important;
 }
 

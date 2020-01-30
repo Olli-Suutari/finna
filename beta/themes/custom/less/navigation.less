@@ -13,6 +13,22 @@ header .fa-info-circle:before {
   font-size: 1.05;
 }
 
+.finna-navbar {
+
+}
+
+header .in {
+  height: auto!important;
+   // Unless we set min-height the mobile nav becomes a scrollable "mess".
+  min-height: 400px;
+  padding-bottom: 1em;
+}
+
+
+.navbar-toggle {
+  background: none!important;
+  color: @text-color!important;
+}
 
 header {
   background-color: #ebebed;
@@ -51,13 +67,19 @@ header li a {
 
 
 [role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"]{
-  background: @btn-primary!important;
+  background: @nav-hover-bg!important;
   border-left: solid 4px @nav-hover-border-color!important;
   margin-left: -4px;
 }
 
+[role=menubar] .btn-primary {
+  background: none!important
+}
+
+
 [role=menubar] .btn-primary:hover {
-  background: @btn-primary-hover!important;
+  background: @nav-hover-bg!important;
+  border-left: solid 4px @nav-hover-border-color!important;
 }
 
 
@@ -132,7 +154,6 @@ header .btn-primary:hover {
 }
 
 header .primary-btn {
-  border-radius: 5px!important;
 }
 
 .lang li {
@@ -421,7 +442,7 @@ header .primary-btn {
     height: @navbar-height;
     width: @navbar-height;
     margin:0;
-    color: @btn-primary-color;
+    color: @nav-hover-bg;
     background-color: @brand-primary;
     padding: 0;
     border-radius: 0;
