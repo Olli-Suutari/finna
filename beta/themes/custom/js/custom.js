@@ -66,6 +66,16 @@ function appendSearchBar () {
         // Page not found... console.log(e)
         //$('.history-btn').css('display', 'inline');
     }
+    // Search bar should not be shorter than the toolbar below it.
+    var searchWidth = $('.search').width();
+    var broweseBarWidth = $('#browseLi').width()
+    var browseButtonPos = $('#browseLi').offset();
+    browseButtonPos = browseButtonPos.left + broweseBarWidth;
+    browseButtonPos = Math.round(browseButtonPos);
+    if (searchWidth < browseButtonPos) {
+        $('#searchForm').css('max-width', '93vmin');
+        $('#searchForm').css('width', browseButtonPos + "px");
+    }
 }
 
 function addSelectedNav() {
