@@ -84,6 +84,22 @@ function addSelectedNav() {
     else if (locationUrl.indexOf('/Feedback/Home') > -1) {
         $('header li a[href$="/Feedback/Home"]').addClass("selected-nav");
     }
+    else if (locationUrl.indexOf('/Content/terms') > -1) {
+        $('footer li a[href$="/Content/terms"]').addClass("selected-nav");
+    }
+    /*
+    else if (locationUrl.indexOf('/Content/privacy#cookies') > -1) {
+        console.log("COOKEIS")
+        $('footer li a[href$="/Content/privacy#cookies"]').addClass("selected-nav");
+    }*/
+    else if (locationUrl.indexOf('/Content/privacy') > -1) {
+        $('footer li a[href$="/Content/privacy"]').addClass("selected-nav");
+        $('footer li a[href$="/Content/privacy#cookies"]').addClass("selected-nav");
+    }
+
+    else if (locationUrl.indexOf('/Content/accessibility-statement') > -1) {
+        $('footer li a[href$="/Content/accessibility-statement"]').addClass("selected-nav");
+    }
     else {
         var linksInTipsMenu = [];
         $('#menu_Vinkit a').each(function(){
@@ -212,16 +228,6 @@ function finnaCustomInit() {
     else if(locationUrl.indexOf('?lng=en-gb') > -1) {
         locationUrl = locationUrl.replace('?lng=en-gb', '');
     }
-    // Change English to "In English" and "Suomi" to "Suomeksi"
-    /*
-    if (document.documentElement.lang.toLowerCase() === "fi") {
-        console.log("HEY HEY")
-        $('.lang a[href$="=en-gb"]').text("In English")
-    }
-    else {
-        $('.lang a[href$="=fi"]').text("Suomeksi")
-    }
-    */
    // Adding base url would break # navigation in sidebars.
    //var base = document.createElement('base');
    //base.href = 'https://keski.finna-test.fi/beta/';

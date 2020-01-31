@@ -49,7 +49,7 @@ header {
 #header-collapse {
 }
 
-@media screen and ( min-width: 990px ){
+@media screen and ( min-width: 1200px ){
   .navbar-header {
       margin-left: -20px!important;
       margin-right: 20px!important;
@@ -241,7 +241,7 @@ header .primary-btn {
 .navbar-header {
 }
 
-.navbar-header .selected-nav {
+.navbar-header .selected-nav,  {
   border-bottom: none;
   //border-left: solid 2px #78c57d;
 }
@@ -250,6 +250,7 @@ header .primary-btn {
   border-left: solid 4px @nav-hover-border-color;
   margin-left: -4px;
 }
+
 
 [role=menubar] li  {
   font-size: 1.0718em;
@@ -969,7 +970,11 @@ header .primary-btn {
 
 
 .selected-nav {
-  border-bottom: solid 2px #7bc578;
+  border-bottom: solid 2px #7bc578!important;
+}
+
+.navbar-header .selected-nav {
+  border-bottom: none!important;
 }
 
 .floating-feedback-btn, .search-tooltip {
