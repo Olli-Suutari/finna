@@ -37,7 +37,11 @@ function appendSearchBar () {
     }*/
     if (locationUrl == "https://keski.finna-test.fi/beta/Search/Advanced" ||
         $('.adv_search_links').length) {
-        $('.searchContent').css('display', 'none')
+        // If we use display none or remove the whole search bar, advanced search help tooltip won't work.
+        $('section[role=search] .search-form-container').removeClass('search-form-container');
+        $('section[role=search]').css('visibility', 'hidden')
+        $('section[role=search]').removeClass('searchContent');
+        $('section[role=search]').removeAttr('role');
         return;
     }
     if (locationUrl.toLowerCase().indexOf ('/content/help') > -1) {
