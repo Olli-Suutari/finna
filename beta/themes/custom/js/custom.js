@@ -67,15 +67,25 @@ function appendSearchBar () {
         //$('.history-btn').css('display', 'inline');
     }
     // Search bar should not be shorter than the toolbar below it.
+    /* TO DO: Solve this issue with bootstrap row instead, edit searchbar.phtml.
     var searchWidth = $('.search').width();
     var broweseBarWidth = $('#browseLi').width()
     var browseButtonPos = $('#browseLi').offset();
     browseButtonPos = browseButtonPos.left + broweseBarWidth;
     browseButtonPos = Math.round(browseButtonPos);
+    if ($(window).width() < browseButtonPos) {
+        browseButtonPos = $(window).width() -20
+    }
     if (searchWidth < browseButtonPos) {
-        $('#searchForm').css('max-width', '93vmin');
+        console.log("DO FOO")
+        console.log(searchWidth)
+        console.log(browseButtonPos)
         $('#searchForm').css('width', browseButtonPos + "px");
     }
+    else {
+        console.log("HEY")
+    }
+    */
 }
 
 function addSelectedNav() {
