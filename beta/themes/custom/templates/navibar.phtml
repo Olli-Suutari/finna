@@ -233,61 +233,38 @@ function endsWith($string, $endString)
                 <b class="caret"></b>
               </a>
 
-
-
-
                 <ul role="menu" id="my-info-dropdown-menu" class=" loginOptions dropdown-menu login-dropdown">
 
+                  <form method="post" class="form-vertical" action="<? echo $this->url('myresearch-home') ?>" name="loginForm" id="loginForm">
 
-
-                <div class="login-test" style="z-index: 999999">
-                  
-                  <label class="pure-material-textfield-outlined">
-                      <input placeholder=" ">
-                      <span>Kirjastokortti</span>
-                  </label>
-                  <br>
-                  <label class="pure-material-textfield-outlined">
-                      <input placeholder=" ">
-                      <span>PIN</span>
-                  </label>
-                  <br>
-                  <input class="btn btn-primary" type="submit" name="processLogin" value="Kirjaudu">
-            </div>
-
-
-
-
-
-
-                  <form method="post" class="form-vertical" action="<? echo $this->url('myresearch-home') ?>" 
-                  name="loginForm" id="loginForm">
-                    <div class="form-group" style="display: none;">
-                      <label class="control-label" for="login_MultiILS_secondary_username"></label>
-                      <input id="login_MultiILS_secondary_username" type="text" name="secondary_username" value="" class="form-control">
+ 
+                    <div class="login-test" style="z-index: 999999">
+                      <!-- CARD INPUT -->
+                      <label class="pure-material-textfield-outlined">
+                          <input id="login_MultiILS_username" autocomplete="username" type="text" name="username" value="" placeholder=" ">
+                          <span>Kirjastokortti</span>
+                      </label>
+                      <!-- PIN INPUT -->
+                      <label class="pure-material-textfield-outlined">
+                          <input id="login_MultiILS_password" autocomplete="current-password" type="password" name="password" placeholder=" ">
+                          <span>PIN</span>
+                      </label>
+                      <!-- FINNA AUTH -->
+                      <input type="hidden" name="auth_method" value="MultiILS">
+                      <input type="hidden" name="csrf" value="<?=$this->escapeHtmlAttr($account->getCsrfHash())?>" />
+                      <!-- LOGIN BTN -->
+                      <input class="btn btn-primary login-btn" type="submit" name="processLogin" value="Kirjaudu">
                     </div>
-                    <div class="form-group">
-                      <label class="control-label password-login" for="login_MultiILS_username">Kortin viivakoodi:</label>
-                      <input id="login_MultiILS_username" autocomplete="username" type="text" name="username" value="" class="form-control">
-                    </div>
-                    <div class="form-group">
-                      <label class="control-label" for="login_MultiILS_password">PIN:</label>
-                      <input id="login_MultiILS_password" autocomplete="current-password" type="password" name="password" class="form-control">
-                    </div>
-                    <!-- END of: finna - Auth/MultiILS/loginfields.phtml -->
-                    <input type="hidden" name="auth_method" value="MultiILS">
-                    <input type="hidden" name="csrf" value="<?=$this->escapeHtmlAttr($account->getCsrfHash())?>" />
-                    <div class="form-group">
-                          <input class="btn btn-primary" type="submit" name="processLogin" value="Kirjaudu">
-                          <p>
+                  </form>
+
+                    <div class="login-help-links">
+                      <p>
                         <a id="login_library_card_register" class="btn btn-link" href="/beta/LibraryCards/Register" style="display: block;">Ilmoittaudu kirjaston asiakkaaksi</a>
                       </p>
                       <p>
                         <a id="login_library_card_recovery" class="btn btn-link" href="/beta/LibraryCards/Recover" style="display: block;">Unohditko salasanasi?</a>
                       </p>
-                    </div>
-
-                  </form>
+                   </div>
 
 
 
