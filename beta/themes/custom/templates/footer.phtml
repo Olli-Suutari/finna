@@ -12,10 +12,7 @@
         </li>
         <li>
           <a href="<?=$this->url('content-page', ['page' => 'privacy'])?>">
-          <?=$this->transEsc('Privacy') ?></a>
-        </li>
-        <li>
-          <a href="<?=$this->url('content-page', ['page' => 'privacy'])?>#cookies">
+          <?=$this->transEsc('Privacy') ?></a> & <a href="<?=$this->url('content-page', ['page' => 'privacy'])?>#cookies">
             <?=$this->transEsc('cookies') ?></a>
         </li>
         <li>
@@ -24,22 +21,21 @@
         </li>
       </ul>
   </div>
-  <hr>
-  <div class="footer-container row">
-  <ul class="footer-links footer-logo-links">
-        <li>
+  <div class="footer-container row footer-logo-row">
+  <ul class="footer-links">
+        <li class="foot-logo-link">
           <a href="<?=$this->url('content-page', ['page' => 'about_finna'])?>" title="<?=$this->escapeHtmlAttr($this->translate('About Finna'))?>">
             <img src="<?=$this->imageLink('powered-by-finna_' . $this->layout()->userLang . '-black.png')?>" alt=""/>
             <span class="sr-only"><?=$this->transEsc('About Finna')?></span>
           </a>
         </li>
-        <li>
+        <li class="foot-logo-link">
           <a href="https://vufind.org/" title="<?=$this->escapeHtmlAttr($this->translate('About VuFind'))?>">
             <img src="<?=$this->imageLink('vufind-logo-black.png')?>" alt=""/>
             <span class="sr-only"><?=$this->transEsc('About VuFind')?></span>
           </a>
         </li>
-        <li>
+        <li class="foot-logo-link">
           <a href="http://www.kirjastot.fi/" title="<?=$this->transEsc('source_KIFI')?>">
           <img src="https://vaski.finna.fi/themes/custom/images/kifi-logo.png?_=1516782463" alt="">
           <span class="sr-only"><?=$this->transEsc('source_KIFI')?></span>

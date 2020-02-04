@@ -105,7 +105,7 @@ function addSelectedNav() {
         $('header li a[href$="/Feedback/Home"]').addClass("selected-nav");
     }
     else if (locationUrl.indexOf('/Content/terms') > -1) {
-        $('footer li a[href$="/Content/terms"]').addClass("selected-nav");
+        $('footer li a[href$="/Content/terms"]').parent().addClass("selected-nav");
     }
     /*
     else if (locationUrl.indexOf('/Content/privacy#cookies') > -1) {
@@ -113,12 +113,11 @@ function addSelectedNav() {
         $('footer li a[href$="/Content/privacy#cookies"]').addClass("selected-nav");
     }*/
     else if (locationUrl.indexOf('/Content/privacy') > -1) {
-        $('footer li a[href$="/Content/privacy"]').addClass("selected-nav");
-        $('footer li a[href$="/Content/privacy#cookies"]').addClass("selected-nav");
+        $('footer li a[href$="/Content/privacy"]').parent().addClass("selected-nav");
     }
 
     else if (locationUrl.indexOf('/Content/accessibility-statement') > -1) {
-        $('footer li a[href$="/Content/accessibility-statement"]').addClass("selected-nav");
+        $('footer li a[href$="/Content/accessibility-statement"]').parent().addClass("selected-nav");
     }
     else {
         var linksInTipsMenu = [];

@@ -202,32 +202,44 @@ footer .container {
 
 .footer-links li {
     float: left;
-    //border-left: solid 1px black;
-}
-
-.footer-links li:first-child {
-}
-
-.footer-links li a {
     display: block;
     margin: 0 22px;
     padding: 9px 11px;
+    margin-bottom: 3px;
+    //border-left: solid 1px black;
 }
 
-.footer-links li a:hover {
+
+.footer-links li a {
     text-decoration: none;
-    border-bottom: solid 2px @brand-secondary;
-    margin-bottom: -2px;
 }
+
+.footer-links li:hover {
+    border-bottom: solid 2px @brand-secondary;
+    margin-bottom: 0px;
+}
+
+footer .selected-nav {
+    margin-bottom: 3px!important;
+}
+
 
 footer .selected-nav:hover {
-    margin-bottom: 0!important;
+    margin-bottom: 3px!important;
 
 }
 
-.footer-logo-links li {
-    padding: 0 2em;
-    border: none;
+footer .selected-nav a:hover {
+    text-decoration: none;
+}
+
+
+.footer-logo-row {
+    margin-top: 2.55rem;
+}
+
+.foot-logo-link {
+    margin: .5em 3em!important;
 }
 
 @media (max-width: @screen-sm-min) {
@@ -236,32 +248,45 @@ footer .selected-nav:hover {
         min-height: 100vh;
     }
 
-    .footer-links, .footer-logo-links {
-        display: flex;
+    .footer-links {
         align-items: center;
         flex-direction: column;
-    }
-
-
-    .footer-logo-links img {
-        display: block;
+        display: flex;
         margin-left: auto;
         margin-right: auto;
     }
 
+
+    .footer-links li {
+        margin-bottom: 1rem!important;
+    }
+
     li a[title="About VuFind"] {
-        padding-left: 16px!important;
+        padding-left: 20px!important;
     }
 
     .footer-container li {
-        width: 100%;
         text-align: left;
         margin-bottom: 1.1rem;
+        width: auto!important
     }
 
     .footer-container li a {
         width: auto
     }
+
+    .footer-links .foot-logo-link {
+        width: 100%!important;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .footer-links .foot-logo-link:hover {
+        border-bottom: none;
+    }
+
 }
 
 @media screen and ( min-height: 768px ) {
@@ -357,4 +382,43 @@ footer .selected-nav:hover {
 .modal-content {
     width: auto!important;
 }
+
+
+.lightbox-header {
+    text-align: center;
+    font-size: 1.1em;
+}
+
+#loginForm {
+
+
+}
+
+#loginForm {
+    padding-left: 10%;
+}
+
+.modal-content, .modal-body {
+
+}
+
+.login-col {
+    width: auto!important;
+}
+
+.login-col .login-description, .login-col .login-description-terms {
+}
+
+.modal-lg, .modal-content, .modal-body, .modal, #modal, .modal-dialog {
+
+
+}
+
+.modal-lg-dynamic {
+
+}
+
+
 */
+
+// Modals.
