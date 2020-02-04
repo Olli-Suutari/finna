@@ -38,7 +38,7 @@ function endsWith($string, $endString)
           <?php if (count($val['items']) > 1): ?>
             <li class="dropdown" id="<?= $val['label'] ?>">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <?php 
+                  <?php
                   if ($val['label'] == 'menu_Vinkit') {
                       echo '<i class="fa fa-archive"></i> ';
                   } ?>
@@ -215,9 +215,67 @@ function endsWith($string, $endString)
               <div>
                 <a class="btn btn-primary btn-uppercase"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span  class="login-text"><?=$this->transEsc("Login")?></span></a>
               </div>
-            <?php else: ?>
+            <?php else:
+              // This is what happens when user is not logged in to keski.
+              ?>
               <div>
-                <a href="<?=$this->url('myresearch-userlogin')?>" class="btn btn-primary btn-uppercase" data-lightbox data-lightbox-onclose="window.location.href='<?=$this->escapeHtmlAttr($this->url('myresearch-home')) ?>'"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span class="login-text"><?=$this->transEsc("Login")?></span></a>
+                
+            <!-- START of: finna - Auth/MultiILS/login.phtml -->
+            <?php $account = $this->auth()->getManager(); ?>
+            <?php $sessionInitiator = $account->getSessionInitiator($this->serverUrl($this->url('myresearch-home'))); ?>
+
+            <? echo 'FOO ' . $this->url('myresearch-home') ?>
+
+            <form method="post" class="form-vertical" action="/beta/MyResearch/Home" name="loginForm" id="loginForm">
+                <!-- START of: finna - Auth/MultiILS/loginfields.phtml -->
+            <div>
+              <div class="form-group">
+                          <input type="hidden" id="login_MultiILS_target" name="target" value="keski">
+                  <div><strong>Keski-kirjastot</strong></div>
+                  </div>
+              <div class="form-group" style="display: none;">
+                <label class="control-label" for="login_MultiILS_secondary_username"></label>
+                <input id="login_MultiILS_secondary_username" type="text" name="secondary_username" value="" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="control-label password-login" for="login_MultiILS_username">Käyttäjätunnus / viivakoodi:</label>
+                <label class="control-label email-login hidden" for="login_MultiILS_username">Sähköposti:</label>
+                <input id="login_MultiILS_username" type="text" name="username" value="" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label class="control-label" for="login_MultiILS_password">Salasana / PIN:</label>
+                <input id="login_MultiILS_password" type="password" name="password" class="form-control">
+              </div>
+            </div>
+
+            <script>
+                //<!--
+                  setupMultiILSLoginFields({"keski":"password"}, 'login_MultiILS_');
+              finna.layout.initSecondaryLoginField({"keski":""}, 'login_MultiILS_');
+                //-->
+            </script>
+            <!-- END of: finna - Auth/MultiILS/loginfields.phtml -->
+                <input type="hidden" name="auth_method" value="MultiILS">
+                <input type="hidden" name="csrf" value="<?=$this->escapeHtmlAttr($account->getCsrfHash())?>" />
+                <div class="clearfix"></div>
+                <div class="form-group">
+                            <input class="btn btn-primary" type="submit" name="processLogin" value="Kirjaudu">
+                            <p>
+                      <a id="login_library_card_register" class="btn btn-link" href="/beta/LibraryCards/Register" style="display: none;">Ilmoittaudu kirjaston asiakkaaksi</a>
+                    </p>
+                    <p>
+                      <a id="login_library_card_recovery" class="btn btn-link" href="/beta/LibraryCards/Recover" style="display: none;">Unohditko salasanasi?</a>
+                    </p>
+                </div>
+              </form>
+            <!-- END of: finna - Auth/MultiILS/login.phtml -->
+
+
+
+
+                <a href="<?=$this->url('myresearch-userlogin')?>" class="btn btn-primary btn-uppercase" data-lightbox data-lightbox-onclose="window.location.href='<?=$this->escapeHtmlAttr($this->url('myresearch-home')) ?>'"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span class="login-text test"><?=$this->transEsc("Login")?></span></a>
               </div>
             <?php endif; ?>
           <?php endif; ?>
