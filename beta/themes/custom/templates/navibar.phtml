@@ -208,25 +208,23 @@ function endsWith($string, $endString)
           </li>
           <?php else: ?>
             <!-- NOT LOGGED IN  TO KESKI -->
-            <!-- START of: finna - Auth/MultiILS/login.phtml -->
           <?php if ($sessionInitiator = $account->getSessionInitiator($this->serverUrl($this->url('myresearch-home')))): ?>
             <a role="menuitem" href="<?=$this->url('myresearch-userlogin')?>"><i class="fa fa-user" aria-hidden="true"></i> <?=$this->transEsc("Institutional Login")?></a>
           <?php else: ?>
             <?php if ($this->templateDir === 'myresearch' && $this->templateName === 'login'): ?>
-
               <div>
                 <a class="btn btn-primary btn-uppercase"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span  class="login-text"><?=$this->transEsc("Login")?></span></a>
               </div>
             <?php else: ?>
-
+            <!-- START of: finna - Auth/MultiILS/login.phtml -->
             <?php $account = $this->auth()->getManager(); ?>
             <?php $sessionInitiator = $account->getSessionInitiator($this->serverUrl($this->url('myresearch-home'))); ?>
             <li class="loginOptions">
               <a href="#" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-user fa-lg" aria-hidden="true"></i> <span class="username login-text">Kirjaudu</span>
+                <i class="fa fa-user fa-lg" aria-hidden="true"></i> <span class="username login-text"><?=$this->transEsc("Login")?></span>
                 <b class="caret"></b>
               </a>
-                <ul role="menu" id="my-info-dropdown-menu" class="dropdown-menu">
+                <ul role="menu" id="my-info-dropdown-menu" class="dropdown-menu login-dropdown">
                   <form method="post" class="form-vertical" action="<? echo $this->url('myresearch-home') ?>" 
                   name="loginForm" id="loginForm">
                     <div class="form-group" style="display: none;">
@@ -247,10 +245,10 @@ function endsWith($string, $endString)
                     <div class="form-group">
                           <input class="btn btn-primary" type="submit" name="processLogin" value="Kirjaudu">
                           <p>
-                        <a id="login_library_card_register" class="btn btn-link" href="/beta/LibraryCards/Register" style="display: none;">Ilmoittaudu kirjaston asiakkaaksi</a>
+                        <a id="login_library_card_register" class="btn btn-link" href="/beta/LibraryCards/Register" style="display: block;">Ilmoittaudu kirjaston asiakkaaksi</a>
                       </p>
                       <p>
-                        <a id="login_library_card_recovery" class="btn btn-link" href="/beta/LibraryCards/Recover" style="display: none;">Unohditko salasanasi?</a>
+                        <a id="login_library_card_recovery" class="btn btn-link" href="/beta/LibraryCards/Recover" style="display: block;">Unohditko salasanasi?</a>
                       </p>
                     </div>
                   </form>
@@ -264,6 +262,7 @@ function endsWith($string, $endString)
             </script>
 
         <!-- END of: finna - Auth/MultiILS/login.phtml -->
+
         <?php endif; ?>
 
             <?php endif; ?>
