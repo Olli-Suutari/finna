@@ -224,28 +224,22 @@ function endsWith($string, $endString)
             <?php $account = $this->auth()->getManager(); ?>
             <?php $sessionInitiator = $account->getSessionInitiator($this->serverUrl($this->url('myresearch-home'))); ?>
 
-            <? echo 'FOO ' . $this->url('myresearch-home') ?>
-
-            <form method="post" class="form-vertical" action="/beta/MyResearch/Home" name="loginForm" id="loginForm">
+            <form method="post" class="form-vertical" action="<? echo $this->url('myresearch-home') ?>" name="loginForm" id="loginForm">
                 <!-- START of: finna - Auth/MultiILS/loginfields.phtml -->
             <div>
-              <div class="form-group">
-                          <input type="hidden" id="login_MultiILS_target" name="target" value="keski">
-                  <div><strong>Keski-kirjastot</strong></div>
-                  </div>
+
               <div class="form-group" style="display: none;">
                 <label class="control-label" for="login_MultiILS_secondary_username"></label>
                 <input id="login_MultiILS_secondary_username" type="text" name="secondary_username" value="" class="form-control">
               </div>
 
               <div class="form-group">
-                <label class="control-label password-login" for="login_MultiILS_username">Käyttäjätunnus / viivakoodi:</label>
-                <label class="control-label email-login hidden" for="login_MultiILS_username">Sähköposti:</label>
+                <label class="control-label password-login" for="login_MultiILS_username">Kortin viivakoodi:</label>
                 <input id="login_MultiILS_username" type="text" name="username" value="" class="form-control">
               </div>
 
               <div class="form-group">
-                <label class="control-label" for="login_MultiILS_password">Salasana / PIN:</label>
+                <label class="control-label" for="login_MultiILS_password">PIN:</label>
                 <input id="login_MultiILS_password" type="password" name="password" class="form-control">
               </div>
             </div>
