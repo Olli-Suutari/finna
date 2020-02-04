@@ -206,78 +206,76 @@ function endsWith($string, $endString)
               </li>
             </ul>
           </li>
-        <?php endif; ?>
-        <li id="loginOptions"<?= $account->isLoggedIn() ?  " class='hidden'" : '';?>>
+          <?php else: ?>
+            <!-- NOT LOGGED IN  TO KESKI -->
+            <!-- START of: finna - Auth/MultiILS/login.phtml -->
           <?php if ($sessionInitiator = $account->getSessionInitiator($this->serverUrl($this->url('myresearch-home')))): ?>
             <a role="menuitem" href="<?=$this->url('myresearch-userlogin')?>"><i class="fa fa-user" aria-hidden="true"></i> <?=$this->transEsc("Institutional Login")?></a>
           <?php else: ?>
             <?php if ($this->templateDir === 'myresearch' && $this->templateName === 'login'): ?>
+
               <div>
                 <a class="btn btn-primary btn-uppercase"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span  class="login-text"><?=$this->transEsc("Login")?></span></a>
               </div>
-            <?php else:
-              // This is what happens when user is not logged in to keski.
-              ?>
-              <div>
-                
-            <!-- START of: finna - Auth/MultiILS/login.phtml -->
+            <?php else: ?>
+
             <?php $account = $this->auth()->getManager(); ?>
             <?php $sessionInitiator = $account->getSessionInitiator($this->serverUrl($this->url('myresearch-home'))); ?>
-
-            <form method="post" class="form-vertical" action="<? echo $this->url('myresearch-home') ?>" name="loginForm" id="loginForm">
-                <!-- START of: finna - Auth/MultiILS/loginfields.phtml -->
-            <div>
-
-              <div class="form-group" style="display: none;">
-                <label class="control-label" for="login_MultiILS_secondary_username"></label>
-                <input id="login_MultiILS_secondary_username" type="text" name="secondary_username" value="" class="form-control">
-              </div>
-
-              <div class="form-group">
-                <label class="control-label password-login" for="login_MultiILS_username">Kortin viivakoodi:</label>
-                <input id="login_MultiILS_username" type="text" name="username" value="" class="form-control">
-              </div>
-
-              <div class="form-group">
-                <label class="control-label" for="login_MultiILS_password">PIN:</label>
-                <input id="login_MultiILS_password" type="password" name="password" class="form-control">
-              </div>
-            </div>
-
+            <li class="loginOptions">
+              <a href="#" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-user fa-lg" aria-hidden="true"></i> <span class="username login-text">Kirjaudu</span>
+                <b class="caret"></b>
+              </a>
+                <ul role="menu" id="my-info-dropdown-menu" class="dropdown-menu">
+                  <form method="post" class="form-vertical" action="<? echo $this->url('myresearch-home') ?>" 
+                  name="loginForm" id="loginForm">
+                    <div class="form-group" style="display: none;">
+                      <label class="control-label" for="login_MultiILS_secondary_username"></label>
+                      <input id="login_MultiILS_secondary_username" type="text" name="secondary_username" value="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label password-login" for="login_MultiILS_username">Kortin viivakoodi:</label>
+                      <input id="login_MultiILS_username" autocomplete="username" type="text" name="username" value="" class="form-control">
+                    </div>
+                    <div class="form-group">
+                      <label class="control-label" for="login_MultiILS_password">PIN:</label>
+                      <input id="login_MultiILS_password" autocomplete="current-password" type="password" name="password" class="form-control">
+                    </div>
+                    <!-- END of: finna - Auth/MultiILS/loginfields.phtml -->
+                    <input type="hidden" name="auth_method" value="MultiILS">
+                    <input type="hidden" name="csrf" value="<?=$this->escapeHtmlAttr($account->getCsrfHash())?>" />
+                    <div class="form-group">
+                          <input class="btn btn-primary" type="submit" name="processLogin" value="Kirjaudu">
+                          <p>
+                        <a id="login_library_card_register" class="btn btn-link" href="/beta/LibraryCards/Register" style="display: none;">Ilmoittaudu kirjaston asiakkaaksi</a>
+                      </p>
+                      <p>
+                        <a id="login_library_card_recovery" class="btn btn-link" href="/beta/LibraryCards/Recover" style="display: none;">Unohditko salasanasi?</a>
+                      </p>
+                    </div>
+                  </form>
+                </ul>
+            </li>
             <script>
                 //<!--
-                  setupMultiILSLoginFields({"keski":"password"}, 'login_MultiILS_');
+              setupMultiILSLoginFields({"keski":"password"}, 'login_MultiILS_');
               finna.layout.initSecondaryLoginField({"keski":""}, 'login_MultiILS_');
                 //-->
             </script>
-            <!-- END of: finna - Auth/MultiILS/loginfields.phtml -->
-                <input type="hidden" name="auth_method" value="MultiILS">
-                <input type="hidden" name="csrf" value="<?=$this->escapeHtmlAttr($account->getCsrfHash())?>" />
-                <div class="clearfix"></div>
-                <div class="form-group">
-                            <input class="btn btn-primary" type="submit" name="processLogin" value="Kirjaudu">
-                            <p>
-                      <a id="login_library_card_register" class="btn btn-link" href="/beta/LibraryCards/Register" style="display: none;">Ilmoittaudu kirjaston asiakkaaksi</a>
-                    </p>
-                    <p>
-                      <a id="login_library_card_recovery" class="btn btn-link" href="/beta/LibraryCards/Recover" style="display: none;">Unohditko salasanasi?</a>
-                    </p>
-                </div>
-              </form>
-            <!-- END of: finna - Auth/MultiILS/login.phtml -->
 
+        <!-- END of: finna - Auth/MultiILS/login.phtml -->
+        <?php endif; ?>
 
-
-
-                <a href="<?=$this->url('myresearch-userlogin')?>" class="btn btn-primary btn-uppercase" data-lightbox data-lightbox-onclose="window.location.href='<?=$this->escapeHtmlAttr($this->url('myresearch-home')) ?>'"><i class="fa fa-user fa-lg" aria-hidden="true"></i><span class="login-text test"><?=$this->transEsc("Login")?></span></a>
-              </div>
             <?php endif; ?>
           <?php endif; ?>
         </li>
 
-        <!-- Language changer moved to after login. -->
+
+      <?php endif; ?>
+    </ul>
+      <ul role="menubar" class="nav navbar-nav lang nav-absolute">
         <?php if ($template = $this->content()->findTemplateForLng("content/Additions/header-navibar")): ?>
-          <?=$this->render($template)?>
+      <?=$this->render($template)?>
         <?php endif; ?>
         <?php if (isset($this->layout()->allLangs) && count($this->layout()->allLangs) > 1): ?>
         <?php $i = 1;?>
@@ -299,14 +297,6 @@ function endsWith($string, $endString)
           <?php endif ?>
         <?php endforeach; ?>
       <?php endif; ?>
-
-
-
-      <?php endif; ?>
-    </ul>
-      <ul role="menubar" class="nav navbar-nav lang nav-absolute">
-    <!--TO DO: Move lang selector back here. -->
-
     </ul>
   <?php endif; ?>
 </div>
