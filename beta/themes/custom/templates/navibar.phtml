@@ -226,7 +226,8 @@ function endsWith($string, $endString)
             <!-- START of: finna - Auth/MultiILS/login.phtml -->
             <?php $account = $this->auth()->getManager(); ?>
             <?php $sessionInitiator = $account->getSessionInitiator($this->serverUrl($this->url('myresearch-home'))); ?>
-            <li class="loginOptions">
+            <!-- logoutOptions class makes the mobile magic work -->
+            <li class="loginOptions logoutOptions">
 
               <a href="#" role="menuitem" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="loginOptions">
                 <i class="fa fa-user fa-lg" aria-hidden="true"></i> <span class="username login-text"><?=$this->transEsc("Login")?></span>
@@ -237,8 +238,7 @@ function endsWith($string, $endString)
 
                   <form method="post" class="form-vertical" action="<? echo $this->url('myresearch-home') ?>" name="loginForm" id="loginForm">
 
- 
-                    <div class="login-test" style="z-index: 999999">
+                    <div class="login-test">
                       <!-- CARD INPUT -->
                       <label class="pure-material-textfield-outlined">
                           <input id="login_MultiILS_username" autocomplete="username" type="text" name="username" value="" placeholder=" ">

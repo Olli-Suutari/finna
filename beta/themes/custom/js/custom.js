@@ -259,4 +259,26 @@ function finnaCustomInit() {
    if (locationUrl.indexOf('/Search/Results')) {
     smartPaginationDisplay();
    }
+
+   var isIOS = false;
+    // https://stackoverflow.com/questions/7944460/detect-safari-browser
+    var testSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
+    navigator.userAgent &&
+    navigator.userAgent.indexOf('CriOS') == -1 &&
+    navigator.userAgent.indexOf('FxiOS') == -1;
+   if (testSafari || /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
+       isIOS = true;
+   }
+   // https://stackoverflow.com/questions/4617638/detect-ipad-users-using-jquery
+   var isIPad = navigator.userAgent.match(/iPad/i) != null;
+   var isIPhone = (navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null);
+   if (isIPad || isIPhone) {
+    isIOS = true;
+   }
+   // ios renders the margin above the login differently. :)
+   if (isIOS) {
+       $('.login-btn').addClass('ios-login');
+   }
+
+
 }

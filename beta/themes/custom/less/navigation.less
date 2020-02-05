@@ -995,13 +995,14 @@ header .primary-btn {
   padding-left: 2em;
   padding-right: 1.5em;
   width: auto!important;
+  min-width: 300px!important;
 }
 
 
 // MATERIAL INPUT FOR LOGIN
 
 .login-test {
-  
+
   .pure-material-textfield-outlined {
     --pure-material-safari-helper1: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
     position: relative;
@@ -1045,7 +1046,8 @@ header .primary-btn {
     border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
     width: 100%;
     max-height: 100%;
-    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    //color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    color: @text-color;
     font-size: 75%;
     line-height: 15px;
     cursor: text;
@@ -1089,6 +1091,7 @@ header .primary-btn {
 .pure-material-textfield-outlined:hover > input,
 .pure-material-textfield-outlined:hover > textarea {
     border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+
     border-top-color: transparent;
 }
 
@@ -1193,12 +1196,22 @@ header .primary-btn {
     }
 }
 
+
+.login-test  {
+
+}
+
 .login-btn {
   position: relative;
-  top: -20px;
+  top: -12px;
+  margin-top: 0!important;
   margin-bottom: 2em;
+  padding: 1em;
   width: 100%;
   background: @btn-primary!important;
+  line-height: normal!important;
+  height: auto!important;
+  vertical-align: top!important;
 }
 
 .login-btn:hover {
@@ -1207,4 +1220,8 @@ header .primary-btn {
 }
 
 
+}
+
+.ios-login {
+  top: 10px;
 }
