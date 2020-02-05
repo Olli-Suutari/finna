@@ -992,8 +992,8 @@ header .primary-btn {
 
 .login-dropdown {
   padding-top: 1.2em;
-  padding-left: 2em;
-  padding-right: 1.5em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
   width: auto!important;
   min-width: 300px!important;
 }
@@ -1227,7 +1227,19 @@ header .primary-btn {
   top: 10px;
 }
 
-.finna-navbar .navbar-nav .logoutOptions .dropdown-menu {
-  left: 50%;
-  transform: translateX(-50%);
+
+
+
+@media screen and ( max-width: 499px ){
+  .finna-navbar .navbar-nav .logoutOptions .dropdown-menu {
+    margin-left: 5%;
+  }
 }
+
+@media screen and ( min-width: 500px ){
+  .finna-navbar .navbar-nav .logoutOptions .dropdown-menu {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
