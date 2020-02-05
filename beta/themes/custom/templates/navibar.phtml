@@ -283,6 +283,32 @@ function endsWith($string, $endString)
                   e.stopPropagation();
                 });
 
+                // For some reason, the dropdown is unable to close and triggers the open event after closing if custom logic is added.
+                var preventOpenLoop = false;
+
+                $('.loginOptions').on('shown.bs.dropdown', function(event) {
+                  if (preventOpenLoop) {
+                    $(".loginOptions").removeClass('open');
+                    return;
+                  }
+                  if ($('#login_MultiILS_username').val() == '') {
+                    $('#login_MultiILS_username').focus();
+                  }
+                  else if ($('#login_MultiILS_password').val() == '') {
+                    $('#login_MultiILS_password').focus();
+                  }
+                  else {
+                    $('.login-btn').focus();
+                  }
+                });
+
+                $('.loginOptions').on('hide.bs.dropdown', function(event) {
+                  preventOpenLoop = true;
+                  setTimeout(function(){
+                    preventOpenLoop = false;
+                  }, 50);
+                });
+
             </script>
 
         <!-- END of: finna - Auth/MultiILS/login.phtml -->

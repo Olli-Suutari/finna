@@ -1046,8 +1046,8 @@ header .primary-btn {
     border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
     width: 100%;
     max-height: 100%;
-    //color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
-    color: @text-color;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    //color: @text-color;
     font-size: 75%;
     line-height: 15px;
     cursor: text;
@@ -1222,6 +1222,12 @@ header .primary-btn {
 
 }
 
+// ios renders the margin above the login differently. :)
 .ios-login {
   top: 10px;
+}
+
+.finna-navbar .navbar-nav .logoutOptions .dropdown-menu {
+  left: 50%;
+  transform: translateX(-50%);
 }
