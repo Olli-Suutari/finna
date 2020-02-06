@@ -116,6 +116,80 @@
       </div>
     <?php endif; ?>
     <div class="search <?=$mainPage ? 'home-search-bg' : '' ?>">
+
+
+
+       <!-- Custom browsebutton -->
+        <div class="searchbox-toolbar">
+          <nav id="browseContainer" class="browsebar-custom">
+            <ul>
+              <li id="searchHelpLink">
+                <a href="/beta/Content/Help" class="btn btn-link btn-advanced">
+                    <i class="fa fa-question-circle"></i> <?=$this->transEsc("search_help")?>
+                </a>
+              </li>
+              <li>
+                <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : ''?>">
+                    <i class="fa fa-search-adv"></i> <?=$this->transEsc("Advanced Search")?>
+                </a>
+              </li>
+              <li>
+                <a href="/beta/Search/History" class="btn btn-link btn-advanced history-btn">
+                    <i class="fa fa-history"></i> <?=$this->transEsc("menu_history")?>
+                </a>
+              </li>
+                <? /*
+                //$searchHistory = file_get_contents('https://keski.finna-test.fi/beta/Search/History');
+                // This does not work because Warning: include(): https:// wrapper is disabled in the server configuration by allow_url_include=0
+                //echo include("https://keski.finna-test.fi/beta/Search/History");
+                // https://github.com/ttodua/useful-php-scripts/blob/master/get-remote-url-content-data.php could work.ace_content
+                // Use JQuery for now within custom.js ...
+                */ ?>
+                <!-- Browse categories button, hide in search results -->
+                <li id="browseLi" class="dropdown browse-categories-li-item">
+                  <a href="#" class="dropdown-toggle browse-a" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <?=$this->transEsc("category_browse");?>
+                      <b class="caret" aria-hidden="true"></b>
+                    </a>
+                    <ul role="group" class="dropdown-menu browse-list-container" aria-labelby="browseLi">
+                      <li>
+                        <a role="menuitem" class="iconlabel format-1journalarticle" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FJournal%2F%22"> <?=$this->transEsc("format_Journal_plural")?></a>
+                      </li>
+                      <li>
+                        <a role="menuitem" class="iconlabel format-1videovideo" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FVideo%2F%22"> <?=$this->transEsc("movies_and_videos")?></a>
+                      </li>
+                      <li>
+                        <a role="menuitem" class="iconlabel format-1soundrecord" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B0%5D=~format%3A%220%2FSound%2F%22"> <?=$this->transEsc("format_Sound/SoundRecording_plural")?></a>
+                      </li>
+                      <li>
+                        <a role="menuitem" class="iconlabel format-1bookbook" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FBook%2F%22"> <?=$this->transEsc("format_Book/Book_plural")?></a>
+                      </li>
+                      <li>
+                        <a role="menuitem" class="iconlabel format-ebook" href="<? echo $pageUrl ?>Search/Results?filter%5B%5D=~genre_facet%3A%22E-kirjat%22&type=AllFields"><?=$this->transEsc("browsebar_ematerial")?></a>
+                      </li>
+                      <li>
+                        <a role="menuitem" class="iconlabel format-1mapmap" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMap%2F%22"> <?=$this->transEsc("format_Map_plural")?></a>
+                      </li>
+                      <li>
+                        <a role="menuitem" class="iconlabel format-0note" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMusicalScore%2F%22"> <?=$this->transEsc("format_MusicalScore_plural")?></a>
+                      </li>
+                      <li>
+                        <a role="menuitem" href="<? echo $pageUrl ?>Search/Results?limit=0&filter%5B%5D=%7Egenre_facet%3A%22Lastenkirjallisuus%22&filter%5B%5D=%7Egenre_facet%3A%22Nuortenkirjallisuus%22&type=AllFields"><i class="fa fa-child" aria-hidden="true"></i> <?=$this->transEsc("browsebar_children");?></a>
+                      </li>
+                    </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+
+
+
+
+
+
+
+
       <form id="searchForm" role="search" class="searchForm navbar-form navbar-left  <?=$handlerCount < 2 ? 'input-field-only' :''; ?>" method="get" action="<?=$this->url($basicSearch)?>" name="searchForm" autocomplete="off">
       <label for="searchForm_lookfor" class="sr-only" hidden><?=$this->transEsc("Find")?></label>
       <input class="searchForm_lookfor form-control search-query<?php if($this->searchbox()->autocompleteEnabled($this->searchClassId)):?> autocomplete-finna searcher:<?=$this->escapeHtmlAttr($this->searchClassId) ?><?= !empty($activeTab) ? ' tab:' . $this->escapeHtmlAttr(str_replace(':', '###', $activeTab)) : ''?><?=!empty($browse) || $activeTab == 'Combined' ? ' onlySuggestions:1' : ''?><?= !$browse && in_array($activeTab, ['Combined','Primo','Summon']) ? ' suggestions:0' : ''?><?= !empty($acHandlers) ? ' handlers:' . implode('|', array_map(function ($h) { return $h['handler']; }, $acHandlers)) : ''?><?= !empty($phrase) ? ' phrase:' . $this->escapeHtmlAttr($phrase) : ''?><?= !empty($acFilters) ? ' filters:' . $this->escapeHtmlAttr(implode('||', array_map(function ($k, $v) { return $k . '|' . $v; }, array_keys($acFilters), $acFilters))) : ''?><?php endif ?>" placeholder="<?=$this->escapeHtmlAttr($placeholder)?>" id="searchForm_lookfor" type="text" name="lookfor" value="<?=$this->escapeHtmlAttr($this->lookfor)?>"/>
@@ -200,68 +274,6 @@
         <input type="hidden" name="sort" value="<?=($defaultFilterState ? $this->escapeHtmlAttr($lastSort) : '')?>" data-value="<?=$this->escapeHtmlAttr($lastSort)?>" />
       <?php endif; ?>
     </form>
-    <!-- Custom browsebutton -->
-    <div class="searchbox-toolbar">
-      <nav id="browseContainer" class="browsebar-custom">
-        <ul>
-          <li id="searchHelpLink">
-            <a href="/beta/Content/Help" class="btn btn-link btn-advanced">
-                <i class="fa fa-question-circle"></i> <?=$this->transEsc("search_help")?>
-            </a>
-          </li>
-          <li>
-            <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : ''?>">
-                <i class="fa fa-search-adv"></i> <?=$this->transEsc("Advanced Search")?>
-            </a>
-          </li>
-          <li>
-            <a href="/beta/Search/History" class="btn btn-link btn-advanced history-btn">
-                <i class="fa fa-history"></i> <?=$this->transEsc("menu_history")?>
-            </a>
-          </li>
-            <? /*
-            //$searchHistory = file_get_contents('https://keski.finna-test.fi/beta/Search/History');
-            // This does not work because Warning: include(): https:// wrapper is disabled in the server configuration by allow_url_include=0
-            //echo include("https://keski.finna-test.fi/beta/Search/History");
-            // https://github.com/ttodua/useful-php-scripts/blob/master/get-remote-url-content-data.php could work.ace_content
-            // Use JQuery for now within custom.js ...
-            */ ?>
-            <!-- Browse categories button, hide in search results -->
-            <li id="browseLi" class="dropdown browse-categories-li-item">
-              <a href="#" class="dropdown-toggle browse-a" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <?=$this->transEsc("category_browse");?>
-                  <b class="caret" aria-hidden="true"></b>
-                </a>
-                <ul role="group" class="dropdown-menu browse-list-container" aria-labelby="browseLi">
-                  <li>
-                    <a role="menuitem" class="iconlabel format-1journalarticle" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FJournal%2F%22"> <?=$this->transEsc("format_Journal_plural")?></a>
-                  </li>
-                  <li>
-                    <a role="menuitem" class="iconlabel format-1videovideo" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FVideo%2F%22"> <?=$this->transEsc("movies_and_videos")?></a>
-                  </li>
-                  <li>
-                    <a role="menuitem" class="iconlabel format-1soundrecord" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B0%5D=~format%3A%220%2FSound%2F%22"> <?=$this->transEsc("format_Sound/SoundRecording_plural")?></a>
-                  </li>
-                  <li>
-                    <a role="menuitem" class="iconlabel format-1bookbook" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FBook%2F%22"> <?=$this->transEsc("format_Book/Book_plural")?></a>
-                  </li>
-                  <li>
-                    <a role="menuitem" class="iconlabel format-ebook" href="<? echo $pageUrl ?>Search/Results?filter%5B%5D=~genre_facet%3A%22E-kirjat%22&type=AllFields"><?=$this->transEsc("browsebar_ematerial")?></a>
-                  </li>
-                  <li>
-                    <a role="menuitem" class="iconlabel format-1mapmap" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMap%2F%22"> <?=$this->transEsc("format_Map_plural")?></a>
-                  </li>
-                  <li>
-                    <a role="menuitem" class="iconlabel format-0note" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMusicalScore%2F%22"> <?=$this->transEsc("format_MusicalScore_plural")?></a>
-                  </li>
-                  <li>
-                    <a role="menuitem" href="<? echo $pageUrl ?>Search/Results?limit=0&filter%5B%5D=%7Egenre_facet%3A%22Lastenkirjallisuus%22&filter%5B%5D=%7Egenre_facet%3A%22Nuortenkirjallisuus%22&type=AllFields"><i class="fa fa-child" aria-hidden="true"></i> <?=$this->transEsc("browsebar_children");?></a>
-                  </li>
-                </ul>
-          </li>
-        </ul>
-      </nav>
-    </div>
 
 
     </nav>
@@ -365,4 +377,28 @@
   </div>
 </nav>
 <?php endif; ?>
+<script>
+   // Autocomplete search must contain at least 5 characters. Inform the user. Note. We add hidden-search-autocomplete in custom.js
+   // We use our own hidden class because the hidden is automatically added to the result list  if less than 5 chars, which is not bueno.
+    $('#searchForm_lookfor').on("input", function(){
+        console.log(this.value)
+        var inputText = this.value;
+        var inputLength = this.value.length;
+        if (inputLength === 0) {
+        console.log("HIDDEN")
+            $('.autocomplete-results').addClass('hidden-search-autocomplete');
+        }
+        // TO DO: Add translations.
+        else if (inputLength > 0 && inputLength < 5) {
+            $('.loading').text('Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.');
+            $('.autocomplete-results').removeClass('hidden-search-autocomplete');
+            $('.autocomplete-results div').html('<div><i class="item loading">Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.</i></div>');
+        }
+        else {
+            $('.loading').text('Ladataan...');
+            $('.autocomplete-results').removeClass('hidden-search-autocomplete');
+        }
+    });
+
+</script>
 <!-- END of: finna - search/searchbox.phtml -->

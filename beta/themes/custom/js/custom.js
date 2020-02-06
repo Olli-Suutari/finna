@@ -280,5 +280,5 @@ function finnaCustomInit() {
        $('.login-btn').addClass('ios-login');
    }
 
-
+    $('.autocomplete-results').addClass('hidden-search-autocomplete');
 }
