@@ -380,22 +380,34 @@
 <script>
    // Autocomplete search must contain at least 5 characters. Inform the user. Note. We add hidden-search-autocomplete in custom.js
    // We use our own hidden class because the hidden is automatically added to the result list  if less than 5 chars, which is not bueno.
+    var hasSearchedBefore = false;
     $('#searchForm_lookfor').on("input", function(){
-        console.log(this.value)
         var inputText = this.value;
         var inputLength = this.value.length;
         if (inputLength === 0) {
-        console.log("HIDDEN")
             $('.autocomplete-results').addClass('hidden-search-autocomplete');
         }
         // TO DO: Add translations.
         else if (inputLength > 0 && inputLength < 5) {
-            $('.loading').text('Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.');
-            $('.autocomplete-results').removeClass('hidden-search-autocomplete');
-            $('.autocomplete-results div').html('<div><i class="item loading">Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.</i></div>');
+            if (hasSearchedBefore) {
+                $('.autocomplete-results div').html('<div><i class="item loading">Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.</i></div>');
+            }
+            else {
+                $('.loading').text('Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.');
+                hasSearchedBefore = true;
+            }
+           $('.autocomplete-results').removeClass('hidden-search-autocomplete');
+
         }
         else {
-            $('.loading').text('Ladataan...');
+            if (hasSearchedBefore) {
+                $('.loading').text('Ladataan...');
+                $('.autocomplete-results div').html('<div><i class="item loading">Ladataan...</i></div>');
+            }
+            else {
+                $('.loading').text('Ladataan...');
+                hasSearchedBefore = true;
+            }
             $('.autocomplete-results').removeClass('hidden-search-autocomplete');
         }
     });
