@@ -253,22 +253,19 @@ function endsWith($string, $endString)
                       <input type="hidden" name="auth_method" value="MultiILS">
                       <input type="hidden" name="csrf" value="<?=$this->escapeHtmlAttr($account->getCsrfHash())?>" />
                       <!-- LOGIN BTN -->
-                      <input class="btn btn-primary login-btn" type="submit" name="processLogin" value="Kirjaudu">
+                      <button class="btn btn-primary login-btn" type="submit" name="processLogin" value="Kirjaudu">
+                      Kirjaudu <i class="fa fa-sign-in" aria-hidden="true"></i> </button>
                     </div>
                   </form>
 
                     <div class="login-help-links">
                       <p>
-                        <a id="login_library_card_register" class="btn btn-link" href="/beta/LibraryCards/Register" style="display: block;">Ilmoittaudu kirjaston asiakkaaksi</a>
+                        <a id="login_library_card_register" class="btn btn-link" href="/beta/LibraryCards/Register" style="display: none;">Ilmoittaudu kirjaston asiakkaaksi</a>
                       </p>
                       <p>
-                        <a id="login_library_card_recovery" class="btn btn-link" href="/beta/LibraryCards/Recover" style="display: block;">Unohditko salasanasi?</a>
+                        <a id="login_library_card_recovery" class="btn btn-link" href="/beta/LibraryCards/Recover" style="display: none;">Unohditko salasanasi?</a>
                       </p>
                    </div>
-
-
-
-
 
                 </ul>
             </li>

@@ -10,7 +10,7 @@ Info icon is replaced by icomoon.
 header .fa-info-circle:before {
   font-family: inherit!important;
   content: "\f05a";
-  font-size: 1.05;
+  font-size: 1.05em;
 }
 
 .finna-navbar {
@@ -50,11 +50,27 @@ header {
 }
 
 @media screen and ( min-width: 1200px ){
+
+  [role=menubar] li {
+    margin-right: 4vmin!important;
+  }
+
   .navbar-header {
       margin-left: -20px!important;
       margin-right: 20px!important;
   }
 }
+
+@media screen and ( min-width: 1400px ){
+  .navbar-header {
+    margin-left: -80px!important;
+  }
+
+  [role=menubar] li {
+    margin-right: 5vmin!important;
+  }
+}
+
 
 header i {
   margin-right: 2px;
@@ -66,9 +82,7 @@ header i {
 }
 
 @media screen and ( min-width: 1200px ){
-  [role=menubar] li {
-    margin-right: 4vmin!important;
-  }
+
 }
 
 

@@ -22,7 +22,7 @@
     //background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 80%)!important;
     //background: url('https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_960_720.png')!important;
     //background: url('https://i.imgur.com/DjPMk2O.png')!important;
-    background: url('https://i.imgur.com/MYig17p.jpg')no-repeat fixed left center!important;
+    background: url('https://i.imgur.com/MYig17p.jpg')no-repeat fixed left top!important;
     padding: 0!important;
     margin: 0!important;
     margin-bottom: 1.3em!important;
@@ -44,6 +44,23 @@ section[role=search] {
 }
 
 
+
+section[role=search] .search {
+  margin-left: auto;
+  margin-right: auto;
+  left: 12%;
+  transform: translateX(-12%);
+  position: relative;
+  padding-top: 1.8em;
+  padding-left: 3em;
+  padding-right: 3em;
+  background: rgb(90,246,188);
+  background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 90%)!important;  top: -35px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+
 #searchForm {
 }
 
@@ -56,6 +73,7 @@ section[role=search], .search-form-container  {
     padding-top: .5em!important;
     padding-bottom: 0!important;
     height: auto!important;
+
 }
 
 .search-form-container .container {
@@ -79,23 +97,35 @@ section[role=search], .search-form-container  {
 }
 
 .searchbox-toolbar {
-  margin-top: 3.5em!important;
-  background: #EBEBED!important;
-  margin-bottom: 2vw;
-  border-radius: 15px;
+  //background: #EBEBED;
+  background: rgb(90,246,188);
+  background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 90%)!important;
+  margin-bottom: 1.3vw;
+  padding-top: .6em;
+  padding-bottom: 0;
+  border-radius: 22px;
   justify-content: space-between;
   flex-direction: column;
   margin-left: auto;
   margin-right: auto;
   text-align: justify;
+  padding-left: 10px;
 
 }
 
+.searchbox-columns .search {
+  min-width: 66%;
+  z-index: 900;
+}
 .searchbox-toolbar ul {
 }
 
 .home-search-bg  {
-  margin-bottom: 19vw;
+  margin-top: 9vw;
+  margin-bottom: 17vw;
+  padding-top: 2.3em!important;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
 }
 
 .searchbox-toolbar li {
@@ -189,6 +219,10 @@ section[role=search], .search-form-container  {
         margin-left: auto;
     }
   }
+
+.browse-list-container {
+  z-index: 1000;
+}
 
 .browsebar-custom div span:hover, #browseContainer ul li a:hover {
  }
