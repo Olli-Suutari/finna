@@ -45,10 +45,10 @@ function appendSearchBar () {
         return;
     }
     if (locationUrl.toLowerCase().indexOf ('/content/help') > -1) {
-        $('#searchHelpLink').css('display', 'none')
+        $('#searchHelpLink').parent().css('display', 'none')
     }
     if (locationUrl.indexOf('/Search/History') > -1) {
-        $('.history-btn').css('display', 'none');
+        $('.history-btn').parent().css('display', 'none');
         return;
     }
     // If user has a search historry, append the history button.
@@ -57,7 +57,7 @@ function appendSearchBar () {
             //console.log(data)
             if (data.indexOf('<h4>Hakuhistoria on tyhj') > -1 ||
             data.indexOf('There are currently no') > -1) {
-                $('.history-btn').css('display', 'none');
+                $('.history-btn').parent().css('display', 'none');
                 return;
             }
           });

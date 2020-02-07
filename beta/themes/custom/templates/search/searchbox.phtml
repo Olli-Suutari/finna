@@ -117,23 +117,21 @@
     <?php endif; ?>
     <div class="search <?=$mainPage ? 'home-search-bg' : '' ?>">
 
-
-
        <!-- Custom browsebutton -->
         <div class="searchbox-toolbar">
           <nav id="browseContainer" class="browsebar-custom">
-            <ul>
-              <li id="searchHelpLink">
-                <a href="/beta/Content/Help" class="btn btn-link btn-advanced">
-                    <i class="fa fa-question-circle"></i> <?=$this->transEsc("search_help")?>
-                </a>
-              </li>
-              <li>
+            <ul class="search-tools-ul">
+              <li class="search-tools-li-1">
                 <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : ''?>">
                     <i class="fa fa-search-adv"></i> <?=$this->transEsc("Advanced Search")?>
                 </a>
               </li>
-              <li>
+                <li id="searchHelpLink" class="search-tools-li-2">
+                    <a href="/beta/Content/Help" class="btn btn-link btn-advanced">
+                        <i class="fa fa-question-circle"></i> <?=$this->transEsc("search_help")?>
+                    </a>
+                </li>
+                <li class="search-tools-li-3">
                 <a href="/beta/Search/History" class="btn btn-link btn-advanced history-btn">
                     <i class="fa fa-history"></i> <?=$this->transEsc("menu_history")?>
                 </a>
@@ -146,7 +144,7 @@
                 // Use JQuery for now within custom.js ...
                 */ ?>
                 <!-- Browse categories button, hide in search results -->
-                <li id="browseLi" class="dropdown browse-categories-li-item">
+                <li id="browseLi" class="dropdown browse-categories-li-item search-tools-li-4">
                   <a href="#" class="dropdown-toggle browse-a" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <?=$this->transEsc("category_browse");?>
                       <b class="caret" aria-hidden="true"></b>
@@ -181,12 +179,6 @@
             </ul>
           </nav>
         </div>
-
-
-
-
-
-
 
 
 
@@ -393,6 +385,7 @@
                 $('.autocomplete-results div').html('<div><i class="item loading">Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.</i></div>');
             }
             else {
+                $('.autocomplete-results div').html('<div><i class="item loading">Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.</i></div>');
                 $('.loading').text('Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.');
                 hasSearchedBefore = true;
             }
@@ -405,7 +398,8 @@
                 $('.autocomplete-results div').html('<div><i class="item loading">Ladataan...</i></div>');
             }
             else {
-                $('.loading').text('Ladataan...');
+                $('.autocomplete-results div').html('<div><i class="item loading">Ladataan...</i></div>');
+                //$('.loading').text('Ladataan...');
                 hasSearchedBefore = true;
             }
             $('.autocomplete-results').removeClass('hidden-search-autocomplete');
