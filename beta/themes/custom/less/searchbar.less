@@ -271,17 +271,47 @@ section[role=search], .search-form-container  {
   border-bottom: none!important;
 }
 
-@media only screen and (max-width: 730px) {
+@media only screen and (min-width: 431px) {
+
+  .browse-list-container {
+    top: 50px;
+  }
+}
+
+@media only screen and (min-width: 431px)  and (max-width: 768px) {
   #browseLi {
     position: initial;
   }
 
   .browse-list-container {
+    max-height: 1200px;
+    margin-left: auto;
+    right: 80px;
+    top: 120px;
+    min-width: 300px;
+
+  }
+  .browse-list-container li {
+
+  }
+  .browse-list-container li a {
+
+  }
+}
+
+@media only screen and (max-width: 431px) {
+  #browseLi {
+    position: initial;
+  }
+  .browse-list-container {
     width: 100%!important;
     max-height: 1200px;
     margin-left: auto;
+    top: 210px;
   }
 }
+
+
 
 .browse-list-container {
   z-index: 1000;
