@@ -76,7 +76,6 @@ section[role=search] .search {
 
 #searchForm {
   margin-top: -13px!important;
-
 }
 
 .search-query {
@@ -120,10 +119,11 @@ section[role=search], .search-form-container  {
 }
 
 .searchbox-columns .search {
-  min-width: 66%;
+  min-width: 100%;
   z-index: 900;
   padding-bottom: 2em;
 }
+
 .searchbox-toolbar ul {
 }
 
@@ -150,7 +150,7 @@ section[role=search], .search-form-container  {
   padding-top: 10px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 430px) {
   .search-tools-ul {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -165,11 +165,24 @@ section[role=search], .search-form-container  {
   text-align: center!important;
 }
 
-
-@media (min-width: 1100px) {
+@media (min-width: 800px) {
   .search-tools-ul {
     grid-template-columns: repeat(4, 1fr);
     justify-items: center;
+  }
+  .searchbox-columns .search {
+  }
+}
+
+@media (min-width: 1100px) {
+  .searchbox-columns .search {
+    min-width: 80%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .searchbox-columns .search {
+    min-width: 67%;
   }
 }
 
