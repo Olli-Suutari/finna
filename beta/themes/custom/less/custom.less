@@ -140,6 +140,7 @@ section[role=main] {
 // Do not add margin between search results and footer... But do on advanced search page and home  where the class .template-dir-search is also used.
 section[role=main]:not(.template-dir-search), .template-name-advanced {
     margin-bottom: 4em!important;
+    padding-top: 3em;
 }
 
 .template-name-home {
@@ -162,7 +163,7 @@ footer {
     left: 0!important;
     display: flex;
     height: auto!important;
-    min-height: 25vmin; // TO DO: https://keski.finna-test.fi/beta/Feedback/Home has empty space after the footer in 1080 * 1920.
+    min-height: 43vmin; // TO DO: https://keski.finna-test.fi/beta/Feedback/Home has empty space after the footer in 1080 * 1920.
 }
 
 
@@ -180,7 +181,6 @@ footer .container {
 }
 
 .footer-right-side  {
-    position: flex-end;
     float: right;
     transform: rotate(-215deg);
     margin-bottom: 50px;
