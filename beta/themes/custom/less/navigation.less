@@ -1260,3 +1260,41 @@ header .primary-btn {
   }
 }
 
+// Shake the failed login.
+.shake-login {
+  -webkit-animation: kf_shake 0.2s 1 linear;
+  -moz-animation: kf_shake 0.2s 1 linear;
+  -o-animation: kf_shake 0.2s 1 linear;
+}
+@-webkit-keyframes kf_shake {
+  0% { -webkit-transform: translate(15px); }
+  20% { -webkit-transform: translate(-15px); }
+  40% { -webkit-transform: translate(7px); }
+  60% { -webkit-transform: translate(-7px); }
+  80% { -webkit-transform: translate(4px); }
+  100% { -webkit-transform: translate(0px); }
+}
+@-moz-keyframes kf_shake {
+  0% { -moz-transform: translate(15px); }
+  20% { -moz-transform: translate(-15px); }
+  40% { -moz-transform: translate(7px); }
+  60% { -moz-transform: translate(-7px); }
+  80% { -moz-transform: translate(4px); }
+  100% { -moz-transform: translate(0px); }
+}
+@-o-keyframes kf_shake {
+  0% { -o-transform: translate(15px); }
+  20% { -o-transform: translate(-15px); }
+  40% { -o-transform: translate(7px); }
+  60% { -o-transform: translate(-7px); }
+  80% { -o-transform: translate(4px); }
+  100% { -o-origin-transform: translate(0px); }
+}
+
+.login-error {
+  margin-top: -24px;
+  padding: 1.1em;
+  line-height: 1rem!important;
+  border-radius: 13px;
+  font-size: 1.15em;
+}

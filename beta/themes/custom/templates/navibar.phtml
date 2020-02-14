@@ -276,6 +276,10 @@ function endsWith($string, $endString)
                     //-->
 
 
+                    $('#loginForm').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e){
+                        $('#loginForm').delay(200).removeClass('shake-login');
+                    });
+
                     $("#loginForm").on("submit", function(e) {
                         e.preventDefault();
 
@@ -287,25 +291,27 @@ function endsWith($string, $endString)
                                    window.location.href  = "<? echo $this->url('myresearch-home') ?>";
                                }
                                else {
-                                   console.log("F LOGIN");
-                                   console.log(data)
                                    // Find the new csrf value required for a new login attempt.
                                    var matchNewCsrf = new RegExp(/(csrf" value=")(.*)(")/g);
                                    var matchNewCsrfResult = matchNewCsrf.exec(data);
                                    $( "input[name='csrf']" ).val(matchNewCsrfResult[2]);
                                    // Find the error value
-
                                    var matchLoginError = new RegExp(/("flash-message alert alert-danger">)(.*)(<\/)/g);
                                    var matchLoginErrorResult = matchLoginError.exec(data);
+                                   // Error message + shaky shake.
                                    console.log(matchLoginErrorResult[2]);
+                                   // If the account is locked, the same error is still displayed. TO DO: Ask finna devs / improve. the message after x logins.
                                    $('.login-error').text( matchLoginErrorResult[2]);
                                    $('.login-error').css('display', 'block');
+                                   $('#loginForm').addClass('shake-login');
                                }
                             });
 
                         }
                         catch (e) {
                             console.log(e)
+                            // Redirect to the login error page if something goes wrong.
+                            window.location.href  = "<? echo $this->url('myresearch-home') ?>";
                         }
                         finally {
                             console.log("done")
@@ -341,7 +347,9 @@ function endsWith($string, $endString)
                             $('#login_MultiILS_password').focus();
                         }
                         else {
-                            $('.login-btn').focus();
+                            // If we focus the loginbtn background click dismiss preventation does not work. TO DO: FIX.
+                            $('#login_MultiILS_username').focus();
+                            //$('.login-btn').focus();
                         }
                     });
 
