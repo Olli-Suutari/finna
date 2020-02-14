@@ -236,7 +236,7 @@ function endsWith($string, $endString)
 
                     <ul role="menu" id="my-info-dropdown-menu" class=" loginOptions dropdown-menu login-dropdown">
 
-                        <form method="post" class="form-vertical" action="<? echo $this->url('myresearch-home') ?>" name="loginForm" id="loginForm">
+                        <form class="form-vertical" name="loginForm" id="loginForm">
 
                             <div class="login-test">
                                 <!-- CARD INPUT -->
@@ -257,7 +257,7 @@ function endsWith($string, $endString)
                                     Kirjaudu <i class="fa fa-sign-in" aria-hidden="true"></i> </button>
                             </div>
                         </form>
-
+                        <p class="login-error flash-message alert alert-danger" style="display: none"></p>
                         <div class="login-help-links">
                             <p>
                                 <a id="login_library_card_register" class="btn btn-link" href="/beta/LibraryCards/Register" style="display: none;">Ilmoittaudu kirjaston asiakkaaksi</a>
@@ -275,14 +275,56 @@ function endsWith($string, $endString)
                     finna.layout.initSecondaryLoginField({"keski":""}, 'login_MultiILS_');
                     //-->
 
+
+                    $("#loginForm").on("submit", function(e) {
+                        e.preventDefault();
+
+                        try {
+                            // Post login
+                            $.post( "<? echo $this->url('myresearch-home') ?>", $( "#loginForm" ).serialize(), function ( data ) {
+                                // If succes, the page should contain a link to /MyResearch/Holds
+                               if (data.indexOf("/MyResearch/Holds") > -1) {
+                                   window.location.href  = "<? echo $this->url('myresearch-home') ?>";
+                               }
+                               else {
+                                   console.log("F LOGIN");
+                                   console.log(data)
+                                   // Find the new csrf value required for a new login attempt.
+                                   var matchNewCsrf = new RegExp(/(csrf" value=")(.*)(")/g);
+                                   var matchNewCsrfResult = matchNewCsrf.exec(data);
+                                   $( "input[name='csrf']" ).val(matchNewCsrfResult[2]);
+                                   // Find the error value
+
+                                   var matchLoginError = new RegExp(/("flash-message alert alert-danger">)(.*)(<\/)/g);
+                                   var matchLoginErrorResult = matchLoginError.exec(data);
+                                   console.log(matchLoginErrorResult[2]);
+                                   $('.login-error').text( matchLoginErrorResult[2]);
+                                   $('.login-error').css('display', 'block');
+                               }
+                            });
+
+                        }
+                        catch (e) {
+                            console.log(e)
+                        }
+                        finally {
+                            console.log("done")
+                        }
+
+                        // This method is always executed whether there were an error or not
+                    });
+
                     // Prevent the item from being accidentally closed.
                     var preventBackgroundClickHiding = false;
+
                     $(document).on('click', '.login-dropdown', function (e) {
                         preventBackgroundClickHiding = true;
                         setTimeout(function(){
                             preventBackgroundClickHiding = false;
                         }, 50);
                     });
+
+
 
                     // For some reason, the dropdown is unable to close and triggers the open event after closing if custom logic is added.
                     var preventOpenLoop = false;
@@ -343,7 +385,7 @@ function endsWith($string, $endString)
                         <!-- Replaced class lang with lang-selector -->
                         <li class="lang-selector">
                             <a role="menuitem" class="btn btn-primary lang-btn preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
-              <span><i class="fa fa-language" aria-hidden="true"></i> 
+              <span><i class="fa fa-language" aria-hidden="true"></i>
               <?=$this->displayLanguageOption($langText)?></span></a>
                         </li>
                         <?php $i++; ?>
