@@ -204,8 +204,7 @@ function smartPaginationDisplay() {
 
         if (currentPage == null) {
             currentPage = 0;
-        }
-        else {
+        } else {
             currentPage = currentPage[0].replace('page=', '');
         }
         var pagesLeft = totalPages - currentPage;
@@ -217,8 +216,7 @@ function smartPaginationDisplay() {
         }
         if (pagesLeft > 2) {
             $('.fa-last-page').prepend(' ' + totalPages);
-        }
-        else if (pagesLeft < 2) {
+        } else if (pagesLeft < 2) {
             $('.fa-arrow-alt-right').addClass('fa-last-page');
             $('.fa-arrow-alt-right').removeClass('fa-arrow-alt-right');
             $(parentLink).parent().css('display', 'none');
@@ -228,10 +226,23 @@ function smartPaginationDisplay() {
             $('.fa-arrow-alt-left').addClass('fa-first-page');
             $('.fa-arrow-alt-left').removeClass('fa-arrow-alt-left');
         }
-
+    }
+    // Hide "Keski-kirjastot" from the selected library filter text.
+    if ( document.documentElement.lang.toLowerCase() === "fi" ) {
+        if ($('.filter-text:contains("Keski-kirjastot")')) {
+            var newValue = $('.filter-text').text();
+            newValue = newValue.replace('Keski-kirjastot > ', '');
+            $('.filter-text').text(newValue);
+        }
+    }
+    else {
+        if ($('.filter-text:contains("Keski Libraries")')) {
+            var newValue = $('.filter-text').text();
+            newValue = newValue.replace('Keski Libraries > ', '');
+            $('.filter-text').text(newValue);
+        }
     }
 }
-
 
 function finnaCustomInit() {
     loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");

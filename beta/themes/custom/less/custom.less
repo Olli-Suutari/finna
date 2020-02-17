@@ -137,6 +137,12 @@ section[role=main] {
     text-align: center;
 }
 
+section[role=main] {
+    padding-top: 2.6em;
+    margin-bottom: 3em!important;
+
+}
+
 // Do not add margin between search results and footer... But do on advanced search page and home  where the class .template-dir-search is also used.
 section[role=main]:not(.template-dir-search), .template-name-advanced {
     margin-bottom: 4em!important;
@@ -343,14 +349,10 @@ footer .selected-nav a:hover {
     padding-bottom: 2em;
 }
 
+// Search results.
 .result-view-list {
     //display: flex;
     //overflow: visible;
-}
-
-.main-content {
-
-
 }
 
 @media screen and ( min-width: 1000px ) {
@@ -359,6 +361,39 @@ footer .selected-nav a:hover {
     }
 }
 
+.side-facets-container-ajax {
+    color: @text-color!important;
+
+}
+
+.searchtools-background {
+    background: none!important;
+}
+
+.list-group-item, .searchtools a {
+    color: @text-color!important;
+
+}
+
+.list-group.facet .list-group-item.title.collapsed:after, .list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after {
+    color: @btn-primary;
+}
+
+#side-collapse-building .jstree-container-ul li:first-child i {
+    display: none;
+}
+
+#side-collapse-building .jstree-anchor .badge {
+    display: none;
+}
+
+.jstree-children .jstree-ocl, .jstree-children .badge, .jstree-children jstree-ocl:before  {
+    display: block!important;
+}
+
+.dedupInformation, span[title="Keski-kirjastot"], .dedupInformation, span[title="Keski Libraries"]  {
+    display: none;
+}
 
 /*
 .sidebar-on-left {
