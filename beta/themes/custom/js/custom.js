@@ -230,16 +230,21 @@ function smartPaginationDisplay() {
     // Hide "Keski-kirjastot" from the selected library filter text.
     if ( document.documentElement.lang.toLowerCase() === "fi" ) {
         if ($('.filter-text:contains("Keski-kirjastot")')) {
-            var newValue = $('.filter-text').text();
-            newValue = newValue.replace('Keski-kirjastot > ', '');
-            $('.filter-text').text(newValue);
+            // Unless we apply the contains filter, other filter texts will also be replaced.
+            $( ".filter-text" ).each(function( index ) {
+                var newValue = $( this ).text();
+                newValue = newValue.replace('Keski-kirjastot > ', '');
+                $( this ).text(newValue);
+            });
         }
     }
     else {
         if ($('.filter-text:contains("Keski Libraries")')) {
-            var newValue = $('.filter-text').text();
-            newValue = newValue.replace('Keski Libraries > ', '');
-            $('.filter-text').text(newValue);
+            $( ".filter-text" ).each(function( index ) {
+                var newValue = $( this ).text();
+                newValue = newValue.replace('Keski Libraries > ', '');
+                $( this ).text(newValue);
+            });
         }
     }
 }
