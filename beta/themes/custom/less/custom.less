@@ -49,9 +49,9 @@ h1, h2, h3, h4 {
 }
 
 @media screen and ( max-width: 768px ){
- .cookie-consent {
-     width: 100%;
- }
+    .cookie-consent {
+        width: 100%;
+    }
 }
 
 
@@ -138,7 +138,7 @@ section[role=main] {
 }
 
 section[role=main] {
-    padding-top: 2.6em;
+    padding-top: 2em;
     margin-bottom: 3em!important;
 
 }
@@ -399,6 +399,75 @@ footer .selected-nav a:hover {
     margin-left: -10px!important;
 }
 
+// This makes the background smaller.
+.template-name-results  .search-form-container {
+    max-height: 140px!important;
+}
+
+.template-name-results  .main-content {
+    margin-top: 0!important;
+}
+
+
+.search-filters {
+    border-top: none;
+    position: relative;
+    top: -22px;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+
+    padding-top: 0!important;
+    background: none!important;
+    height: auto!important;
+}
+
+.filter-value {
+    background: none!important;
+}
+
+.filter-title-group {
+    background: rgba(135, 209, 239, 0.78);
+    padding: .86em 1.2em;
+    margin-bottom: .8em;
+    margin-right: .96em;
+    border-radius: 16px;
+}
+
+.filter-text {
+    color: @text-color!important;
+    font-size: .96em!important;
+    font-style: oblique;
+    line-height: unset!important;
+    padding: 0!important;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    font-weight: 400!important;
+}
+
+.search-filter-remove {
+    color: @brand-danger!important;
+    margin-left: 4px!important;
+    margin-right: 6px!important;
+}
+
+// Filter-value = Things like "Verkossa saatavilla".
+.filters-title, .filters-or, .filter-value  {
+    color: @text-color!important;
+    font-size: 1.17em;
+    font-weight: 600;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    margin-left: 2px!important;
+    margin-right: 3px!important;
+    padding: 0!important;
+    line-height: unset!important;
+}
+
+.filters-title {
+    margin-right: 0!important;
+
+}
+
 /*
 .sidebar-on-left {
     position: sticky!important;
@@ -465,7 +534,7 @@ footer .selected-nav a:hover {
 
 }
 
-
 */
 
 // Modals.
+
