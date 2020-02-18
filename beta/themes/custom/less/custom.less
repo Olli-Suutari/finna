@@ -155,7 +155,7 @@ section[role=main]:not(.template-dir-search), .template-name-advanced {
 
 footer {
     box-shadow: 0 -2px 2px -2px #333;
-    font-size: 1.28em;
+    font-size: 1.3em;
     //background: rgb(113,164,229);
     //background: radial-gradient(circle, rgba(113,164,229,1) 0%, rgb(182, 215, 221) 100%);
     background: rgb(90,246,188);
@@ -230,7 +230,7 @@ footer .container {
 
 .footer-links li:hover {
     border-bottom: solid 2px @brand-secondary;
-    margin-bottom: 0px;
+    margin-bottom: 0;
 }
 
 footer .selected-nav {
@@ -415,7 +415,6 @@ footer .selected-nav a:hover {
     top: -22px;
     margin-top: 0!important;
     margin-bottom: 0!important;
-
     padding-top: 0!important;
     background: none!important;
     height: auto!important;
@@ -437,7 +436,7 @@ footer .selected-nav a:hover {
 
 .filter-text {
     color: @text-color!important;
-    font-size: .96em!important;
+    font-size: .99em!important;
     font-style: oblique;
     line-height: unset!important;
     padding: 0!important;
@@ -455,7 +454,6 @@ footer .selected-nav a:hover {
 // Filter-value = Things like "Verkossa saatavilla".
 .filters-title, .filters-or, .filter-value  {
     color: @text-color!important;
-
     margin-top: 0!important;
     margin-bottom: 0!important;
     margin-left: 2px!important;
@@ -466,8 +464,66 @@ footer .selected-nav a:hover {
 
 .filters-title {
     margin-right: 0!important;
-
 }
+
+.pagination-background .mainbody {
+    width: 100% !important;
+    text-align: center;
+}
+
+
+.pagination {
+    margin-top: 1.8em;
+    text-align: center;
+    font-size: 1.5em!important;
+}
+
+.pagination li:not(.pagination-button) a:hover {
+    background: none!important;
+    color: @text-color!important;
+    border-bottom: solid 2px @nav-hover-border-color!important;
+    margin-bottom: 0;
+    border-radius: 0!important;
+}
+
+.pagination .active  span, .pagination .active  span:hover {
+    background: none!important;
+    color: @text-color!important;
+    border-bottom: solid 2px @brand-third;
+    margin-bottom: 0;
+    border-radius: 0!important;
+}
+
+.pagination li a {
+    margin-right: 5px!important;
+    margin-left: 5px!important;
+}
+
+.searchtools a {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    margin-top: 12px;
+    margin-bottom: 2px;
+    font-size: 1.1em!important;
+}
+
+.searchtools a:hover {
+    border-bottom: solid 2px @brand-secondary;
+    margin-bottom: 0;
+}
+
+.pagination-button i {
+    background: @btn-primary!important;
+    color: @text-color!important;
+    padding: .35em!important;
+    border-radius: 15px!important;
+}
+
+.pagination-button i:hover {
+    background: @btn-primary-hover!important;
+}
+
 
 /*
 .sidebar-on-left {
