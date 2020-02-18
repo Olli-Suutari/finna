@@ -101,20 +101,8 @@
      }
   ?>
 <nav class="nav searchbox hidden-print">
-    <!-- Home search, Removed class: searchbox-home -->
-  <div class="<?=$mainPage ? '' : '' ?> <?= $module == 'record' || $module == 'collection' ? 'searchbox-flex' : 'searchbox-columns' ?>">
-    <?php if ($module == 'record' || $module == 'collection'): ?>
-      <div class="record-back hidden-print">
-          <?php
-            $html = '<span><i class="fa fa-arrow-alt-left"></i></span>';
-            $html .= '<span class="back-to-search-text hidden-xs hidden-sm">' . $this->transEsc('Back to search results') . '</span>';
-            $previousSearch = $this->searchMemory()->getLastSearchLink($html);
-            if ($previousSearch !== ''):
-          ?>
-            <div class="back-to-search"><?=$previousSearch?></div>
-          <?php endif; ?>
-      </div>
-    <?php endif; ?>
+    <!-- Home search, Removed class: searchbox-home. use searchbox-columns for record / collection. -->
+  <div class="<?=$mainPage ? '' : '' ?> <?= $module == 'record' || $module == 'collection' ? 'searchbox-columns' : 'searchbox-columns' ?>">
     <div class="search <?=$mainPage ? 'home-search-bg' : '' ?>">
        <!-- Custom browsebutton -->
         <div class="searchbox-toolbar">
@@ -179,9 +167,6 @@
             </ul>
           </nav>
         </div>
-
-
-
       <form id="searchForm" role="search" class="searchForm navbar-form navbar-left  <?=$handlerCount < 2 ? 'input-field-only' :''; ?>" method="get" action="<?=$this->url($basicSearch)?>" name="searchForm" autocomplete="off">
       <label for="searchForm_lookfor" class="sr-only" hidden><?=$this->transEsc("Find")?></label>
       <input class="searchForm_lookfor form-control search-query<?php if($this->searchbox()->autocompleteEnabled($this->searchClassId)):?> autocomplete-finna searcher:<?=$this->escapeHtmlAttr($this->searchClassId) ?><?= !empty($activeTab) ? ' tab:' . $this->escapeHtmlAttr(str_replace(':', '###', $activeTab)) : ''?><?=!empty($browse) || $activeTab == 'Combined' ? ' onlySuggestions:1' : ''?><?= !$browse && in_array($activeTab, ['Combined','Primo','Summon']) ? ' suggestions:0' : ''?><?= !empty($acHandlers) ? ' handlers:' . implode('|', array_map(function ($h) { return $h['handler']; }, $acHandlers)) : ''?><?= !empty($phrase) ? ' phrase:' . $this->escapeHtmlAttr($phrase) : ''?><?= !empty($acFilters) ? ' filters:' . $this->escapeHtmlAttr(implode('||', array_map(function ($k, $v) { return $k . '|' . $v; }, array_keys($acFilters), $acFilters))) : ''?><?php endif ?>" placeholder="<?=$this->escapeHtmlAttr($placeholder)?>" id="searchForm_lookfor" type="text" name="lookfor" value="<?=$this->escapeHtmlAttr($this->lookfor)?>"/>
@@ -267,105 +252,75 @@
       <?php endif; ?>
     </form>
 
+        <?php if ($module != 'record' && $module != 'collection'): ?>
+        <?php else: ?>
+        <div class="record-pagination-tools">
+            <?php $this->scrollData = $this->searchMemory()->getLastScrollData() ?>
+            <?php if ($module == 'record' || $module == 'collection'): ?>
+                <div class="record-back hidden-print">
+                    <?php
+                    $html = '<span><i class="fa fa-arrow-alt-left"></i></span>';
+                    $html .= '<span class="back-to-search-text hidden-xs hidden-sm">' . $this->transEsc('Back to search results') . '</span>';
+                    $previousSearch = $this->searchMemory()->getLastSearchLink($html);
+                    if ($previousSearch !== ''):
+                        ?>
+                        <div class="back-to-search"><?=$previousSearch?></div>
+                    <?php endif; ?>
+                </div>
+            <?php endif; ?>
+            <?php if (isset($this->scrollData) && ($this->scrollData['previousRecord'] || $this->scrollData['nextRecord'])): ?>
+                <ul class="pager hidden-print" id="view-pager">
+                    <?php if ($this->scrollData['previousRecord']): ?>
+                        <?php if ($this->scrollData['firstRecord']): ?>
+                            <li>
+                                <a href="<?=$this->recordLink()->getUrl($this->scrollData['firstRecord'])?>" rel="nofollow"><i class="fa fa-first-page"></i><span class="sr-only"><?=$this->transEsc('First Record')?></span></a>
+                            </li>
+                        <?php endif; ?>
+                        <li class="pager-previous-record">
+                            <a href="<?=$this->recordLink()->getUrl($this->scrollData['previousRecord'])?>" rel="nofollow"><i class="fa fa-arrow-alt-left"></i><span class="sr-only"><?=$this->transEsc('Previous Record')?></span></a>
+                        </li>
+                    <?php else: ?>
+                        <?php if ($this->scrollData['firstRecord']): ?>
+                            <li class="disabled" title="<?=$this->transEsc('First Record')?>"><a><i class="fa fa-first-page"></i></a></li>
+                        <?php endif; ?>
+                        <li class="disabled" title="<?=$this->transEsc('Previous Record')?>"><a><i class="fa fa-arrow-alt-left"></i></a></li>
+                    <?php endif; ?>
+                    <li class="pager-text">
+                        <?=$this->transEsc('of_num_results', [
+                            '%%position%%' => $this->localizedNumber($this->scrollData['currentPosition']),
+                            '%%total%%' => $this->localizedNumber($this->scrollData['resultTotal'])
+                        ]) ?>
+                    </li>
+                    <?php if ($this->scrollData['nextRecord']): ?>
+                        <li class="pager-next-record">
+                            <a href="<?=$this->recordLink()->getUrl($this->scrollData['nextRecord'])?>" rel="nofollow"><i class="fa fa-arrow-alt-right"></i><span class="sr-only"><?=$this->transEsc('Next Record')?></span></a>
+                        </li>
+                        <?php if ($this->scrollData['lastRecord']): ?>
+                            <li>
+                                <a href="<?=$this->recordLink()->getUrl($this->scrollData['lastRecord'])?>" rel="nofollow"><i class="fa fa-last-page"></i><span class="sr-only"><?=$this->transEsc('Last Record')?></span></a>
+                            </li>
+                        <?php endif; ?>
+                    <?php else: ?>
+                        <li class="disabled" title="<?=$this->transEsc('Next Record')?>"><a><i class="fa fa-arrow-alt-right"></i></a></li>
+                        <?php if ($this->scrollData['lastRecord']): ?>
+                            <li class="disabled" title="<?=$this->transEsc('Last Record')?>"><a><i class="fa fa-last-page"></i></a></li>
+                        <?php endif; ?>
+                    <?php endif; ?>
+                </ul>
+            <?php endif; ?>
+            <?php endif; ?>
 
-    </nav>
+
+</nav>
+
+
+
+
 
  <!-- End custom browsebutton -->
     </div>
-    <div class="search-tooltip">
-        <!-- removed ! from $mainPage condition, we want to use the same search in home too -->
-      <?php if (!$browse && $mainPage && $advSearch): ?>
-        <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced <?=($module === 'record') ? 'visible-lg' : 'hidden-xs'?>"><i class="fa fa-search-adv"></i><?=$this->transEsc("Advanced Search")?></a>
-      <?php endif; ?>
-      <?php
-        $searchTypes = ['search' => 'local', 'primo' => 'pci', 'eds' => 'eds', 'summon' => 'summon'];
-        if (isset($searchTypes[$module]) && !$this->translationEmpty('tooltip_' . $searchTypes[$module] . '_search_html')) {
-          $tooltipClass = 'tooltip-search-' . $searchTypes[$module];
-          $tooltipText = $this->translate('tooltip_' . $searchTypes[$module] . '_search_html');
-        }
 
-        if (isset($tooltipClass) && isset($tooltipText)):
-      ?>
-        <button aria-label="<?= $this->transEsc('Search Tips') ?>" class="tooltip-button <?=$tooltipClass?> pull-right hidden-xs" data-toggle="tooltip" data-placement="auto" data-html="true" data-original-title="<?=$this->escapeHtmlAttr($tooltipText)?>">
-          <i class="fa fa-question-circle-big"></i>
-        </button>
-      <?php endif; ?>
-      <?php if ($module === 'search' && $action === 'home' && !$this->translationEmpty('tooltip_image_html')): ?>
-        <button aria-hidden="true" aria-label="" class="tooltip-image" data-toggle="tooltip" data-placement="auto" data-html="true" data-original-title="<?=$this->transEsc('tooltip_image_html')?>">
-          <i class="fa fa-info-circle"></i>
-        </button>
-      <?php endif; ?>
     </div>
-    <?php if ($module != 'record' && $module != 'collection'): ?>
-      <?php if ($browse || $mainPage): ?>
-        <?php /* Commenting this code block removes the search-links as we use our own searchbox-toolbar
-        <div class="search-links">
-          <?php if ($advSearch): ?>
-          <a href="<?=$this->url($advSearch)?>" class="btn btn-link btn-advanced"><i class="fa fa-search-adv"></i><?=$this->transEsc("Advanced Search")?></a>
-          <?php endif; ?>
-
-          <?php if ($browse || $this->searchClassId != 'Solr'): ?>
-          <a href="<?=$this->url('home');?>" class="btn btn-link btn-basic"><i class="fa fa-search"></i> <?=$this->transEsc("Basic Search")?></a>
-          <?php endif; ?>
-
-          <?php if ($this->primo()->isAvailable() && ($browse || $this->searchClassId !== 'Primo')) : ?>
-          <a href="<?=$this->url('primo-home');?>" class="btn btn-link btn-primo"><i class="fa fa-search"></i> <?=$this->transEsc("Primo Search")?></a>
-          <?php endif; ?>
-
-          <?php if ($this->eds()->isAvailable() && ($browse || $this->searchClassId !== 'EDS')) : ?>
-          <a href="<?=$this->url('eds-home');?>" class="btn btn-link btn-primo"><i class="fa fa-search"></i> <?=$this->transEsc("EDS Search")?></a>
-          <?php endif; ?>
-
-          <?php if ($this->summon()->isAvailable() && ($browse || $this->searchClassId !== 'Summon')) : ?>
-          <a href="<?=$this->url('summon-home');?>" class="btn btn-link btn-primo"><i class="fa fa-search"></i> <?=$this->transEsc("Summon Search")?></a>
-          <?php endif; ?>
-        </div>
-        */
-        ?>
-      <?php endif; ?>
-    <?php else: ?>
-      <?php $this->scrollData = $this->searchMemory()->getLastScrollData() ?>
-      <?php if (isset($this->scrollData) && ($this->scrollData['previousRecord'] || $this->scrollData['nextRecord'])): ?>
-        <ul class="pager hidden-print" id="view-pager">
-            <?php if ($this->scrollData['previousRecord']): ?>
-                <?php if ($this->scrollData['firstRecord']): ?>
-                <li>
-                  <a href="<?=$this->recordLink()->getUrl($this->scrollData['firstRecord'])?>" rel="nofollow"><i class="fa fa-first-page"></i><span class="sr-only"><?=$this->transEsc('First Record')?></span></a>
-                </li>
-                <?php endif; ?>
-              <li class="pager-previous-record">
-                <a href="<?=$this->recordLink()->getUrl($this->scrollData['previousRecord'])?>" rel="nofollow"><i class="fa fa-arrow-alt-left"></i><span class="sr-only"><?=$this->transEsc('Previous Record')?></span></a>
-              </li>
-            <?php else: ?>
-              <?php if ($this->scrollData['firstRecord']): ?>
-                <li class="disabled" title="<?=$this->transEsc('First Record')?>"><a><i class="fa fa-first-page"></i></a></li>
-              <?php endif; ?>
-              <li class="disabled" title="<?=$this->transEsc('Previous Record')?>"><a><i class="fa fa-arrow-alt-left"></i></a></li>
-            <?php endif; ?>
-          <li class="pager-text">
-              <?=$this->transEsc('of_num_results', [
-                  '%%position%%' => $this->localizedNumber($this->scrollData['currentPosition']),
-                  '%%total%%' => $this->localizedNumber($this->scrollData['resultTotal'])
-              ]) ?>
-          </li>
-            <?php if ($this->scrollData['nextRecord']): ?>
-              <li class="pager-next-record">
-                <a href="<?=$this->recordLink()->getUrl($this->scrollData['nextRecord'])?>" rel="nofollow"><i class="fa fa-arrow-alt-right"></i><span class="sr-only"><?=$this->transEsc('Next Record')?></span></a>
-              </li>
-              <?php if ($this->scrollData['lastRecord']): ?>
-                <li>
-                  <a href="<?=$this->recordLink()->getUrl($this->scrollData['lastRecord'])?>" rel="nofollow"><i class="fa fa-last-page"></i><span class="sr-only"><?=$this->transEsc('Last Record')?></span></a>
-                </li>
-              <?php endif; ?>
-            <?php else: ?>
-              <li class="disabled" title="<?=$this->transEsc('Next Record')?>"><a><i class="fa fa-arrow-alt-right"></i></a></li>
-                <?php if ($this->scrollData['lastRecord']): ?>
-                  <li class="disabled" title="<?=$this->transEsc('Last Record')?>"><a><i class="fa fa-last-page"></i></a></li>
-                <?php endif; ?>
-            <?php endif; ?>
-        </ul>
-      <?php endif; ?>
-    <?php endif; ?>
   </div>
 </nav>
 <?php endif; ?>

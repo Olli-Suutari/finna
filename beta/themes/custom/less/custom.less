@@ -400,7 +400,7 @@ footer .selected-nav a:hover {
 }
 
 // This makes the background smaller.
-.template-name-results  .search-form-container {
+.template-name-results  .search-form-container, .template-dir-record .searchContent {
     max-height: 140px!important;
 }
 
@@ -517,10 +517,48 @@ footer .selected-nav a:hover {
     background: @btn-primary!important;
     color: @text-color!important;
     padding: .35em!important;
-    border-radius: 15px!important;
+    border-radius: 11px!important;
 }
 
 .pagination-button i:hover {
+    background: @btn-primary-hover!important;
+}
+
+// Single record styling
+
+.record-pagination-tools {
+    margin-top: 1em;
+    padding-bottom: 0!important;
+    font-size: 1.18em;
+    // TO DO: Proper fix for the added padding afterwards.
+    margin-bottom: -100px!important;
+}
+
+.back-to-search {
+    float: left;
+    margin-right: 18px;
+    padding: .35em!important;
+}
+
+.record-pagination-tools .pager {
+    text-align: left;
+    font-weight: 600;
+}
+
+.record-pagination-tools .pager .disabled, .record-pagination-tools .pager:after {
+    display: none;
+}
+
+.record-pagination-tools .pager .pager-next-record a, .record-pagination-tools .pager .pager-previous-record a  {
+    background: @btn-primary!important;
+    color: @text-color!important;
+    padding: .35em!important;
+    border-radius: 11px!important;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.record-pagination-tools .pager .pager-next-record a:hover, .record-pagination-tools .pager .pager-previous-record a:hover  {
     background: @btn-primary-hover!important;
 }
 
