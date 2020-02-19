@@ -1,19 +1,4 @@
-// We cannot replace the original navigation .less, thus we have to manully replace everything..
-
-header .fa-info-circle:before {
-  font-family: inherit!important;
-  content: "\f05a";
-  font-size: 1.05em;
-}
-
-
-header .in {
-  height: auto!important;
-  // Unless we set min-height the mobile nav becomes a scrollable "mess".
-  min-height: 400px;
-  padding-bottom: 1em;
-}
-
+// We cannot replace the original navigation .less, thus we have to manually replace everything..
 header {
   background-color: #ebebed;
   padding: 1.6em .5em  .8em .5em;
@@ -26,21 +11,24 @@ header i {
   margin-right: 2px;
 }
 
+header .fa-info-circle:before {
+  font-family: inherit!important;
+  content: "\f05a";
+  font-size: 1.05em;
+}
+
+header .in {
+  height: auto!important;
+  // Unless we set min-height the mobile nav becomes a scrollable "mess".
+  min-height: 400px;
+  padding-bottom: 1em;
+}
+
 .navbar-toggle {
   background: none!important;
 }
-
-[role=menubar] li a {
-
-}
-
-.navbar-main {
-
-}
-
-
+// Margins for menu items on different screen sizes.
 @media screen and ( min-width: 1200px ){
-
   [role=menubar] li {
     margin-right: 4vmin!important;
   }
@@ -65,10 +53,6 @@ header i {
   margin-right: 8px!important;
 }
 
-@media screen and ( min-width: 1200px ){
-
-}
-
 [role=menubar] li a {
   padding-top: 6px!important;
   padding-bottom: 6px!important;
@@ -76,12 +60,6 @@ header i {
 
 header li a {
   padding-bottom: 5px!important;
-}
-
-[role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"]{
-  background: @nav-hover-bg!important;
-  border-left: solid 4px @nav-hover-border-color!important;
-  margin-left: -4px;
 }
 
 [role=menubar] .btn-primary {
@@ -94,21 +72,65 @@ header li a {
   border-left: solid 4px @nav-hover-border-color!important;
 }
 
+// Hovering links inside li
+.browsebar-custom div span:hover, #browseContainer ul li a:hover {
+  border-bottom: solid 3px @nav-hover-border-color;
+  background: none;
+}
 
-.dropdown-menu li {
-  margin-left: 13px;
+// Dropdowns
+[role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"] {
+  background: @nav-hover-bg!important;
+  border-left: solid 4px @nav-hover-border-color!important;
+  border-bottom: none!important;
+  margin-left: -4px;
+}
+
+.dropdown-menu li, .dropdown li {
+  margin-left: 10px;
   width: auto!important;
-  margin-right: 0!important;
+  margin-right: 8px!important;
   margin-bottom: 9px!important;
   margin-top: 0!important;
   border-bottom: none;
+  min-width: 210px;
 }
 
-.dropdown-menu li a {
+.dropdown-menu li a:hover, .dropdown-menu li a:hover {
+  background: @nav-hover-bg!important;
+  border-left: solid 4px @nav-hover-border-color!important;
+  margin-left: -4px;
+  border-bottom: none!important;
+}
+
+
+.dropdown-menu li a, .dropdown li a {
   margin-top: 0;
   margin-bottom: 0;
   padding-top: 10px;
   padding-bottom: 10px!important;
+}
+
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+  border-color: @nav-hover-border-color;
+}
+
+
+.dropdown a[aria-expanded="true"] {
+  border-bottom: solid 3px @nav-hover-border-color;
+  background: none;
+  margin-bottom: 0!important;
+}
+
+.sort-button .dropdown a[aria-expanded="true"] {
+  border-bottom: solid 3px @nav-hover-border-color!important;
+}
+
+.dropdown a[aria-expanded="true"]:hover {
+  border-bottom: none;
+  background: none;
+  margin-bottom: 0!important;
 }
 
 .dropdown-menu > :first-child {
@@ -123,10 +145,6 @@ header li a {
   border-radius: 0!important;
 }
 
-.dropdown-menu li , .dropdown-menu li:hover {
-
-}
-
 .dropdown {
   padding-bottom: 0!important;
 }
@@ -136,6 +154,17 @@ header li a {
   border-left: solid 4px @brand-third!important;
   margin-left: 0;
 }
+
+.sort-button .fa {
+  color: @gray-dark!important;
+  background: none!important;
+}
+
+.sort-button .dropdown a {
+  color: @text-color!important;
+  background: none!important;
+}
+
 
 #my-info-dropdown-menu>li {
   border-bottom: none!important;
@@ -1164,7 +1193,6 @@ header {
     border-left: none!important;
     background: @btn-primary-hover!important;
   }
-
 
 }
 

@@ -205,8 +205,9 @@ section[role=search], .search-form-container  {
   float: left;
 }
 
-
-#browseLi ul {
+.browsebar-custom div span:hover, #browseContainer ul li a:hover,  .type-dropdown span:hover,
+.type-dropdown ul li a:hover {
+  margin-bottom: 0;
 }
 
 #browseLi ul li {
@@ -240,30 +241,6 @@ section[role=search], .search-form-container  {
   margin-bottom: 3px;
 }
 
-.browsebar-custom div span:hover, #browseContainer ul li a:hover,  .type-dropdown span:hover,
-.type-dropdown ul li a:hover {
-  border-bottom: solid 3px @nav-hover-border-color;
-  margin-bottom: 0;
-}
-
-
-
-.browsebar-custom .open a[aria-expanded="true"] {
-  border-bottom: solid 3px @nav-hover-border-color!important;
-  background: none!important;
-  margin-bottom: 0!important;
-
-}
-
-
-.browsebar-custom .open a[aria-expanded="true"]:hover {
-  margin-bottom: 0px!important;
-
-}
-
-#browseLi {
-}
-
 #browseLi li {
   margin-left: 10px!important;
   width: 100%!important;
@@ -273,16 +250,8 @@ section[role=search], .search-form-container  {
   margin-right: 15px!important;
 }
 
-#browseLi li a:hover, .type-dropdown li a:hover {
-  background: @nav-hover-bg!important;
-  border-left: solid 4px @nav-hover-border-color!important;
-  margin-left: -4px;
-  border-bottom: none!important;
-}
-
 
 @media only screen and (min-width: 431px) {
-
   .browse-list-container {
     top: 50px;
   }
@@ -330,10 +299,6 @@ section[role=search], .search-form-container  {
 .browse-list-container {
   z-index: 1000;
 }
-
-.browsebar-custom div span:hover, #browseContainer ul li a:hover {
-}
-
 
 .browsebar-custom {
   .priority-nav__dropdown {
