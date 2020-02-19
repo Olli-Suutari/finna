@@ -375,264 +375,328 @@ footer .selected-nav a:hover {
 
 }
 
+// Expand filter category. // Minimize filter category. // Expand library group // Minimize library group.
+.list-group.facet .list-group-item.title.collapsed:after, .list-group.facets .list-group-item.title.collapsed:after,
+.list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after,
+.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before,
+.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
+    color: @text-color!important;
+}
+
+
+// Expand library group
+.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before {
+        /*
+    font-family: FontAwesome;
+    content: "\f13a";
+    font-size: 18px;
+     */
+    font-family: finnaicons;
+    content: "\e91a";
+    font-size: 22px;
+    margin-left: 3px;
+    margin-right: 8px;
+}
+// Minimize library group.
+.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
+    /*
+    font-family: FontAwesome;
+    //content: "\f151";
+    content: "\f139";
+        font-size: 18px;
+    */
+    font-size: 22px;
+    font-family: finnaicons;
+    content: "\e916";
+    margin-right: 8px;
+    margin-left: 3px;
+    //color: #5f9ff5;
+}
+
+
+
+
 .list-group.facet .list-group-item.title.collapsed:after, .list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after {
-    color: @btn-primary;
+//color: transparent;
 }
 
 #side-collapse-building .jstree-container-ul li:first-child i {
-    display: none;
+display: none;
 }
 
 #side-collapse-building .jstree-anchor .badge {
-    display: none;
+display: none;
 }
 
 .jstree-children .jstree-ocl, .jstree-children .badge, .jstree-children jstree-ocl:before  {
-    display: block!important;
+display: block!important;
 }
 
 .dedupInformation, span[title="Keski-kirjastot"], .dedupInformation, span[title="Keski Libraries"]  {
-    display: none;
+display: none;
 }
 
 #side-collapse-building  .jstree-children:not(.facet) {
-    margin-left: -10px!important;
+margin-left: -10px!important;
 }
 
 // This makes the background smaller.
 .template-name-results  .search-form-container, .template-dir-record .searchContent {
-    max-height: 140px!important;
+max-height: 140px!important;
 }
 
 .template-name-results  .main-content {
-    margin-top: 0!important;
+margin-top: 0!important;
+}
+
+// Style the "Saatavilla verkossa" selector.
+.side-facets-container-ajax fieldset {
+position: relative;
+vertical-align: middle;
+margin-top: 5px;
+margin-bottom: 5px;
+display: block;
+background: #F7F7F7;
+border: 1px solid #c6c6c6;
+
+}
+
+.side-facets-container-ajax fieldset label {
+font-weight: 600!important;
+text-transform: uppercase;
+}
+
+
+.side-facets-container-ajax fieldset input[type="checkbox"] {
+margin-right: 2px!important;
+margin-left: 3px!important;
 }
 
 
 .search-filters {
-    border-top: none;
-    position: relative;
-    top: -22px;
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-    padding-top: 0!important;
-    background: none!important;
-    height: auto!important;
+border-top: none;
+position: relative;
+top: -22px;
+margin-top: 0!important;
+margin-bottom: 0!important;
+padding-top: 0!important;
+background: none!important;
+height: auto!important;
 }
 
 .filter-value {
-    background: none!important;
+background: none!important;
 }
 
 .title-value-pair {
-    background: rgba(135, 209, 239, 0.78);
-    padding: .86em 1.2em;
-    margin-bottom: .8em;
-    margin-right: .96em;
-    border-radius: 16px;
-    font-size: 1.17em;
-    font-weight: 600;
+background: rgba(135, 209, 239, 0.78);
+padding: .86em 1.2em;
+margin-bottom: .8em;
+margin-right: .96em;
+border-radius: 16px;
+font-size: 1.17em;
+font-weight: 600;
 }
 
 .filter-text {
-    color: @text-color!important;
-    font-size: .99em!important;
-    font-style: oblique;
-    line-height: unset!important;
-    padding: 0!important;
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-    font-weight: 400!important;
+color: @text-color!important;
+font-size: .99em!important;
+font-style: oblique;
+line-height: unset!important;
+padding: 0!important;
+margin-top: 0!important;
+margin-bottom: 0!important;
+font-weight: 400!important;
 }
 
 .search-filter-remove {
-    color: @brand-danger!important;
-    margin-left: 4px!important;
-    margin-right: 6px!important;
+color: @brand-danger!important;
+margin-left: 4px!important;
+margin-right: 6px!important;
 }
 
 // Filter-value = Things like "Verkossa saatavilla".
 .filters-title, .filters-or, .filter-value  {
-    color: @text-color!important;
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-    margin-left: 2px!important;
-    margin-right: 3px!important;
-    padding: 0!important;
-    line-height: unset!important;
+color: @text-color!important;
+margin-top: 0!important;
+margin-bottom: 0!important;
+margin-left: 2px!important;
+margin-right: 3px!important;
+padding: 0!important;
+line-height: unset!important;
 }
 
 .filters-title {
-    margin-right: 0!important;
+margin-right: 0!important;
 }
 
 .pagination-background .mainbody {
-    width: 100% !important;
-    text-align: center;
+width: 100% !important;
+text-align: center;
 }
 
 
 .pagination {
-    margin-top: 1.8em;
-    text-align: center;
-    font-size: 1.5em!important;
+margin-top: 1.8em;
+text-align: center;
+font-size: 1.5em!important;
 }
 
 .pagination li:not(.pagination-button) a:hover {
-    background: none!important;
-    color: @text-color!important;
-    border-bottom: solid 2px @nav-hover-border-color!important;
-    margin-bottom: 0;
-    border-radius: 0!important;
+background: none!important;
+color: @text-color!important;
+border-bottom: solid 2px @nav-hover-border-color!important;
+margin-bottom: 0;
+border-radius: 0!important;
 }
 
 .pagination .active  span, .pagination .active  span:hover {
-    background: none!important;
-    color: @text-color!important;
-    border-bottom: solid 2px @brand-third;
-    margin-bottom: 0;
-    border-radius: 0!important;
+background: none!important;
+color: @text-color!important;
+border-bottom: solid 2px @brand-third;
+margin-bottom: 0;
+border-radius: 0!important;
 }
 
 .pagination li a {
-    margin-right: 5px!important;
-    margin-left: 5px!important;
+margin-right: 5px!important;
+margin-left: 5px!important;
 }
 
 .searchtools a {
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-bottom: 8px;
-    margin-top: 12px;
-    margin-bottom: 2px;
-    font-size: 1.1em!important;
+padding-left: 12px;
+padding-right: 12px;
+padding-bottom: 8px;
+margin-top: 12px;
+margin-bottom: 2px;
+font-size: 1.1em!important;
 }
 
 .searchtools a:hover {
-    border-bottom: solid 2px @brand-secondary;
-    margin-bottom: 0;
+border-bottom: solid 2px @brand-secondary;
+margin-bottom: 0;
 }
 
 .pagination-button i {
-    background: @btn-primary!important;
-    color: @text-color!important;
-    padding: .35em!important;
-    border-radius: 11px!important;
+background: @btn-primary!important;
+color: @text-color!important;
+padding: .35em!important;
+border-radius: 11px!important;
 }
 
 .pagination-button i:hover {
-    background: @btn-primary-hover!important;
+background: @btn-primary-hover!important;
 }
 
 // Single record styling
 
 .record-pagination-tools {
-    margin-top: 1em;
-    padding-bottom: 0!important;
-    font-size: 1.18em;
-    // TO DO: Proper fix for the added padding afterwards.
-    margin-bottom: -100px!important;
+margin-top: 1em;
+padding-bottom: 0!important;
+font-size: 1.18em;
+// TO DO: Proper fix for the added padding afterwards.
+margin-bottom: -100px!important;
 }
 
 .back-to-search {
-    float: left;
-    margin-right: 18px;
-    padding: .35em!important;
+float: left;
+margin-right: 18px;
+padding: .35em!important;
 }
 
 .record-pagination-tools .pager {
-    text-align: left;
-    font-weight: 600;
+text-align: left;
+font-weight: 600;
 }
 
 .record-pagination-tools .pager .disabled, .record-pagination-tools .pager:after {
-    display: none;
+display: none;
 }
 
 .record-pagination-tools .pager .pager-next-record a, .record-pagination-tools .pager .pager-previous-record a  {
-    background: @btn-primary!important;
-    color: @text-color!important;
-    padding: .35em!important;
-    border-radius: 11px!important;
-    margin-left: 3px;
-    margin-right: 3px;
+background: @btn-primary!important;
+color: @text-color!important;
+padding: .35em!important;
+border-radius: 11px!important;
+margin-left: 3px;
+margin-right: 3px;
 }
 
 .record-pagination-tools .pager .pager-next-record a:hover, .record-pagination-tools .pager .pager-previous-record a:hover  {
-    background: @btn-primary-hover!important;
+background: @btn-primary-hover!important;
 }
 
 .template-dir-record .organisation-menu {
-    display: none;
+display: none;
 }
 
 .sourceSolr {
-    position: relative;
-    top: -25px!important;
+position: relative;
+top: -25px!important;
 }
 
 
 .template-dir-record .nav-pills li:not(.share-buttons) a, .template-dir-record .nav-pills i {
-    color: @text-color!important;
-    font-size: 1.05em;
-    margin-bottom: 2px;
-    border-radius: 0!important;
-    padding-bottom: 8px!important;
-    padding-left: 5px!important;
-    padding-right: 5px!important;
+color: @text-color!important;
+font-size: 1.05em;
+margin-bottom: 2px;
+border-radius: 0!important;
+padding-bottom: 8px!important;
+padding-left: 5px!important;
+padding-right: 5px!important;
 }
 
 .template-dir-record .nav-pills li:not(.share-buttons) span:hover {
-    color: @text-color!important;
+color: @text-color!important;
 
 }
 
 .template-dir-record .nav-pills li:not(.share-buttons) a:hover{
-    color: @text-color!important;
-    font-size: 1.05em;
-    margin-bottom: 0;
-    border-bottom: solid 2px @nav-hover-border-color;
+color: @text-color!important;
+font-size: 1.05em;
+margin-bottom: 0;
+border-bottom: solid 2px @nav-hover-border-color;
 }
 
 .template-dir-record .share-buttons {
-    display: none!important;
+display: none!important;
 }
 
 /*
 .sidebar-on-left {
-    position: sticky!important;
-    bottom: 0!important;
-    left: 0!important;
+position: sticky!important;
+bottom: 0!important;
+left: 0!important;
 }
 
 .side-facets-container-ajax {
-    position: sticky!important;
-    bottom: 0!important;
-    left: 0!important;
+position: sticky!important;
+bottom: 0!important;
+left: 0!important;
 }
 
 
 #authcontainer {
-    align-items: center;
-    justify-content: space-between;
-    display: flex;
+align-items: center;
+justify-content: space-between;
+display: flex;
 
 }
 
 .login-col {
-    display: flex;
-    justify-content: flex-end;
-    align-content: right;
+display: flex;
+justify-content: flex-end;
+align-content: right;
 }
 
 .modal-content {
-    width: auto!important;
+width: auto!important;
 }
 
 
 .lightbox-header {
-    text-align: center;
-    font-size: 1.1em;
+text-align: center;
+font-size: 1.1em;
 }
 
 #loginForm {
@@ -641,7 +705,7 @@ footer .selected-nav a:hover {
 }
 
 #loginForm {
-    padding-left: 10%;
+padding-left: 10%;
 }
 
 .modal-content, .modal-body {
@@ -649,7 +713,7 @@ footer .selected-nav a:hover {
 }
 
 .login-col {
-    width: auto!important;
+width: auto!important;
 }
 
 .login-col .login-description, .login-col .login-description-terms {
