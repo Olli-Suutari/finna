@@ -79,12 +79,17 @@ header li a {
 }
 
 // Dropdowns
+[role=menubar] li a:not(.selected-nav):hover, [role=menubar] a[aria-expanded="true"] {
+  border-bottom: none!important;
+}
+
+// Dropdowns
 [role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"] {
   background: @nav-hover-bg!important;
   border-left: solid 4px @nav-hover-border-color!important;
-  border-bottom: none!important;
   margin-left: -4px;
 }
+
 
 .dropdown-menu li, .dropdown li {
   margin-left: 10px;
