@@ -148,11 +148,47 @@ section[role=main] {
 }
 
 // Do not add margin between search results and footer... But do on advanced search page and home  where the class .template-dir-search is also used.
-section[role=main]:not(.template-dir-search), .template-name-advanced {
+section[role=main]:not(.template-dir-search,  .template-name-advanced) {
     margin-bottom: 4em!important;
     padding-top: 3em;
 }
 
+.template-name-advanced .search-map-container {
+    display: none;
+}
+
+.template-name-advanced section[role=main] {
+    padding-top: 0;
+}
+
+.template-name-advanced .finna-main-header {
+    background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 90%)!important;  top: -35px;
+    align-content: flex-start;
+    padding-top: 2em;
+    padding-bottom: 1.5em;
+}
+
+.template-name-advanced h1.content-header {
+    color: @text-color;
+    font-weight: 600;
+    padding-left: 50px;
+}
+
+.template-name-advanced h1.content-header::before {
+    font-weight: 400;
+    font-family: finnaicons;
+    content: "\e91e";
+    position: absolute;
+    top: -15px;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    background: none;
+    color: @gray-dark;
+    line-height: 64px;
+    text-align: center;
+    font-size: 32px;
+}
 .template-name-home {
     margin-bottom: 3em!important;
 }
