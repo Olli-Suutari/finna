@@ -257,6 +257,10 @@ function smartPaginationDisplay() {
 }
 
 function finnaCustomInit() {
+    // Load the news!
+    loadJsOrCssFile("/beta/themes/custom/js/news.js", "js");
+
+
     loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css", "css")
