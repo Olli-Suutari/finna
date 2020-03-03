@@ -17,18 +17,39 @@ function generatePrettyUrl (url) {
     }
     return url;
 }
+
+function serializeRssValue(element) {
+    if (navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1) {
+        var itemValue = new XMLSerializer().serializeToString(element);
+        // Remove empty image tags.
+        itemValue = itemValue.replace('<news:image xmlns:news="https://keski-finna.fi" />', '');
+        var matchTagStart = new RegExp(/.+.fi">/g);
+        var matchTagEnd = new RegExp(/<\/news.+/g);
+        itemValue = itemValue.replace(matchTagStart, '');
+        itemValue = itemValue.replace(matchTagEnd, '');
+        // Remove title tag from the title.
+        itemValue = itemValue.replace('<title>', '');
+        itemValue = itemValue.replace('</title>', '');
+        return itemValue;
+    }
+    else {
+        return element.innerHTML;
+    }
+}
+
 $.ajax(feed, {
     accepts:{
         xml:"application/rss+xml"
     },
     dataType:"xml",
     success:function(data) {
-        //Credit: http://stackoverflow.com/questions/10943544/how-to-parse-an-rss-feed-using-javascript
+        // Credit: http://stackoverflow.com/questions/10943544/how-to-parse-an-rss-feed-using-javascript
         var now = new Date();
+
         $(data).find("item").each(function () { // or "item" or whatever suits your feed
             var el = $(this);
-            //console.log(el[0]);
-            var itemData = el[0].children;
+            // IE does not support .children, use childNodes
+            var itemData = el[0].childNodes;
             // Always set finnish as a fallback.
             var itemTitleFi = "";
             var itemTitleEn = null;
@@ -43,10 +64,11 @@ $.ajax(feed, {
             for (var i = 0; i < itemData.length; i++) {
 
                 if (itemData[i].localName === "perma_link") {
-                    itemUrl = itemData[i].innerHTML;
+                    itemUrl = serializeRssValue(itemData[i]);
                 }
                 if (itemData[i].localName === "publish_date") {
-                    var rawDate  = itemData[i].innerHTML;
+
+                    var rawDate = serializeRssValue(itemData[i]);
                     var year = rawDate.substr(0, 4);
                     var month = rawDate.substr(4, 2);
                     var day = rawDate.substr(6, 2);
@@ -60,39 +82,34 @@ $.ajax(feed, {
 
                 }
                 if (itemData[i].localName === "link_url") {
-                    itemLink = itemData[i].innerHTML;
+                    itemLink = serializeRssValue(itemData[i]);
                 }
                 if (itemData[i].localName === "image") {
-                    itemImg = itemData[i].innerHTML;
+                    itemImg = serializeRssValue(itemData[i]);
                 }
                 // Title
                 if (itemData[i].localName === "title") {
-                    itemTitleFi = itemData[i].innerHTML;
+                    itemTitleFi = serializeRssValue(itemData[i]);
                 }
                 if (itemData[i].localName === "english_title" && isEnglish) {
-                    itemTitleEn = itemData[i].innerHTML;
+                    itemTitleEn = serializeRssValue(itemData[i]);
                 }
                 // Description
                 if (itemData[i].localName === "content") {
-                    itemContentFi = itemData[i].innerHTML;
+                    itemContentFi = serializeRssValue(itemData[i]);
                 }
                 if (itemData[i].localName === "english_content" && isEnglish) {
-                    itemContentEn = itemData[i].innerHTML;
+                    itemContentEn = serializeRssValue(itemData[i]);
                 }
             }
-
-
             if (itemPublishDate < now) {
-                //console.log("YES: " + itemTitleFi + " " + itemPublishDate)
                 newsList.push( { url: itemUrl, date:  itemPublishDate, prettyDate: prettyDate, title: itemTitleFi,
                     content: itemContentFi, titleEn: itemTitleEn, contentEn: itemContentEn, image: itemImg, link: itemLink } );
             }
-
         });
 
     },
     error: function (request, status, error) {
-        //console.log(request.responseText);
         console.log(error)
     },
     complete: function () {
@@ -132,6 +149,7 @@ $.ajax(feed, {
 
             $('#keskiNewsUl').append(listItem);
         }
+
 
         // Open the news if url contains a news link.
         var pageUrl = window.location.href;
