@@ -25,7 +25,6 @@ $.ajax(feed, {
     success:function(data) {
         //Credit: http://stackoverflow.com/questions/10943544/how-to-parse-an-rss-feed-using-javascript
         var now = new Date();
-        console.log(now)
         $(data).find("item").each(function () { // or "item" or whatever suits your feed
             var el = $(this);
             //console.log(el[0]);
@@ -39,11 +38,13 @@ $.ajax(feed, {
             var prettyDate = "";
             var itemLink = null;
             var itemImg = null;
-
-
+            var itemUrl = "";
 
             for (var i = 0; i < itemData.length; i++) {
 
+                if (itemData[i].localName === "perma_link") {
+                    itemUrl = itemData[i].innerHTML;
+                }
                 if (itemData[i].localName === "publish_date") {
                     var rawDate  = itemData[i].innerHTML;
                     var year = rawDate.substr(0, 4);
@@ -78,14 +79,13 @@ $.ajax(feed, {
                 if (itemData[i].localName === "english_content" && isEnglish) {
                     itemContentEn = itemData[i].innerHTML;
                 }
-                //Do something
             }
 
 
             if (itemPublishDate < now) {
                 //console.log("YES: " + itemTitleFi + " " + itemPublishDate)
-                newsList.push( { date:  itemPublishDate, prettyDate: prettyDate, title: itemTitleFi, content: itemContentFi,
-                    titleEn: itemTitleEn, contentEn: itemContentEn, image: itemImg, link: itemLink } );
+                newsList.push( { url: itemUrl, date:  itemPublishDate, prettyDate: prettyDate, title: itemTitleFi,
+                    content: itemContentFi, titleEn: itemTitleEn, contentEn: itemContentEn, image: itemImg, link: itemLink } );
             }
 
         });
@@ -126,17 +126,30 @@ $.ajax(feed, {
             itemContent = '<div class="news-content">' + itemContent + itemLink +  itemImg + '</div>';
 
             var listItem = "<li class='news-item'>" +
-                "<a href='javascript:void(0);' class='news-item-link' data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
+                "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
+                "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
                 "<span class='news-date'>" + itemDate + "</span> " + itemTitle + "</a></li>";
-
-
 
             $('#keskiNewsUl').append(listItem);
         }
 
-        console.log(newsList);
-
-
+        // Open the news if url contains a news link.
+        var pageUrl = window.location.href;
+        if (pageUrl.indexOf('?news=') > -1) {
+            // If we use simple indexOf match articles that contain other articles names are problematic,
+            // eg. news=test and news=test-2
+            var reMatchNews = new RegExp(/\?news=.*/g);
+            var matchingNewsInUrl = pageUrl.match(reMatchNews)[0];
+            for (var i = 0; i < newsList.length; i++) {
+                var toMatch = "?news=" + newsList[i].url;
+                if(matchingNewsInUrl === toMatch) {
+                    var toClick = newsList[i].url;
+                    setTimeout(function(){
+                        $(".news-item").find('[data-url="'+ toClick +'"]').click();
+                    }, 400);
+                }
+            }
+        }
 
         $(".news-item-link").on('click', function (e) {
             var popupTitle = $(this).data('name');
@@ -172,16 +185,31 @@ $.ajax(feed, {
             // Show modal.
             //console.log("e.pageY " + e.pageY + " | ta "  +offSet);
             $('#modal').modal('show');
+
+            // Update the page url.
+            var itemUrl = $(this).data('url').toString();
+
+            var currentUrl = window.location.href.toString();
+
+            // Do not add to url if already there.
+            if (currentUrl.indexOf(itemUrl) === -1) {
+                itemUrl = currentUrl + '?news=' + itemUrl;
+                var stateObj = { urlValue: itemUrl };
+                history.replaceState(stateObj, popupTitle, itemUrl);
+            }
+
         });
 
+        $("#modal").on('hide.bs.modal', function(){
+            var pageUrl = window.location.href;
+            if (pageUrl.indexOf('?news=')) {
+                var reMatchNews = new RegExp(/\?news=.*/g);
+                pageUrl = pageUrl.replace(reMatchNews, '');
+                var stateObj = { urlValue: pageUrl };
+                history.replaceState(stateObj, '', pageUrl);
 
-
-
-
-
-
-
-
+            }
+        });
 
 }
 
