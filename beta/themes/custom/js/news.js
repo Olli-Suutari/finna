@@ -64,9 +64,10 @@ function addFrontPageItems(array) {
         var listItem = "<li class='news-item'>" +
             "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
-            "<span class='news-date'>" + itemDate + "</span> " + itemTitle + "</a></li>";
+            "<span class='news-date'>" + itemDate + "</span><span class='news-li-title'>" + itemTitle + "</span></a></li>";
 
-        $('#keskiNewsUl').append(listItem);
+        $('#keskiNewsUl').prepend(listItem);
+
     }
 }
 
@@ -99,9 +100,8 @@ function addNewsPageItems(array) {
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
             "<span class='news-date'>" + itemDate + "</span> " + itemTitle + "</a></li>";
 
-        $('#keskiNewsUl').append(listItem);
+        $('#keskiNewsUl').prepend(listItem);
     }
-    $('#keskiNewsUl').append(listItem);
 
 }
 
@@ -143,6 +143,10 @@ if(isFrontPage || isNewsPage) {
                         var month = rawDate.substr(4, 2);
                         var day = rawDate.substr(6, 2);
                         prettyDate = day + "." + month + ".";
+                        if (isNewsPage) {
+                            prettyDate = prettyDate + year;
+                        }
+                        console.log(prettyDate)
                         itemPublishDate = new Date();
                         itemPublishDate.setDate(day);
                         itemPublishDate.setMonth(month -1);
@@ -185,7 +189,7 @@ if(isFrontPage || isNewsPage) {
         complete: function () {
             newsList.sort(function(a, b) {
                 var dateA = new Date(a.date), dateB = new Date(b.date);
-                return dateB - dateA;
+                return dateA - dateB;
             });
 
             if (isFrontPage) {

@@ -727,105 +727,71 @@ font-size: 18px;
     display: none!important;
 }
 
-/*
-.sidebar-on-left {
-position: sticky!important;
-bottom: 0!important;
-left: 0!important;
+
+
+.infobox {
+    border-radius: 15px;
+    padding: 1.5rem 2rem 2.5rem 2.5rem!important;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
 }
-
-.side-facets-container-ajax {
-position: sticky!important;
-bottom: 0!important;
-left: 0!important;
-}
-
-
-#authcontainer {
-align-items: center;
-justify-content: space-between;
-display: flex;
-
-}
-
-.login-col {
-display: flex;
-justify-content: flex-end;
-align-content: right;
-}
-
-.modal-content {
-width: auto!important;
-}
-
-
-.lightbox-header {
-text-align: center;
-font-size: 1.1em;
-}
-
-#loginForm {
-
-
-}
-
-#loginForm {
-padding-left: 10%;
-}
-
-.modal-content, .modal-body {
-
-}
-
-.login-col {
-width: auto!important;
-}
-
-.login-col .login-description, .login-col .login-description-terms {
-}
-
-.modal-lg, .modal-content, .modal-body, .modal, #modal, .modal-dialog {
-
-
-}
-
-.modal-lg-dynamic {
-
-}
-
-*/
-
-// Modals.
-
-// News
 
 #modal {
 
 }
 
-.news-section-title {
-    border-bottom: solid 2px @brand-secondary!important;
-    clear: both;
-    display: inline-block;
-    padding: .5em 17px 8px 17px!important;
-    text-align: center;
-    margin-bottom: 1em;
-}
-
 #keskiNews {
-    background: #F5F5F5;
-    display: inline-block;
-    clear: both;
-    padding: 1em 2.5em 1.5em 2.5em;
-    min-width: 75%;
+    min-width: 85%;
+    padding-bottom: 1em!important;
 }
 
 #keskiNews ul li {
-    padding-top: .7em;
-    padding-bottom: .7em;
-    font-size: 1.1em;
+    padding-top: .33em;
+    padding-bottom: .33em;
+    font-size: 1.15em;
     font-weight: 600;
+    color: @text-color;
+
 }
+
+#keskiNews ul li a {
+    display: flex!important;
+    flex-direction: column!important;
+    flex-wrap: nowrap!important;
+}
+
+#keskiNews a {
+    color: @text-color;
+}
+
+#keskiNews a:hover {
+    color: @link-hover-color;
+}
+
+.news-date {
+    font-size: .93em;
+    font-weight: 400;
+}
+
+.news-li-title {
+    /*
+    position: relative;
+    top: -25px;
+    left: 75px;
+     */
+    max-width: 90%;
+    position:relative;
+    display: block;
+    left: 65px;
+    top: -25px;
+}
+
+.keski-news-archive .news-li-title {
+    left: 105px;
+
+}
+
 
 .modal-body {
     font-size: 1.1em;
@@ -854,16 +820,25 @@ width: auto!important;
     border-bottom: solid 2px @brand-secondary!important;
     clear: both;
     display: inline-block;
-    padding: 2.5em 14px 2px 14px!important;
+    padding: 2em 16px 3px 16px!important;
     margin-left: 1em!important;
-    margin-bottom: .08em!important;
+    margin-bottom: .25em!important;
 }
 
+.news-section-title {
+    border-bottom: solid 3px @brand-secondary!important;
+    clear: both;
+    display: inline-block;
+    padding: 0 25px 5px 55px!important;
+    margin-bottom: 1.5em!important;
+}
 
 .modal-content .close  {
     color: @brand-danger;
     margin-top: .5em;
     margin-right: .5em;
+    margin-bottom: .85em!important;
+    font-size: 1.35em!important;
 }
 
 .news-content {
@@ -881,7 +856,6 @@ width: auto!important;
     font-size: 1.15em;
 }
 
-
 .news-image {
     max-height: 65vmin;
     margin-top: 3em!important;
@@ -893,5 +867,12 @@ width: auto!important;
 }
 
 .news-page-link {
-    font-size: 1.3em;
+    margin-top: 1.26rem!important;
+    font-weight: 600;
+    font-size: 1.25em!important;
+    margin-bottom: 0;
+}
+
+.news-page-link i {
+    margin-left: .15em!important;
 }
