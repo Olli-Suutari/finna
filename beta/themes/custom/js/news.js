@@ -66,12 +66,13 @@ function addFrontPageItems(array) {
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
             "<span class='news-date'>" + itemDate + "</span><span class='news-li-title'>" + itemTitle + "</span></a></li>";
 
-        $('#keskiNewsUl').prepend(listItem);
+        $('#keskiNewsUl').append(listItem);
 
     }
 }
 
 function addNewsPageItems(array) {
+    console.log(array)
     for (var i = 0; i < array.length; i++) {
         var itemDate = array[i].prettyDate;
         var itemImg = "";
@@ -98,9 +99,9 @@ function addNewsPageItems(array) {
         var listItem = "<li class='news-item'>" +
             "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
-            "<span class='news-date'>" + itemDate + "</span> " + itemTitle + "</a></li>";
+            "<span class='news-date'>" + itemDate + "</span><span class='news-li-title'>" + itemTitle + "</span></a></li>";
 
-        $('#keskiNewsUl').prepend(listItem);
+        $('#keskiNewsUl').append(listItem);
     }
 
 }
@@ -189,7 +190,7 @@ if(isFrontPage || isNewsPage) {
         complete: function () {
             newsList.sort(function(a, b) {
                 var dateA = new Date(a.date), dateB = new Date(b.date);
-                return dateA - dateB;
+                return dateB - dateA;
             });
 
             if (isFrontPage) {
