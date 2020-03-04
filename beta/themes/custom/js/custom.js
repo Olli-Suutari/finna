@@ -256,7 +256,55 @@ function smartPaginationDisplay() {
     });
 }
 
+function homeLibFunctionality() {
+    var container = document.getElementById('libFrame');
+    // Add transition style for smooth height adjustments.
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = '#libFrame { transition: height 500ms; margin-top: 2em; }';
+    document.head.appendChild(css);
+    // Event listener for messages from the iframe.
+    window.addEventListener('message', function(event) {
+        var data = event.data;
+        // Resize the window.
+        if(data.type === "resize") {
+            var height = data.value;
+            // Check if smaller than keskikirjastot slider.
+            var carouselHeight = $( ".newsCarousel-container" ).height();
+            // Minimum height of 320.
+            if(height < 320) {
+                height = 320;
+            }
+            else if($(window).width() > 767 && height < carouselHeight) {
+                // Carousel height of keskikirjastot homepage.
+                var iframeHeight = $( "#libFrame" ).height();
+                if(iframeHeight < carouselHeight) {
+                    height = carouselHeight;
+                }
+            }
+            container.style.height = (height) + "px";
+        }
+        // Redirect to libraries page.
+        else if(data.type === "redirect") {
+            try {
+                window.location.href = data.value;
+            }
+            catch (e) {
+                console.log("Redirect failed: " + e);
+            }
+        }
+    });
+}
+
 function finnaCustomInit() {
+    locationUrl = window.location.href;
+
+    // /Content/ should not be case sensitive...
+    if (locationUrl.indexOf('/content/') > -1) {
+        window.location = locationUrl.replace('/content/', '/Content/');
+    }
+
+
     // Load the news and fonts.
     loadJsOrCssFile("/beta/themes/custom/js/news.js", "js");
     loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");
@@ -265,7 +313,6 @@ function finnaCustomInit() {
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/all.js", "js")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/v4-shims.js", "js")
 
-    locationUrl = window.location.href;
     if (locationUrl.indexOf('?lng=fi') > -1) {
         locationUrl = locationUrl.replace('?lng=fi', '');
     }
@@ -306,4 +353,12 @@ function finnaCustomInit() {
    }
 
     $('.autocomplete-results').addClass('hidden-search-autocomplete');
+
+
+   if ($('.keski-news-home').length === 1) {
+       homeLibFunctionality();
+   }
+
+
+
 }
