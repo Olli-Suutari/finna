@@ -72,7 +72,6 @@ function addFrontPageItems(array) {
 }
 
 function addNewsPageItems(array) {
-    console.log(array)
     for (var i = 0; i < array.length; i++) {
         var itemDate = array[i].prettyDate;
         var itemImg = "";
@@ -147,7 +146,6 @@ if(isFrontPage || isNewsPage) {
                         if (isNewsPage) {
                             prettyDate = prettyDate + year;
                         }
-                        console.log(prettyDate)
                         itemPublishDate = new Date();
                         itemPublishDate.setDate(day);
                         itemPublishDate.setMonth(month -1);

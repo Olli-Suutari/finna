@@ -755,6 +755,10 @@ font-size: 18px;
 
 }
 
+#keskiNews ul {
+    padding-right: 15%;
+}
+
 #keskiNews ul li a {
     display: flex!important;
     flex-direction: column!important;
@@ -780,16 +784,14 @@ font-size: 18px;
     top: -25px;
     left: 75px;
      */
-    max-width: 90%;
     position:relative;
     display: block;
     left: 65px;
-    top: -25px;
+    top: -23px;
 }
 
 .keski-news-archive .news-li-title {
     left: 105px;
-
 }
 
 
@@ -820,9 +822,39 @@ font-size: 18px;
     border-bottom: solid 2px @brand-secondary!important;
     clear: both;
     display: inline-block;
-    padding: 2em 16px 3px 16px!important;
+    padding: 2.78em 16px 3px 16px!important;
     margin-left: 1em!important;
     margin-bottom: .25em!important;
+}
+
+@media screen and ( max-width: 600px ) {
+    .news-title {
+        width: 100%;
+        margin-left: 0!important;
+    }
+}
+
+@media screen and ( max-width: 430px ) {
+
+    .news-date {
+        left: 0;
+    }
+
+    .news-li-title {
+        left: 50px;
+    }
+
+    .news-page-link .news-li-title {
+        left: 0;
+    }
+
+
+    .news-section-title {
+        padding: 0 12px 5px 12px!important;
+        margin-bottom: 1.5em!important;
+        width: 100%;
+    }
+
 }
 
 .news-section-title {
@@ -837,8 +869,7 @@ font-size: 18px;
     color: @brand-danger;
     margin-top: .5em;
     margin-right: .5em;
-    margin-bottom: .85em!important;
-    font-size: 1.35em!important;
+    font-size: 1.65em!important;
 }
 
 .news-content {
