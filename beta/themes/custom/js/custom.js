@@ -3,15 +3,15 @@ var locationUrl = "";
 
 function loadJsOrCssFile(filename, filetype){
     if (filetype=="js") { //if filename is a external JavaScript file
-        var fileref=document.createElement('script')
-        fileref.setAttribute("type","text/javascript")
-        fileref.setAttribute("src", filename)
+        var fileref=document.createElement('script');
+        fileref.setAttribute("type","text/javascript");
+        fileref.setAttribute("src", filename);
     }
     else if (filetype=="css") { //if filename is an external CSS file
-        var fileref=document.createElement("link")
-        fileref.setAttribute("rel", "stylesheet")
-        fileref.setAttribute("type", "text/css")
-        fileref.setAttribute("href", filename)
+        var fileref=document.createElement("link");
+        fileref.setAttribute("rel", "stylesheet");
+        fileref.setAttribute("type", "text/css");
+        fileref.setAttribute("href", filename);
     }
     if (typeof fileref!="undefined")
         document.getElementsByTagName("head")[0].appendChild(fileref)
@@ -30,12 +30,7 @@ function checkUrlForContent(url) {
 }
 
 function appendSearchBar () {
-    /* Hide category browse button on search results?
-    if (locationUrl.indexOf('/Search/') > -1) {
-        console.log("DO HIDE!");
-        $('.browse-categories-li-item').css('display', 'none')
-    }*/
-    if (locationUrl == "https://keski.finna-test.fi/beta/Search/Advanced" ||
+    if (locationUrl.indexOf('/Search/Advanced') > -1 ||
         $('.adv_search_links').length) {
         // If we use display none or remove the whole search bar, advanced search help tooltip won't work.
         $('section[role=search] .search-form-container').removeClass('search-form-container');
@@ -51,47 +46,9 @@ function appendSearchBar () {
         $('.history-btn').parent().css('display', 'none');
         return;
     }
-    // If user has a search history, append the history button.
-    try {
-        $.get( 'https://keski.finna-test.fi/beta/Search/History', function( data ) {
-            //console.log(data)
-            if (data.indexOf('<h4>Hakuhistoria on tyhj') > -1 ||
-            data.indexOf('There are currently no') > -1) {
-                $('.history-btn').parent().css('display', 'none');
-                return;
-            }
-          });
-    }
-    catch(e) {
-        // Page not found... console.log(e)
-        //$('.history-btn').css('display', 'inline');
-    }
-    // Search bar should not be shorter than the toolbar below it.
-    /* TO DO: Solve this issue with bootstrap row instead, edit searchbar.phtml.
-    var searchWidth = $('.search').width();
-    var broweseBarWidth = $('#browseLi').width()
-    var browseButtonPos = $('#browseLi').offset();
-    browseButtonPos = browseButtonPos.left + broweseBarWidth;
-    browseButtonPos = Math.round(browseButtonPos);
-    if ($(window).width() < browseButtonPos) {
-        browseButtonPos = $(window).width() -20
-    }
-    if (searchWidth < browseButtonPos) {
-        console.log("DO FOO")
-        console.log(searchWidth)
-        console.log(browseButtonPos)
-        $('#searchForm').css('width', browseButtonPos + "px");
-    }
-    else {
-        console.log("HEY")
-    }
-    */
 }
 
 function addSelectedNav() {
-    if (locationUrl == 'https://keski.finna-test.fi/beta/') {
-        $('.navbar-brand').addClass("selected-nav");
-    }
     if (locationUrl.indexOf('/Content/kirjastot') > -1) {
         $('header li a[href$="/kirjastot"]').addClass("selected-nav");
     }
@@ -107,15 +64,9 @@ function addSelectedNav() {
     else if (locationUrl.indexOf('/Content/terms') > -1) {
         $('footer li a[href$="/Content/terms"]').parent().addClass("selected-nav");
     }
-    /*
-    else if (locationUrl.indexOf('/Content/privacy#cookies') > -1) {
-        console.log("COOKEIS")
-        $('footer li a[href$="/Content/privacy#cookies"]').addClass("selected-nav");
-    }*/
     else if (locationUrl.indexOf('/Content/privacy') > -1) {
         $('footer li a[href$="/Content/privacy"]').parent().addClass("selected-nav");
     }
-
     else if (locationUrl.indexOf('/Content/accessibility-statement') > -1) {
         $('footer li a[href$="/Content/accessibility-statement"]').parent().addClass("selected-nav");
     }
@@ -298,7 +249,10 @@ function homeLibFunctionality() {
 
 function finnaCustomInit() {
     locationUrl = window.location.href;
-
+    // Old /beta/
+    if (locationUrl.indexOf('/beta/') > -1) {
+        window.location = locationUrl.replace('/beta/', '/');
+    }
     // /Content/ should not be case sensitive...
     if (locationUrl.indexOf('/content/') > -1) {
         window.location = locationUrl.replace('/content/', '/Content/');
@@ -306,8 +260,8 @@ function finnaCustomInit() {
 
 
     // Load the news and fonts.
-    loadJsOrCssFile("/beta/themes/custom/js/news.js", "js");
-    loadJsOrCssFile("/beta/themes/custom/js/events.js", "js");
+    loadJsOrCssFile("/keski/themes/custom/js/news.js", "js");
+    loadJsOrCssFile("/keski/themes/custom/js/events.js", "js");
     loadJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css", "css")
@@ -320,11 +274,6 @@ function finnaCustomInit() {
     else if(locationUrl.indexOf('?lng=en-gb') > -1) {
         locationUrl = locationUrl.replace('?lng=en-gb', '');
     }
-   // Adding base url would break # navigation in sidebars.
-   //var base = document.createElement('base');
-   //base.href = 'https://keski.finna-test.fi/beta/';
-   //document.getElementsByTagName('head')[0].appendChild(base);
-
    addSelectedNav();
    appendSearchBar();
    leftNavigationScrollDisplay();
