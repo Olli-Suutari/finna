@@ -51,7 +51,7 @@ function appendSearchBar () {
         $('.history-btn').parent().css('display', 'none');
         return;
     }
-    // If user has a search historry, append the history button.
+    // If user has a search history, append the history button.
     try {
         $.get( 'https://keski.finna-test.fi/beta/Search/History', function( data ) {
             //console.log(data)

@@ -2,7 +2,7 @@
 <?php
 
     // PageUrl is added to category search links so that they may work in other pages than the front as well.
-    $pageUrl = 'https://' . $_SERVER['HTTP_HOST'] . '/beta/';
+    $pageUrl = 'https://' . $_SERVER['HTTP_HOST'] . '/';
 
     $browse = $browse ?? false;
     $module = $this->layout()->templateDir;
@@ -114,19 +114,16 @@
                 </a>
               </li>
                 <li id="searchHelpLink" class="search-tools-li-2">
-                    <a href="/beta/Content/Help" class="btn btn-link btn-advanced">
+                    <a href="/Content/Help" class="btn btn-link btn-advanced">
                         <i class="fa fa-question-circle"></i> <?=$this->transEsc("search_help")?>
                     </a>
                 </li>
                 <li class="search-tools-li-3">
-                <a href="/beta/Search/History" class="btn btn-link btn-advanced history-btn">
+                <a href="/Search/History" class="btn btn-link btn-advanced history-btn">
                     <i class="fa fa-history"></i> <?=$this->transEsc("menu_history")?>
                 </a>
               </li>
                 <? /*
-                //$searchHistory = file_get_contents('https://keski.finna-test.fi/beta/Search/History');
-                // This does not work because Warning: include(): https:// wrapper is disabled in the server configuration by allow_url_include=0
-                //echo include("https://keski.finna-test.fi/beta/Search/History");
                 // https://github.com/ttodua/useful-php-scripts/blob/master/get-remote-url-content-data.php could work.ace_content
                 // Use JQuery for now within custom.js ...
                 */ ?>
