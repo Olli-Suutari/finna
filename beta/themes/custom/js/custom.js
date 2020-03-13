@@ -268,6 +268,13 @@ function finnaCustomInit() {
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/all.js", "js")
     //loadJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/v4-shims.js", "js")
 
+    if (!window.moment) {
+        console.log("LOAD MNOME")
+        loadJsOrCssFile("/keski/themes/custom/js/lib/moment.min.js", "js");
+
+    }
+
+
     if (locationUrl.indexOf('?lng=fi') > -1) {
         locationUrl = locationUrl.replace('?lng=fi', '');
     }

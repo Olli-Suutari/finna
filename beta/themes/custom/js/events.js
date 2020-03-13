@@ -2,11 +2,6 @@ var isEventsPage = $('.events-page').length === 1;
 
 function  fetchEvents() {
 
-    if (!window.moment) {
-        console.log("LOAD MNOME")
-
-    }
-
     $.ajax("https://keski-finna.fi/wp-json/acf/v3/events", {
         accepts:{
             xml:"application/json"
@@ -36,6 +31,70 @@ function generateEventItem(event) {
     var tags = [];
     var price = 0;
 
+    //var startDate = moment(event.start_date).format('Y-m-d H:i')
+    //var startDate = new Date(moment(event.start_date, "YYYY-MM-DD HH:mm"));
+    var standardStartDate = new Date(moment(event.start_date, "DD.MM.YYYY HH.mm"));
+
+    // 10 first chars = date.
+    var startDateDay = event.start_date.substr(0, 10);
+    // 5 last chars = time.
+    var startDateTime = event.start_date.slice(-5);
+    // If 00.00 = no specified start time.
+    if (startDateTime === "00.00") {
+        startDateTime = "";
+    }
+
+    var startTimeDisplay = '';
+    if (startDateTime !== "") {
+        startTimeDisplay = '<i class="fa fa-clock-o" aria-hidden="true"></i>' + startDateTime
+    }
+
+
+
+
+    var endDateDay = "";
+    var endDateTime = "";
+
+    if (event.end_date !== null && event.end_date !== "") {
+        endDateDay = event.end_date.substr(0, 10);
+        endDateTime = event.end_date.slice(-5);
+        // If 00.00 = no specified start time.
+        if (endDateTime === "00.00") {
+            endDateTime = "";
+        }
+    }
+
+
+    var endDateTimeDisplay = "";
+
+
+    if (endDateDay !== "") {
+        // If ending date is same as starting date.
+        console.log("endDateDay == startDateDay " + endDateDay + " " +  startDateDay);
+        if (endDateDay == startDateDay) {
+            console.log("IS SAME")
+            startTimeDisplay = startTimeDisplay + " – "  + endDateTime
+        }
+        else {
+            var endTimeDisplay = "";
+            if (endDateTime !== "") {
+                endTimeDisplay = '<i class="fa fa-clock-o" aria-hidden="true"></i>' + endDateTime
+            }
+            endDateTimeDisplay = '– <span class="event-end-time"> ' +  endDateDay +
+                endTimeDisplay + '</span>';
+        }
+    }
+
+
+    console.log(endDateDay);
+
+
+
+    var dateDisplayRow = '<span class="event-li-time">' +
+        '<i class="fa fa-calendar" aria-hidden="true"></i>' +
+        startDateDay + '</span>' + startTimeDisplay + endDateTimeDisplay;
+
+    console.log(dateDisplayRow);
 
     var itemImg = "";
     if (event.image !== null) {
@@ -73,12 +132,12 @@ function generateEventList(events) {
     }
 
     $('#keskiEventsUl').append('<li class="event-li">' +
-        '<div class="event-li-container">' +
+        '<a class="event-li-container" href="javascript:void(0);">' +
         '<span class="event-li-title"><i class="fa fa-pencil-square" aria-hidden="true"></i>Kaunialassa kajahtaa</span>' +
         '<span class="event-li-time"><i class="fa fa-calendar" aria-hidden="true"></i>10.3.2020<i class="fa fa-clock-o" aria-hidden="true"></i> 15.00 – 19.00</span>' +
         '<span class="event-li-place"><i class="fa fa-map-marker" aria-hidden="true"></i>Kaunialan kunnankirjasto</span>' +
         //'<span class="event-li-tags"><i class="fa fa-bullseye" aria-hidden="true"></i> Esitys</span>' +
-        '</div>' +
+        '</a>' +
     '</li>');
 
     // Open the news if url contains a news link.
