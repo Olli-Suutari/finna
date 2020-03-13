@@ -105,8 +105,7 @@ function addNewsPageItems(array) {
 
 }
 
-
-if(isFrontPage || isNewsPage) {
+if (isFrontPage || isNewsPage) {
     // Fetch news feed from the keski-finna.fi
     $.ajax("https://keski-finna.fi/?feed=rss2", {
         accepts:{
