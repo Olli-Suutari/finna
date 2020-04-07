@@ -337,8 +337,11 @@
                 $('.autocomplete-results div').html('<div><i class="item loading">Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.</i></div>');
             }
             else {
-                $('.autocomplete-results div').html('<div><i class="item loading">Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.</i></div>');
+                $('.autocomplete-results').html('<div><i class="item loading">Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.</i></div>');
+
                 $('.loading').text('Saadaksesi hakuehdotuksia, kirjoita vähintään 5 merkkiä.');
+
+
                 hasSearchedBefore = true;
             }
            $('.autocomplete-results').removeClass('hidden-search-autocomplete');

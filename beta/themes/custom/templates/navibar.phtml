@@ -211,10 +211,6 @@ function endsWith($string, $endString)
 
 
 
-
-
-
-
                 <?php if ($sessionInitiator = $account->getSessionInitiator($this->serverUrl($this->url('myresearch-home')))): ?>
                 <a role="menuitem" href="<?=$this->url('myresearch-userlogin')?>"><i class="fa fa-user" aria-hidden="true"></i> <?=$this->transEsc("Institutional Login")?></a>
             <?php else: ?>
@@ -279,6 +275,10 @@ function endsWith($string, $endString)
                     $('#loginForm').on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e){
                         $('#loginForm').delay(200).removeClass('shake-login');
                     });
+
+                    function reGenerateLoginStamp() {
+                        
+                    }
 
                     $("#loginForm").on("submit", function(e) {
                         e.preventDefault();

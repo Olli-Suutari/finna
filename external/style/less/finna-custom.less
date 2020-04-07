@@ -1,0 +1,1103 @@
+/*body {
+  background-color: red;
+}*/
+//@import "custom-variables";
+//@import "navigation";
+//@import "searchbar";
+
+
+html {
+    font-size: 1.06em;
+    font-family: sans-serif!important;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif!important;
+}
+
+h1, h2, h3, h4, h5, h6, header, section[role=search], footer {
+    font-family: 'Lato', sans-serif!important;
+
+}
+
+h1, h2, h3, h4 {
+
+}
+
+.autocomplete-result {
+}
+
+header .fa, .search .fa, .searchtools .fa  {
+    color: @gray-dark;
+}
+
+.cookie-consent {
+    padding: 1.6em 2.4em;
+    position: fixed!important;
+    bottom: 0!important;
+    top: unset!important;
+    left: 50%;
+    transform: translateX(-50%);
+    color: @text-color!important;
+    background-color: #ebebed;
+    font-size: 1.15em;
+    font-weight: 400;
+    flex-direction: row;
+    border-radius: 8px;
+    align-content: center;
+    vertical-align: center;
+    width: auto;
+    max-width: 100%!important;
+}
+
+@media screen and ( max-width: 1000px ){
+    .cookie-consent {
+        width: 65%;
+    }
+}
+
+@media screen and ( max-width: 768px ){
+    .cookie-consent {
+        width: 100%;
+    }
+}
+
+
+.cookie-consent p {
+    margin: 0;
+}
+
+.cookie-consent-button {
+    margin-left: 2.4em;
+}
+
+.underlined-title {
+    padding-bottom: 7px!important;
+    padding-left: 9px!important;
+    padding-right: 18px!important;
+    border-bottom: 2px solid #414141;
+}
+
+.infobox h1, .infobox h2, .infobox h3, .content-header {
+}
+
+footer h1, footer h2, footer h3, footer h4 {
+    padding-left: 0!important;
+    padding-right: 0!important;
+    border-bottom: none
+}
+
+.content-navigation-menu h1, .content-navigation-menu h2 {
+    border-bottom: none
+
+}
+
+.content-header {
+
+}
+
+p {
+
+}
+
+html, body {
+    height: 100%;
+}
+
+.btn-uppercase {
+    text-transform: capitalize;
+    visibility: visible!important;
+}
+
+
+.btn-primary {
+    font-size: 1.07em;
+    font-weight: 600;
+    background: @btn-primary!important;
+}
+
+.btn-primary:hover {
+    background: @btn-primary-hover!important;
+    border: none!important;
+}
+
+.infobox .btn-primary, .infobox i {
+    color: @text-color!important;
+}
+
+.btn-primary, .btn-primary i {
+    color: @text-color!important;
+}
+
+section[role=main] {
+    //margin-top: 2.3em;
+    // top margin is also applied to advanced search title...
+}
+
+.main-content {
+    min-width: 75% !important;
+}
+
+.content-section {
+    max-width: 860px;
+}
+
+.searchtools-background {
+    text-align: center;
+}
+
+section[role=main] {
+    padding-top: 2em;
+    margin-bottom: 3em!important;
+
+}
+
+// Do not add margin between search results and footer... But do on advanced search page and home  where the class .template-dir-search is also used.
+section[role=main]:not(.template-dir-search,  .template-name-advanced) {
+    margin-bottom: 4em!important;
+    padding-top: 3em;
+}
+
+.template-name-advanced .search-map-container {
+    display: none;
+}
+
+.template-name-advanced section[role=main] {
+    padding-top: 0;
+}
+
+.template-name-advanced .finna-main-header {
+    background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 90%)!important;  top: -35px;
+    align-content: flex-start;
+    padding-top: 2em;
+    padding-bottom: 1.5em;
+}
+
+.template-name-advanced h1.content-header {
+    color: @text-color;
+    font-weight: 600;
+    padding-left: 50px;
+}
+
+.template-name-advanced h1.content-header::before {
+    font-weight: 400;
+    font-family: finnaicons;
+    content: "\e91e";
+    position: absolute;
+    top: -15px;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    background: none;
+    color: @gray-dark;
+    line-height: 64px;
+    text-align: center;
+    font-size: 32px;
+}
+.template-name-home {
+    margin-bottom: 3em!important;
+}
+
+.home-first-row {
+    margin-bottom: 2.7rem!important;
+    margin-top: 2.5rem;
+}
+
+
+footer {
+    box-shadow: 0 -2px 2px -2px #333;
+    font-size: 1.3em;
+    //background: rgb(113,164,229);
+    //background: radial-gradient(circle, rgba(113,164,229,1) 0%, rgb(182, 215, 221) 100%);
+    background: rgb(90,246,188);
+    background: linear-gradient(2deg,rgba(250, 185, 142, 0.863) 0%, rgb(183, 233, 224) 70%)!important;
+    width: 100%;
+    padding-top: 2.2em;
+    padding-bottom: 2em!important;
+    margin-bottom: -40px!important;
+    position: static!important;
+    bottom: 0!important;
+    left: 0!important;
+    display: flex;
+    height: auto!important;
+    min-height: 50vmin; // TO DO: https://keski.finna-test.fi/beta/Feedback/Home has empty space after the footer in 1080 * 1920.
+}
+
+
+footer .container {
+    width: 95vmax!important;
+    margin-left: 2vmax!important;
+    margin-right: 2vmax;
+}
+
+.footer-left-side {
+    float: left;
+    position: relative;
+    top: 100px;
+    transform: rotate(208deg);
+}
+
+.footer-right-side  {
+    float: right;
+    transform: rotate(-215deg);
+    margin-bottom: 50px;
+}
+
+@media screen and ( max-width: 1300px ){
+    .footer-left-side, .footer-right-side {
+        display: none;
+    }
+}
+
+.footer-container {
+    margin-top: 1.6em;
+    width: 100%;
+    justify-content: space-between;
+    display: flex!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.footer-links li {
+    float: left;
+    display: block;
+    margin: 0 22px;
+    padding: 9px 11px;
+    margin-bottom: 3px;
+    //border-left: solid 1px black;
+}
+
+
+.footer-links li a {
+    text-decoration: none;
+}
+
+.footer-links li:hover {
+    border-bottom: solid 2px @brand-secondary;
+    margin-bottom: 0;
+}
+
+footer .selected-nav {
+    margin-bottom: 3px!important;
+}
+
+
+footer .selected-nav:hover {
+    margin-bottom: 3px!important;
+
+}
+
+footer .selected-nav a:hover {
+    text-decoration: none;
+}
+
+
+.footer-logo-row {
+    margin-top: 2.55rem;
+}
+
+.foot-logo-link {
+    margin: .5em 3em!important;
+}
+
+@media (max-width: @screen-sm-min) {
+    // Footer gradient should be able to fill 100% of mobile screen.
+    footer {
+        min-height: 100vh;
+    }
+
+    .footer-links {
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .footer-links li {
+        margin-bottom: 1rem!important;
+    }
+
+    li a[title="About VuFind"] {
+        padding-left: 20px!important;
+    }
+
+    .footer-container li {
+        text-align: left;
+        margin-bottom: 1.1rem;
+        width: auto!important
+    }
+
+    .footer-container li a {
+        width: auto
+    }
+
+    .footer-links .foot-logo-link {
+        width: 100%!important;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .footer-links .foot-logo-link:hover {
+        border-bottom: none;
+    }
+
+}
+
+@media screen and ( min-height: 768px ) {
+    section[role=main] {
+        min-height: 60vmin!important;
+    }
+}
+
+
+.search-query {
+
+}
+
+
+.search-form-container .container::before {
+
+}
+
+.content-navigation-menu {
+    margin-bottom: 5em!important;
+    margin-right: 1.5em!important;
+}
+
+.content-navigation-menu h2 {
+    margin-bottom: 1.2em!important;
+    background: none!important;
+}
+
+
+.content-navigation-menu h2:hover {
+    background: @nav-hover-bg!important;
+    border-left: 5px solid @brand-secondary!important;
+}
+
+
+.content-navigation-menu h2 a {
+    color: @text-color!important;
+}
+
+.selected-sub-nav {
+    border-left: 5px solid @brand-third!important;
+}
+
+.content-section {
+    margin-bottom: 1.5em;
+    padding-bottom: 2em;
+}
+
+// Search results.
+.result-view-list {
+    //display: flex;
+    //overflow: visible;
+}
+
+@media screen and ( min-width: 1000px ) {
+    .side-facets-container-ajax {
+        margin-right: 1.9em;
+    }
+}
+
+.side-facets-container-ajax {
+    color: @text-color!important;
+
+}
+
+.searchtools-background {
+    background: none!important;
+}
+
+.list-group-item, .searchtools a {
+    color: @text-color!important;
+
+}
+
+// Expand filter category. // Minimize filter category. // Expand library group // Minimize library group.
+.list-group.facet .list-group-item.title.collapsed:after, .list-group.facets .list-group-item.title.collapsed:after,
+.list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after,
+.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before,
+.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
+    color: @gray-dark!important;
+}
+
+.sort-option-container .dropdown-menu {
+
+}
+
+.sort-button, .dropdown, .dropdown-toggle, .dropdown-menu {
+}
+
+.side-facets-container-ajax .fa {
+    //color: @gray-dark!important;
+}
+
+
+// Expand library group
+.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before {
+    /*
+font-family: FontAwesome;
+content: "\f13a";
+font-size: 18px;
+ */
+    font-family: finnaicons;
+    content: "\e91a";
+    font-size: 22px;
+    margin-left: 3px;
+    margin-right: 8px;
+}
+// Minimize library group.
+.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
+    /*
+    font-family: FontAwesome;
+    //content: "\f151";
+    content: "\f139";
+        font-size: 18px;
+    */
+    font-size: 22px;
+    font-family: finnaicons;
+    content: "\e916";
+    margin-right: 8px;
+    margin-left: 3px;
+    //color: #5f9ff5;
+}
+
+
+
+
+.list-group.facet .list-group-item.title.collapsed:after, .list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after {
+    //color: transparent;
+}
+
+#side-collapse-building .jstree-container-ul li:first-child i {
+    display: none;
+}
+
+#side-collapse-building .jstree-anchor .badge {
+    display: none;
+}
+
+.jstree-children .jstree-ocl, .jstree-children .badge, .jstree-children jstree-ocl:before  {
+    display: block!important;
+}
+
+.dedupInformation, span[title="Keski-kirjastot"], .dedupInformation, span[title="Keski Libraries"]  {
+    display: none;
+}
+
+#side-collapse-building  .jstree-children:not(.facet) {
+    margin-left: -10px!important;
+}
+
+// This makes the background smaller.
+.template-name-results  .search-form-container, .template-dir-record .searchContent {
+    max-height: 140px!important;
+}
+
+.template-name-results  .main-content {
+    margin-top: 0!important;
+}
+
+// Style the "Saatavilla verkossa" selector.
+.side-facets-container-ajax fieldset {
+    position: relative;
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+    background: #F7F7F7;
+    border: 1px solid #c6c6c6;
+
+}
+
+.side-facets-container-ajax fieldset label {
+    font-weight: 600!important;
+    text-transform: uppercase;
+}
+
+
+.side-facets-container-ajax fieldset input[type="checkbox"] {
+    margin-right: 2px!important;
+    margin-left: 3px!important;
+}
+
+
+.search-filters {
+    border-top: none;
+    position: relative;
+    top: -22px;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    padding-top: 0!important;
+    background: none!important;
+    height: auto!important;
+}
+
+.filter-value {
+    background: none!important;
+}
+
+.title-value-pair {
+    background: rgba(135, 209, 239, 0.78);
+    padding: .86em 1.2em;
+    margin-bottom: .8em;
+    margin-right: .96em;
+    border-radius: 16px;
+    font-size: 1.17em;
+    font-weight: 600;
+}
+
+.filter-text {
+    color: @text-color!important;
+    font-size: .99em!important;
+    font-style: oblique;
+    line-height: unset!important;
+    padding: 0!important;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    font-weight: 400!important;
+}
+
+.search-filter-remove {
+    color: @brand-danger!important;
+    margin-left: 4px!important;
+    margin-right: 6px!important;
+}
+
+// Filter-value = Things like "Verkossa saatavilla".
+.filters-title, .filters-or, .filter-value  {
+    color: @text-color!important;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    margin-left: 2px!important;
+    margin-right: 3px!important;
+    padding: 0!important;
+    line-height: unset!important;
+}
+
+.filters-title {
+    margin-right: 0!important;
+}
+
+
+.paginationSimple {
+    display: none!important;
+}
+
+
+.sort-option-container .button-label, .limit-option-container .button-label {
+    display: none;
+}
+
+.total-count {
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin-right: 1em;
+    margin-left: -10px;
+    font-style: oblique;
+}
+
+.sort-option-container {
+    margin-right: 1.85em;
+}
+
+.sort-button span {
+    font-style: oblique;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.sort-by, .results-on-page {
+    margin-right: -15px!important;
+    font-style: normal!important;
+    font-size: 1.06em;
+}
+
+.sort-button .open {
+}
+
+.sort-button .dropdown a {
+    padding: 10px 16px;
+    font-size: 1.06em;
+
+}
+
+.sort-button .dropdown a[aria-expanded="true"] {
+    background: none!important;
+    border: solid 3px @brand-secondary!important;
+}
+
+
+.limit-option-container .dropdown-menu {
+    width: auto!important;
+    margin: 0!important;
+    padding: 0!important;
+    min-width: 50px!important;
+    max-width: 100%;
+    margin-block-start: 0!important;
+    margin-block-end: 0!important;
+}
+
+li {
+
+}
+
+.limit-option-container .dropdown-menu li a {
+    text-align: center!important;
+    max-width: 85%;
+
+}
+
+.paginationSimple .pagination-text .total {
+} 
+
+.pagination-background .mainbody {
+    width: 100% !important;
+    text-align: center;
+}
+
+
+.pagination {
+    margin-top: 1.8em;
+    text-align: center;
+    font-size: 1.5em!important;
+}
+
+.pagination li:not(.pagination-button) a:hover {
+    background: none!important;
+    color: @text-color!important;
+    border-bottom: solid 2px @nav-hover-border-color!important;
+    margin-bottom: 0;
+    border-radius: 0!important;
+}
+
+.pagination .active  span, .pagination .active  span:hover {
+    background: none!important;
+    color: @text-color!important;
+    border-bottom: solid 2px @brand-third;
+    margin-bottom: 0;
+    border-radius: 0!important;
+}
+
+.pagination li a {
+    margin-right: 5px!important;
+    margin-left: 5px!important;
+}
+
+.searchtools i {
+    margin-right: 4px;
+}
+
+.searchtools a {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    margin-top: 12px;
+    margin-bottom: 2px;
+    font-size: 1.1em!important;
+}
+
+.searchtools a:hover {
+    border-bottom: solid 2px @brand-secondary;
+    margin-bottom: 0;
+}
+
+.pagination-button i, .search-controls i {
+    background: @btn-primary!important;
+}
+
+.pagination-button i {
+    color: @text-color!important;
+    padding: .35em!important;
+    border-radius: 11px!important;
+}
+
+.pagination-button i:hover {
+    background: @btn-primary-hover!important;
+}
+
+// Single record styling
+
+.record-pagination-tools {
+    margin-top: 1em;
+    padding-bottom: 0!important;
+    font-size: 1.18em;
+    // TO DO: Proper fix for the added padding afterwards.
+    margin-bottom: -100px!important;
+}
+
+.back-to-search {
+    float: left;
+    margin-right: 18px;
+    padding: .35em!important;
+}
+
+.record-pagination-tools .pager {
+    text-align: left;
+    font-weight: 600;
+}
+
+.record-pagination-tools .pager .disabled, .record-pagination-tools .pager:after {
+    display: none;
+}
+
+.record-pagination-tools .pager .pager-next-record a, .record-pagination-tools .pager .pager-previous-record a  {
+    background: @btn-primary!important;
+    color: @text-color!important;
+    padding: .35em!important;
+    border-radius: 11px!important;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.pagination-text, .button-label {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.template-dir-record .organisation-menu {
+    display: none;
+}
+
+.sourceSolr {
+    position: relative;
+    top: -25px!important;
+}
+
+
+.template-dir-record .nav-pills li:not(.share-buttons) a, .template-dir-record .nav-pills i {
+    color: @text-color!important;
+    font-size: 1.05em;
+    margin-bottom: 2px;
+    border-radius: 0!important;
+    padding-bottom: 8px!important;
+    padding-left: 5px!important;
+    padding-right: 5px!important;
+}
+
+.template-dir-record .nav-pills li:not(.share-buttons) span:hover {
+    color: @text-color!important;
+
+}
+
+.template-dir-record .nav-pills li:not(.share-buttons) a:hover{
+    color: @text-color!important;
+    font-size: 1.05em;
+    margin-bottom: 0;
+    border-bottom: solid 2px @nav-hover-border-color;
+}
+
+.template-dir-record .share-buttons {
+    display: none!important;
+}
+
+
+
+.infobox {
+    border-radius: 15px;
+    padding: 1.5rem 2rem 2.5rem 2.5rem!important;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+}
+
+#modal {
+
+}
+
+#keskiNews {
+    min-width: 85%;
+    padding-bottom: 1em!important;
+}
+
+#keskiNews ul li {
+    padding-top: .33em;
+    padding-bottom: .33em;
+    font-size: 1.15em;
+    font-weight: 600;
+    color: @text-color;
+
+}
+
+#keskiNews ul {
+    padding-right: 15%;
+}
+
+#keskiNews ul li a {
+    display: flex!important;
+    flex-direction: column!important;
+    flex-wrap: nowrap!important;
+}
+
+#keskiNews a {
+    color: @text-color;
+}
+
+#keskiNews a:hover {
+    color: @link-hover-color;
+}
+
+.news-date {
+    font-size: .93em;
+    font-weight: 400;
+}
+
+.news-li-title {
+    /*
+    position: relative;
+    top: -25px;
+    left: 75px;
+     */
+    position:relative;
+    display: block;
+    left: 65px;
+    top: -23px;
+}
+
+.keski-news-archive .news-li-title {
+    left: 105px;
+}
+
+
+.modal-body {
+    font-size: 1.1em;
+    word-wrap: break-word;
+}
+
+.modal-body > h1 {
+    padding-top: 2.5em;
+    background: none;
+    color: @text-color;
+    border-bottom: none;
+    font-size: 1.6em!important;
+}
+
+.modal-body h2, .modal-body h3, .modal-body h4 {
+    font-size: 1.35em!important;
+    margin-top: 35px!important;
+
+}
+
+.modal-body h2 {
+    font-size: 1.45em!important;
+}
+
+.news-title {
+    border-bottom: solid 2px @brand-secondary!important;
+    clear: both;
+    display: inline-block;
+    padding: 2.78em 16px 3px 16px!important;
+    margin-left: 1em!important;
+    margin-bottom: .25em!important;
+}
+
+@media screen and ( max-width: 600px ) {
+    .news-title {
+        width: 100%;
+        margin-left: 0!important;
+    }
+}
+
+@media screen and ( max-width: 430px ) {
+
+    .news-date {
+        left: 0;
+    }
+
+    .news-li-title {
+        left: 50px;
+    }
+
+    .news-page-link .news-li-title {
+        left: 0;
+    }
+
+
+    .news-section-title {
+        padding: 0 12px 5px 12px!important;
+        margin-bottom: 1.5em!important;
+        width: 100%;
+    }
+
+}
+
+.news-section-title {
+    border-bottom: solid 3px @brand-secondary!important;
+    clear: both;
+    display: inline-block;
+    padding: 0 25px 5px 55px!important;
+    margin-bottom: 1.5em!important;
+}
+
+.modal-content .close  {
+    color: @brand-danger;
+    margin-top: .5em;
+    margin-right: .5em;
+    font-size: 1.65em!important;
+}
+
+.news-content {
+    padding: 1.8em;
+}
+
+.news-link {
+    margin-top: 1.7em;
+    font-size: 1.1em;
+}
+
+.news-link i {
+    margin-left: -4px;
+    margin-right: 8px;
+    font-size: 1.15em;
+}
+
+.news-image {
+    max-height: 65vmin;
+    margin-top: 3em!important;
+    border: solid 1px transparent;
+    border-radius: 33px!important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.news-page-link-container {
+    margin-top: 1.34rem!important;
+
+}
+
+.news-page-link {
+    font-weight: 600;
+    font-size: 1.22em!important;
+    margin-bottom: 0;
+}
+
+.news-page-link i {
+    margin-left: .15em!important;
+}
+
+.frontpage-info-msg {
+    font-size: 1.45em;
+    font-style: oblique;
+    font-weight: bold;
+    color: @brand-danger;
+}
+
+
+.event-li {
+    border-radius: 15px;
+    padding: .5rem 7% .5rem 4%!important;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    background: @infobox-background;
+    display: inline-block;
+}
+
+.event-li:hover {
+    border-radius: 15px;
+    padding: .5rem 7% .5rem 4%!important;
+    -webkit-box-shadow: 0px 0px 0px 5px @btn-primary-hover;
+    -moz-box-shadow: 0px 0px 0px 5px @btn-primary-hover;
+    box-shadow: 0px 0px 0px 5px @btn-primary-hover;
+}
+
+.event-li span {
+    width: auto;
+    display: block;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    font-weight: 600;
+    color: @text-color;
+
+}
+
+.event-li-container span {
+
+}
+
+.event-li-title {
+    font-size: 1.35em;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* https://www.steckinsights.com/shorten-length-border-bottom-pure-css/ */
+.event-li-title:after {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 70%; /* Change this to whatever width you want. */
+    padding-top: 1px; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid @nav-hover-border-color; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.event-li-title i {
+    margin-right: 15px;
+    color: #ff6130;
+}
+
+.event-li-time {
+    font-size: .94em;
+}
+
+.event-li-time i {
+    color: #ff7721;
+    font-size: .9em
+}
+
+.event-li-time:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 1px;
+    border-bottom: 2px solid #ffce7d;
+}
+
+.event-li-place {
+    font-size: 1.01em;
+}
+
+.event-li-place i {
+    color: #00fa0b;
+}
+
+.event-li-place:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    padding-top: 1px;
+    border-bottom: 2px solid #c3fa00;
+}
+
+
+.event-li-container {
+}
+
+.event-li .fa {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.event-li .fa-clock-o {
+    margin-left: 15px;
+    margin-right: 2px;
+}
