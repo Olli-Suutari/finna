@@ -165,8 +165,24 @@ function smartPaginationDisplay() {
     var totalResults = $('.pagination-text .total').text();
     if (totalResults != "") {
         console.log(totalResults)
-        $('.sort-option-container').prepend('<span class="total-count">' + totalResults + ' hakutulosta</span>');
+        //$('.sort-option-container').prepend('<span class="total-count">' + totalResults + ' hakutulosta</span>');
     }
+
+    // Remove "Näytetään"
+    $( ".pagination-text span" ).each(function( index ) {
+        var value = $( this ).text();
+        if (value == "Näytetään ") {
+            $( this ).css('display', 'none');
+        }
+    });
+
+    // Remove space in 41-60.
+    $( ".pagination-text strong" ).each(function( index ) {
+        var value = $( this ).text();
+        value = value.replace(/ /g, "");
+        $( this ).text(value);
+
+    });
 
     $('.sort-option-container .sort-button span').prepend('<span class="sort-by">Järjestys:</span>');
     $('.limit-option-container .sort-button span').prepend('<span class="results-on-page">Tuloksia sivulla:</span>');
@@ -251,8 +267,9 @@ function smartPaginationDisplay() {
         $('#side-panel-subtitle_lng_str_mv button').click();
     
         }
-        console.log(subLang);    
     }, 800);
+
+
 
 }
 
