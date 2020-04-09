@@ -462,7 +462,11 @@ function loadFinnaLess() {
 
     var timeStamp = Math.round(new Date().getTime()/1000);
 
-    loadLessFile('https://keski-finna.fi/external/finna/style/less/finna-variables.less' + '?' + timeStamp);
+
+
+    //loadLessFile('https://keski-finna.fi/external/finna/style/less/finna-custom.less' + '?' + timeStamp);
+
+
     //loadLessFile('https://keski-finna.fi/external/finna/style/less/finna-variables.less');
 
     /*
