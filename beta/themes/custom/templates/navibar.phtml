@@ -83,6 +83,9 @@ function endsWith($string, $endString)
                         else if (endsWith($url, '/ekirjasto')) {
                             $menuIcon = '<i class="fa fa-globe" aria-hidden="true"></i> ';
                         }
+                        else if (endsWith($url, '/musiikki')) {
+                            $menuIcon = '<i class="fa fa-music" aria-hidden="true"></i> ';
+                        }
                         // Feedback and menus with sub links are constructed later.
                         ?>
                         <li><a <?= $target ? ' target="' . $this->escapeHtmlAttr($target) . '"' : ''?> href="<?= $url ?>"><?= $menuIcon ?><i class="fa fa-nav-<?=$label ?>" aria-hidden="true"></i><?= $this->transEsc($label) ?></a></li>
