@@ -20,8 +20,6 @@ html {
 
 body {
     font-family: 'Open Sans', sans-serif!important;
-
-
 }
 // Main section background
 body, section[role=main], section[role=main] .container-fluid, .finna-main-header {
@@ -46,7 +44,12 @@ h1, h2, h3, h4 {
 .autocomplete-result {
 }
 
+// Icon colors.+
 header .fa, .search .fa, .searchtools .fa  {
+    color: @gray-dark;
+}
+
+.btn-primary, .btn-primary i {
     color: @gray-dark;
 }
 
@@ -132,7 +135,7 @@ html, body {
 .btn-primary {
     font-size: 1.07em;
     font-weight: 600;
-    background: @btn-primary!important;
+    //background: @btn-primary!important;
 }
 
 .btn-primary:hover {
@@ -144,9 +147,6 @@ html, body {
     color: @text-color!important;
 }
 
-.btn-primary, .btn-primary i {
-    color: @text-color!important;
-}
 
 section[role=main] {
     //margin-top: 2.3em;
@@ -214,7 +214,7 @@ section[role=main]:not(.template-dir-search,  .template-name-advanced) {
     font-size: 32px;
 }
 .template-name-home {
-    margin-bottom: 3em!important;
+    margin-bottom: 4em!important;
 }
 
 .home-first-row {
@@ -224,12 +224,8 @@ section[role=main]:not(.template-dir-search,  .template-name-advanced) {
 
 
 footer {
-    box-shadow: 0 -2px 2px -2px #333;
     font-size: 1.3em;
-    //background: rgb(113,164,229);
-    //background: radial-gradient(circle, rgba(113,164,229,1) 0%, rgb(182, 215, 221) 100%);
-    background: rgb(90,246,188);
-    background: linear-gradient(2deg,rgba(250, 185, 142, 0.863) 0%, rgb(183, 233, 224) 70%)!important;
+    background: #F0F3F7; 
     width: 100%;
     padding-top: 2.2em;
     padding-bottom: 2em!important;
@@ -239,6 +235,7 @@ footer {
     left: 0!important;
     display: flex;
     height: auto!important;
+    margin-top: 2em!important;
     min-height: 50vmin; // TO DO: https://keski.finna-test.fi/beta/Feedback/Home has empty space after the footer in 1080 * 1920.
 }
 
