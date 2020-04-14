@@ -1,0 +1,3249 @@
+//
+// Finna Variables
+// --------------------------------------------------
+//== Colors
+//
+//## Gray and brand colors for use across Bootstrap.
+@gray: #414141;
+
+@gray-darker:            darken(@gray, 40%);
+@gray-dark:              darken(@gray, 10%);
+@gray-light:             lighten(@gray, 18%); // mix(@body-bg, contrast(@body-bg), 40%)
+@gray-mid-light:         lighten(@gray, 40%); // dark background: mix(@body-bg, contrast(@body-bg), 65%)
+@gray-lighter:           lighten(@gray, 65%); // dark background: mix(@body-bg, contrast(@body-bg), 80%)
+@gray-ultralight:        lighten(@gray, 80%); // dark background: mix(@body-bg, contrast(@body-bg), 95%)
+
+// Brand Colors
+@brand-primary: #5f9ff5;
+@brand-secondary: #fd9171;
+@brand-third: #7bc578;
+@brand-fourth: rgb(2, 2, 2);;
+@brand-success: #42A94C;
+@brand-warning: #A99F42;
+@brand-danger: #ff461e;
+@brand-info: #007c90;
+@logo-color: #fff;
+
+// ADDED SCREEN BREAKPOINTS HERE
+@screen-md-min: 768px;
+@screen-md-max: 1200px;
+@screen-lg-min: 1201px;
+@screen-sm-min: 568px;
+@screen-sm: 568px;
+@screen-sm-max: 767px;
+
+// Extra extra small screen / phone (e.g. iPhone 5)
+@screen-xxs: 400px;
+@screen-xxs-min: @screen-xxs;
+@screen-xxs-max: (@screen-xxs-min - 1);
+
+@screen-xlg: 1400px;
+@screen-xlg-min: @screen-xlg;
+
+//== Custom Finna styling
+@background-image-url: url('../images/logo_background.jpg');
+@background-color: @gray-light;
+@background-image-attachment: scroll;  // set to fixed or scroll (fixed doesnt scoll along with page);
+@background-start-color: transparent; // gradient color for background image
+@background-end-color:  transparent; // gradient color for background image
+@background-start-percent: 10%;
+@background-end-percent: 100%;
+@header-height: 68px;
+@navbar-logo-height: 48px;
+@logo-height: 76px;
+@logo-separator-color: #fff; // Color of hr line under main logo
+@header-background-color: @body-bg; // Color of navigation bar top
+@header-text-color: @navbar-default-link-color;
+@footer-background: @gray-ultralight;
+@footer-text-color: @gray;
+@action-link-color: @brand-primary;
+@finna-search-background: mix(@body-bg, contrast(@body-bg), 95%); // Background color of finna searchbox section
+@finna-search-link-color: @text-color;
+@finna-main-header-background: @body-bg; // Color of page header background and search results tabs
+@finna-searchbox-link-color: @body-bg; // style searchbox link text color contrast with background
+@finna-searchbox-link-background: rgba(1,1,1,0.6); // style searchbox links (advanced search etc.) background contrast with background
+@finna-record-header-background: @gray-ultralight;
+@finna-feedback-color: #fff;
+@finna-feedback-background: @brand-primary;
+@field-margin-vertical: 20px;
+@field-margin-horizontal: 15px;
+@finna-text-shadow: 1px 1px 1px black;
+@finna-search-input-width: 0.655; //== THIS is percentage Change this if no prefilter-select change to 0.88
+@finna-button-radius: 4px; // Defines all button radiuses
+@finna-header-font-size: 1.6em;
+@record-title-font-size: 1.7em;
+@record-holdings-title-background: @brand-primary;
+@record-holdings-title-color: mix(@record-holdings-title-background, contrast(@record-holdings-title-background), 5%);
+@record-holdings-border-color: @gray-lighter;
+@main-tabs-active-color: @nav-tabs-active-color;
+@main-tabs-background-color: @nav-tabs-background-color;
+@main-tabs-text-color: @nav-tabs-text-color;
+@main-tabs-border-color: @nav-tabs-border-color;
+
+@finna-searchtools-background: @gray-lighter;
+@finna-searchtools-color: @gray;
+
+//== Finna home page
+@introduction-text-color: #fff;
+@introduction-text-small-color: #fff;
+@introduction-header: 3em;
+@home-content-background: @body-bg; // Add custom background color for home main section
+@home-1-background: @body-bg;
+@home-2-background: @body-bg;
+@home-3-background: @body-bg; // change the color of right column
+@home-4-background: @body-bg;
+@home-left-column-background: none;
+@home-right-column-background: @body-bg;
+@infobox-background: #f5f7fa;
+@infobox-text-color: @gray;
+@infobox-box-shadow: none;
+
+//== Finna facets
+@sidebar-header-text-color: mix(@sidebar-background, contrast(@sidebar-background), 5%);
+@sidebar-background: @brand-primary;
+@sidebar-border-color: mix(@body-bg, contrast(@body-bg), 80%);
+@sidebar-border: 1px solid @sidebar-border-color;
+@facet-header-background: @gray-ultralight;
+@facet-text-color: mix(@facet-header-background, contrast(@facet-header-background), 5%);
+@facet-border-color: mix(@facet-header-background, contrast(@facet-header-background), 80%);
+
+@display-checkbox-facet-amount: inline-block;    // set to none or inline-block
+// Applied filters
+@filters-background-color: @action-link-color;
+@filters-text-color: @body-bg;
+@filters-icon-color: @body-bg;
+@filterContent-background: @body-bg;
+@filterContent-border-color: mix(@filterContent-background, contrast(@filterContent-background), 80%);
+@filterContent-text-color: @text-color;
+//Search tools
+@finna-searchtools-background: @brand-primary;
+@finna-searchtools-color: @body-bg;
+
+//== Browsebar
+@finna-browsebar-background: @brand-primary;
+@finna-browsebar-highlight-background: darken(@finna-browsebar-background, 10%);
+@finna-browsebar-link-color: @body-bg;
+
+//== Generated horizontal carousel styles
+//== Carousel images background-color
+@carousel-slider-background: #000;
+//== Styling the header of carousel
+@carousel-header-background: transparent;
+@carousel-header-color: @gray;
+@carousel-header-padding: 0;
+//== Styling the horizontal header of each slide
+@carousel-slide-header-background: rgba(1, 1, 1, 0.6);
+@carousel-slide-header-color: #fff;
+@carousel-slide-header-text-shadow: 1px 1px 1px black;
+//== Vertical slider background
+@carousel-verticalslide-header-background: none;
+//== Styling the text color and background of each slide
+@carousel-text-background-color: rgba(1,1,1,0.75);
+@carousel-slide-text-color: rgb(255, 255, 255);
+@carousel-slide-link-color: rgb(255, 255, 255);
+
+//== List feed styles
+@list-feed-background: @body-bg;
+@list-feed-padding: 10px;
+
+//== List feed header style
+@list-feed-header-background: none;
+@list-feed-header-padding: none;
+@list-feed-header-color: @gray;
+
+//== Myreresearch custom styles
+@myresearch-header-background:  @body-bg;
+@myresearch-tabs-color: @gray;
+@myresearch-menu-header-font-color: #fff;
+
+// Finna info box
+@finna-infobox-bg: lighten(@brand-primary, 70%);
+@finna-infobox-border: 4px solid @brand-primary;
+@finna-infobox-color: @brand-primary;
+
+//== Scaffolding
+//
+// ## Settings for some of the most global styles.
+
+@body-bg: #fcfcfc;
+@text-color: #4C4A41; // ALT: #141823;
+@link-color: #1663d9; // defines all link color, also for linked icons
+@link-hover-color: #0657d6;
+@link-hover-decoration: #fff;
+@padding-base-vertical: 6px;
+@padding-base-horizontal: 12px;
+@padding-large-vertical: 10px;
+@padding-large-horizontal: 16px;
+@padding-small-vertical: 5px;
+@padding-small-horizontal: 10px;
+@line-height-large: 1.33;
+@line-height-small: 1.5;
+@component-active-bg: @brand-primary;
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+
+@font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+@font-family-serif: PT Serif;
+@font-family-monospace: Monaco;
+@font-family-base: @font-family-sans-serif;
+@font-size-base: 14px;
+@font-size-icon-small: 14px;
+@font-size-icon-large: 1.5em;
+@font-size-large: ceil((@font-size-base * 1.3));
+@font-size-small: ceil((@font-size-base * 0.85));
+@font-size-h1: floor((@font-size-base * 2.6));
+@font-size-h2: floor((@font-size-base * 1.76));
+@font-size-h3: floor((@font-size-base * 1.6));
+@font-size-h4: floor((@font-size-base * 1.3));
+@font-size-h5: @font-size-base;
+@font-size-h6: floor((@font-size-base * 0.85));
+@line-height-base: 1.5;
+@line-height-computed: floor((@font-size-base * @line-height-base));
+@headings-font-family: @font-family-base;
+@headings-line-height: 1.1;
+@headings-color: inherit;
+
+//## Font size, line-height for content pages
+@content-font-size-base: 16px;
+@content-line-height-base: 1.5;
+@content-headings-font-size-h1: floor((@content-font-size-base * 1.777));
+@content-headings-font-size-h2: floor((@content-font-size-base * 1.777));
+@content-headings-font-size-h3: floor((@content-font-size-base * 1.333));
+@content-headings-font-size-h4: floor((@content-font-size-base * 1.15));
+@content-headings-font-size-h5: @content-font-size-base;
+@content-headings-font-size-h6: floor((@content-font-size-base * 0.875));
+@headings-font-weight: 700;
+@content-headings-line-height: @headings-line-height;
+@content-headings-color: @gray-dark;
+@content-heading-background: @brand-secondary;
+@content-nav-bg: @gray-ultralight;
+
+//-- Iconography
+//
+//## Specify custom locations of the include Glyphicons icon font. Useful for those including Bootstrap via Bower.
+
+@icon-font-path:          "../../finna/css/fonts/";
+@icon-font-name:          "finnaicons";
+@icon-font-svg-id:        "finnaicons";
+
+//== Components
+//
+//## Define common padding and border radius sizes and more. Values based on 14px text and 1.428 line-height (~20px to start).
+@border-radius-base:        10px;
+@border-radius-large:       20px;
+@border-radius-small:       5px;
+
+//== Tables
+//** Finna tables
+@table-finna-record-cell-padding:  3px 0px;
+
+@table-bg-accent:               @gray-ultralight;    // Defines color for striped tables used in record details and holdings
+
+//** Border color for table and cell borders.
+@table-border-color:            transparent;
+
+//== Buttons
+//
+//## For each of Bootstrap's buttons, define text, background and border color.
+
+@btn-font-weight: 600;
+@btn-default-color: @body-bg;
+@btn-default-bg: #fff;
+@btn-default-border: #ccc;
+@btn-primary-color: @text-color;
+@btn-primary-bg: #94e4f8; //#9effb3 #9cfab0;
+@btn-primary-border: darken(@btn-primary-bg, 0%);
+@btn-success-color: #fff;
+@btn-success-bg: @brand-success;
+@btn-success-border: darken(@btn-success-bg, 5%);
+@btn-warning-color: @gray-light;
+@btn-warning-bg: @brand-warning;
+@btn-warning-border: darken(@btn-warning-bg, 5%);
+@btn-danger-color: #fff;
+@btn-danger-bg: @brand-danger;
+@btn-danger-border: darken(@btn-danger-bg, 5%);
+@btn-info-color: #fff;
+@btn-info-bg: @brand-info;
+@btn-info-border: darken(@btn-info-bg, 5%);
+@btn-link-disabled-color: @gray-light;
+
+//== Forms
+//
+//##
+
+//** `<input>` border radius
+@input-border-radius:            @border-radius-small;
+@input-bg: #fff;
+@search-input-bg: #fff;
+
+//== Dropdowns
+//
+//## Dropdown menu container and contents.
+
+@dropdown-bg: @body-bg;
+@dropdown-border: mix(@body-bg, contrast(@dropdown-bg), 80%);
+@dropdown-divider-bg: #e5e5e5;
+@dropdown-link-active-color: #fff;
+@dropdown-link-active-bg: @component-active-bg;
+@dropdown-link-color: @text-color;
+@dropdown-link-hover-color: darken(@text-color, 7%);
+@dropdown-link-hover-bg: rgba(1,1,1,0.1);
+@dropdown-link-disabled-color: @gray-light;
+@dropdown-header-color: @gray-light;
+@dropdown-caret-color: #000;
+@dropdown-fallback-border: none;
+
+//-- Z-index master list
+//
+// Warning: Avoid customizing these values. They're used for a bird's eye view
+// of components dependent on the z-axis and are designed to all work together.
+//
+// Note: These variables are not generated into the Customizer.
+
+@zindex-navbar:            1000;
+@zindex-dropdown:          1001;
+@zindex-popover:           1010;
+@zindex-tooltip:           1020;
+@zindex-navbar-fixed:      1030;
+@zindex-modal-background:  1040;
+@zindex-modal:             1050;
+
+//== Grid System
+//
+@grid-float-breakpoint:     @screen-md-min;
+
+@grid-float-breakpoint-max:     1200px; // ADDED
+
+//== Navbar
+//
+//##
+
+// Basics of a navbar
+@navbar-height:                    64px; // 45?
+@navbar-right:                     64px;
+@navbar-margin-bottom:             0px;
+@navbar-padding-vertical:          0px;
+@navbar-collapse-max-height:       auto;
+
+@navbar-default-bg:                #fff;
+
+// Navbar links
+@navbar-default-link-color:                @text-color;  // Color of link texts in navbar
+@navbar-font-size:                         1.1em; // Font-size of navbar links
+@navbar-font-weight:                       500; // Font weight for navbar texts
+// Navbar toggle
+@navbar-toggle-color:                      @navbar-default-link-color;
+
+//== Navs
+//
+//##
+
+//=== Shared nav styles
+@nav-link-padding:                          0px 15px;
+@nav-link-hover-bg:                         rgba(255,255,255,0.2);
+//== Tabs
+@nav-tabs-active-color:                     @action-link-color;
+@nav-tabs-background-color:                 @body-bg;
+@nav-tabs-text-color:                       @text-color;
+@nav-tabs-border-color:                     @gray-mid-light; 
+@nav-tabs-link-hover-border-color:          @gray-mid-light;
+//@nav-tabs-link-hover-color:                 @nav-tabs-active-link-hover-color;
+@nav-tabs-link-hover-color:                 @nav-hover-bg;
+
+@tabs-border-radius:                        4px;
+
+//== Pagination
+//
+//##
+@pagination-background:                @body-bg;
+@pagination-color:                     @link-color;
+@pagination-bg:                        @body-bg;
+@pagination-border:                    transparent;
+
+@pagination-hover-color:               @link-color;
+@pagination-hover-bg:                  #f5f5f5;
+@pagination-hover-border:              transparent;
+
+@pagination-active-color:              @gray-light;
+@pagination-active-bg:                 #f5f5f5;
+@pagination-active-border:             transparent;
+
+//== Pager
+//
+//##
+
+@pager-bg:                             @action-link-color;
+@pager-hover-bg:                       darken(@action-link-color, 0.5%);
+@pager-disabled-color:                 @gray-mid-light;
+
+//== Form states and alerts
+//
+//## Define colors for form feedback states and, by default, alerts.
+
+@state-success-text:             #2d4821;
+
+//== Tooltips
+//
+//##
+//** Tooltips for Finna, set to inline or none;
+@tooltip-tabs-pci:            inline;
+@tooltip-tabs-local:          inline;
+@tooltip-facet:               inline;
+@tooltip-search-local:        inline;
+@tooltip-search-pci:          inline;
+@tooltip-myaccount:           inline;
+@tooltip-local-advanced:      inline;
+@tooltip-pci-advanced:        inline;
+@tooltip-button-color:        @body-bg;
+@tooltip-eds-advanced:        inline;
+@tooltip-summon-advanced:     inline;
+@tooltip-button-color:        #fff;
+
+//** Tooltip max width
+@tooltip-max-width:           300px;
+@tooltip-min-width:           250px;
+//** Tooltip text color
+@tooltip-color:               @text-color;
+//** Tooltip background color
+@tooltip-bg:                  @body-bg;
+@tooltip-opacity:             1;
+
+//** Tooltip arrow width
+@tooltip-arrow-width:         6px;
+//** Tooltip arrow color
+@tooltip-arrow-color:         @brand-primary;
+@tooltip-header-color:        mix(@tooltip-arrow-color, contrast(@tooltip-arrow-color), 5%);
+
+//== Modals
+//
+//##
+@modal-content-bg: @body-bg;
+@modal-header-background: @brand-primary;
+@modal-header-color: mix(@modal-header-background, contrast(@modal-header-background), 5%);
+//** Padding applied to the modal body (only a single value allowed!)
+
+//== Alerts
+//
+//## Define alert colors, border radius, and padding.
+
+@alert-padding:               10px;
+
+//== List group
+//
+//##
+
+//** Background color on `.list-group-item`
+@list-group-bg: @body-bg;
+@list-group-link-color: @text-color;
+
+//== Panels
+//
+//##
+@panel-border-radius:         0px;
+
+//== thumbnail
+//
+//##
+@thumbnail-border:            none;
+
+//== Badges
+//
+//##
+
+@badge-color:                 lighten(@text-color, 18%);
+//** Linked badge text color on hover
+@badge-link-hover-color:      #fff;
+@badge-bg:                    none;
+@badge-font-size:             0.9em;
+@badge-font-weight:           400;
+
+//== Breadcrumbs
+//
+//##
+
+@breadcrumb-padding-vertical:   5px;
+@breadcrumb-padding-horizontal: 5px;
+//** Breadcrumb background color
+@breadcrumb-bg:                 rgba(1, 1, 1, 0.4);
+//** Breadcrumb text color
+@breadcrumb-color:              #fff;
+//** Text color of current page in the breadcrumb
+@breadcrumb-active-color:       #fff;
+//** Textual separator for between breadcrumb elements
+@breadcrumb-separator:          "/ ";
+
+//== Wells
+//
+//##
+
+@well-bg:                     mix(@body-bg, contrast(@body-bg), 95%);
+@well-border:                 mix(@body-bg, contrast(@body-bg), 80%);
+
+//== Cookie Consent
+//
+//##
+@cookie-consent-background-color: @gray-light;
+@cookie-consent-color: #fff;
+@cookie-consent-link-color: #fff;
+@cookie-consent-button-border: 2px solid #fff;
+
+//== Miscellaneous
+//
+//##
+
+//** Horizontal line color.
+@hr-border:                   rgba(255,255,255,0.2);
+
+@cursor-disabled: pointer;
+@progress-border-radius: none;
+@panel-heading-padding: 0;
+@panel-footer-padding: 0;
+
+@accordion-details-display: none;
+
+// Custom variables
+//@nav-hover-bg: #c7f2e8;
+@nav-hover-bg: #d9f4ff;
+@nav-hover-border-color: #fcad95; // #fb9677;
+@btn-primary-hover: @nav-hover-border-color; //@nav-hover-bg;
+
+/*
+
+/*body {
+  background-color: red;
+}
+
+// We cannot replace the original navigation .less, thus we have to manually replace everything..
+header {
+  padding: 1.6em .5em  .8em .5em;
+  justify-content: space-evenly;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+// Navigation background
+.finna-navbar, .navbar-header, header, [role=navigation] {
+  //background-color: #ebebed;
+  background-color: #f0f3f7!important;
+}
+
+.system-messages {
+  font-weight: 600;
+  font-size: 1.35rem;
+  font-style: oblique;
+  position: relative!important;
+  top: 0!important;
+  top: unset!important;
+  left: 50%;
+  transform: translateX(-50%);
+  color: @brand-danger;
+  background: none;
+  flex-direction: row;
+  border-radius: 8px;
+  align-content: center;
+  vertical-align: center;
+  width: auto;
+  max-width: 100%!important;
+  display: inline-block;
+  margin-bottom: .15em;
+  margin-top: .5em;
+}
+
+header i {
+  margin-right: 2px;
+}
+
+header .fa-info-circle:before {
+  font-family: inherit!important;
+  content: "\f05a";
+  font-size: 1.05em;
+}
+
+header .in {
+  height: auto!important;
+  // Unless we set min-height the mobile nav becomes a scrollable "mess".
+  min-height: 400px;
+  padding-bottom: 1em;
+}
+
+.navbar-toggle {
+  background: none!important;
+}
+// Margins for menu items on different screen sizes.
+@media screen and ( min-width: 1200px ){
+  [role=menubar] li {
+    margin-right: 4vmin!important;
+  }
+
+  .navbar-header {
+    margin-left: -20px!important;
+    margin-right: 20px!important;
+  }
+}
+
+@media screen and ( min-width: 1400px ){
+  .navbar-header {
+    margin-left: -80px!important;
+  }
+
+  [role=menubar] li {
+    margin-right: 5vmin!important;
+  }
+}
+
+[role=menubar] li {
+  margin-right: 8px!important;
+}
+
+[role=menubar] li a {
+  padding-top: 6px!important;
+  padding-bottom: 6px!important;
+}
+
+header li a {
+  padding-bottom: 5px!important;
+}
+
+[role=menubar] .btn-primary {
+  background: none!important;
+  border-radius: 0!important;
+}
+
+[role=menubar] .btn-primary:hover {
+  background: @nav-hover-bg!important;
+  border-left: solid 4px @nav-hover-border-color!important;
+}
+
+// Hovering links inside li
+.browsebar-custom div span:hover, #browseContainer ul li a:hover {
+  border-bottom: solid 3px @nav-hover-border-color;
+  background: none;
+}
+
+// Dropdowns
+[role=menubar] li a:not(.selected-nav):hover, [role=menubar] a[aria-expanded="true"] {
+  border-bottom: none!important;
+}
+
+// Dropdowns
+[role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"] {
+  background: @nav-hover-bg!important;
+  border-left: solid 4px @nav-hover-border-color!important;
+  margin-left: -4px;
+}
+
+.dropdown-menu li, .dropdown li {
+  margin-left: 10px;
+  width: auto!important;
+  margin-right: 8px!important;
+  margin-bottom: 9px!important;
+  margin-top: 0!important;
+  border-bottom: none;
+  min-width: 210px;
+}
+
+.dropdown-menu li a:hover, .dropdown-menu li a:hover {
+  background: @nav-hover-bg!important;
+  border-left: solid 4px @nav-hover-border-color!important;
+  margin-left: -4px;
+  border-bottom: none!important;
+}
+
+.dropdown-menu li a, .dropdown li a {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px!important;
+}
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+  border-color: @nav-hover-border-color;
+}
+
+.dropdown a[aria-expanded="true"] {
+  border-bottom: solid 3px @nav-hover-border-color;
+  background: none;
+  margin-bottom: 0!important;
+}
+
+.dropdown a[aria-expanded="true"]:hover {
+  border-bottom: none;
+  background: none;
+  margin-bottom: 0!important;
+}
+
+.dropdown-menu > :first-child {
+  margin-top: 18px!important;
+}
+
+.dropdown-menu > :last-child {
+  margin-bottom: 16px!important;
+}
+
+.dropdown-menu > :first-child a, .dropdown-menu > :last-child a {
+  border-radius: 0!important;
+}
+
+.dropdown {
+  padding-bottom: 0!important;
+}
+
+.dropdown-menu li .selected-nav, .dropdown-menu li .selected-nav:hover {
+  border-bottom: none!important;
+  border-left: solid 4px @brand-third!important;
+  margin-left: 0;
+}
+
+#my-info-dropdown-menu>li {
+  border-bottom: none!important;
+}
+
+@media screen and (max-width: @screen-sm-min) {
+  .card-selection a {
+    margin-left: 15px!important
+  }
+}
+
+.dropdown-menu li a div {
+  padding-left: 10px!important;
+}
+
+.dropdown-menu li a div:hover {
+  //border-left: solid 2px red;
+}
+
+header .btn-primary {
+}
+
+#loginOptions a {
+  padding: 10px 13px!important;
+}
+
+#logoutOptions, #logoutOptions a, #logoutOptions a span, .username, .caret {
+  color: @text-color!important;
+}
+
+.lang-selector {
+  margin-left: 20px;
+}
+
+// Padding vertically does not appear to be working properly here if we want to add more. TO DO: Investigate.
+.lang-selector a {
+  padding: 13px 15px!important;
+  font-weight: 600!important;
+}
+
+.navbar-brand img {
+  padding-left: 12px!important;
+  padding-bottom: 5px!important;
+  margin: 0;
+  padding-bottom: 12px!important;
+  height: 64px!important;
+  width: auto;
+}
+
+.navbar-brand {
+}
+
+@media screen and (min-width: 1700px) {
+  .navbar-brand {
+    margin-right: 16vmin!important;
+    //margin-left: -14vmin!important;
+  }
+}
+
+.navbar-header {
+}
+
+.navbar-header .selected-nav  {
+  border-bottom: none;
+  //border-left: solid 2px #78c57d;
+}
+
+.navbar-brand img {
+  margin-left: 4px;
+}
+
+.navbar-brand img:hover {
+  //background-color: @nav-hover-bg;
+  margin-left: 0;
+  border-left: solid 4px @nav-hover-border-color!important;
+}
+
+[role=menubar] li  {
+  font-size: 1.0718em;
+}
+
+.mobile-lang-selector {
+  display: none!important;
+}
+
+// Default config / modifications
+
+.swipe-arrow-navigation {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  background: @link-color;
+  top: 50%;
+  color: @body-bg;
+  border-radius: 50%;
+  &.arrow-navigation-left {
+    left: 0px;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+  &.arrow-navigation-right {
+    right: 0px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px
+  }
+  .fa-arrow-right, .fa-arrow-left {
+    color: @body-bg;
+    top: 10px;
+    left: 8px;
+    position: absolute;
+    font-size: 30px;
+  }
+}
+
+.nav {
+  margin-bottom: 12px;
+  margin-top: 12px;
+  > li {
+    display: block;
+    > a {
+      transition: background .2s ease-in-out;
+    }
+  }
+}
+@media (min-width:@screen-md-min) {
+  .nav > li {
+    display: inline-block;
+  }
+}
+@media (max-width: @screen-md-max) {
+  .finna-navbar .nav >li>a {
+    padding: 0 6px;
+  }
+}
+
+.navbar .navbar-logo {
+  height: @navbar-logo-height + 10;
+  margin-top: ((@navbar-height/2)-(@navbar-logo-height/2));
+  margin-right: 10px;
+}
+
+.navbar-nav>li.lang>a {
+  line-height: inherit;
+  margin: 0;
+}
+
+.navbar-nav>li.lang {
+  display: inline-block;
+  border-left: 1px solid @text-color;
+}
+
+.navbar-nav>li.lang:first-child {
+  border-left: none;
+}
+
+// fix navbar for logoutoptions
+.finna-navbar .navbar-nav .logoutOptions {
+  @media(max-width: @screen-sm) {
+    margin: 0;
+  }
+  a {
+    color: @action-link-color;
+  }
+  .dropdown-menu {
+    right: 5px;
+    left: auto;
+    > li {
+      > a {
+        color: @text-color;
+        width: 250px;
+        i {
+          padding-top: 3px;
+        }
+      }
+    }
+    @media (max-width: @screen-xxs) {
+      right: -30px;
+    }
+  }
+  .username {
+    display: inline-block;
+    max-width: 150px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    vertical-align: top;
+    font-size: @font-size-base;
+    font-weight: 600;
+    @media (max-width: @screen-sm) {
+      max-width: 80px;
+    }
+    @media (max-width: @screen-xxs) {
+      display: none;
+    }
+  }
+  .description {
+    font-size: 0.9em;
+    line-height: 1.2em;
+  }
+}
+
+.navbar {
+  max-width: 1300px; // dont fully scale the navigation bar text
+
+  .logoutOptions, #loginOptions {
+    .login-text {
+      padding-left: 0.5em;
+      @media (max-width: @screen-xxs) {
+        display: none;
+      }
+    }
+  }
+  #loginOptions-navi .login-text {
+    padding-left: 0.5em;
+    @media (max-width: @screen-xxs) {
+      display: inherit;
+    }
+  }
+}
+
+@media(max-width: @grid-float-breakpoint) {
+  #loginOptions button {
+    background-color: @body-bg;
+    a {
+      color: @action-link-color;
+    }
+  }
+}
+
+// content-navigation-menu
+.main.template-dir-content.template-name-content .content-navigation-menu {
+  margin: 20px 0px;
+  h2 {
+    font-size: 1em;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: @facet-header-background;
+    color: @text-color;
+    border-left: 4px solid @action-link-color;
+    padding: 15px;
+    margin-bottom: 5px;
+    margin-top: 0;
+    transition: background 0.2s linear;
+    &:hover {
+      background: @gray-lighter;
+      cursor: pointer;
+    }
+  }
+  @media (min-width:@screen-sm-min) {
+    &.attached {
+      position: fixed;
+      top: 0px;
+    }
+  }
+  @media (min-width:@screen-lg-min) {
+    &.attached {
+      width: 262px;
+    }
+  }
+  @media (min-width:@screen-md-min) and (max-width: @screen-md-max) {
+    &.attached {
+      width: 212px;
+    }
+  }
+  @media (min-width:@screen-sm-min) and (max-width: @screen-sm-max) {
+    &.attached {
+      max-width: 22%;
+    }
+  }
+}
+
+.navbar {
+  .dropdown .dropdown-menu > li > a > div:not(.description) {
+    font-weight: bold;
+  }
+  .dropdown .dropdown-menu > li > a > div.description {
+    font-size: .9em;
+  }
+}
+
+.navbar-collapse {
+  border-top: none;
+  @media (min-width: @grid-float-breakpoint) {
+    border-top: 0;
+    box-shadow: none;
+  }
+}
+
+.navbar-brand {
+  padding: 0;
+  line-height: @navbar-height;
+  max-width: 200px;
+  .navbar-logo {
+    font-size: @navbar-logo-height;
+    color: @logo-color;
+  }
+  img {
+    height: @navbar-logo-height;
+    width: auto;
+  }
+}
+
+.navbar-toggle {
+  position: absolute;
+  z-index: 30;
+  right:0;
+  height: @navbar-height;
+  width: @navbar-height;
+  margin:0;
+  color: @nav-hover-bg;
+  background-color: @brand-primary;
+  padding: 0;
+  border-radius: 0;
+  i {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  &.collapsed .fa.fa-times{
+    display: none;
+  }
+  &:not(.collapsed) .fa.fa-bars {
+    display: none;
+  }
+}
+
+&.dropdown-toggle:focus {
+  outline: 1px dotted #212121;
+  outline: 5px auto -webkit-focus-ring-color;
+}
+
+.navbar-nav {
+  > li > a {
+    padding-top: @navbar-padding-vertical;
+    padding-bottom: @navbar-padding-vertical;
+    line-height: @navbar-height / 2;
+    margin-top: @navbar-height / 4;
+    margin-bottom: @navbar-height / 4;
+    font-size: @navbar-font-size;
+    font-weight: @navbar-font-weight;
+    @media (min-width:@screen-md-min) {
+      margin-bottom: 0;
+    }
+  }
+  &.language:not(.lang-1):before {
+    color: @navbar-default-link-color;
+    content: '';
+    @media (min-width: @grid-float-breakpoint) {
+      border-left: solid 1px @navbar-default-link-color;
+    }
+    height: ((@navbar-height) - 24);
+    margin-top: ((@navbar-height - (@navbar-height - 24)) / 2);
+  }
+  &.lang-1 {
+    margin-left: 10px;
+  }
+  @media (max-width: @grid-float-breakpoint-max) {
+    &.lang-1 {
+      margin-left: -15px;
+      border-top: 1px solid #000;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      &:before {
+        border-left: none;
+      }
+    }
+    // Dropdowns get custom display when collapsed
+    .open:not(.logoutOptions):not(.browsebar-dropdown) .dropdown-menu {
+      position: static;
+      float: none;
+      width: auto;
+      margin-top: 0;
+      background-color: transparent;
+      border: 0;
+      box-shadow: none;
+      transition: background-color 0.2s ease-in-out;
+      padding: 0;
+      > li > a,
+      .dropdown-header {
+        padding: 5px 15px 5px 25px;
+      }
+      > li > a {
+        line-height: @line-height-computed;
+        white-space: normal;
+        &:hover,
+        &:focus {
+          background-image: none;
+          background-color: @nav-link-hover-bg;
+        }
+      }
+    }
+    .open .dropdown-menu {
+      position: absolute;
+      float: left;
+      width: initial;
+      margin-top: 0;
+      background-color: @dropdown-bg;
+      border: 1px solid @dropdown-fallback-border; // IE8 fallback
+      border: 1px solid @dropdown-border;
+      border-radius: @border-radius-base;
+      > li > a,
+      .dropdown-header {
+        padding: 5px 15px 5px 25px;
+      }
+      > li > a {
+        padding: 7px 15px;
+        line-height: @line-height-computed;
+        &:hover,
+        &:focus,
+        &:active {
+          text-decoration: none;
+          color: @dropdown-link-hover-color;
+          background-color: @dropdown-link-hover-bg;
+        }
+      }
+    }
+  }
+  // Uncollapse the nav
+  @media (min-width: @grid-float-breakpoint) {
+    flex-grow: 1;
+    flex-shrink: 1;
+    float: initial;
+    margin: 0;
+
+    &.navbar-main {
+      margin-bottom: @navbar-height / 4;
+    }
+  }
+  .btn {
+    vertical-align: baseline;
+  }
+}
+
+.finna-navbar {
+  .navbar-nav > li > a,
+  .navbar-collapse.in .dropdown-menu a {
+    color: @header-text-color;
+    padding: 0 10px;
+  }
+}
+
+// Menu position and menu carets
+.navbar-nav > li > .dropdown-menu {
+  margin-top: 0;
+}
+
+// Specified Finna styles for navbar
+.nav.nav-absolute {
+  position: absolute;
+  margin:0;
+  line-height: @navbar-height;
+  top: 0px;
+  right: 15px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  .dropdown-menu > li > a {
+    white-space: normal;
+  }
+}
+
+@media (max-width: @screen-sm-max) {
+  .nav.nav-absolute {
+    right: @navbar-right;
+    #loginOptions {
+      margin-right: 16px;
+    }
+  }
+}
+
+// Fix dropdowns in navbar for wide screen
+@media (min-width: @screen-md-min) {
+  .navbar .dropdown-menu > li > a {
+    width: 280px;
+    white-space: normal;
+    transition: none;
+  }
+}
+
+//Finna breadcrumbs
+.breadcrumb {
+  display: none;
+  margin: 0px;
+  margin-top: 15px;
+  background-color: transparent;
+
+  > li {
+    background-color: @breadcrumb-bg;
+    margin: 0px -2px;
+    padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
+    + li:before {
+      content: @breadcrumb-separator;
+      font-size: 12px;
+    }
+  }
+  > li a {
+    color: @breadcrumb-color;
+  }
+}
+
+.dropdown-menu {
+  padding: 0px 1px;
+  border: 1px solid @dropdown-border;
+  border-radius: @border-radius-base;
+  min-width: 0;
+
+  > li {
+    border-bottom: none;
+  }
+  > li:last-child > a, li:last-child {
+    border-bottom: none;
+  }
+  > li:first-child > a, li:first-child {
+  }
+
+  > li > a {
+    padding: 7px 15px;
+  }
+}
+
+.dropdown-menu > li > a {
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+    color: @dropdown-link-hover-color;
+    background-color: @dropdown-link-hover-bg;
+  }
+}
+
+#my-info-dropdown-menu {
+  width: 280px;
+  background-color: @body-bg;
+  margin-top: 0;
+  @media (max-width: @screen-xxs) {
+    right: -90%;
+  }
+
+  .card-selection {
+    @media (max-width: @screen-sm-max) {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: 200px;
+    }
+    p {
+      padding-left: 15px;
+      margin-bottom: 0px;
+    }
+    #select-card-label-dropdown {
+      display: none;
+    }
+    > a:not(.card-header) {
+      padding-left: 32px;
+    }
+    i.fa-check {
+      margin-left: -17px;
+      color: @brand-primary;
+    }
+  }
+  > li {
+    border-bottom: 1px solid @gray-lighter;
+    line-height: 30px;
+    cursor: pointer;
+
+    > ul {
+      line-height: 20px;
+      > li > a {
+        text-indent: 5%;
+        li {
+          height: 25px;
+        }
+      }
+    }
+    a {
+      width: 100%;
+      &:hover {
+        text-decoration: none;
+        color: @dropdown-link-hover-color;
+        background-color: @dropdown-link-hover-bg;
+      }
+    }
+  }
+
+  > li:last-child > a, li:last-child {
+    border-bottom: none;
+  }
+  > li:first-child > a, li:first-child {
+  }
+}
+
+// Default styling of Finna Jump menus
+.jumpMenuForm {
+  height: 38px;
+  label {
+    font-weight: normal;
+    margin-left: 10px;
+  }
+}
+.jump-menu-style {
+  padding: 0;
+  position: relative;
+  width: auto;
+  z-index: 1;
+  display: inline-block;
+  min-width: 60px;
+  select {
+    background-color: transparent;
+    border: 0 none;
+    box-shadow: none;
+    display: block;
+    font-size: 100%;
+    font-weight: 600;
+    line-height: 1em;
+    margin: 0;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  option {
+    background: @body-bg;
+    color: @gray;
+    padding: 5px;
+    &:hover {
+      background-color: @gray-light;
+    }
+  }
+
+  &:before {
+    display: block;
+    font-size: 1em;
+    height: 100%;
+    padding: 0 20px 0px 2px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    text-align: center;
+    width: 1em;
+    z-index: -1;
+  }
+  &.controls {
+    border-radius: @finna-button-radius;
+    background-color: @brand-primary;
+    padding-top: 0px;
+    transition: background-color .1s linear;
+    option:checked {
+      background: @btn-primary-bg;
+      color: @body-bg;
+    }
+  }
+  &.controls:before {
+    transition: background-color .1s linear;
+    background: @btn-primary-bg;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: @body-bg;
+    line-height: 40px;
+  }
+
+}
+.jump-menu-style select::-ms-expand {
+  display: none; /* to ie 10 */
+}
+:-moz-any(.prefilter-select,.jump-menu-style.controls):before {
+  background-color:  @body-bg; /* this is necessary for overcome the caret default browser */
+  pointer-events: none; /* https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  */
+  z-index: 1; /* this is necessary for overcome the pseudo element */
+}
+
+.navbar-nav.lang {
+  line-height: inherit;
+}
+.navbar-nav.nav-login {
+  border-top: 1px solid @gray-lighter;
+  display: none!important;
+  line-height: 64px;
+  text-align: center;
+}
+
+/* Mobile navbar */
+@media(max-width: @grid-float-breakpoint-max) {
+  .finna-navbar {
+    position: relative;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    top: 0;
+    border-width: 0 0 1px;
+    background-color: @header-background-color;
+    width: 100;
+    margin: 0;
+    box-shadow: none;
+    .navbar-collapse > ul > li {
+      border-bottom: none;
+      margin-left: 20px;
+    }
+    .navbar-nav > li.lang, .navbar-nav > li.nav-login {
+      border-bottom: none;
+    }
+    .navbar-nav.nav-login {
+      display: inherit;
+    }
+  }
+  .navbar-collapse.in {
+    box-shadow: 0 3px 5px @gray;
+    max-height: ~"calc(100vh - "@navbar-height~")";
+  }
+  .navbar-header {
+    padding-left: 10px;
+  }
+  #header-collapse {
+    float: right;
+    width: auto;
+    padding: 3vmin 10vmin;
+    margin-bottom: 18px;
+  }
+  // Display the mobile language switcher and hide the default language switcher.
+  .mobile-lang-selector {
+    display: block!important;
+  }
+  .lang-selector {
+    display: none!important;
+  }
+}
+
+@media(min-width: @grid-float-breakpoint) {
+  .finna-navbar {
+    display: flex;
+    .nav.nav-absolute {
+      position: relative;
+    }
+    .navbar-collapse {
+      flex: 1;
+      display: flex !important; // Needed to override bootstrap defaults
+    }
+    .navbar-nav.lang {
+      flex-grow: initial;
+      flex-shrink: initial;
+    }
+  }
+}
+
+.navbar-nav>li>.dropdown-menu {
+  margin-top: -5px;
+}
+
+header {
+  box-shadow: 0 0 3px 3px rgba(0,0,0,0.1);
+  z-index: 1020;
+  position: relative;
+}
+
+.logo-clearfix {
+  display: none!important;
+}
+
+.finna-navbar, .navbar-logo {
+
+}
+
+#menu_Vinkit {
+
+}
+
+#menu_Vinkit i {
+
+}
+
+.selected-nav {
+  border-bottom: solid 2px #7bc578!important;
+}
+
+.navbar-header .selected-nav {
+  border-bottom: none!important;
+}
+
+.floating-feedback-btn {
+  display: none!important;
+}
+
+.introduction .clearfix {
+  display: none;
+}
+
+.tooltip-button .tooltip-search-local .pull-right {
+  margin-left: -30px;
+}
+
+.login-dropdown {
+  padding-top: 1.2em;
+  padding-left: 2.5em;
+  padding-right: 2.5em;
+  width: auto!important;
+  min-width: 300px!important;
+}
+
+// MATERIAL INPUT FOR LOGIN
+
+.login-test {
+
+  .pure-material-textfield-outlined {
+    --pure-material-safari-helper1: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    position: relative;
+    display: inline-block;
+    padding-top: 6px;
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 16px;
+    line-height: 1.5;
+    overflow: hidden;
+  }
+
+  /* Input, Textarea */
+  .pure-material-textfield-outlined > input,
+  .pure-material-textfield-outlined > textarea {
+    box-sizing: border-box;
+    margin: 0;
+    border: solid 1px; /* Safari */
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    border-top-color: transparent;
+    border-radius: 4px;
+    padding: 15px 13px 15px;
+    width: 100%;
+    height: inherit;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+    background-color: transparent;
+    box-shadow: none; /* Firefox */
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    caret-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    transition: border 0.2s, box-shadow 0.2s;
+  }
+
+  /* Span */
+  .pure-material-textfield-outlined > input + span,
+  .pure-material-textfield-outlined > textarea + span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    width: 100%;
+    max-height: 100%;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    //color: @text-color;
+    font-size: 75%;
+    line-height: 15px;
+    cursor: text;
+    transition: color 0.2s, font-size 0.2s, line-height 0.2s;
+  }
+
+  /* Corners */
+  .pure-material-textfield-outlined > input + span::before,
+  .pure-material-textfield-outlined > input + span::after,
+  .pure-material-textfield-outlined > textarea + span::before,
+  .pure-material-textfield-outlined > textarea + span::after {
+    content: "";
+    display: block;
+    box-sizing: border-box;
+    margin-top: 6px;
+    border-top: solid 1px;
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    min-width: 10px;
+    height: 8px;
+    pointer-events: none;
+    box-shadow: inset 0 1px transparent;
+    transition: border-color 0.2s, box-shadow 0.2s;
+
+  }
+
+  .pure-material-textfield-outlined > input + span::before,
+  .pure-material-textfield-outlined > textarea + span::before {
+    margin-right: 4px;
+    border-left: solid 1px transparent;
+    border-radius: 4px 0;
+  }
+
+  .pure-material-textfield-outlined > input + span::after,
+  .pure-material-textfield-outlined > textarea + span::after {
+    flex-grow: 1;
+    margin-left: 4px;
+    border-right: solid 1px transparent;
+    border-radius: 0 4px;
+  }
+
+  /* Hover */
+  .pure-material-textfield-outlined:hover > input,
+  .pure-material-textfield-outlined:hover > textarea {
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+    border-top-color: transparent;
+  }
+
+  .pure-material-textfield-outlined:hover > input + span::before,
+  .pure-material-textfield-outlined:hover > textarea + span::before,
+  .pure-material-textfield-outlined:hover > input + span::after,
+  .pure-material-textfield-outlined:hover > textarea + span::after {
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+  }
+
+  .pure-material-textfield-outlined:hover > input:not(:focus):placeholder-shown,
+  .pure-material-textfield-outlined:hover > textarea:not(:focus):placeholder-shown {
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+  }
+
+  /* Placeholder-shown */
+  .pure-material-textfield-outlined > input:not(:focus):placeholder-shown,
+  .pure-material-textfield-outlined > textarea:not(:focus):placeholder-shown {
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+  }
+
+  .pure-material-textfield-outlined > input:not(:focus):placeholder-shown + span,
+  .pure-material-textfield-outlined > textarea:not(:focus):placeholder-shown + span {
+    font-size: inherit;
+    line-height: 68px;
+  }
+
+  .pure-material-textfield-outlined > input:not(:focus):placeholder-shown + span::before,
+  .pure-material-textfield-outlined > textarea:not(:focus):placeholder-shown + span::before,
+  .pure-material-textfield-outlined > input:not(:focus):placeholder-shown + span::after,
+  .pure-material-textfield-outlined > textarea:not(:focus):placeholder-shown + span::after {
+    border-top-color: transparent;
+  }
+
+  /* Focus */
+  .pure-material-textfield-outlined > input:focus,
+  .pure-material-textfield-outlined > textarea:focus {
+    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    border-top-color: transparent;
+    box-shadow: inset 1px 0 var(--pure-material-safari-helper1), inset -1px 0 var(--pure-material-safari-helper1),
+    inset 0 -1px var(--pure-material-safari-helper1);
+
+    outline: none;
+  }
+
+  .pure-material-textfield-outlined > input:focus + span,
+  .pure-material-textfield-outlined > textarea:focus + span {
+    color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+  }
+
+  .pure-material-textfield-outlined > input:focus + span::before,
+  .pure-material-textfield-outlined > input:focus + span::after,
+  .pure-material-textfield-outlined > textarea:focus + span::before,
+  .pure-material-textfield-outlined > textarea:focus + span::after {
+    border-top-color: var(--pure-material-safari-helper1) !important;
+    box-shadow: inset 0 1px var(--pure-material-safari-helper1);
+  }
+
+  /* Disabled */
+  .pure-material-textfield-outlined > input:disabled,
+  .pure-material-textfield-outlined > input:disabled + span,
+  .pure-material-textfield-outlined > textarea:disabled,
+  .pure-material-textfield-outlined > textarea:disabled + span {
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+    border-top-color: transparent !important;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+    pointer-events: none;
+  }
+
+  .pure-material-textfield-outlined > input:disabled + span::before,
+  .pure-material-textfield-outlined > input:disabled + span::after,
+  .pure-material-textfield-outlined > textarea:disabled + span::before,
+  .pure-material-textfield-outlined > textarea:disabled + span::after {
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+  }
+
+  .pure-material-textfield-outlined > input:disabled:placeholder-shown,
+  .pure-material-textfield-outlined > input:disabled:placeholder-shown + span,
+  .pure-material-textfield-outlined > textarea:disabled:placeholder-shown,
+  .pure-material-textfield-outlined > textarea:disabled:placeholder-shown + span {
+    border-top-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38) !important;
+  }
+
+  .pure-material-textfield-outlined > input:disabled:placeholder-shown + span::before,
+  .pure-material-textfield-outlined > input:disabled:placeholder-shown + span::after,
+  .pure-material-textfield-outlined > textarea:disabled:placeholder-shown + span::before,
+  .pure-material-textfield-outlined > textarea:disabled:placeholder-shown + span::after {
+    border-top-color: transparent !important;
+  }
+
+  /* Faster transition in Safari for less noticable fractional font-size issue */
+  @media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+      .pure-material-textfield-outlined > input,
+      .pure-material-textfield-outlined > input + span,
+      .pure-material-textfield-outlined > textarea,
+      .pure-material-textfield-outlined > textarea + span,
+      .pure-material-textfield-outlined > input + span::before,
+      .pure-material-textfield-outlined > input + span::after,
+      .pure-material-textfield-outlined > textarea + span::before,
+      .pure-material-textfield-outlined > textarea + span::after {
+        transition-duration: 0.1s;
+      }
+    }
+  }
+
+  .login-btn {
+    position: relative;
+    top: -12px;
+    margin-top: 0!important;
+    margin-bottom: 2em;
+    padding: 1em;
+    width: 100%;
+    background: @btn-primary-bg!important;
+    line-height: normal!important;
+    height: auto!important;
+    vertical-align: top!important;
+  }
+
+  .login-btn:hover {
+    border-left: none!important;
+    background: @btn-primary-hover!important;
+  }
+
+}
+
+// ios renders the margin above the login differently. :)
+.ios-login {
+  margin-top: 20px!important;
+  top: 20px!important;
+}
+
+@media screen and ( max-width: 499px ){
+  .finna-navbar .navbar-nav .logoutOptions .dropdown-menu {
+    margin-left: 5%;
+  }
+}
+
+@media screen and ( min-width: 500px ){
+  .finna-navbar .navbar-nav .logoutOptions .dropdown-menu {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+// Shake the failed login.
+.shake-login {
+  -webkit-animation: kf_shake 0.2s 1 linear;
+  -moz-animation: kf_shake 0.2s 1 linear;
+  -o-animation: kf_shake 0.2s 1 linear;
+}
+@-webkit-keyframes kf_shake {
+  0% { -webkit-transform: translate(15px); }
+  20% { -webkit-transform: translate(-15px); }
+  40% { -webkit-transform: translate(7px); }
+  60% { -webkit-transform: translate(-7px); }
+  80% { -webkit-transform: translate(4px); }
+  100% { -webkit-transform: translate(0px); }
+}
+@-moz-keyframes kf_shake {
+  0% { -moz-transform: translate(15px); }
+  20% { -moz-transform: translate(-15px); }
+  40% { -moz-transform: translate(7px); }
+  60% { -moz-transform: translate(-7px); }
+  80% { -moz-transform: translate(4px); }
+  100% { -moz-transform: translate(0px); }
+}
+@-o-keyframes kf_shake {
+  0% { -o-transform: translate(15px); }
+  20% { -o-transform: translate(-15px); }
+  40% { -o-transform: translate(7px); }
+  60% { -o-transform: translate(-7px); }
+  80% { -o-transform: translate(4px); }
+  100% { -o-origin-transform: translate(0px); }
+}
+
+.login-error {
+  margin-top: -24px;
+  padding: 1.1em;
+  line-height: 1rem!important;
+  border-radius: 13px;
+  font-size: 1.15em;
+}
+
+.search {
+
+}
+
+@media (max-width: @screen-md-min) {
+
+  .search {
+  }
+
+  .searchbox {
+  }
+}
+
+.searchbox-toolbar a {
+  font-size: 1.05em!important;
+  font-weight: 400!important;
+}
+
+.search-tooltip {
+  display: none;
+}
+
+.searchContent {
+  background: rgb(90,246,188);
+  //background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 80%)!important;
+  //background: url('https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_960_720.png')!important;
+  //background: url('https://i.imgur.com/DjPMk2O.png')!important;
+  background: url('https://i.imgur.com/MYig17p.jpg')repeat-x fixed left top!important;
+  padding: 0!important;
+  margin: 0!important;
+  height: auto!important;
+}
+
+section[role=search] {
+  margin-bottom: 0!important;
+}
+
+@media screen and( min-width: 1000px ) {
+  .search-form-container .container {
+
+  }
+
+  .search-form-container {
+
+  }
+}
+
+.autocomplete-results.hidden {
+  visibility: visible;
+  display: block;
+}
+
+.autocomplete-results {
+  visibility: visible!important;
+  display: block!important;
+}
+
+.hidden-search-autocomplete {
+  visibility: hidden!important;
+  display: none!important;
+}
+
+section[role=search] .search {
+  margin-left: auto;
+  margin-right: auto;
+  left: 12%;
+  transform: translateX(-12%);
+  position: relative;
+  padding-top: 1.8em;
+  padding-left: 3em;
+  padding-right: 3em;
+  background: rgb(90,246,188);
+  background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 90%)!important;  top: -35px;
+  border-bottom-left-radius: 18px;
+  border-bottom-right-radius: 18px;
+}
+
+#searchForm {
+  margin-top: -13px!important;
+}
+
+.search-query {
+  padding-left: 1em!important;
+}
+
+section[role=search], .search-form-container  {
+  padding-top: .5em!important;
+  padding-bottom: 0!important;
+  height: auto!important;
+
+}
+
+.search-form-container .container {
+  padding: .5em!important;
+  height: auto!important;
+}
+
+// Browsebar
+
+.browsebar {
+  //display: none;
+}
+
+.browse-is-open {
+  display: inline!important;
+  visibility: visible!important;
+}
+
+#searchForm {
+  margin-bottom: 1em;
+}
+
+.searchbox-toolbar {
+  padding-top: .6em;
+  padding-bottom: 0;
+  border-radius: 22px;
+  margin-bottom: -10px!important;
+  padding-left: 10px;
+}
+
+.searchbox-columns .search {
+  min-width: 80vmin;
+  z-index: 900;
+  padding-bottom: 2em;
+}
+
+.searchbox-toolbar ul {
+}
+
+.home-search-bg  {
+  margin-top: 9vw;
+  margin-bottom: 17vw;
+  padding-top: 2.3em!important;
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.search-tools-ul {
+  display: grid;
+  box-sizing: border-box;
+  grid-template-columns: repeat(1, 1fr);
+  grid-auto-flow: dense;
+  width: 100%;
+}
+
+.search-tools-ul li {
+  padding-left: 0;
+  margin-left: 0;
+  padding-top: 10px;
+}
+
+@media (min-width: 430px) {
+  .search-tools-ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.search-tools-ul .btn {
+  padding: 0!important;
+}
+
+.search-tools-ul li {
+  padding-bottom: 10px!important;
+  text-align: center!important;
+}
+
+@media (min-width: 800px) {
+  .search-tools-ul {
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
+  }
+  .searchbox-columns .search {
+  }
+}
+
+@media (min-width: 1100px) {
+  .searchbox-columns .search {
+    min-width: 80%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .searchbox-columns .search {
+    min-width: 67%;
+  }
+}
+
+.searchbox-toolbar li {
+  display: inline-flex;
+  margin-left: 0!important;
+  font-size: 1.05em;
+  padding-left: 5px!important;
+  padding-right: 5px!important;
+  padding-bottom: .8em;
+  margin-bottom: 0;
+}
+
+.searchbox-toolbar li a {
+  padding-bottom: 8px!important;
+  border-radius: 0!important;
+}
+
+.search-tools-li-1 {
+  float: left;
+}
+
+.browsebar-custom div span:hover, #browseContainer ul li a:hover,  .type-dropdown span:hover,
+.type-dropdown ul li a:hover {
+  margin-bottom: 0;
+}
+
+#browseLi ul li {
+  margin-bottom: 7px!important;
+}
+
+#browseLi ul li a {
+  margin-bottom: 5px!important;
+}
+
+#browseLi ul li a:before {
+  margin-right: 10px!important;
+  font-size: 1em;
+}
+
+.searchbox-toolbar, #browseContainer, .browsebar-custom {
+  margin-top: 0!important;
+  padding-top: 0!important;
+  padding-bottom: 0!important;
+  margin-bottom: 0!important;
+  font-size: 1.01em!important;
+}
+
+.searchbox-toolbar i {
+  margin-right: 3px;
+}
+
+.browsebar-custom div span, #browseContainer ul li a {
+  color: @text-color;
+  margin-bottom: 3px;
+}
+
+#browseLi li {
+  margin-left: 10px!important;
+  width: 100%!important;
+}
+
+#browseLi li .fa-child {
+  margin-right: 15px!important;
+}
+
+@media only screen and (min-width: 431px) {
+  .browse-list-container {
+    top: 50px;
+  }
+}
+
+@media only screen and (min-width: 431px)  and (max-width: 768px) {
+  #browseLi {
+    position: initial;
+  }
+
+  .browse-list-container {
+    max-height: 1200px;
+    margin-left: auto;
+    right: 80px;
+    top: 120px;
+    min-width: 300px;
+
+  }
+  .browse-list-container li {
+
+  }
+  .browse-list-container li a {
+
+  }
+}
+
+@media only screen and (max-width: 431px) {
+  #browseLi {
+    position: initial;
+  }
+  .browse-list-container {
+    width: 100%!important;
+    max-height: 1200px;
+    margin-left: auto;
+    top: 210px;
+  }
+}
+
+.search-tools-ul li a[role="menuitem"] {
+  width: 100%;
+  text-align: left;
+}
+
+.browse-list-container {
+  z-index: 1000;
+}
+
+.browsebar-custom {
+  .priority-nav__dropdown {
+    left: 0;
+    top: 30px;
+    li > a.iconlabel {
+      margin: 0px;
+    }
+  }
+  .nav-dropdown-toggle {
+    height: 32px;
+    font-size: 1.1em;
+    border: none;
+    background-color: transparent;
+    //color: @finna-browsebar-link-color;
+    padding: 0;
+    padding-left: 1em;
+    line-height: normal;
+    &:before {
+      font-family: 'icomoon';
+      content: "\e00d";
+      margin-right: 5px;
+      font-size: 1.01em;
+      vertical-align: bottom;
+    }
+    &:after {
+      font-family: icomoon;
+      content: "\e613";
+      vertical-align: middle;
+      margin-left: 5px;
+    }
+    &:hover {
+      //background-color: darken(@finna-browsebar-background, 5%);
+    }
+    .nav-dropdown-label {
+      min-width: 200px;
+      line-height: 64px;
+      .caret {
+        margin-left: 5px;
+      }
+    }
+  }
+  nav.navbar {
+    width: 100%;
+    float: left;
+    .nav-wrapper {
+      margin-left: 75px;
+    }
+  }
+}
+/* SEARCH RESULTS / GENERIC */
+
+// This makes the searchbox background smaller.
+.template-name-results  .search-form-container, .template-dir-record .searchContent {
+    max-height: 140px!important;
+}
+
+.record-container, .record-container h1, .record-container h2, .record-container h3 {
+    font-family: 'Open Sans', sans-serif!important;
+}
+
+.media-body {
+
+}
+
+.record-container {
+}
+
+.record-container .result-body {
+    margin-top: 5px;
+
+}
+
+/* FILTERING SECTION */
+@media screen and ( min-width: 1000px ) {
+    .side-facets-container-ajax {
+        margin-right: 1.9em;
+    }
+}
+
+.side-facets-container-ajax {
+    color: @text-color!important;
+
+}
+
+.searchtools-background {
+    background: none!important;
+}
+
+.list-group-item, .searchtools a {
+    color: @text-color!important;
+
+}
+
+// Expand filter category. // Minimize filter category. // Expand library group // Minimize library group.
+.list-group.facet .list-group-item.title.collapsed:after, .list-group.facets .list-group-item.title.collapsed:after,
+.list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after,
+.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before,
+.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
+    color: @gray-dark!important;
+}
+
+// Expand library group
+.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before {
+    font-family: finnaicons;
+    content: "\e91a";
+    font-size: 22px;
+    margin-left: 3px;
+    margin-right: 8px;
+}
+// Minimize library group.
+.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
+    font-size: 22px;
+    font-family: finnaicons;
+    content: "\e916";
+    margin-right: 8px;
+    margin-left: 3px;
+}
+
+.list-group.facet .list-group-item.title.collapsed:after, .list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after {
+    //color: transparent;
+}
+
+#side-collapse-building .jstree-container-ul li:first-child i {
+    display: none;
+}
+
+#side-collapse-building .jstree-anchor .badge {
+    display: none;
+}
+
+.jstree-children .jstree-ocl, .jstree-children .badge, .jstree-children jstree-ocl:before  {
+    display: block!important;
+}
+
+.dedupInformation, span[title="Keski-kirjastot"], .dedupInformation, span[title="Keski Libraries"]  {
+    display: none;
+}
+
+#side-collapse-building  .jstree-children:not(.facet) {
+    margin-left: -10px!important;
+}
+
+.template-name-results  .main-content {
+    margin-top: 0!important;
+}
+
+// Style the "Saatavilla verkossa" selector.
+.side-facets-container-ajax fieldset {
+    position: relative;
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+    background: #F7F7F7;
+    border: 1px solid #c6c6c6;
+
+}
+
+.side-facets-container-ajax fieldset label {
+    font-weight: 600!important;
+    text-transform: uppercase;
+}
+
+.side-facets-container-ajax fieldset input[type="checkbox"] {
+    margin-right: 2px!important;
+    margin-left: 3px!important;
+}
+
+/* SELECTED SEARCH FILTERS */
+.search-filters {
+    border-top: none;
+    position: relative;
+    top: -22px;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    padding-top: 0!important;
+    background: none!important;
+    height: auto!important;
+}
+
+.filter-value {
+    background: none!important;
+}
+
+.title-value-pair {
+    background: rgba(135, 209, 239, 0.78);
+    padding: .86em 1.2em;
+    margin-bottom: .8em;
+    margin-right: .96em;
+    border-radius: 16px;
+    font-size: 1.17em;
+    font-weight: 600;
+}
+
+.filter-text {
+    color: @text-color!important;
+    font-size: .99em!important;
+    font-style: oblique;
+    line-height: unset!important;
+    padding: 0!important;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    font-weight: 400!important;
+}
+
+.search-filter-remove {
+    color: @brand-danger!important;
+    margin-left: 4px!important;
+    margin-right: 6px!important;
+}
+
+// Filter-value = Things like "Verkossa saatavilla".
+.filters-title, .filters-or, .filter-value  {
+    color: @text-color!important;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    margin-left: 2px!important;
+    margin-right: 3px!important;
+    padding: 0!important;
+    line-height: unset!important;
+}
+
+.filters-title {
+    margin-right: 0!important;
+}
+
+/* SMALL PAGINATION AND SORT BY / RESULTS ON PAGE STYLES  */
+
+// Sorting and results per page
+.sort-button .dropdown-toggle {
+}
+  
+.sort-button .dropdown-toggle {
+    border: solid 3px @gray!important;
+}
+  
+.sort-button .dropdown a[aria-expanded="true"] {
+    border: solid 3px @btn-primary-hover!important;
+    background: @btn-primary-hover!important;
+    border-bottom: solid 3px @nav-hover-border-color!important;
+}
+  
+.sort-button .fa {
+    color: @gray-dark!important;
+    background: none!important;
+}
+  
+.sort-button .dropdown a {
+    color: @text-color!important;
+    background: none!important;
+}
+
+.search-controls {
+    display: flex;
+    flex-direction: row;
+
+}
+
+.search-controls .pagination-container {
+    order: 2;
+}
+
+.control-container {
+    order: 1;
+}
+
+.paginationSimple {
+    font-size: 1.05em;
+
+}
+
+.paginationSimple li a i {
+    color: @text-color!important;
+    font-size: 1.19rem;
+}
+
+.paginationSimple i {
+
+}
+
+.paginationSimple .fa-arrow-alt-left, .paginationSimple .fa-first-page  {
+    margin-right: 6px;
+}
+
+.paginationSimple .fa-arrow-alt-right, .paginationSimple .fa-last-page {
+    margin-left: 6px;
+}
+
+.sort-option-container .button-label, .limit-option-container .button-label {
+    display: none;
+}
+
+.paginationSimple i:hover {
+    background: @btn-primary-hover!important;
+}
+
+.total-count {
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin-right: 1em;
+    margin-left: -10px;
+    font-style: oblique;
+}
+
+.sort-option-container {
+    margin-right: 1.85em;
+}
+
+.sort-button span {
+    font-style: oblique;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.sort-by, .results-on-page {
+    margin-right: -15px!important;
+    font-style: normal!important;
+    font-size: 1.06em;
+}
+
+.sort-button .open {
+}
+
+.sort-button .dropdown a {
+    padding: 10px 16px;
+    font-size: 1.06em;
+
+}
+
+.sort-button .dropdown a[aria-expanded="true"] {
+    background: none!important;
+    border: solid 3px @brand-secondary!important;
+}
+
+.limit-option-container .dropdown-menu {
+    width: auto!important;
+    margin: 0!important;
+    padding: 0!important;
+    min-width: 50px!important;
+    max-width: 100%;
+    margin-block-start: 0!important;
+    margin-block-end: 0!important;
+}
+
+.limit-option-container .dropdown-menu li a {
+    text-align: center!important;
+    max-width: 85%;
+
+}
+
+.paginationSimple .pagination-text .total {
+} 
+
+/* BOTTOM PAGINATION */
+
+.pagination-background .mainbody {
+    width: 100% !important;
+    text-align: center;
+}
+
+.pagination {
+    margin-top: 1.8em;
+    text-align: center;
+    font-size: 1.5em!important;
+}
+
+.pagination li:not(.pagination-button) a:hover {
+    background: none!important;
+    color: @text-color!important;
+    border-bottom: solid 2px @nav-hover-border-color!important;
+    margin-bottom: 0;
+    border-radius: 0!important;
+}
+
+.pagination .active  span, .pagination .active  span:hover {
+    background: none!important;
+    color: @text-color!important;
+    border-bottom: solid 2px @brand-third;
+    margin-bottom: 0;
+    border-radius: 0!important;
+}
+
+.pagination li a {
+    margin-right: 5px!important;
+    margin-left: 5px!important;
+}
+
+.searchtools i {
+    margin-right: 4px;
+}
+
+.searchtools a {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    margin-top: 12px;
+    margin-bottom: 2px;
+    font-size: 1.1em!important;
+}
+
+.searchtools a:hover {
+    border-bottom: solid 2px @brand-secondary;
+    margin-bottom: 0;
+}
+
+.pagination-button i, .search-controls i {
+    background: @btn-primary-bg!important;
+}
+
+.pagination-button i {
+    color: @text-color!important;
+    padding: .35em!important;
+    border-radius: 11px!important;
+}
+
+.pagination-button i:hover {
+    background: @btn-primary-hover!important;
+}
+
+/* SINGLE RECORD STYLES */
+
+.record-pagination-tools {
+    margin-top: 1em;
+    padding-bottom: 0!important;
+    font-size: 1.18em;
+    // TO DO: Proper fix for the added padding afterwards.
+    margin-bottom: -100px!important;
+}
+
+.back-to-search {
+    float: left;
+    margin-right: 18px;
+    padding: .35em!important;
+}
+
+.record-pagination-tools .pager {
+    text-align: left;
+    font-weight: 600;
+}
+
+.record-pagination-tools .pager .disabled, .record-pagination-tools .pager:after {
+    display: none;
+}
+
+.record-pagination-tools .pager .pager-next-record a, .record-pagination-tools .pager .pager-previous-record a  {
+    background: @btn-primary-bg!important;
+    color: @text-color!important;
+    padding: .35em!important;
+    border-radius: 11px!important;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.pagination-text, .button-label {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.template-dir-record .organisation-menu {
+    display: none;
+}
+
+.sourceSolr {
+    position: relative;
+    top: -25px!important;
+}
+
+.template-dir-record .nav-pills li:not(.share-buttons) a, .template-dir-record .nav-pills i {
+    color: @text-color!important;
+    font-size: 1.05em;
+    margin-bottom: 2px;
+    border-radius: 0!important;
+    padding-bottom: 8px!important;
+    padding-left: 5px!important;
+    padding-right: 5px!important;
+}
+
+.template-dir-record .nav-pills li:not(.share-buttons) span:hover {
+    color: @text-color!important;
+
+}
+
+.template-dir-record .nav-pills li:not(.share-buttons) a:hover{
+    color: @text-color!important;
+    font-size: 1.05em;
+    margin-bottom: 0;
+    border-bottom: solid 2px @nav-hover-border-color;
+}
+
+.template-dir-record .share-buttons {
+    display: none!important;
+}
+
+*/
+//@import "custom-variables";
+//@import "navigation";
+//@import "searchbar";
+
+html {
+    font-size: 1.06em;
+    font-family: sans-serif!important;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif!important;
+}
+// Main section background
+body, section[role=main], section[role=main] .container-fluid, .finna-main-header {
+    background-color: @body-bg!important; // .finna-main-header Requires !important
+}
+
+html, body, .container {
+}
+
+h1, h2, h3, h4, h5, h6, header, section[role=search], footer {
+    font-family: 'Lato', sans-serif;
+
+}
+
+h1, h2, h3, h4 {
+
+}
+
+.autocomplete-result {
+}
+
+// Icon colors.+
+header .fa, .search .fa, .searchtools .fa  {
+    color: @gray-dark;
+}
+
+.btn-primary, .btn-primary i {
+    color: @gray-dark;
+}
+
+.cookie-consent {
+    padding: 1.6em 2.4em;
+    position: fixed!important;
+    bottom: 0!important;
+    top: unset!important;
+    left: 50%;
+    transform: translateX(-50%);
+    color: @text-color!important;
+    background-color: #ebebed;
+    font-size: 1.15em;
+    font-weight: 400;
+    flex-direction: row;
+    border-radius: 8px;
+    align-content: center;
+    vertical-align: center;
+    width: auto;
+    max-width: 100%!important;
+}
+
+@media screen and ( max-width: 1000px ){
+    .cookie-consent {
+        width: 65%;
+    }
+}
+
+@media screen and ( max-width: 768px ){
+    .cookie-consent {
+        width: 100%;
+    }
+}
+
+.cookie-consent p {
+    margin: 0;
+}
+
+.cookie-consent-button {
+    margin-left: 2.4em;
+}
+
+.underlined-title {
+    padding-bottom: 7px!important;
+    padding-left: 9px!important;
+    padding-right: 18px!important;
+    border-bottom: 2px solid #414141;
+}
+
+.infobox h1, .infobox h2, .infobox h3, .content-header {
+}
+
+footer h1, footer h2, footer h3, footer h4 {
+    padding-left: 0!important;
+    padding-right: 0!important;
+    border-bottom: none
+}
+
+.content-navigation-menu h1, .content-navigation-menu h2 {
+    border-bottom: none
+
+}
+
+.content-header {
+
+}
+
+p {
+
+}
+
+html, body {
+    height: 100%;
+}
+
+.btn-uppercase {
+    text-transform: capitalize;
+    visibility: visible!important;
+}
+
+.btn-primary {
+    font-size: 1.07em;
+    font-weight: 600;
+    //background: @btn-primary!important;
+}
+
+.btn-primary:hover {
+    background: @btn-primary-hover!important;
+    border: none!important;
+}
+
+.infobox .btn-primary, .infobox i {
+    color: @text-color!important;
+}
+
+section[role=main] {
+    //margin-top: 2.3em;
+    // top margin is also applied to advanced search title...
+}
+
+.main-content {
+    min-width: 75% !important;
+}
+
+.content-section {
+    max-width: 860px;
+}
+
+.searchtools-background {
+    text-align: center;
+}
+
+section[role=main] {
+    padding-top: 2em;
+    margin-bottom: 4em!important;
+}
+
+// Do not add margin between search results and footer... But do on advanced search page and home  where the class .template-dir-search is also used.
+section[role=main]:not(.template-dir-search,  .template-name-advanced) {
+    margin-bottom: 4em!important;
+    padding-top: 3em;
+}
+
+.template-name-advanced .search-map-container {
+    display: none;
+}
+
+.template-name-advanced section[role=main] {
+    padding-top: 0;
+}
+
+.template-name-advanced .finna-main-header {
+    background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 90%)!important;  top: -35px;
+    align-content: flex-start;
+    padding-top: 2em;
+    padding-bottom: 1.5em;
+}
+
+.template-name-advanced h1.content-header {
+    color: @text-color;
+    font-weight: 600;
+    padding-left: 50px;
+}
+
+.template-name-advanced h1.content-header::before {
+    font-weight: 400;
+    font-family: finnaicons;
+    content: "\e91e";
+    position: absolute;
+    top: -15px;
+    bottom: -15px;
+    left: 0;
+    width: 60px;
+    background: none;
+    color: @gray-dark;
+    line-height: 64px;
+    text-align: center;
+    font-size: 32px;
+}
+.template-name-home {
+    margin-bottom: 4em!important;
+}
+
+.home-first-row {
+    margin-bottom: 2.7rem!important;
+    margin-top: 2.5rem;
+}
+
+footer {
+    font-size: 1.3em;
+    background: #F0F3F7; 
+    width: 100%;
+    padding-top: 2.2em;
+    padding-bottom: 2em!important;
+    margin-bottom: -40px!important;
+    position: static!important;
+    bottom: 0!important;
+    left: 0!important;
+    display: flex;
+    height: auto!important;
+    margin-top: 2em!important;
+    min-height: 50vmin; // TO DO: https://keski.finna-test.fi/beta/Feedback/Home has empty space after the footer in 1080 * 1920.
+}
+
+footer .container {
+    width: 95vmax!important;
+    margin-left: 2vmax!important;
+    margin-right: 2vmax;
+}
+
+.footer-left-side {
+    float: left;
+    position: relative;
+    top: 100px;
+    transform: rotate(208deg);
+}
+
+.footer-right-side  {
+    float: right;
+    transform: rotate(-215deg);
+    margin-bottom: 50px;
+}
+
+@media screen and ( max-width: 1300px ){
+    .footer-left-side, .footer-right-side {
+        display: none;
+    }
+}
+
+.footer-container {
+    margin-top: 1.6em;
+    width: 100%;
+    justify-content: space-between;
+    display: flex!important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-links {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.footer-links li {
+    float: left;
+    display: block;
+    margin: 0 22px;
+    padding: 9px 11px;
+    margin-bottom: 3px;
+    //border-left: solid 1px black;
+}
+
+.footer-links li a {
+    text-decoration: none;
+}
+
+.footer-links li:hover {
+    border-bottom: solid 2px @brand-secondary;
+    margin-bottom: 0;
+}
+
+footer .selected-nav {
+    margin-bottom: 3px!important;
+}
+
+footer .selected-nav:hover {
+    margin-bottom: 3px!important;
+
+}
+
+footer .selected-nav a:hover {
+    text-decoration: none;
+}
+
+.footer-logo-row {
+    margin-top: 2.55rem;
+}
+
+.foot-logo-link {
+    margin: .5em 3em!important;
+}
+
+@media (max-width: @screen-sm-min) {
+    // Footer gradient should be able to fill 100% of mobile screen.
+    footer {
+        min-height: 100vh;
+    }
+
+    .footer-links {
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .footer-links li {
+        margin-bottom: 1rem!important;
+    }
+
+    li a[title="About VuFind"] {
+        padding-left: 20px!important;
+    }
+
+    .footer-container li {
+        text-align: left;
+        margin-bottom: 1.1rem;
+        width: auto!important
+    }
+
+    .footer-container li a {
+        width: auto
+    }
+
+    .footer-links .foot-logo-link {
+        width: 100%!important;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+    }
+
+    .footer-links .foot-logo-link:hover {
+        border-bottom: none;
+    }
+
+}
+
+@media screen and ( min-height: 768px ) {
+    section[role=main] {
+        min-height: 60vmin!important;
+    }
+}
+
+.search-query {
+
+}
+
+.search-form-container .container::before {
+
+}
+
+.content-navigation-menu {
+    margin-bottom: 5em!important;
+    margin-right: 1.5em!important;
+}
+
+.content-navigation-menu h2 {
+    margin-bottom: 1.2em!important;
+    background: none!important;
+}
+
+.content-navigation-menu h2:hover {
+    background: @nav-hover-bg!important;
+    border-left: 5px solid @brand-secondary!important;
+}
+
+.content-navigation-menu h2 a {
+    color: @text-color!important;
+}
+
+.selected-sub-nav {
+    border-left: 5px solid @brand-third!important;
+}
+
+.content-section {
+    margin-bottom: 1.5em;
+    padding-bottom: 2em;
+}
+
+.infobox {
+    border-radius: 15px;
+    padding: 1.5rem 2rem 2.5rem 2.5rem!important;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+}
+
+#modal {
+
+}
+
+#keskiNews {
+    min-width: 85%;
+    padding-bottom: 1em!important;
+}
+
+#keskiNews ul li {
+    padding-top: .33em;
+    padding-bottom: .33em;
+    font-size: 1.15em;
+    font-weight: 600;
+    color: @text-color;
+
+}
+
+#keskiNews ul {
+    padding-right: 15%;
+}
+
+#keskiNews ul li a {
+    display: flex!important;
+    flex-direction: column!important;
+    flex-wrap: nowrap!important;
+}
+
+#keskiNews a {
+    color: @text-color;
+}
+
+#keskiNews a:hover {
+    color: @link-hover-color;
+}
+
+.news-date {
+    font-size: .93em;
+    font-weight: 400;
+}
+
+.news-li-title {
+    /*
+    position: relative;
+    top: -25px;
+    left: 75px;
+     */
+    position:relative;
+    display: block;
+    left: 65px;
+    top: -23px;
+}
+
+.keski-news-archive .news-li-title {
+    left: 105px;
+}
+
+.modal-body {
+    font-size: 1.1em;
+    word-wrap: break-word;
+}
+
+.modal-body > h1 {
+    padding-top: 2.5em;
+    background: none;
+    color: @text-color;
+    border-bottom: none;
+    font-size: 1.6em!important;
+}
+
+.modal-body h2, .modal-body h3, .modal-body h4 {
+    font-size: 1.35em!important;
+    margin-top: 35px!important;
+
+}
+
+.modal-body h2 {
+    font-size: 1.45em!important;
+}
+
+.news-title {
+    border-bottom: solid 2px @brand-secondary!important;
+    clear: both;
+    display: inline-block;
+    padding: 2.78em 16px 3px 16px!important;
+    margin-left: 1em!important;
+    margin-bottom: .25em!important;
+}
+
+@media screen and ( max-width: 600px ) {
+    .news-title {
+        width: 100%;
+        margin-left: 0!important;
+    }
+}
+
+@media screen and ( max-width: 430px ) {
+
+    .news-date {
+        left: 0;
+    }
+
+    .news-li-title {
+        left: 50px;
+    }
+
+    .news-page-link .news-li-title {
+        left: 0;
+    }
+
+    .news-section-title {
+        padding: 0 12px 5px 12px!important;
+        margin-bottom: 1.5em!important;
+        width: 100%;
+    }
+
+}
+
+.news-section-title {
+    border-bottom: solid 3px @brand-secondary!important;
+    clear: both;
+    display: inline-block;
+    padding: 0 25px 5px 55px!important;
+    margin-bottom: 1.5em!important;
+}
+
+.modal-content .close  {
+    color: @brand-danger;
+    margin-top: .5em;
+    margin-right: .5em;
+    font-size: 1.65em!important;
+}
+
+.news-content {
+    padding: 1.8em;
+}
+
+.news-link {
+    margin-top: 1.7em;
+    font-size: 1.1em;
+}
+
+.news-link i {
+    margin-left: -4px;
+    margin-right: 8px;
+    font-size: 1.15em;
+}
+
+.news-image {
+    max-height: 65vmin;
+    margin-top: 3em!important;
+    border: solid 1px transparent;
+    border-radius: 33px!important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.news-page-link-container {
+    margin-top: 1.34rem!important;
+
+}
+
+.news-page-link {
+    font-weight: 600;
+    font-size: 1.22em!important;
+    margin-bottom: 0;
+}
+
+.news-page-link i {
+    margin-left: .15em!important;
+}
+
+.frontpage-info-msg {
+    font-size: 1.45em;
+    font-style: oblique;
+    font-weight: bold;
+    color: @brand-danger;
+}
+
+.event-li {
+    border-radius: 15px;
+    padding: .5rem 7% .5rem 4%!important;
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+    background: @infobox-background;
+    display: inline-block;
+}
+
+.event-li:hover {
+    border-radius: 15px;
+    padding: .5rem 7% .5rem 4%!important;
+    -webkit-box-shadow: 0px 0px 0px 5px @btn-primary-hover;
+    -moz-box-shadow: 0px 0px 0px 5px @btn-primary-hover;
+    box-shadow: 0px 0px 0px 5px @btn-primary-hover;
+}
+
+.event-li span {
+    width: auto;
+    display: block;
+    margin-bottom: 16px;
+    margin-top: 16px;
+    font-weight: 600;
+    color: @text-color;
+
+}
+
+.event-li-container span {
+
+}
+
+.event-li-title {
+    font-size: 1.35em;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* https://www.steckinsights.com/shorten-length-border-bottom-pure-css/ */
+.event-li-title:after {
+    content: ""; /* This is necessary for the pseudo element to work. */
+    display: block; /* This will put the pseudo element on its own line. */
+    margin: 0 auto; /* This will center the border. */
+    width: 70%; /* Change this to whatever width you want. */
+    padding-top: 1px; /* This creates some space between the element and the border. */
+    border-bottom: 3px solid @nav-hover-border-color; /* This creates the border. Replace black with whatever color you want. */
+}
+
+.event-li-title i {
+    margin-right: 15px;
+    color: #ff6130;
+}
+
+.event-li-time {
+    font-size: .94em;
+}
+
+.event-li-time i {
+    color: #ff7721;
+    font-size: .9em
+}
+
+.event-li-time:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding-top: 1px;
+    border-bottom: 2px solid #ffce7d;
+}
+
+.event-li-place {
+    font-size: 1.01em;
+}
+
+.event-li-place i {
+    color: #00fa0b;
+}
+
+.event-li-place:after {
+    content: "";
+    display: block;
+    margin: 0 auto;
+    width: 30%;
+    padding-top: 1px;
+    border-bottom: 2px solid #c3fa00;
+}
+
+.event-li-container {
+}
+
+.event-li .fa {
+    margin-right: 8px;
+    font-size: 16px;
+}
+
+.event-li .fa-clock-o {
+    margin-left: 15px;
+    margin-right: 2px;
+}
+*/
+// @import "finna-custom";
+// @import "navigation";
+// @import "searchbar";
