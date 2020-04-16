@@ -22,10 +22,9 @@
 
 .searchContent {
   background: rgb(90,246,188);
-  //background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 80%)!important;
-  //background: url('https://cdn.pixabay.com/photo/2016/06/02/02/33/triangles-1430105_960_720.png')!important;
   //background: url('https://i.imgur.com/DjPMk2O.png')!important;
-  background: url('https://i.imgur.com/MYig17p.jpg')repeat-x fixed left top!important;
+  background: url('/keski/themes/custom/images/bg/kesa_finna.jpg')repeat-x left top!important;
+  //background: url('/keski/themes/custom/images/bg/varikkaat_kirjat.jpg')repeat-x fixed left top!important;
   padding: 0!important;
   margin: 0!important;
   height: auto!important;
@@ -207,6 +206,40 @@ section[role=search], .search-form-container  {
   float: left;
 }
 
+// Default browse bar.
+.browsebar {
+  background: @header-background-color;
+  background: @infobox-background;
+  background: rgba(217, 244, 255, 0.6);
+}
+
+.browsebar .navbar .navbar-nav>li>a, .browsebar-title {
+  color: @text-color;
+  font-weight: 600;
+}
+
+.browsebar .navbar .navbar-nav>li>a:hover {
+  background: @nav-hover-bg;
+}
+.browsebar .navbar .navbar-nav>li>a:before {
+  color: @gray;
+  font-weight: 400;
+  font-size: .93em;
+  vertical-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+  .browsebar {
+    display: none;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .browsebar {
+    // TO DO: Hide custom browse-btn on home. display: none;
+  }
+}
+
+// Custom browse button.
 .browsebar-custom div span:hover, #browseContainer ul li a:hover,  .type-dropdown span:hover,
 .type-dropdown ul li a:hover {
   margin-bottom: 0;
