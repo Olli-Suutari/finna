@@ -88,18 +88,13 @@ section[role=search], .search-form-container  {
   padding-top: .5em!important;
   padding-bottom: 0!important;
   height: auto!important;
-
+  margin-bottom: 0!important;
 }
 
 .search-form-container .container {
   padding: .5em!important;
   height: auto!important;
-}
-
-// Browsebar
-
-.browsebar {
-  //display: none;
+  margin-bottom: 0!important;
 }
 
 .browse-is-open {
@@ -108,7 +103,6 @@ section[role=search], .search-form-container  {
 }
 
 #searchForm {
-  margin-bottom: 1em;
 }
 
 .searchbox-toolbar {
@@ -129,8 +123,7 @@ section[role=search], .search-form-container  {
 }
 
 .home-search-bg  {
-  margin-top: 9vw;
-  margin-bottom: 17vw;
+  margin-top: 3vw;
   padding-top: 2.3em!important;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
@@ -208,9 +201,15 @@ section[role=search], .search-form-container  {
 
 // Default browse bar.
 .browsebar {
-  background: @header-background-color;
-  background: @infobox-background;
-  background: rgba(217, 244, 255, 0.6);
+  //background: @infobox-background;
+  background: transparent!important;
+
+  background-color: rgba(217, 244, 255, 0.6)!important;
+
+}
+
+.browsebar .container, .browsebar .navbar {
+
 }
 
 .browsebar .navbar .navbar-nav>li>a, .browsebar-title {
@@ -218,8 +217,30 @@ section[role=search], .search-form-container  {
   font-weight: 600;
 }
 
+.browsebar .navbar .navbar-nav>li>a {
+  padding-left: .75em;
+  padding-right: .75em;
+  margin-bottom: 4px;
+  margin-bottom: 0;
+  padding-bottom: 0;
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.browsebar-title {
+  font-size: 1.03em;
+  font-style: oblique;
+  font-weight: 600!important;
+}
+
+.browsebar-title:after {
+  content: ':';
+}
+
 .browsebar .navbar .navbar-nav>li>a:hover {
+  border-bottom: solid 4px @nav-hover-border-color;
   background: @nav-hover-bg;
+  margin-bottom: 0;
 }
 .browsebar .navbar .navbar-nav>li>a:before {
   color: @gray;
@@ -227,15 +248,15 @@ section[role=search], .search-form-container  {
   font-size: .93em;
   vertical-align: center;
 }
-
+// Hide browse bar on small screens, hide custom browse button on homepage in big screens.
 @media only screen and (max-width: 768px) {
   .browsebar {
     display: none;
   }
 }
 @media only screen and (min-width: 768px) {
-  .browsebar {
-    // TO DO: Hide custom browse-btn on home. display: none;
+  .home-search-bg #browseLi {
+    display: none;
   }
 }
 
@@ -333,6 +354,18 @@ section[role=search], .search-form-container  {
 
 .browse-list-container {
   z-index: 1000;
+}
+
+
+.format-truck:before {
+  font-family: FontAwesome;
+  //content: "\f0eb"; //Light bulb:
+  content: "\f0d1"; // Truck
+}
+.format-diamond:before {
+  font-family: FontAwesome;
+  //content: "\f0eb"; //Light bulb:
+  content: "\f219"; // Diamond
 }
 
 .browsebar-custom {

@@ -135,30 +135,12 @@ $mainPage = $action === 'home' && in_array($module, ['combined', 'primo', 'searc
                                     <b class="caret" aria-hidden="true"></b>
                                 </a>
                                 <ul role="group" class="dropdown-menu browse-list-container" aria-labelby="browseLi">
-                                    <li>
-                                        <a role="menuitem" class="iconlabel format-1journalarticle" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FJournal%2F%22"> <?=$this->transEsc("format_Journal_plural")?></a>
-                                    </li>
-                                    <li>
-                                        <a role="menuitem" class="iconlabel format-1videovideo" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FVideo%2F%22"> <?=$this->transEsc("movies_and_videos")?></a>
-                                    </li>
-                                    <li>
-                                        <a role="menuitem" class="iconlabel format-1soundrecord" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B0%5D=~format%3A%220%2FSound%2F%22"> <?=$this->transEsc("format_Sound/SoundRecording_plural")?></a>
-                                    </li>
-                                    <li>
-                                        <a role="menuitem" class="iconlabel format-1bookbook" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FBook%2F%22"> <?=$this->transEsc("format_Book/Book_plural")?></a>
-                                    </li>
-                                    <li>
-                                        <a role="menuitem" class="iconlabel format-ebook" href="<? echo $pageUrl ?>Search/Results?filter%5B%5D=~genre_facet%3A%22E-kirjat%22&type=AllFields"><?=$this->transEsc("browsebar_ematerial")?></a>
-                                    </li>
-                                    <li>
-                                        <a role="menuitem" class="iconlabel format-1mapmap" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMap%2F%22"> <?=$this->transEsc("format_Map_plural")?></a>
-                                    </li>
-                                    <li>
-                                        <a role="menuitem" class="iconlabel format-0note" href="<? echo $pageUrl ?>Search/Results?type=AllFields&amp;filter%5B%5D=~format%3A%220%2FMusicalScore%2F%22"> <?=$this->transEsc("format_MusicalScore_plural")?></a>
-                                    </li>
-                                    <li>
-                                        <a role="menuitem" href="<? echo $pageUrl ?>Search/Results?limit=0&filter%5B%5D=%7Egenre_facet%3A%22Lastenkirjallisuus%22&filter%5B%5D=%7Egenre_facet%3A%22Nuortenkirjallisuus%22&type=AllFields"><i class="fa fa-child" aria-hidden="true"></i> <?=$this->transEsc("browsebar_children");?></a>
-                                    </li>
+                                    <li><a role="menuitem" class="iconlabel format-truck" href="<? echo $pageUrl ?>Search/Results?lookfor=&type=AllFields&filter%5b%5d=first_indexed%3A%22%5bNOW-1MONTHS+TO+NOW%5d%22"><?=$this->transEsc("browsebar_uutuudet")?></a></li>
+                                    <li><a role="menuitem" class="iconlabel format-1bookbook" href="<? echo $pageUrl ?>Search/Results?filter%5B%5D=%7Eformat%3A%221%2FBook%2FBook%2F%22&type=AllFields&sort=main_date_str+desc"><?=$this->transEsc("browsebar_kirjat")?></a></li>
+                                    <li><a role="menuitem" class="iconlabel format-0note" href="<? echo $pageUrl ?>Search/Results?filter%5B%5D=%7Eformat%3A%221%2FSound%2FCD%2F%22&filter%5B%5D=%7Eformat%3A%220%2FMusicalScore%2F%22&type=AllFields&sort=main_date_str+desc"><?=$this->transEsc("browsebar_musiikki")?></a></li>
+                                    <li><a role="menuitem" class="iconlabel format-1videovideo" href="<? echo $pageUrl ?>Search/Results?filter%5B%5D=%7Eformat%3A%220%2FVideo%2F%22&type=AllFields&sort=main_date_str+desc"><?=$this->transEsc("browsebar_elokuvat")?></a></li>
+                                    <li><a role="menuitem" class="iconlabel format-diamond" href="<? echo $pageUrl ?>Search/Results?sort=main_date_str+desc&limit=0&filter%5B%5D=%7Eformat%3A%221%2FOther%2FCDROM%2F%22&filter%5B%5D=%7Eformat%3A%220%2FPhysicalObject%2F%22&filter%5B%5D=%7Eformat%3A%221%2FOther%2FElectronic%2F%22&join=AND&bool0%5B%5D=OR&lookfor0%5B%5D=lautapelit&lookfor0%5B%5D=konsolipelit&type0%5B%5D=Subject&type0%5B%5D=Subject"><?=$this->transEsc("browsebar_pelit")?></a></li>
+                                    <li><a role="menuitem" class="iconlabel format-ebook" href="<? echo $pageUrl ?>Search/Results?filter%5B%5D=%7Eformat%3A%221%2FBook%2FeBook%2F%22&filter%5B%5D=%7Eformat%3A%221%2FSound%2FNonmusicalRecording%2F%22&join=AND&bool0%5B%5D=AND&lookfor0%5B%5D=&type0%5B%5D=AllFields&sort=main_date_str+desc"><?=$this->transEsc("browsebar_ematerial")?></a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -309,8 +291,6 @@ $mainPage = $action === 'home' && in_array($module, ['combined', 'primo', 'searc
 
 
     </nav>
-
-
 
 
 
