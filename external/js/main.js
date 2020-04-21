@@ -51,7 +51,7 @@ function appendSearchBar () {
         $('.adv_search_links').length) {
         // If we use display none or remove the whole search bar, advanced search help tooltip won't work.
         $('section[role=search] .search-form-container').removeClass('search-form-container');
-        $('section[role=search]').css('visibility', 'hidden')
+        $('section[role=search]').css('visibility', 'hidden');
         $('section[role=search]').removeClass('searchContent');
         $('section[role=search]').removeAttr('role');
         return;
@@ -205,9 +205,9 @@ function smartPaginationDisplay() {
         }
         var pagesLeft = totalPages - currentPage;
         if ($(window).width() < 475) {
-            $('.fa-arrow-alt-right').parent().css('display', 'none')
+            $('.pagination .fa-arrow-alt-right').parent().css('display', 'none');
             if (currentPage != 2) {
-                $('.fa-arrow-alt-left').parent().css('display', 'none');
+                $('.pagination .fa-arrow-alt-left').parent().css('display', 'none');
             }
         }
         if (pagesLeft > 2) {
@@ -218,7 +218,7 @@ function smartPaginationDisplay() {
             $(parentLink).parent().css('display', 'none');
         }
         if (currentPage == 2) {
-            $('.fa-first-page').parent().css('display', 'none');
+            $('.pagination .fa-first-page').parent().css('display', 'none');
             $('.fa-arrow-alt-left').addClass('fa-first-page');
             $('.fa-arrow-alt-left').removeClass('fa-arrow-alt-left');
         }
@@ -313,17 +313,23 @@ function homeLibFunctionality() {
     });
 }
 
-console.log("finna main.js loaded succesfully.");
 locationUrl = window.location.href;
+console.log("locationurl: " + window.location.href);
 // Old /beta/
 if (locationUrl.indexOf('/beta/') > -1) {
     window.location = locationUrl.replace('/beta/', '/');
 }
+console.log("CHECK FOR CONTENT")
 // /Content/ should not be case sensitive...
 if (locationUrl.indexOf('/content/') > -1) {
     window.location = locationUrl.replace('/content/', '/Content/');
 }
-
+if (locationUrl.indexOf('?lng=fi') > -1) {
+    locationUrl = locationUrl.replace('?lng=fi', '');
+}
+else if(locationUrl.indexOf('?lng=en-gb') > -1) {
+    locationUrl = locationUrl.replace('?lng=en-gb', '');
+}
 
 // Load the news and fonts.
 //importJsOrCssFile("/keski/themes/custom/js/news.js", "js");
@@ -341,33 +347,14 @@ importJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&displa
 if (!window.moment) {
     console.log("Load moment.")
     importJsOrCssFile("/keski/themes/custom/js/lib/moment.min.js", "js");
-
-}
-
-
-if (locationUrl.indexOf('?lng=fi') > -1) {
-    locationUrl = locationUrl.replace('?lng=fi', '');
-}
-else if(locationUrl.indexOf('?lng=en-gb') > -1) {
-    locationUrl = locationUrl.replace('?lng=en-gb', '');
-}
-addSelectedNav();
-appendSearchBar();
-leftNavigationScrollDisplay();
-
-if (locationUrl.indexOf('/Search/Results') > -1) {
-    window.onload = function() {
-        smartPaginationDisplay();
-      };
-    $('#browseLi').css('display', 'none');
 }
 
 var isIOS = false;
 // https://stackoverflow.com/questions/7944460/detect-safari-browser
 var testSafari = navigator.vendor && navigator.vendor.indexOf('Apple') > -1 &&
-navigator.userAgent &&
-navigator.userAgent.indexOf('CriOS') == -1 &&
-navigator.userAgent.indexOf('FxiOS') == -1;
+    navigator.userAgent &&
+    navigator.userAgent.indexOf('CriOS') == -1 &&
+    navigator.userAgent.indexOf('FxiOS') == -1;
 if (testSafari || /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
     isIOS = true;
 }
@@ -375,20 +362,8 @@ if (testSafari || /^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
 var isIPad = navigator.userAgent.match(/iPad/i) != null;
 var isIPhone = (navigator.userAgent.match(/iPhone/i) != null) || (navigator.userAgent.match(/iPod/i) != null);
 if (isIPad || isIPhone) {
-isIOS = true;
+    isIOS = true;
 }
-// ios renders the margin above the login differently. :)
-if (isIOS) {
-    $('.login-btn').addClass('ios-login');
-}
-
-$('.autocomplete-results').addClass('hidden-search-autocomplete');
-
-
-if ($('.keski-news-home').length === 1) {
-    homeLibFunctionality();
-}
-
 
 // This file is used to dynamically generate styles for library & homePage pages.
 // https://stackoverflow.com/questions/3922139/add-css-to-head-with-javascript
@@ -404,79 +379,49 @@ function addCssToDocument(css){
     head.appendChild(s);
 }
 
-
-
-
 function require(url, callback) {
-  var e = document.createElement("script");
-  e.src = url;
-  e.type="text/javascript";
-  e.addEventListener('load', callback);
-  document.getElementsByTagName("head")[0].appendChild(e);
+    var e = document.createElement("script");
+    e.src = url;
+    e.type="text/javascript";
+    e.addEventListener('load', callback);
+    document.getElementsByTagName("head")[0].appendChild(e);
 }
 
+function main() {
+    addSelectedNav();
+    appendSearchBar();
+    leftNavigationScrollDisplay();
+
+    if ($('.keski-news-home').length === 1) {
+        homeLibFunctionality();
+    }
 
 
+    if (locationUrl.indexOf('/Search/Results') > -1) {
+        window.onload = function() {
+            smartPaginationDisplay();
+        };
+        $('#browseLi').css('display', 'none');
+    }
 
-if (!window.less) {
-    console.log("Load less.")
+    $('.autocomplete-results').addClass('hidden-search-autocomplete');
 
-    require("https://keski-finna.fi/external/finna/js/lib/less.min.js", function() { 
-        // Do this and that
-        loadFinnaLess();
-     });
+// ios renders the margin above the login differently. :)
+    if (isIOS) {
+        $('.login-btn').addClass('ios-login');
+    }
+}
+
+main();
+
+// TO DO: Load polyfills for IE.
+/*
+if (navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1) {
+    require("https://keski-finna.fi/external/finna/js/lib/less.min.js", function() {
+        main();
+    });
 }
 else {
-    loadFinnaLess();
+    main();
 }
-
-
-
-function loadLessFile(url) {
-    var stylesheetFile = url
-    var link  = document.createElement('link');
-    link.rel  = "stylesheet";
-    link.type = "text/less";
-    link.href = stylesheetFile;
-    less.sheets.push(link);
-    less.refresh();
-}
-
-
-function loadFinnaLess() {
-
-    // Read less stylesheet, generate .css and add it to header.
-    var styleCssXml = new XMLHttpRequest();
-    styleCssXml.open('GET', 'https://keski-finna.fi/external/finna/style/less/finna-variables.less');
-    styleCssXml.onreadystatechange = function() {
-        less.render(styleCssXml.responseText)
-            .then(function(output) {
-                addCssToDocument(output.less);
-
-
-                
-
-            });
-    };
-    //styleCssXml.send();
-
-    var timeStamp = Math.round(new Date().getTime()/1000);
-
-
-
-    //loadLessFile('https://keski-finna.fi/external/finna/style/less/finna-custom.less' + '?' + timeStamp);
-
-
-    //loadLessFile('https://keski-finna.fi/external/finna/style/less/finna-variables.less');
-
-    /*
-    setTimeout(function(){ 
-        loadLessFile('https://keski-finna.fi/external/finna/style/less/finna-custom.less')
-        loadLessFile('https://keski-finna.fi/external/finna/style/less/navigation.less')
-        loadLessFile('https://keski-finna.fi/external/finna/style/less/searchbar.less')
-    
-    }, 3000);
-    */
-
-
-}
+*/

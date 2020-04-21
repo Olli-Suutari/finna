@@ -1,7 +1,6 @@
 html {
     font-size: 1.06em;
     font-family: sans-serif!important;
-    overflow-x: hidden;
 }
 
 body {
@@ -12,6 +11,9 @@ body, section[role=main], section[role=main] .container-fluid, .finna-main-heade
     background-color: @body-bg!important; // .finna-main-header Requires !important
 }
 
+.container:before {
+}
+
 html, body, .container {
 }
 
@@ -19,8 +21,20 @@ h1, h2, h3, h4, h5, h6, header, section[role=search], footer {
     font-family: 'Lato', sans-serif;
 }
 
-h1, h2, h3, h4 {
+h1, .main.template-dir-feedcontent.template-name-content h1, .main.template-dir-content.template-name-content h1 {
+    font-size: 1.73rem;
+}
 
+h2, .main.template-dir-feedcontent.template-name-content h2, .main.template-dir-content.template-name-content h2 {
+    font-size: 1.43rem;
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+h4, h5, h6 {
+    font-size: 1.25rem;
 }
 
 .autocomplete-result {
@@ -94,6 +108,24 @@ footer h1, footer h2, footer h3, footer h4 {
 .content-navigation-menu h1, .content-navigation-menu h2 {
     border-bottom: none
 
+}
+
+.finna-main-header div {
+    text-align: center;
+}
+
+.finna-main-header .content-header {
+    border-bottom: solid 4px @nav-hover-border-color;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-flex;
+    padding-left: 4%;
+    padding-left: 4%;
+    padding-right: 4%;
+    padding-bottom: 8px;
+    margin-bottom: .5em;
+    margin-top: .5em;
 }
 
 .content-header {

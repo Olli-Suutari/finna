@@ -136,12 +136,17 @@ section[role=search], .search-form-container  {
   grid-template-columns: repeat(1, 1fr);
   grid-auto-flow: dense;
   width: 100%;
+  margin-bottom: 12px;
 }
 
 .search-tools-ul li {
   padding-left: 0;
   margin-left: 0;
   padding-top: 10px;
+}
+
+#browseContainer ul li a {
+  padding-bottom: 7px!important;
 }
 
 @media (min-width: 430px) {
@@ -201,11 +206,8 @@ section[role=search], .search-form-container  {
 
 // Default browse bar.
 .browsebar {
-  //background: @infobox-background;
-  background: transparent!important;
-
-  background-color: rgba(217, 244, 255, 0.6)!important;
-
+  background-color: @finna-browsebar-background;
+  padding: 0!important;
 }
 
 .browsebar .container, .browsebar .navbar {
@@ -416,4 +418,9 @@ section[role=search], .search-form-container  {
       margin-left: 75px;
     }
   }
+}
+
+.searchbox-toolbar-mobile {
+  margin-top: 1em;
+  margin-bottom: 6em;
 }

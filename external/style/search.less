@@ -212,13 +212,23 @@
 
 
 .search-controls {
-    display: flex;
+    display: inline-flex;
     flex-direction: row;
-
+    width: 100%;
 }
 
 .search-controls .pagination-container {
     order: 2;
+    align-content: flex-end;
+    text-align: right;
+    justify-content: flex-end;
+}
+
+.paginationSimple {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: .9em;
+    min-width: 50%;
 }
 
 .control-container {
