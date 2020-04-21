@@ -12,7 +12,6 @@
 
 .media-body {
 
-
 }
 
 .record-container {
@@ -468,4 +467,109 @@
 
 .template-dir-record .share-buttons {
     display: none!important;
+}
+
+// Advanced search
+.template-name-advanced #advSearchForm {
+    margin-top: 0;
+}
+
+.template-name-advanced .header-container {
+    border-bottom: none;
+}
+
+.template-name-advanced .search-map-container {
+    display: none;
+}
+
+.template-name-advanced section[role=main] {
+    padding-top: 0;
+}
+
+.template-name-advanced .finna-main-header {
+    align-content: flex-start;
+    padding-top: 2em;
+    padding-bottom: 1.5em;
+}
+
+.template-name-advanced .content-header {
+    color: @text-color;
+    font-weight: 600;
+    padding-left: 50px;
+    text-align: left!important;
+    display: none;
+}
+
+.template-name-advanced h1:before {
+    display: none!important;
+}
+
+// Advanced search results
+.adv-search-header {
+    background: none;
+    padding: 0;
+    border-bottom: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.adv_search_terms {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    flex-wrap: wrap;
+    color: #4C4A41;
+    line-height: unset;
+    background: rgba(135,209,239,0.78);
+    padding: .86em 1.2em;
+    margin-top: 0;
+    margin-bottom: .8em;
+    margin-right: .96em;
+    margin-left: 20px;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: oblique;
+}
+
+.adv_search_terms strong {
+    font-style: normal;
+    font-size: 1rem;
+}
+
+
+.adv_search_links a {
+    font-size: 1.05rem;
+    margin-bottom: 2px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.adv_search_links i {
+    color: @gray;
+    margin-right: 5px;
+}
+
+.adv_search_links a:hover {
+    border-bottom: solid 2px @nav-hover-border-color;
+    margin-bottom: 0;
+}
+
+.search-result-header {
+    font-size: .65rem;
+}
+
+.finna-main-header-wrapper .search-advanced {
+    margin-bottom: 10px;
+}
+
+.finna-main-header-wrapper {
+    background: @body-bg;
+}
+
+.finna-main-header-wrapper.search-advanced {
+    border-bottom: none;
+    margin-bottom: 10px;
+
 }
