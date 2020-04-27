@@ -39,7 +39,7 @@ function checkUrlForContent(url) {
     try {
         $.get( url, function() {
             window.location = url;
-          });
+        });
     }
     catch(e) {
         // Page not found... console.log(e)
@@ -97,7 +97,7 @@ function addSelectedNav() {
                 var linkEnding = this.href.substring(this.href.lastIndexOf("/") + 1);
                 $('li a[href$="' + linkEnding + '"]').addClass("selected-nav");
             }
-         });
+        });
     }
 }
 
@@ -111,9 +111,9 @@ function leftNavigationScrollDisplay() {
                 selector = selector.substr(1);
                 navSections.push(selector);
             }
-       });
-       var navSectitionsWithPos = [];
-       for (i = 0; i < navSections.length; i++) {
+        });
+        var navSectitionsWithPos = [];
+        for (i = 0; i < navSections.length; i++) {
             var position = window.scrollY + document.getElementById(navSections[i]).getBoundingClientRect().top
             navSectitionsWithPos.push( { 'id': navSections[i], 'pos':  position } );
         }
@@ -126,7 +126,7 @@ function leftNavigationScrollDisplay() {
             }
             // Add end pos + adjusted -+ 80px to accommodate margins.
             navSectitionsWithPosEnd.push( { 'id': navSectitionsWithPos[i].id,
-            'pos':  navSectitionsWithPos[i].pos -80, 'posEnd': positionEnd + 80 } );
+                'pos':  navSectitionsWithPos[i].pos -80, 'posEnd': positionEnd + 80 } );
         }
 
         // Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
@@ -137,23 +137,23 @@ function leftNavigationScrollDisplay() {
             for (i = 0; i < navSectitionsWithPosEnd.length; i++) {
                 if (scroll_pos >= navSectitionsWithPosEnd[i].pos &&
                     scroll_pos <= navSectitionsWithPosEnd[i].posEnd) {
-                     $('.selected-sub-nav').removeClass('selected-sub-nav');
-                     var newSelected = $('h2 a[href$="#' + navSectitionsWithPosEnd[i].id + '"');
-                     newSelected.parent().addClass('selected-sub-nav');
+                    $('.selected-sub-nav').removeClass('selected-sub-nav');
+                    var newSelected = $('h2 a[href$="#' + navSectitionsWithPosEnd[i].id + '"');
+                    newSelected.parent().addClass('selected-sub-nav');
                 }
             }
         }
         // Add/remove selected nav element class based on scroll pos.
         window.addEventListener('scroll', function(e) {
-        last_known_scroll_position = window.scrollY;
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-            doSomething(last_known_scroll_position);
-            ticking = false;
-            });
+            last_known_scroll_position = window.scrollY;
+            if (!ticking) {
+                window.requestAnimationFrame(function() {
+                    doSomething(last_known_scroll_position);
+                    ticking = false;
+                });
 
-            ticking = true;
-        }
+                ticking = true;
+            }
         });
 
     }
@@ -258,14 +258,14 @@ function smartPaginationDisplay() {
     // Hide subtitle language if none are available.
     var toggleSubLang = $('#side-panel-subtitle_lng_str_mv .collapsed');
     $(toggleSubLang).click();
-    setTimeout(function(){ 
+    setTimeout(function(){
         var subLang = $('#side-collapse-subtitle_lng_str_mv .list-group-item').text();
         if (subLang == "Ei tietoja" || subLang == "No data available") {
             $('#side-collapse-subtitle_lng_str_mv').parent().css('display', 'none');
         }
         else {
-        $('#side-panel-subtitle_lng_str_mv button').click();
-    
+            $('#side-panel-subtitle_lng_str_mv button').click();
+
         }
     }, 800);
 
@@ -334,8 +334,6 @@ else if(locationUrl.indexOf('?lng=en-gb') > -1) {
 // Load the news and fonts.
 //importJsOrCssFile("/keski/themes/custom/js/news.js", "js");
 //importJsOrCssFile("/keski/themes/custom/js/events.js", "js");
-importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");
-importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
 
 
 importJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");
@@ -348,6 +346,35 @@ if (!window.moment) {
     console.log("Load moment.")
     importJsOrCssFile("/keski/themes/custom/js/lib/moment.min.js", "js");
 }
+
+if (!window.tileLayer) {
+    console.log("Load Leaflet tile fallback.")
+    importJsOrCssFile("https://keski-finna.fi/external/finna/js/lib/leafletTileFallback.min.js", "js");
+
+}
+
+if (!window.i18n) {
+    //importJsOrCssFile('https://keski-finna.fi/external/finna/style/events.css', "css");
+
+    require("https://keski-finna.fi/external/finna/js/jquery.translate.js", loadTranslations());
+    //require("https://keski-finna.fi/external/finna/js/lib/jquery.translate.js", loadTranslations());
+
+
+}
+
+
+function loadTranslations() {
+    importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
+
+}
+
+function loadEvents() {
+    console.log("LOAD EV")
+
+
+}
+
+
 
 var isIOS = false;
 // https://stackoverflow.com/questions/7944460/detect-safari-browser
@@ -425,3 +452,5 @@ else {
     main();
 }
 */
+
+importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");

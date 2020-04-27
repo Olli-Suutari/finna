@@ -1,5 +1,6 @@
 html {
-    font-size: 1.06em;
+    //font-size: 1.06em;
+    font-size: 1em;
     font-family: sans-serif!important;
 }
 
@@ -457,7 +458,7 @@ footer .selected-nav a:hover {
 
 
 .modal-body {
-    font-size: 1.1em;
+    // TO DO: News modal font sizes. font-size: 1.1em;
     word-wrap: break-word;
 }
 
@@ -578,109 +579,4 @@ footer .selected-nav a:hover {
     font-style: oblique;
     font-weight: bold;
     color: @brand-danger;
-}
-
-
-.event-li {
-    border-radius: 15px;
-    padding: .5rem 7% .5rem 4%!important;
-    -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
-    -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
-    box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
-    background: @infobox-background;
-    display: inline-block;
-}
-
-.event-li:hover {
-    border-radius: 15px;
-    padding: .5rem 7% .5rem 4%!important;
-    -webkit-box-shadow: 0px 0px 0px 5px @btn-primary-hover;
-    -moz-box-shadow: 0px 0px 0px 5px @btn-primary-hover;
-    box-shadow: 0px 0px 0px 5px @btn-primary-hover;
-}
-
-.event-li span {
-    width: auto;
-    display: block;
-    margin-bottom: 16px;
-    margin-top: 16px;
-    font-weight: 600;
-    color: @text-color;
-
-}
-
-.event-li-container span {
-
-}
-
-.event-li-title {
-    font-size: 1.35em;
-    font-weight: 600;
-    position: relative;
-    z-index: 1;
-    text-align: center;
-    margin-top: 8px;
-}
-
-/* https://www.steckinsights.com/shorten-length-border-bottom-pure-css/ */
-.event-li-title:after {
-    content: ""; /* This is necessary for the pseudo element to work. */
-    display: block; /* This will put the pseudo element on its own line. */
-    margin: 0 auto; /* This will center the border. */
-    width: 70%; /* Change this to whatever width you want. */
-    padding-top: 1px; /* This creates some space between the element and the border. */
-    border-bottom: 3px solid @nav-hover-border-color; /* This creates the border. Replace black with whatever color you want. */
-}
-
-.event-li-title i {
-    margin-right: 15px;
-    color: #ff6130;
-}
-
-.event-li-time {
-    font-size: .94em;
-}
-
-.event-li-time i {
-    color: #ff7721;
-    font-size: .9em
-}
-
-.event-li-time:after {
-    content: "";
-    display: block;
-    margin: 0 auto;
-    width: 50%;
-    padding-top: 1px;
-    border-bottom: 2px solid #ffce7d;
-}
-
-.event-li-place {
-    font-size: 1.01em;
-}
-
-.event-li-place i {
-    color: #00fa0b;
-}
-
-.event-li-place:after {
-    content: "";
-    display: block;
-    margin: 0 auto;
-    width: 30%;
-    padding-top: 1px;
-    border-bottom: 2px solid #c3fa00;
-}
-
-.event-li-container {
-}
-
-.event-li .fa {
-    margin-right: 8px;
-    font-size: 16px;
-}
-
-.event-li .fa-clock-o {
-    margin-left: 15px;
-    margin-right: 2px;
 }
