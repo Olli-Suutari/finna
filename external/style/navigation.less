@@ -29,12 +29,26 @@ header {
   padding: 0;
   margin-bottom: 0;
   margin-top: .15em;
+  z-index: 99999999;
+}
+
+@media screen and ( max-width: 1000px ){
+  .system-messages {
+    font-size: 1.15rem;
+
+    top: 0;
+
+  }
 }
 
 
 
 header i {
   margin-right: 2px;
+}
+
+#account-icon {
+  color: @gray!important;
 }
 
 header .fa-info-circle:before {
@@ -214,6 +228,7 @@ header .btn-primary {
 
 .lang-selector {
   margin-left: 20px;
+  margin-top: -3px;
 }
 
 // Padding vertically does not appear to be working properly here if we want to add more. TO DO: Investigate.
