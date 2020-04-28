@@ -93,7 +93,6 @@ function addSelectedNav() {
             //do something with the link element
             if (locationUrl.indexOf(this.href) > -1) {
                 $('#menu_Vinkit').addClass("selected-nav");
-                $('#menu_Vinkit').addClass("selected-nav");
                 var linkEnding = this.href.substring(this.href.lastIndexOf("/") + 1);
                 $('li a[href$="' + linkEnding + '"]').addClass("selected-nav");
             }
@@ -106,18 +105,24 @@ function leftNavigationScrollDisplay() {
         $(".content-navigation-menu h2 a").first().parent().addClass('selected-sub-nav');
         var navSections = [];
         $(".content-navigation-menu h2 a").each(function(){
-            var selector = $(this.hash).selector;
-            if(selector !== undefined) {
-                selector = selector.substr(1);
-                navSections.push(selector);
+            try {
+                var selector = $(this.hash)[0].id;
+                if(selector !== undefined) {
+                    //selector = selector.substr(1);
+                    navSections.push(selector);
+                }
             }
+            catch (e) {
+                // Error.
+            }
+
         });
         var navSectitionsWithPos = [];
         for (i = 0; i < navSections.length; i++) {
-            var position = window.scrollY + document.getElementById(navSections[i]).getBoundingClientRect().top
+            var position = window.scrollY + document.getElementById(navSections[i]).getBoundingClientRect().top;
             navSectitionsWithPos.push( { 'id': navSections[i], 'pos':  position } );
         }
-
+        
         var navSectitionsWithPosEnd = [];
         for (i = 0; i < navSectitionsWithPos.length; i++) {
             var positionEnd = 99999999;

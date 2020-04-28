@@ -143,6 +143,23 @@ $mainPage = $action === 'home' && in_array($module, ['combined', 'primo', 'searc
                     </nav>
                 </div>
 
+                <div class="searchbox-toolbar-mobile" style="display: none">
+                    <div class="searchbox-toolbar-mobile list-group facet facet-group" id="side-collapse-original_lng_str_mv">
+                        <button class="list-group-item collapsed" data-toggle="collapse" data-target="#side-collapse-original_lng_str_mv" onclick="return false;" aria-owns="side-collapse-original_lng_str_mv" aria-expanded="true">Alkuteoksen kieli</button>
+
+                        <div id="side-collapse-original_lng_str_mv" class="collapse" data-facet="original_lng_str_mv" role="tree" tabindex="0" aria-expanded="false" style="">
+
+                            <nav id="browseContainerMobile" class="browsebar-custom-mobile">
+                                Test
+                            </nav>
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+
                 <form id="searchForm" role="search" class="searchForm navbar-form navbar-left  <?=$handlerCount < 2 ? 'input-field-only' :''; ?>" method="get" action="<?=$this->url($basicSearch)?>" name="searchForm" autocomplete="off">
                     <label for="searchForm_lookfor" class="sr-only" hidden><?=$this->transEsc("Find")?></label>
                     <input class="searchForm_lookfor form-control search-query<?php if($this->searchbox()->autocompleteEnabled($this->searchClassId)):?> autocomplete-finna searcher:<?=$this->escapeHtmlAttr($this->searchClassId) ?><?= !empty($activeTab) ? ' tab:' . $this->escapeHtmlAttr(str_replace(':', '###', $activeTab)) : ''?><?=!empty($browse) || $activeTab == 'Combined' ? ' onlySuggestions:1' : ''?><?= !$browse && in_array($activeTab, ['Combined','Primo','Summon']) ? ' suggestions:0' : ''?><?= !empty($acHandlers) ? ' handlers:' . implode('|', array_map(function ($h) { return $h['handler']; }, $acHandlers)) : ''?><?= !empty($phrase) ? ' phrase:' . $this->escapeHtmlAttr($phrase) : ''?><?= !empty($acFilters) ? ' filters:' . $this->escapeHtmlAttr(implode('||', array_map(function ($k, $v) { return $k . '|' . $v; }, array_keys($acFilters), $acFilters))) : ''?><?php endif ?>" placeholder="<?=$this->escapeHtmlAttr($placeholder)?>" id="searchForm_lookfor" type="text" name="lookfor" value="<?=$this->escapeHtmlAttr($this->lookfor)?>"/>

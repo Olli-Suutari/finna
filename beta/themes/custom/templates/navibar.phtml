@@ -107,11 +107,6 @@ function endsWith($string, $endString)
                 <?php if ($template = $this->content()->findTemplateForLng("content/Additions/header-navibar")): ?>
                     <?=$this->render($template)?>
                 <?php endif; ?>
-            </ul>
-            <ul role="menubar" class="nav navbar-nav lang nav-absolute">
-                <?php if ($template = $this->content()->findTemplateForLng("content/Additions/header-navibar")): ?>
-                    <?=$this->render($template)?>
-                <?php endif; ?>
                 <?php if (isset($this->layout()->allLangs) && count($this->layout()->allLangs) > 1): ?>
                     <?php $i = 1;?>
                     <?php foreach ($this->layout()->allLangs as $langCode => $langName): ?>
@@ -123,10 +118,10 @@ function endsWith($string, $endString)
                             }
                             ?>
                             <!-- Replaced class lang with lang-selector -->
-                            <li class="lang-selector">
-                                <a role="menuitem" class="btn btn-primary lang-btn preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
-              <span><i class="fa fa-language" aria-hidden="true"></i>
-              <?=$this->displayLanguageOption($langText)?></span></a>
+                            <li class="mobile-lang-selector">
+                                <a role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
+                                    <i class="fa fa-language" aria-hidden="true"></i>
+                                    <?=$this->displayLanguageOption($langText)?></a>
                             </li>
                             <?php $i++; ?>
                         <?php endif ?>
@@ -222,6 +217,31 @@ function endsWith($string, $endString)
                         <?php endif; ?>
                     <?php endif; ?>
                 </li>
+            <?php endif; ?>
+        </ul>
+        <ul role="menubar" class="nav navbar-nav lang nav-absolute">
+            <?php if ($template = $this->content()->findTemplateForLng("content/Additions/header-navibar")): ?>
+                <?=$this->render($template)?>
+            <?php endif; ?>
+            <?php if (isset($this->layout()->allLangs) && count($this->layout()->allLangs) > 1): ?>
+                <?php $i = 1;?>
+                <?php foreach ($this->layout()->allLangs as $langCode => $langName): ?>
+                    <?php if ($this->layout()->userLang != $langCode):
+                        // Replace "Suomi" with "Suomeksi" and "English" with "In English".
+                        $langText = "In English";
+                        if ($langName == "Finnish") {
+                            $langText = "Suomeksi";
+                        }
+                        ?>
+                        <!-- Replaced class lang with lang-selector -->
+                        <li class="lang-selector">
+                            <a role="menuitem" class="btn btn-primary lang-btn preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
+              <span><i class="fa fa-language" aria-hidden="true"></i>
+              <?=$this->displayLanguageOption($langText)?></span></a>
+                        </li>
+                        <?php $i++; ?>
+                    <?php endif ?>
+                <?php endforeach; ?>
             <?php endif; ?>
         </ul>
     <?php endif; ?>

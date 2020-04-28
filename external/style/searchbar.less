@@ -1,207 +1,31 @@
-.search {
-
-}
-
-@media (max-width: @screen-md-min) {
-
-  .search {
-  }
-
-  .searchbox {
-  }
-}
-
-.searchbox-toolbar a {
-  font-size: 1.05em!important;
-  font-weight: 400!important;
+.searchContent {
+  background: url('/keski/themes/custom/images/bg/kesa_finna.jpg')repeat-x left top!important;
 }
 
 .search-tooltip {
-  display: none;
-}
-
-.searchContent {
-  background: rgb(90,246,188);
-  //background: url('https://i.imgur.com/DjPMk2O.png')!important;
-  background: url('/keski/themes/custom/images/bg/kesa_finna.jpg')repeat-x left top!important;
-  //background: url('/keski/themes/custom/images/bg/varikkaat_kirjat.jpg')repeat-x fixed left top!important;
-  padding: 0!important;
-  margin: 0!important;
-  height: auto!important;
-}
-
-section[role=search] {
-  margin-bottom: 0!important;
-}
-
-@media screen and( min-width: 1000px ) {
-  .search-form-container .container {
-  }
-
-  .search-form-container {
-
-  }
-}
-
-.autocomplete-results.hidden {
-  visibility: visible;
-  display: block;
-}
-
-.autocomplete-results {
-  visibility: visible!important;
-  display: block!important;
-}
-
-
-.hidden-search-autocomplete {
   visibility: hidden!important;
-  display: none!important;
 }
 
-section[role=search] .search {
-  margin-left: auto;
-  margin-right: auto;
-  left: 12%;
-  transform: translateX(-12%);
-  position: relative;
-  padding-top: 1.8em;
-  padding-left: 3em;
-  padding-right: 3em;
-  background: rgb(90,246,188);
-  background: linear-gradient(2deg, rgb(183, 233, 224) 0%, rgba(229,223,223,1) 90%)!important;  top: -35px;
-  border-bottom-left-radius: 18px;
-  border-bottom-right-radius: 18px;
+.search-links .btn-advanced {
+  background: @btn-primary-bg!important;
+  color: @text-color!important;
+  padding: .3em .6em!important;
+  font-size: 1.4em;
+  font-weight: 500!important;
 }
 
 
-#searchForm {
-  margin-top: -13px!important;
+.search-links .btn-advanced:hover {
+  background: @btn-primary-hover!important;
 }
 
-.search-query {
-  padding-left: 1em!important;
+.search-links .btn-advanced a {
+
 }
 
-
-section[role=search], .search-form-container  {
-  padding-top: .5em!important;
-  padding-bottom: 0!important;
-  height: auto!important;
-  margin-bottom: 0!important;
-}
-
-.search-form-container .container {
-  padding: .5em!important;
-  height: auto!important;
-  margin-bottom: 0!important;
-}
-
-.browse-is-open {
-  display: inline!important;
-  visibility: visible!important;
-}
-
-#searchForm {
-}
-
-.searchbox-toolbar {
-  padding-top: .6em;
-  padding-bottom: 0;
-  border-radius: 22px;
-  margin-bottom: -10px!important;
-  padding-left: 10px;
-}
-
-.searchbox-columns .search {
-  min-width: 80vmin;
-  z-index: 900;
-  padding-bottom: 2em;
-}
-
-.searchbox-toolbar ul {
-}
-
-.home-search-bg  {
-  margin-top: 3vw;
-  padding-top: 2.3em!important;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
-}
-
-
-.search-tools-ul {
-  display: grid;
-  box-sizing: border-box;
-  grid-template-columns: repeat(1, 1fr);
-  grid-auto-flow: dense;
-  width: 100%;
-  margin-bottom: 12px;
-}
-
-.search-tools-ul li {
-  padding-left: 0;
-  margin-left: 0;
-  padding-top: 10px;
-}
-
-#browseContainer ul li a {
-  padding-bottom: 7px!important;
-}
-
-@media (min-width: 430px) {
-  .search-tools-ul {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.search-tools-ul .btn {
-  padding: 0!important;
-}
-
-.search-tools-ul li {
-  padding-bottom: 10px!important;
-  text-align: center!important;
-}
-
-@media (min-width: 800px) {
-  .search-tools-ul {
-    grid-template-columns: repeat(4, 1fr);
-    justify-items: center;
-  }
-  .searchbox-columns .search {
-  }
-}
-
-@media (min-width: 1100px) {
-  .searchbox-columns .search {
-    min-width: 80%;
-  }
-}
-
-@media (min-width: 1400px) {
-  .searchbox-columns .search {
-    min-width: 67%;
-  }
-}
-
-.searchbox-toolbar li {
-  display: inline-flex;
-  margin-left: 0!important;
-  font-size: 1.05em;
-  padding-left: 5px!important;
-  padding-right: 5px!important;
-  padding-bottom: .8em;
-  margin-bottom: 0;
-}
-
-.searchbox-toolbar li a {
-  padding-bottom: 8px!important;
-  border-radius: 0!important;
-}
-
-.search-tools-li-1 {
-  float: left;
+.search-links .btn-advanced i {
+  color: @gray!important;
+  margin-right: 5px;
 }
 
 // Default browse bar.
