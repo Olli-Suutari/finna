@@ -122,7 +122,7 @@ function leftNavigationScrollDisplay() {
             var position = window.scrollY + document.getElementById(navSections[i]).getBoundingClientRect().top;
             navSectitionsWithPos.push( { 'id': navSections[i], 'pos':  position } );
         }
-        
+
         var navSectitionsWithPosEnd = [];
         for (i = 0; i < navSectitionsWithPos.length; i++) {
             var positionEnd = 99999999;
