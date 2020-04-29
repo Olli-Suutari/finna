@@ -152,10 +152,9 @@ function  fetchNews() {
         },
         error: function (request, status, error) {
             console.log(error);
-            return "Error in fetching news.";
         },
         complete: function () {
-            console.log(newsList);
+            // Sort, generate list and bind modal functionality.
             newsList.sort(function(a, b) {
                 var dateA = new Date(a.date), dateB = new Date(b.date);
                 return dateB - dateA;
@@ -200,14 +199,10 @@ function bindNewsModalFunctionality() {
         popupText = popupText.replace(/(<p>&nbsp;<\/p>)+/g, "");
         popupText = popupText.replace(/(<p><\/p>)+/g, "");
         popupText = popupText.replace(/(<p>\s<\/p>)+/g, "");
-        // Check if large or small text/modal.
-
-
-        $('.modal-dialog').addClass('modal-lg');
-
-        $(".modal-body").replaceWith(
-            '<div class="modal-body">' +
-            '<h1 class="news-title">' + popupTitle + '</h1>' +
+        // Replace the modal content.
+        $('#newsModalTitle').replaceWith('<h1 class="modal-title" id="newsModalTitle">' + popupTitle + '</h1>');
+        $("#newsModalBody").replaceWith(
+            '<div id="newsModalBody" class="modal-body">' +
             '<div> ' +
             '<div class="feed-content">' +
             '<div class="holder">' + popupText + '</div>' +
@@ -217,7 +212,7 @@ function bindNewsModalFunctionality() {
 
         // Show modal.
         //console.log("e.pageY " + e.pageY + " | ta "  +offSet);
-        $('#modal').modal('show');
+        $('#newsModal').modal('show');
 
         // Update the page url.
         var itemUrl = $(this).data('url').toString();
@@ -233,7 +228,7 @@ function bindNewsModalFunctionality() {
 
     });
 
-    $("#modal").on('hide.bs.modal', function(){
+    $("#newsModal").on('hide.bs.modal', function(){
         var pageUrl = window.location.href;
         if (pageUrl.indexOf('?news=')) {
             var reMatchNews = new RegExp(/\?news=.*/g);

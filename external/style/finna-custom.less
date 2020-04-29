@@ -534,10 +534,33 @@ footer .selected-nav a:hover {
 }
 
 .modal-content .close  {
+    //color: #ff461e;
     color: @brand-danger;
-    margin-top: .5em;
-    margin-right: .5em;
+    margin-top: 1em;
+    margin-right: 1em;
     font-size: 1.65em!important;
+    opacity: .8;
+}
+
+.modal-footer {
+    border-top: none;
+    margin-top: 1.5em;
+}
+
+/* Event modal */
+#eventModalTitle, #newsModalTitle {
+    border-bottom: solid 2px #fd9171;
+    clear: both;
+    display: inline-block;
+    margin-top: 2em;
+    padding: 0 16px 5px 16px!important;
+    margin-left: 1em!important;
+    margin-bottom: 0!important;
+    font-size: 1.75em;
+}
+
+.modal-content .close:hover {
+    opacity: 1;
 }
 
 .modal-content {
