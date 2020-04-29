@@ -63,6 +63,7 @@ function endsWith($string, $endString)
                         $target = $itemUrl['target'] ?? null;
                         $label = $itemVal['label'];
                         $menuIcon = '';
+                        $hideTipsInEnglish = '';
                         if (endsWith($url, '/kirjastot')) {
                             $menuIcon = '<i class="fa fa-building" aria-hidden="true"></i> ';
                         }
@@ -74,10 +75,11 @@ function endsWith($string, $endString)
                         }
                         else if (endsWith($url, '/musiikki')) {
                             $menuIcon = '<i class="fa fa-music" aria-hidden="true"></i> ';
+                            $hideTipsInEnglish = 'hidden';
                         }
                         // Feedback and menus with sub links are constructed later.
                         ?>
-                        <li><a <?= $target ? ' target="' . $this->escapeHtmlAttr($target) . '"' : ''?> href="<?= $url ?>"><?= $menuIcon ?><i class="fa fa-nav-<?=$label ?>" aria-hidden="true"></i><?= $this->transEsc($label) ?></a></li>
+                        <li class="<? echo $hideTipsInEnglish ?>"><a <?= $target ? ' target="' . $this->escapeHtmlAttr($target) . '"' : ''?> href="<?= $url ?>"><?= $menuIcon ?><i class="fa fa-nav-<?=$label ?>" aria-hidden="true"></i><?= $this->transEsc($label) ?></a></li>
                     <?php endif; ?>
                 <?php endforeach; ?>
                 <?php $cart = $this->cart(); if ($cart->isActive()): ?>
