@@ -91,7 +91,6 @@ var checkedLocations = [];
 
 function locationExists(location) {
     return filteredEvents.some(function(el) {
-        console.log(el.city)
         return el.city == location;
     });
 }
@@ -107,8 +106,6 @@ function filterEvents(triggeredByTagFilter) {
     var filteredByTags = [];
     var filteredByLocations = [];
     var allEventsCopy = allEvents;
-    console.log(checkedLocations);
-
     // Match all events against selected filters.
     for (var i = 0; i < allEvents.length; i++) {
         var foundTag = true;
@@ -128,7 +125,6 @@ function filterEvents(triggeredByTagFilter) {
             $('#event-' + allEvents[i].id).addClass('hidden-event');
         }
     }
-    console.log(filteredEvents);
 
     if (filteredEvents.length === 0) {
         $('.no-matching-events').css('display', 'block');
@@ -142,9 +138,6 @@ function filterEvents(triggeredByTagFilter) {
             var locationFilterId = $(this)[0].id;
             var cleanLocationId = locationFilterId.replace("location_", "");
             //filteredEvents.push(allEvents[i]);
-
-            console.log(filteredEvents);
-
             var filterdEventsIncludesCity = locationExists(cleanLocationId);
 
             if (!filterdEventsIncludesCity) {
@@ -165,7 +158,6 @@ function filterEvents(triggeredByTagFilter) {
 
 
             if (!filterdEventsIncludesTag) {
-                console.log("HIDE: " + filterdEventsIncludesTag);
                 //$(this).addClass('hidden-filter')
             }
             else {
@@ -210,7 +202,6 @@ function  fetchEvents() {
         dataType:"json",
         success:function(data) {
             generateEventList(data);
-            console.log(data)
         },
         error: function (request, status, error) {
             console.log(error)
@@ -290,7 +281,6 @@ function generateEventItem(event, id) {
             }
             else {
                 startTimeDisplay = startTimeDisplay + ' – '  + endDateTime;
-
             }
         }
         else {
@@ -320,7 +310,7 @@ function generateEventItem(event, id) {
 
     var itemImg = "";
     if (event.image !== null && event.image !== false) {
-        itemImg = '<img class="event-image" alt="" src="' + event.image + '">'
+        itemImg = '<img class="event-image" loading="auto" alt="" src="' + event.image + '">'
     }
     else {
         // TO DO: No image...
@@ -641,6 +631,8 @@ function generateEventList(events) {
     }
 
 
+    // Hide the loader.
+    $('.loader').hide();
 
     bindFilterEvents();
 
@@ -726,12 +718,8 @@ function generateEventList(events) {
         for (var i = 0; i < allEvents.length; i++) {
             var toMatch = "?event=" + allEvents[i].url;
             if(matchingEventInUrl === toMatch) {
-                console.log("ITS A MATCH!")
                 var toClick = allEvents[i].url;
                 setTimeout(function(){
-                    console.log("DO THE CLICK")
-                    var foo = $(".event-li .event-item-link").find('[data-url="'+ toClick +'"]');
-                    console.log(toClick);
                     $('[data-url="'+ toClick +'"]').click();
                 }, 1400);
             }
@@ -900,7 +888,6 @@ function asyncGenerateEventMap(locations) {
 
 
 function asyncReplaceIdWithCity() {
-    console.log("DO CIT")
     var citiesDeferred = jQuery.Deferred();
     setTimeout(function() {
         try {
@@ -942,13 +929,10 @@ function asyncReplaceIdWithCity() {
 
 $(document).ready(function() {
     isEventsPage = $('.events-page').length === 1;
-    console.log("isEventsPage: " + isEventsPage);
     if (isEventsPage) {
-        console.log(document.documentElement.lang);
         if (document.documentElement.lang == "en-gb" ) {
             isEnglish = true;
         }
-        console.log(isEnglish);
         $.when( fetchConsortiumLibraries(2113) ).then  (
             function() {
                 $.when( asyncReplaceIdWithCity() ).then  (
