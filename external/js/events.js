@@ -310,7 +310,7 @@ function generateEventItem(event, id) {
 
     var itemImg = "";
     if (event.image !== null && event.image !== false) {
-        itemImg = '<img class="event-image" loading="auto" alt="" src="' + event.image + '">'
+        itemImg = '<img class="event-image" loading="lazy" alt="" src="' + event.image + '">'
     }
     else {
         // TO DO: No image...
@@ -450,12 +450,6 @@ function generateEventItem(event, id) {
 
 
 
-    /*
-    var itemLocation = '<span class="event-info event-location" aria-label="' + i18n.get("Event location") + '">' +
-        '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" data-placement="top" alt="" ' +
-        'src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-details-icon">' + eventLocation + '</span>';
-    */
-
     function generateLinkToTransitInfo(coordinates, street, zipcode, city, text) {
         var linkToTransitInfo = street + ", "  + city +
             "::" + coordinates.lat + ", "  + coordinates.lon ;
@@ -586,28 +580,14 @@ function formatEventTimeToDate(rawDate) {
     return standardDate;
 }
 
-function generateEventList(events) {
-
-    events.sort(function(a, b) {
-        var dateA = formatEventTimeToDate(a.acf.start_date),
-            dateB = formatEventTimeToDate(b.acf.start_date);
-        return dateA - dateB;
-    });
-
-
-    for (var i = 0; i < events.length; i++) {
-        generateEventItem(events[i].acf, events[i].id);
+function generateFilters() {
+    if (!isEnglish) {
+        eventTags.sort((a, b) => a.nameFi.localeCompare(b.nameFi))
     }
-
-    console.log(lang)
-
-    eventTags.sort(function(a, b) {
-        var dateA = eventTags.nameFi,
-            dateB = eventTags.nameFi;
-        return dateA - dateB;
-    });
-
-
+    else {
+        eventTags.sort((a, b) => a.nameEn.localeCompare(b.nameEn))
+    }
+    // Sort tags and generate.
     for (var i = 0; i < eventTags.length; i++) {
         //generateEventItem(events[i].acf);
         var tagId = eventTags[i].id;
@@ -618,7 +598,8 @@ function generateEventList(events) {
             '</label>' +
             '</div>');
     }
-
+    // Sort locations and generate.
+    eventLocations.sort((a, b) => a.id.localeCompare(b.id))
     for (var x = 0; x < eventLocations.length; x++) {
         //generateEventItem(events[i].acf);
         var cityName = eventLocations[x].id;
@@ -629,15 +610,14 @@ function generateEventList(events) {
             '</label>' +
             '</div>');
     }
-
-
-    // Hide the loader.
-    $('.loader').hide();
-
     bindFilterEvents();
+    // Hide the loader, display the filters.
+    $('.loader').hide();
+    $('.event-filters').css('visibility', 'visible');
+}
 
+function bindEventListEvents() {
     $(".event-item-link").on('click', function (e) {
-        console.log("CLICKED LK")
         var popupTitle = $(this).data('name');
         var popupText = $(this).data('message');
         var locationText = $(this).data('location-text');
@@ -672,8 +652,6 @@ function generateEventList(events) {
             '</div' +
             '></div>');
 
-
-
         if (locationText !== "Verkkotapahtuma") {
             $('#mapRow').css('display', 'block');
             asyncGenerateEventMap(locationData);
@@ -682,14 +660,10 @@ function generateEventList(events) {
             $('#mapRow').css('display', 'none');
         }
 
-
         $('#eventImageContainer').html('<div id="eventImageContainer">' + image + '</div>');
-
         // Show modal.
         //console.log("e.pageY " + e.pageY + " | ta "  +offSet);
         $('#eventModal').modal('show');
-
-
 
         // Update the page url.
         var itemUrl = $(this).data('url').toString();
@@ -738,8 +712,95 @@ function generateEventList(events) {
     });
 }
 
+
+function generateEventList(events) {
+    // Sort events and generate.
+    events.sort(function(a, b) {
+        var dateA = formatEventTimeToDate(a.acf.start_date),
+            dateB = formatEventTimeToDate(b.acf.start_date);
+        return dateA - dateB;
+    });
+    for (var i = 0; i < events.length; i++) {
+        generateEventItem(events[i].acf, events[i].id);
+    }
+    bindEventListEvents();
+    generateFilters();
+}
+
 var eventMap;
 var layerGroup = null;
+
+function addCoordinatesToMap(locations) {
+    var addCoordinatesDeferred = jQuery.Deferred();
+    setTimeout(function() {
+        if(locations.length !== 0) {
+
+
+            var lastCoordinates = null;
+            var markerIcon = L.divIcon({
+                html: '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" alt="" ' +
+                    'src="' + faPath + 'book-reader.svg" class="fa-svg fa-leaflet-map-marker">',
+                iconSize: [24, 24],
+                popupAnchor:  [0, 3], // point from which the popup should open relative to the iconAnchor
+                //popupAnchor:  [-88, 3], // point from which the popup should open relative to the iconAnchor
+                className: 'event-map-marker'
+            });
+
+            var counter = 0;
+            for (var i = 0; i < locations.length; i++) {
+
+                var placeName = locations[i].location;
+
+                if (placeName == "Verkkotapahtuma" || placeName == "Web event") {
+                    $('#mapRow').css('display', 'none');
+                    addCoordinatesDeferred.resolve();
+                    return;
+                }
+
+
+                if (locations[i].address != undefined ) {
+                    if(placeName.indexOf(locations[i].address.street) > -1) {
+                        console.log("Location includes place street.")
+                        placeName = "";
+                    }
+                    else {
+                        placeName = '<strong>' + locations[i].location + '</strong><br>';
+                    }
+                }
+                else {
+                    placeName = '<strong>' + locations[i].location + '</strong><br>';
+                }
+
+                var text = placeName +
+                    locations[i].address.street + ', <br>' + locations[i].address.zipcode + ', ' + locations[i].city;
+                if (locations[i].coordinates != null) {
+                    L.marker([locations[i].coordinates.lat, locations[i].coordinates.lon], {icon: markerIcon}).addTo(layerGroup)
+                        .bindPopup(text, {autoClose: false, autoPan: false})
+                        .openPopup();
+                }
+                counter = counter +1;
+                if(counter === locations.length){
+                    lastCoordinates = { lat: locations[i].coordinates.lat, lon: locations[i].coordinates.lon };
+                    eventMap.whenReady(() => {
+                        setTimeout(() => {
+                            // Set map view and open popups.
+                            eventMap.invalidateSize();
+                            eventMap.setView([lastCoordinates.lat, lastCoordinates.lon], 10.5);
+                            layerGroup.eachLayer(function (layer) {
+                                layer.openPopup();
+                            });
+
+                        }, 250);
+                    });
+                    addCoordinatesDeferred.resolve();
+                }
+            }
+        }
+    }, 1 );
+    // Return the Promise so caller can't change the Deferred
+    return addCoordinatesDeferred.promise();
+}
+
 function asyncGenerateEventMap(locations) {
     var mapDeferred = jQuery.Deferred();
     setTimeout(function() {
@@ -771,98 +832,8 @@ function asyncGenerateEventMap(locations) {
 
 
 
-        var lastCoordinates = null;
-        var markerIcon = L.divIcon({
-            html: '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" alt="" ' +
-                'src="' + faPath + 'book-reader.svg" class="fa-svg fa-leaflet-map-marker">',
-            iconSize: [24, 24],
-            popupAnchor:  [0, 3], // point from which the popup should open relative to the iconAnchor
-            //popupAnchor:  [-88, 3], // point from which the popup should open relative to the iconAnchor
-            className: 'event-map-marker'
-        });
 
-        function addCoordinatesToMap() {
-            var addCoordinatesDeferred = jQuery.Deferred();
-            setTimeout(function() {
-                if(locations.length !== 0) {
-
-                    var counter = 0;
-
-
-
-                    // create markers
-
-                    // remove all the markers in one go
-
-
-                    for (var i = 0; i < locations.length; i++) {
-
-                        var text = '';
-
-                        var placeName = locations[i].location;
-
-                        if (placeName == "Verkkotapahtuma" || placeName == "Web event") {
-                            $('#mapRow').css('display', 'none');
-                            addCoordinatesDeferred.resolve();
-                            return;
-                        }
-
-
-                        if (locations[i].address != undefined ) {
-                            if(placeName.indexOf(locations[i].address.street) > -1) {
-                                console.log("Location includes place street.")
-                                placeName = "";
-                            }
-                            else {
-                                placeName = '<strong>' + locations[i].location + '</strong><br>';
-                            }
-                        }
-                        else {
-                            placeName = '<strong>' + locations[i].location + '</strong><br>';
-                        }
-
-                        var text = placeName +
-                            locations[i].address.street + ', <br>' + locations[i].address.zipcode + ', ' + locations[i].city;
-                        if (locations[i].coordinates != null) {
-                            L.marker([locations[i].coordinates.lat, locations[i].coordinates.lon], {icon: markerIcon}).addTo(layerGroup)
-                                .bindPopup(text, {autoClose: false, autoPan: false})
-                                .openPopup();
-                        }
-                        counter = counter +1;
-                        if(counter === locations.length){
-                            lastCoordinates = { lat: locations[i].coordinates.lat, lon: locations[i].coordinates.lon };
-                            eventMap.whenReady(() => {
-                                console.log('Map ready');
-                                setTimeout(() => {
-                                    eventMap.invalidateSize();
-                                    eventMap.setView([lastCoordinates.lat, lastCoordinates.lon], 10.5);
-                                    //eventMap.setView(["62.750", "25.700"], 6);
-                                    // Open popup
-                                    /*
-                                    eventMap.eachLayer(function (layer) {
-                                        console.log("DO FOO")
-                                        if(layer._latlng !== undefined) {
-                                            layer.fire('click');
-                                        }
-                                    });
-                                    */
-
-                                    layerGroup.eachLayer(function (layer) {
-                                        layer.openPopup();
-                                    });
-
-                                }, 250);
-                            });
-                            addCoordinatesDeferred.resolve();
-                        }
-                    }
-                }
-            }, 1 );
-            // Return the Promise so caller can't change the Deferred
-            return addCoordinatesDeferred.promise();
-        }
-
-        $.when( addCoordinatesToMap() ).then(
+        $.when( addCoordinatesToMap(locations) ).then(
             function() {
 
                 // If we are in the contacts tab, set map view.

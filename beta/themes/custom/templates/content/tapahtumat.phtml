@@ -2,7 +2,7 @@
 <!-- Events -->
 <div class="events-page">
     <div class="events-container">
-        <div class="event-filters">
+        <div class="event-filters" style="visibility: hidden;">
             <h2 class="sr-only">Tapahtumien rajaus</h2>
             <button id="toggleEventFilters" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                 Rajaa tapahtumia
@@ -30,6 +30,7 @@
                     </div>
                 </li>
             </ul>
+            <div class="loader">Loading...</div>
         </div>
     </div>
 </div>
@@ -40,7 +41,6 @@
             <div class="modal-header">
                 <h1 class="modal-title" id="eventModalTitle">Event</h1>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <div id="eventModalBody" class="modal-body">
