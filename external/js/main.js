@@ -335,47 +335,39 @@ if (locationUrl.indexOf('?lng=fi') > -1) {
 else if(locationUrl.indexOf('?lng=en-gb') > -1) {
     locationUrl = locationUrl.replace('?lng=en-gb', '');
 }
-
-// Load the news and fonts.
-//importJsOrCssFile("/keski/themes/custom/js/news.js", "js");
-//importJsOrCssFile("/keski/themes/custom/js/events.js", "js");
-
-
+// Load fonts.
 importJsOrCssFile("https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap", "css");
-//importJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/all.css", "css")
-//importJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/css/v4-shims.css", "css")
-//importJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/all.js", "js")
-//importJsOrCssFile("https://use.fontawesome.com/releases/v5.12.0/js/v4-shims.js", "js")
-
+// Load moment
 if (!window.moment) {
     console.log("Load moment.")
     importJsOrCssFile("/keski/themes/custom/js/lib/moment.min.js", "js");
 }
-
+// Load moment tilefallback
 if (!window.tileLayer) {
     console.log("Load Leaflet tile fallback.")
     importJsOrCssFile("https://keski-finna.fi/external/finna/js/lib/leafletTileFallback.min.js", "js");
-
 }
-
+// Load JQuery Translate.
 if (!window.i18n) {
-    //importJsOrCssFile('https://keski-finna.fi/external/finna/style/events.css', "css");
+    require("https://keski-finna.fi/external/finna/js/jquery.translate.js", loadPolyfills());
+}
 
-    require("https://keski-finna.fi/external/finna/js/jquery.translate.js", loadTranslations());
-    //require("https://keski-finna.fi/external/finna/js/lib/jquery.translate.js", loadTranslations());
+function loadPolyfills() {
+    if (navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1) {
+        require("https://polyfill.io/v3/polyfill.min.js?features=es2015%2Ces2016%2Ces2017%2Ces5%2Ces6%2CArray.prototype.includes%2CString.prototype.includes%2Cdefault%2Cblissfuljs%2CArray.of%2CArray.prototype.some%2CNumber.EPSILON%2Cdocument%2CArray.prototype.every%2CArray.prototype.fill%2CArray.prototype.filter%2CArray.prototype.find%2CArray.prototype.forEach%2CArray.prototype.reduce%2CArray.prototype.lastIndexOf%2CArray.prototype.indexOf%2CscrollIntoView%2CscrollX%2CscrollY%2CArray.isArray%2CArray.from%2Ces7%2Ces2019%2Ces2018", loadContentScripts());
+    }
+    else {
+        loadContentScripts();
+    }
 
 
 }
 
-
-function loadTranslations() {
-    importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
-
-}
-
-function loadEvents() {
-    console.log("LOAD EV")
-
+function loadContentScripts() {
+    setTimeout(function(){
+        importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
+        importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");
+    }, 1400);
 
 }
 
@@ -446,16 +438,4 @@ function main() {
 
 main();
 
-// TO DO: Load polyfills for IE.
-/*
-if (navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1) {
-    require("https://keski-finna.fi/external/finna/js/lib/less.min.js", function() {
-        main();
-    });
-}
-else {
-    main();
-}
-*/
 
-importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");
