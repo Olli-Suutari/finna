@@ -321,18 +321,24 @@ function generateEventItem(event, id) {
 
     if (event.custom_address) {
         var customLocationData = event.custom_address;
-        var customPlace = customLocationData.name;
         var customStreet = customLocationData.street_name;
         var customStreetNumber = customLocationData.street_number;
         var customZipcode = customLocationData.post_code;
-        var customCity = customLocationData.city; // Google maps returns place name as: Placename, address. If there is no Placename, only address is returned.
+        var customCity = customLocationData.city;
 
-        var startOfPlace = customPlace.slice(0, 4);
-        var startOfAddress = customStreet.slice(0, 4);
+        var customPlace = customLocationData.name;
+        if (customPlace == undefined) {
+            customPlace = "";
+        }
+        else {
+            var startOfPlace = customPlace.slice(0, 4);
+            var startOfAddress = customStreet.slice(0, 4);
 
-        if (startOfPlace == startOfAddress) {
-            customPlace = customPlace + ', ' + customCity;
-        } //customLocation = customPlace + ", " + customStreet + " " + customStreetNumber + ", " + customCity;
+            if (startOfPlace == startOfAddress) {
+                customPlace = customPlace + ', ' + customCity;
+            } //customLocation = customPlace + ", " + customStreet + " " + customStreetNumber + ", " + customCity;
+        }
+
 
 
         customLocation = customPlace;
@@ -579,6 +585,15 @@ function generateFilters() {
 
     $('.loader').hide();
     $('.event-filters').css('visibility', 'visible');
+
+    if (window.innerWidth > 800) {
+        console.log(window.innerWidth);
+        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-tags-filter').innerHeight();
+        console.log(LocationFiltersHeight);
+        $('.event-filters').css('margin-bottom', LocationFiltersHeight + "px");
+
+    }
+
 }
 
 function bindEventListEvents() {
