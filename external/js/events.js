@@ -105,16 +105,18 @@ function tagExists(tag) {
 
 function filterEvents(triggeredByTagFilter) {
     filteredEvents = [];
+    console.log(allEvents);
+
     for (var i = 0; i < allEvents.length; i++) {
         var foundTag = true;
         var foundLocation = true;
-
         if (checkedTags.length !== 0) {
+            console.log(checkedTags);
+            console.log(allEvents[i].tags);
             foundTag = checkedTags.some(function (r) {
                 return allEvents[i].tags.includes(r);
             });
         }
-
         if (checkedLocations.length !== 0) {
             foundLocation = checkedLocations.some(function (r) {
                 return allEvents[i].city.includes(r);
@@ -171,11 +173,11 @@ function bindFilterEvents() {
     $('input[name="tags"]').change(function () {
         checkedTags = [];
         $.each($("input[name='tags']:checked"), function () {
-            checkedTags.push($(this).val());
+            checkedTags.push(parseInt($(this).val())); // Parse to int in order to avoid "1" and 1 not matching.
         });
         filterEvents(true);
-    }); // Event location.
-
+    });
+    // Event location.
     $('input[name="location"]').change(function () {
         checkedLocations = [];
         $.each($("input[name='location']:checked"), function () {
@@ -537,7 +539,6 @@ function generateEventItem(event, id) {
     for (var e = 0; e < eventCityList.length; e++) {
         addLocationsToLocationArray(eventCityList[e]);
     }
-
     allEvents.push({
         id: id,
         tags: tagIdList,
@@ -580,7 +581,13 @@ function generateFilters() {
     for (var i = 0; i < eventTags.length; i++) {
         //generateEventItem(events[i].acf);
         var tagId = eventTags[i].id;
-        $('.event-tags-fieldset').append('<div id="tag_' + tagId + '" class="tag-checkbox-container">' + '<label class="' + materialClass + '">' + '<input type="checkbox" name="tags" value="' + tagId + '">' + '<span>' + eventTags[i].nameFi + '</span>' + '</label>' + '</div>');
+        var tagText = eventTags[i].nameFi;
+        if (isEnglish) {
+            tagText = eventTags[i].nameEn;
+        }
+        $('.event-tags-fieldset').append('<div id="tag_' + tagId + '" class="tag-checkbox-container">' +
+            '<label class="' + materialClass + '">' + '<input type="checkbox" name="tags" value="' +
+            tagId + '">' + '<span>' + tagText + '</span>' + '</label>' + '</div>');
     }
     // Sort locations and generate.
     eventLocations.sort(function (a, b) {
@@ -891,6 +898,8 @@ $(document).ready(function () {
             $.when(asyncReplaceIdWithCity()).then(function () {
                 fetchEvents();
                 $(".close-event-modal").text(i18n.get("Close"));
+                $(".event-category-filter-title").text(i18n.get("Category"));
+                $(".event-location-filter-title").text(i18n.get("Location"));
             });
         });
     }
