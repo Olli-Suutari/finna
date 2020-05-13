@@ -5,7 +5,7 @@ if (navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Tr
     materialClass = "";
 }
 
-    var isEventsPage = false;
+var isEventsPage = false;
 var isEnglish = false;
 var eventTags = [];
 var eventLocations = [];
@@ -31,8 +31,8 @@ function fetchConsortiumLibraries(consortium) {
                     zipcode: data.items[i].address.zipcode,
                     coordinates: data.items[i].coordinates,
                     services: JSON.stringify(data.items[i].services)
-                }); // Wiitaunion mobile library is used in both "Pihtipudas (85449)" and "Viitasaari".
-
+                });
+                // Wiitaunion mobile library is used in both "Pihtipudas (85449)" and "Viitasaari".
                 if (data.items[i].id == 85449) {
                     libraryList.push({
                         id: data.items[i].id,
@@ -45,26 +45,22 @@ function fetchConsortiumLibraries(consortium) {
                     });
                 }
             }
-
             consortiumLibListDeferred.resolve();
         });
     }, 1); // Return the Promise so caller can't change the Deferred
 
     return consortiumLibListDeferred.promise();
-} // Adds tags to eventTags array if they do not already exists. Increases type count if already exists.
+}
 
-
+// Adds tags to eventTags array if they do not already exists. Increases type count if already exists.
 function addTagToTagArray(tag) {
-    tag = JSON.parse(tag);
     var tagAlreadyExists = false;
-
     for (var t = 0; t < eventTags.length; t++) {
         if (eventTags[t].id == tag.id) {
             eventTags[t].count = eventTags[t].count + 1;
             tagAlreadyExists = true;
         }
     }
-
     if (!tagAlreadyExists) {
         eventTags.push({
             id: tag.id,
@@ -73,19 +69,17 @@ function addTagToTagArray(tag) {
             count: 1
         });
     }
-} // Adds location to eventLocations array if they do not already exists. Increases count if already exists.
+}
 
-
+// Adds location to eventLocations array if they do not already exists. Increases count if already exists.
 function addLocationsToLocationArray(location) {
     var locationAlreadyExists = false;
-
     for (var t = 0; t < eventLocations.length; t++) {
         if (eventLocations[t].id == location) {
             eventLocations[t].count = eventLocations[t].count + 1;
             locationAlreadyExists = true;
         }
     }
-
     if (!locationAlreadyExists) {
         eventLocations.push({
             id: location,
@@ -109,12 +103,8 @@ function tagExists(tag) {
     });
 }
 
-console.log("TEST IE")
 function filterEvents(triggeredByTagFilter) {
     filteredEvents = [];
-    var filteredByTags = [];
-    var filteredByLocations = [];
-    var allEventsCopy = allEvents; // Match all events against selected filters.
     for (var i = 0; i < allEvents.length; i++) {
         var foundTag = true;
         var foundLocation = true;
@@ -129,20 +119,21 @@ function filterEvents(triggeredByTagFilter) {
             foundLocation = checkedLocations.some(function (r) {
                 return allEvents[i].city.includes(r);
             });
-        } // If filter matches both, the tag and the city, add it to the filteredEvents array.
-
-
+        }
+        // If filter matches both, the tag and the city, add it to the filteredEvents array.
         if (foundTag && foundLocation) {
             filteredEvents.push(allEvents[i]);
             $('#event-' + allEvents[i].id).removeClass('hidden-event');
-        } else {
+        }
+        else {
             $('#event-' + allEvents[i].id).addClass('hidden-event');
         }
     }
 
     if (filteredEvents.length === 0) {
         $('.no-matching-events').css('display', 'block');
-    } else {
+    }
+    else {
         $('.no-matching-events').css('display', 'none');
     }
 
@@ -150,15 +141,16 @@ function filterEvents(triggeredByTagFilter) {
         $.each($('.location-checkbox-container'), function () {
             var locationFilterId = $(this)[0].id;
             var cleanLocationId = locationFilterId.replace("location_", ""); //filteredEvents.push(allEvents[i]);
-
             var filterdEventsIncludesCity = locationExists(cleanLocationId);
-
-            if (!filterdEventsIncludesCity) {//console.log("HIDE: " + cleanLocationId);
+            if (!filterdEventsIncludesCity) {
                 //$(this).addClass('hidden-filter')
-            } else {//$(this).removeClass('hidden-filter')
+            }
+            else {
+                //$(this).removeClass('hidden-filter')
             }
         });
-    } else {
+    }
+    else {
         $.each($('.tag-checkbox-container'), function () {
             var tagFilterId = $(this)[0].id;
             var cleanTagId = tagFilterId.replace("tag_", ""); //filteredEvents.push(allEvents[i]);
@@ -166,7 +158,8 @@ function filterEvents(triggeredByTagFilter) {
             var filterdEventsIncludesTag = tagExists(cleanTagId);
 
             if (!filterdEventsIncludesTag) {//$(this).addClass('hidden-filter')
-            } else {
+            }
+            else {
                 $(this).removeClass('hidden-filter');
             }
         });
@@ -193,7 +186,10 @@ function bindFilterEvents() {
 
     if (window.innerWidth > 800) {
         $('#toggleEventFilters').click();
-    } else {}
+    }
+    else {
+
+    }
 }
 
 function fetchEvents() {
@@ -223,26 +219,41 @@ function generateEventItem(event, id) {
     var eventPrice = "";
     var eventLocation = "";
     var eventCityList = [];
+    var tagDisplay = "";
+
 
     if (event.tags.length !== 0) {
-        tags = event.tags; // Find ID from : { "id": 4, "fi": "Lapset", "en": "Children" }.
+        tags = event.tags;
 
         for (var t = 0; t < tags.length; t++) {
-            var regexMatchTagId = /("id": )(\d)/g; // Note: Regex needs to be regenerated for each loop.
-            //var execMatchTagId = tags[t].match(regexMatchTagId);
-
-            var execMatchTagId = regexMatchTagId.exec(tags[t]); // Add tagID to list.
-
-            tagIdList.push(execMatchTagId[2]);
-            addTagToTagArray(tags[t]);
+            var tagsJson = JSON.parse(tags[t]);
+            tagIdList.push(tagsJson.id);
+            addTagToTagArray(tagsJson);
+            if (!isEnglish) {
+                var tagEnd = ", ";
+                if (t == tags.length - 1 || tags.length == 1) {
+                    tagEnd = "";
+                }
+                else if (t == tags.length - 2) {
+                    tagEnd = " & ";
+                }
+                var casedTag = tagsJson.fi;
+                if (t != 0) {
+                    casedTag = casedTag.toLowerCase();
+                }
+                tagDisplay = tagDisplay + casedTag + tagEnd;
+            }
+            else {
+                tagDisplay = tagDisplay + tagsJson.en + ". ";
+            }
         }
-    } // 10 first chars = date.
-
-
-    var startDateDay = event.start_date.substr(0, 10); // 5 last chars = time.
-
-    var startDateTime = event.start_date.slice(-5); // If 00.00 = no specified start time.
-
+        tagDisplay = '<span class="event-detail event-tags" aria-label="' + i18n.get("Event category") + '">' + '<img data-toggle="tooltip" title="' + i18n.get("Event category") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'tags.svg" class="fa-svg event-details-icon">' + tagDisplay + '</span>';
+    }
+    // 10 first chars = date.
+    var startDateDay = event.start_date.substr(0, 10);
+    // 5 last chars = time.
+    var startDateTime = event.start_date.slice(-5);
+    // If 00.00 = no specified start time.
     if (startDateTime === "00.00") {
         startDateTime = "";
     }
@@ -251,9 +262,10 @@ function generateEventItem(event, id) {
 
     if (startDateTime !== "") {
         startTimeDisplay = '<i class="fa fa-clock-o" aria-hidden="true"></i>' + startDateTime;
-        startTimeDisplay = '<img alt="" src="' + faPath + 'calendar.svg" class="fa-svg event-li-icon">' + startDateDay + '<img alt="" src="' + faPath + 'clock.svg" class="fa-svg event-li-icon event-li-clock">' + startDateTime;
-    } else {
-        startTimeDisplay = '<img alt="" src="' + faPath + 'calendar.svg" class="fa-svg event-li-icon">' + startDateDay;
+        startTimeDisplay = '<img alt="" src="' + faPath + 'calendar.svg" class="fa-svg event-details-icon">' + startDateDay + '<img alt="" src="' + faPath + 'clock.svg" class="fa-svg event-details-icon event-li-clock">' + startDateTime;
+    }
+    else {
+        startTimeDisplay = '<img alt="" src="' + faPath + 'calendar.svg" class="fa-svg event-details-icon">' + startDateDay;
     }
 
     var endDateDay = "";
@@ -274,43 +286,46 @@ function generateEventItem(event, id) {
         // If ending date is same as starting date.
         if (endDateDay == startDateDay) {
             if (startDateTime == endDateTime) {
-                startTimeDisplay = startTimeDisplay + ' alkaen ';
-            } else {
-                startTimeDisplay = startTimeDisplay + ' – ' + endDateTime;
+                startTimeDisplay = startTimeDisplay + ' ' + i18n.get('Starting');
             }
-        } else {
+            else {
+                // Ends on same day with a set clock time.
+                startTimeDisplay = startTimeDisplay + '<i class="start-end-divider">–</i>' + endDateTime;
+            }
+        }
+        else {
             var endTimeDisplay = "";
+            var endTimeRowSplit = ""; // Ending has a clock time.
 
             if (endDateTime !== "") {
-                endTimeDisplay = '<img alt="" src="' + faPath + 'clock.svg" class="fa-svg event-li-icon event-li-clock">' + endDateTime;
-            }
+                endTimeDisplay = '<img alt="" src="' + faPath + 'clock.svg" class="fa-svg event-details-icon event-li-clock">' + endDateTime;
+                endTimeRowSplit = '<span class="time-row-splitter" aria-hidden="true"> </span>';
+            } // End date
 
-            endDateTimeDisplay = '– <span class="event-end-time"> ' + endDateDay + endTimeDisplay + '</span>';
-            endDateTimeDisplay = '<i class="start-end-divider">–</i><img alt="" src="' + faPath + 'calendar.svg" class="fa-svg event-li-icon"> ' + endDateDay + endTimeDisplay;
+
+            endDateTimeDisplay = '<i class="start-end-divider">–</i>' + endTimeRowSplit + '<img alt="" src="' + faPath + 'calendar.svg" class="fa-svg event-details-icon"> ' + endDateDay + endTimeDisplay;
         }
-    } else {
+    }
+    else {
         if (!startDateTime == "") {
-            endDateTimeDisplay = " alkaen";
+            endDateTimeDisplay = " " + i18n.get('Starting');
         }
     }
 
-    var dateDisplayRow = '<span class="event-li-time">' + startTimeDisplay + endDateTimeDisplay;
-    '</span>';
+    var dateDisplayRow = '<span class="event-li-time">' + startTimeDisplay + endDateTimeDisplay + '</span>';
     var itemImg = "";
 
     if (event.image !== null && event.image !== false) {
         itemImg = '<img class="event-image" loading="lazy" alt="" src="' + event.image + '">';
-    } else {// TO DO: No image...
+    } else {
+        // TO DO: No image...
     }
 
     var itemTitle = event.title;
-
     if (isEnglish && event.english_title !== null && event.english_title != "") {
         itemTitle = event.english_title;
     }
-
     var itemContent = event.content;
-
     if (isEnglish && event.english_content !== null && event.english_content != "") {
         itemContent = event.english_content;
     }
@@ -336,10 +351,8 @@ function generateEventItem(event, id) {
 
             if (startOfPlace == startOfAddress) {
                 customPlace = customPlace + ', ' + customCity;
-            } //customLocation = customPlace + ", " + customStreet + " " + customStreetNumber + ", " + customCity;
+            }
         }
-
-
 
         customLocation = customPlace;
         var customCoordinates = {
@@ -393,23 +406,25 @@ function generateEventItem(event, id) {
             1 = "Keski-libraries"
             2 = "Web event"
              */
-            if (event.organizer[i] == 0) {// TO DO: Other
+            if (event.organizer[i] == 0) {
+                // TO DO: Other
                 //event.organizer[i] = { location: libraryList[x].text, coordinates: libraryList[x].coordinates,
                 //    city: libraryList[x].city };
-            } else if (event.organizer[i] == 1) {
+            }
+            else if (event.organizer[i] == 1) {
                 event.organizer[i] = {
                     location: "Keski-kirjastot",
                     coordinates: null,
                     city: null
                 };
-            } else if (event.organizer[i] == 2) {
+            }
+            else if (event.organizer[i] == 2) {
                 //event.organizer[i] = { location: i18n.get('Web event'), coordinates: null,
                 event.organizer[i] = {
                     location: i18n.get('Web event'),
                     coordinates: null,
                     city: null
                 };
-                console.log(event.organizer[i]);
                 eventCityList.push(i18n.get('Web event'));
             }
         }
@@ -417,29 +432,27 @@ function generateEventItem(event, id) {
 
     if (event.organizer.length > 1) {
         eventLocation = event.organizer.length + " tapahtumapaikkaa";
-    } else {
+    }
+    else {
         if (event.organizer[0] !== undefined) {
             eventLocation = event.organizer[0].location;
-        } else {
+        }
+        else {
             // TO DO: No event location?
             eventLocation = "Muu tapahtumapaikka";
         }
-    } // Accessible icons: https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility
+    }
+    // Accessible icons: https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility
     // Add price where available.
-
-
     if (event.price != "") {
         eventPrice = event.price + " €"; //eventPrice = '<span class="event-price">' + eventPrice + '</span>';
-
-        eventPrice = '<span class="event-info event-price" aria-label="' + i18n.get("Price") + '">' + '<img data-toggle="tooltip" title="' + i18n.get("Price") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'money-bill-alt.svg" class="fa-svg event-details-icon">' + eventPrice + '</span>';
-    } // Website
-
-
+        eventPrice = '<span class="event-detail event-price" aria-label="' + i18n.get("Price") + '">' + '<img data-toggle="tooltip" title="' + i18n.get("Price") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'money-bill-alt.svg" class="fa-svg event-details-icon">' + eventPrice + '</span>';
+    }
+    // Website
     var itemLink = "";
-
     if (event.link_url !== null && event.link_url != "") {
         var prettyUrl = generatePrettyUrl(event.link_url);
-        itemLink = '<span class="event-info event-link" aria-label="' + i18n.get("Website") + '">' + '<img data-toggle="tooltip" title="' + i18n.get("Website") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'globe.svg" class="fa-svg event-details-icon"><a href="' + event.link_url + '">' + prettyUrl + '</a></span>';
+        itemLink = '<span class="event-detail event-link" aria-label="' + i18n.get("Website") + '">' + '<img data-toggle="tooltip" title="' + i18n.get("Website") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'globe.svg" class="fa-svg event-details-icon"><a href="' + event.link_url + '">' + prettyUrl + '</a></span>';
     }
 
     var locationData = event.organizer;
@@ -449,7 +462,9 @@ function generateEventItem(event, id) {
         locationData = customLocationObject;
     }
 
-    var itemLocation = '<span class="event-info event-location" aria-label="Location">' + '<img data-toggle="tooltip" title="Location" data-placement="top" alt="" ' + 'src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-details-icon">' + eventLocation + '</span>';
+    var itemLocation = '<span class="event-detail event-location" aria-label="Location">' +
+        '<img data-toggle="tooltip" title="Location" data-placement="top" alt="" ' +
+        'src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-details-icon">' + eventLocation + '</span>';
 
     function generateLinkToTransitInfo(coordinates, street, zipcode, city, text) {
         var linkToTransitInfo = street + ", " + city + "::" + coordinates.lat + ", " + coordinates.lon;
@@ -461,7 +476,7 @@ function generateEventItem(event, id) {
         if (city !== "Jyväskylä") {
             linkToTransitInfo = "https://www.google.com";
 
-            if (lang === "fi") {
+            if (!isEnglish) {
                 linkToTransitInfo = "https://www.google.fi";
             }
 
@@ -473,46 +488,46 @@ function generateEventItem(event, id) {
         return '<a target="_blank" class="external-navigation-link" href="' + linkToTransitInfo + '">' + infoText + '</a>'; //$('#transitBody').append('<p><a target="_blank" href="' + linkToTransitInfo + '">' + infoText + '</a></p>')
     }
 
+    // Generate the transit info.
     var linkToNavigation = "";
     var linksToNavigation = []; // TO DO: Multiple locations.
-
     if (locationData.length == 1) {
         var location = locationData[0];
-
         if (location.address != null && location.city != null && location.coordinates != null) {
             linkToNavigation = generateLinkToTransitInfo(location.coordinates, location.address.street, location.address.zipcode, location.city) + ". ";
         }
     }
+    if (linkToNavigation != "") {
+        linkToNavigation = '<span class="event-detail event-transit" aria-label="' + i18n.get("Navigation to location") + '">' +
+            '<img data-toggle="tooltip" title="' + i18n.get("Navigation to location") + '" data-placement="top" ' +
+            'alt="" ' + 'src="' + faPath + 'directions.svg" class="fa-svg event-details-icon">' + linkToNavigation + '</span>';
+    }
 
+    // Generate modal infoboxes.
+    // If the event location is the library, do not display this information in the event list.
     var locationInfo = "";
     var locationHelpText = "";
-
-    if (event.location_info != undefined && event.location_info != "") {
-        // TO DO: TRANSLATIONS.
+    if (lang === "en") {
+        if (event.english_location_info != "" && event.english_location_info != undefined) {
+            locationHelpText = event.english_location_info;
+            if (locationHelpText.charAt(locationHelpText.length - 1) != ".") {
+                locationHelpText = locationHelpText + ".";
+            }
+        }
+    }
+    if (event.location_info != "" && event.location_info != undefined && locationHelpText == "") {
         locationHelpText = event.location_info;
-
         if (locationHelpText.charAt(locationHelpText.length - 1) != ".") {
             locationHelpText = locationHelpText + ".";
         }
-        /*
-        locationHelpText = '<span class="event-info event-location-info" aria-label="' + i18n.get("Event location") + '">' +
-            '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" data-placement="top" alt="" ' +
-            'src="' + faPath + 'location-arrow.svg" class="fa-svg event-details-icon">' + locationInfo + '</span>';
-          */
-
+    }
+    if (locationHelpText !== "") {
+        locationInfo = '<span class="event-detail event-location-info" aria-label="' + i18n.get("Location information") + '">' +
+            '<img data-toggle="tooltip" title="' + i18n.get("Location information") + '" data-placement="top" alt="" ' +
+            'src="' + faPath + 'location-arrow.svg" class="fa-svg event-details-icon">' + locationHelpText + '</span>';
     }
 
-    if (linkToNavigation !== "" || locationHelpText !== "") {
-        var spacer = "";
-
-        if (linkToNavigation !== "" && locationHelpText !== "") {
-            spacer = " ";
-        }
-
-        locationInfo = '<span class="event-info event-location-info" aria-label="' + i18n.get("Event location") + '">' + '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'location-arrow.svg" class="fa-svg event-details-icon">' + locationHelpText + spacer + linkToNavigation + '</span>';
-    }
-
-    var itemInfoBoxes = '<div class="event-info-box">' + dateDisplayRow + eventPrice + itemLink + itemLocation + locationInfo + '</div>';
+    var itemInfoBoxes = '<div class="event-info-box">' + dateDisplayRow + tagDisplay + eventPrice + itemLink + itemLocation + locationInfo +  linkToNavigation + '</div>';
     itemContent = '<div class="event-content">' + itemContent + itemInfoBoxes + '</div>';
     locationData = JSON.stringify(locationData);
     var listItem = '<li class="event-li" id="event-' + id + '">' + '<a class="event-item-link" href="javascript:void(0);"' + "data-url='" + event.perma_link + "' data-image='" + itemImg + "' " + "data-name='" + itemTitle + "' data-message='" + itemContent + "' data-location-text='" + eventLocation + "' data-location='" + locationData + "' data-location-info='" + locationInfo + "'>" + '<div class="event-li-img" style="height: 100%; width: auto;">' + itemImg + '</div>' + '<div class="event-li-details">' + '<span class="event-li-title">' + itemTitle + '</span>' + dateDisplayRow + '<span class="event-li-place">' + '<img alt="" src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-li-icon">' + eventLocation + '</span>' + '</div>' + '</a>' + '</li>';
@@ -529,9 +544,9 @@ function generateEventItem(event, id) {
         city: eventCityList,
         url: event.perma_link
     });
-} // ARGS: Date in dd.mm.YYYY hh.mm (eq. 17.03.2020 14.00)
+}
 
-
+// ARGS: Date in dd.mm.YYYY hh.mm (eq. 17.03.2020 14.00)
 function formatEventTimeToDate(rawDate) {
     // 10 first chars = date.
     var startDateDay = rawDate.substr(0, 10); // 5 last chars = time.
@@ -560,16 +575,14 @@ function generateFilters() {
         eventTags.sort(function (a, b) {
             return a.nameEn.localeCompare(b.nameEn);
         });
-    } // Sort tags and generate.
-
-
+    }
+    // Sort tags and generate.
     for (var i = 0; i < eventTags.length; i++) {
         //generateEventItem(events[i].acf);
         var tagId = eventTags[i].id;
         $('.event-tags-fieldset').append('<div id="tag_' + tagId + '" class="tag-checkbox-container">' + '<label class="' + materialClass + '">' + '<input type="checkbox" name="tags" value="' + tagId + '">' + '<span>' + eventTags[i].nameFi + '</span>' + '</label>' + '</div>');
-    } // Sort locations and generate.
-
-
+    }
+    // Sort locations and generate.
     eventLocations.sort(function (a, b) {
         return a.id.localeCompare(b.id);
     });
@@ -580,18 +593,13 @@ function generateFilters() {
         $('.event-locations-fieldset').append('<div id="location_' + cityName + '" class="location-checkbox-container">' +
             '<label class="' + materialClass + '">' + '<input id="' + cityName + '" type="checkbox" name="location" value="' + cityName + '">' + '<span>' + cityName + '</span>' + '</label>' + '</div>');
     }
-
-    bindFilterEvents(); // Hide the loader, display the filters.
-
+    bindFilterEvents();
+    // Hide the loader, display the filters.
     $('.loader').hide();
     $('.event-filters').css('visibility', 'visible');
-
     if (window.innerWidth > 800) {
-        console.log(window.innerWidth);
         var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-tags-filter').innerHeight();
-        console.log(LocationFiltersHeight);
         $('.event-filters').css('margin-bottom', LocationFiltersHeight + "px");
-
     }
 
 }
@@ -612,8 +620,9 @@ function bindEventListEvents() {
         popupText = popupText.replace(/(<p><\/p>)+/g, "");
         popupText = popupText.replace(/(<p>\s<\/p>)+/g, "");
         /* Generate location info & map. */
-
-        var itemLocation = '<p class="event-info event-location" aria-label="' + i18n.get("Event location") + '">' + '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'map-marker.svg" class="fa-svg event-details-icon">' + locationText + '</p>'; // Check if large or small text/modal.
+        var itemLocation = '<p class="event-detail event-location" aria-label="' + i18n.get("Event location") + '">' +
+            '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" data-placement="top" alt="" ' +
+            'src="' + faPath + 'map-marker.svg" class="fa-svg event-details-icon">' + locationText + '</p>';
 
         $('#eventModalTitle').replaceWith('<h1 class="modal-title" id="eventModalTitle">' + popupTitle + '</h1>');
         $("#eventDescription").replaceWith('<div id="eventDescription">' + '<div> ' + '<div class="feed-content">' + '<div class="holder">' + popupText + '</div>' + '</div>' + '</div' + '></div>');
@@ -625,14 +634,12 @@ function bindEventListEvents() {
             $('#mapRow').css('display', 'none');
         }
 
-        $('#eventImageContainer').html('<div id="eventImageContainer">' + image + '</div>'); // Show modal.
-        //console.log("e.pageY " + e.pageY + " | ta "  +offSet);
-
-        $('#eventModal').modal('show'); // Update the page url.
-
+        $('#eventImageContainer').html('<div id="eventImageContainer">' + image + '</div>');
+        // Show modal.
+        $('#eventModal').modal('show');
+        // Update the page url.
         var itemUrl = $(this).data('url').toString();
         var currentUrl = window.location.href.toString(); // Do not add to url if already there.
-
         if (currentUrl.indexOf(itemUrl) === -1) {
             itemUrl = currentUrl + '?event=' + itemUrl;
             var stateObj = {
@@ -640,18 +647,15 @@ function bindEventListEvents() {
             };
             history.replaceState(stateObj, popupTitle, itemUrl);
         }
-    }); // Open the event if url contains an event link.
-
+    });
+    // Open the event if url contains an event link.
     var pageUrl = window.location.href;
-    console.log(pageUrl);
 
     if (pageUrl.indexOf('?event=') > -1) {
         // If we use simple indexOf match articles that contain other articles names are problematic,
         // eg. event=test and event=test-2
         var reMatchEvents = new RegExp(/\?event=.*/g);
         var matchingEventInUrl = pageUrl.match(reMatchEvents)[0];
-        console.log(allEvents);
-
         for (var i = 0; i < allEvents.length; i++) {
             var toMatch = "?event=" + allEvents[i].url;
 
@@ -721,18 +725,30 @@ function addCoordinatesToMap(locations) {
                     return;
                 }
 
+                var text = "";
+                var street = "";
+                var zipcode = "";
+                var city = "";
                 if (locations[i].address != undefined) {
+
+                    if (locations[i].address.street != undefined) {
+                        street = locations[i].address.street;
+                    }
+                    if (locations[i].address.zipcode != undefined) {
+                        zipcode = locations[i].address.zipcode;
+                    }
                     if (placeName.indexOf(locations[i].address.street) > -1) {
-                        console.log("Location includes place street.");
                         placeName = "";
-                    } else {
+                    }
+                    else {
                         placeName = '<strong>' + locations[i].location + '</strong><br>';
                     }
-                } else {
+                }
+                else {
                     placeName = '<strong>' + locations[i].location + '</strong><br>';
                 }
 
-                var text = placeName + locations[i].address.street + ', <br>' + locations[i].address.zipcode + ', ' + locations[i].city;
+                text = placeName + street + ', <br>' + zipcode + ', ' + locations[i].city;
 
                 if (locations[i].coordinates != null) {
                     L.marker([locations[i].coordinates.lat, locations[i].coordinates.lon], {
@@ -746,21 +762,28 @@ function addCoordinatesToMap(locations) {
                 counter = counter + 1;
 
                 if (counter === locations.length) {
-                    lastCoordinates = {
-                        lat: locations[i].coordinates.lat,
-                        lon: locations[i].coordinates.lon
-                    };
-                    eventMap.whenReady(function () {
-                        setTimeout(function () {
-                            // Set map view and open popups.
-                            eventMap.invalidateSize();
-                            eventMap.setView([lastCoordinates.lat, lastCoordinates.lon], 10.5);
-                            layerGroup.eachLayer(function (layer) {
-                                layer.openPopup();
-                            });
-                        }, 250);
-                    });
-                    addCoordinatesDeferred.resolve();
+                    try {
+                        lastCoordinates = {
+                            lat: locations[i].coordinates.lat,
+                            lon: locations[i].coordinates.lon
+                        };
+                        eventMap.whenReady(function () {
+                            setTimeout(function () {
+                                // Set map view and open popups.
+                                eventMap.invalidateSize();
+                                eventMap.setView([lastCoordinates.lat, lastCoordinates.lon], 10.5);
+                                layerGroup.eachLayer(function (layer) {
+                                    layer.openPopup();
+                                });
+                            }, 250);
+                        });
+                        addCoordinatesDeferred.resolve();
+                    }
+                    catch (e) {
+                        console.log(e);
+                        addCoordinatesDeferred.resolve();
+                    }
+
                 }
             }
         }
@@ -788,7 +811,8 @@ function asyncGenerateEventMap(locations) {
             layerGroup = L.layerGroup().addTo(eventMap); // Set the contribution text.
 
             $('.leaflet-control-attribution').replaceWith('<div class="leaflet-control-attribution leaflet-control">© <a target="_blank" href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a target="_blank" href="https://carto.com/attributions">CARTO</a></div>');
-        } else {
+        }
+        else {
             layerGroup.clearLayers();
         }
 

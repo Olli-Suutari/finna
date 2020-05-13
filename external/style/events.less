@@ -373,27 +373,37 @@ body {
 
 /* Event modal stylings */
 .event-details-icon {
-    height: 1.35em;
+    height: 1.04em;
     width: auto;
     margin-right: .75em;
 }
 
 .event-info-box {
-    font-size: 1em;
-    margin-top: 2.5em;
+    margin-top: 2em;
+    margin-bottom: -0.5em;
     font-weight: 600;
 }
 
-.event-info-box img {
-   height: 1.1em;
+.event-info-box  span {
+    font-size: 1.05rem;
+    margin-top: 23px;
 }
+
+.event-info-box .time-row-splitter {
+    margin-top: 0;
+}
+
 
 .event-info-box .event-li-time {
     font-style: oblique!important;
 }
 
+.event-li-details .event-location {
+    margin-top: 16px;
+    font-size: .95rem;
+}
 
-.event-price, .event-link, .event-website, .event-location {
+.event-tags, .event-price, .event-link, .event-website, .event-location, .event-location-info, .event-transit {
     width: 100%;
     display: block;
     margin-top: 1.25em;
@@ -402,12 +412,12 @@ body {
 }
 
 .event-info-box .event-li-clock {
-    margin-left: 25px;
+    margin-left: 2em;
 }
 
 .leaflet-popup-content-wrapper {
     width: auto;
-    min-width: 175px;
+    min-width: 195px;
 }
 
 .leaflet-popup-content {
@@ -422,11 +432,9 @@ body {
 }
 
 #eventMapContainer {
-
-    border-radius: 16px;
+    border-radius: 13px;
     width: 99%;
     height: 400px;
-
     position: relative;
     top: 0;
     left: 0;
