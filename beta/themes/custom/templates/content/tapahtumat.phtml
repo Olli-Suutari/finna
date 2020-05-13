@@ -3,9 +3,9 @@
 <div class="events-page">
     <div class="events-container">
         <div class="event-filters" style="visibility: hidden;">
-            <h2 class="sr-only">Tapahtumien rajaus</h2>
-            <button id="toggleEventFilters" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Rajaa tapahtumia
+            <h2 class="sr-only sr-event-filters-title"></h2>
+            <button id="toggleEventFilters" class="btn btn-primary" type="button" data-toggle="collapse"
+            data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
             </button>
             <div class="collapse" id="collapseExample">
                 <div class="event-filter-container event-tags-filter">
@@ -22,11 +22,10 @@
 
         </div>
         <div class="keski-events-archive" id="keskiEvents">
-            <h1 class="events-section-title">Tapahtumat</h1>
+            <h1 class="events-section-title"></h1>
             <ul id="keskiEventsUl">
                 <li class="event-li no-matching-events" style="display: none">
                     <div class="no-matching-events-div">
-                        <p>Valituilla hakuehdoilla ei löytynyt yhtään tapahtumaa</p>
                     </div>
                 </li>
             </ul>

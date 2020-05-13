@@ -105,14 +105,10 @@ function tagExists(tag) {
 
 function filterEvents(triggeredByTagFilter) {
     filteredEvents = [];
-    console.log(allEvents);
-
     for (var i = 0; i < allEvents.length; i++) {
         var foundTag = true;
         var foundLocation = true;
         if (checkedTags.length !== 0) {
-            console.log(checkedTags);
-            console.log(allEvents[i].tags);
             foundTag = checkedTags.some(function (r) {
                 return allEvents[i].tags.includes(r);
             });
@@ -155,11 +151,11 @@ function filterEvents(triggeredByTagFilter) {
     else {
         $.each($('.tag-checkbox-container'), function () {
             var tagFilterId = $(this)[0].id;
-            var cleanTagId = tagFilterId.replace("tag_", ""); //filteredEvents.push(allEvents[i]);
-
+            var cleanTagId = tagFilterId.replace("tag_", "");
             var filterdEventsIncludesTag = tagExists(cleanTagId);
 
-            if (!filterdEventsIncludesTag) {//$(this).addClass('hidden-filter')
+            if (!filterdEventsIncludesTag) {
+                //$(this).addClass('hidden-filter')
             }
             else {
                 $(this).removeClass('hidden-filter');
@@ -433,7 +429,7 @@ function generateEventItem(event, id) {
     }
 
     if (event.organizer.length > 1) {
-        eventLocation = event.organizer.length + " tapahtumapaikkaa";
+        eventLocation = event.organizer.length + " " + i18n.get('event locations');
     }
     else {
         if (event.organizer[0] !== undefined) {
@@ -441,7 +437,7 @@ function generateEventItem(event, id) {
         }
         else {
             // TO DO: No event location?
-            eventLocation = "Muu tapahtumapaikka";
+            eventLocation = i18n.get('Other location');
         }
     }
     // Accessible icons: https://fontawesome.com/how-to-use/on-the-web/other-topics/accessibility
@@ -634,12 +630,8 @@ function bindEventListEvents() {
         $('#eventModalTitle').replaceWith('<h1 class="modal-title" id="eventModalTitle">' + popupTitle + '</h1>');
         $("#eventDescription").replaceWith('<div id="eventDescription">' + '<div> ' + '<div class="feed-content">' + '<div class="holder">' + popupText + '</div>' + '</div>' + '</div' + '></div>');
 
-        if (locationText !== "Verkkotapahtuma") {
-            $('#mapRow').css('display', 'block');
-            asyncGenerateEventMap(locationData);
-        } else {
-            $('#mapRow').css('display', 'none');
-        }
+        $('#mapRow').css('display', 'block');
+        asyncGenerateEventMap(locationData);
 
         $('#eventImageContainer').html('<div id="eventImageContainer">' + image + '</div>');
         // Show modal.
@@ -725,7 +717,6 @@ function addCoordinatesToMap(locations) {
 
             for (var i = 0; i < locations.length; i++) {
                 var placeName = locations[i].location;
-
                 if (placeName == "Verkkotapahtuma" || placeName == "Web event") {
                     $('#mapRow').css('display', 'none');
                     addCoordinatesDeferred.resolve();
@@ -893,13 +884,18 @@ $(document).ready(function () {
         if (document.documentElement.lang == "en-gb") {
             isEnglish = true;
         }
-
+        // Fetch events once the library list is generated.
         $.when(fetchConsortiumLibraries(2113)).then(function () {
             $.when(asyncReplaceIdWithCity()).then(function () {
                 fetchEvents();
-                $(".close-event-modal").text(i18n.get("Close"));
-                $(".event-category-filter-title").text(i18n.get("Category"));
-                $(".event-location-filter-title").text(i18n.get("Location"));
+                // Translate the UI
+                $('.events-section-title').text(i18n.get('Events'));
+                $('.no-matching-events-div').text(i18n.get('No matching events'));
+                $('.sr-event-filters-title').text(i18n.get('Filter events'));
+                $('#toggleEventFilters').text(i18n.get('Filter events'));
+                $(".close-event-modal").text(i18n.get('Close'));
+                $(".event-category-filter-title").text(i18n.get('Category'));
+                $(".event-location-filter-title").text(i18n.get('Location'));
             });
         });
     }

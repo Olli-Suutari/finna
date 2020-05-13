@@ -74,6 +74,10 @@ var dict = {
     fi: "alkaen",
     en: ">",
   },
+  "Filter events": {
+    fi: "Tapahtumien rajaus",
+    en: "Filter events",
+  },
   "Category": {
     fi: "Kategoria",
     en: "Category",
@@ -109,6 +113,10 @@ var dict = {
   "Show all events": {
     fi: "Näytä kaikki tapahtumat",
     en: "Show all events",
+  },
+  "No matching events": {
+    fi: "Valituilla hakuehdoilla ei löytynyt yhtään tapahtumaa.",
+    en: "No matching events found.",
   },
 };
 
