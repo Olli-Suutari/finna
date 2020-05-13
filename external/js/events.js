@@ -461,7 +461,7 @@ function generateEventItem(event, id) {
     }
 
     var itemLocation = '<span class="event-detail event-location" aria-label="Location">' +
-        '<img data-toggle="tooltip" title="Location" data-placement="top" alt="" ' +
+        '<img data-toggle="tooltip" title="' + i18n.get("Location") + '" data-placement="top" alt="" ' +
         'src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-details-icon">' + eventLocation + '</span>';
 
     function generateLinkToTransitInfo(coordinates, street, zipcode, city, text) {
