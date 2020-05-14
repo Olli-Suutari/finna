@@ -532,7 +532,15 @@ function generateEventItem(event, id) {
     if (isEventsFrontPage) {
         eventFrontPageClass = "front-page-event"
     }
-    var listItem = '<li class="event-li ' + eventFrontPageClass + '" id="event-' + id + '">' + '<a class="event-item-link" href="javascript:void(0);"' + "data-url='" + event.perma_link + "' data-image='" + itemImg + "' " + "data-name='" + itemTitle + "' data-message='" + itemContent + "' data-location-text='" + eventLocation + "' data-location='" + locationData + "' data-location-info='" + locationInfo + "'>" + '<div class="event-li-img" style="height: 100%; width: auto;">' + itemImg + '</div>' + '<div class="event-li-details">' + '<span class="event-li-title">' + itemTitle + '</span>' + dateDisplayRow + '<span class="event-li-place">' + '<img alt="" src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-li-icon">' + eventLocation + '</span>' + '</div>' + '</a>' + '</li>';
+    locationData = JSON.stringify(locationData);
+    var listItem = '<li class="event-li ' + eventFrontPageClass + '" id="event-' + id + '">' +
+        '<a class="event-item-link" href="javascript:void(0);"' + "data-url='" + event.perma_link + "' " +
+        "data-image='" + itemImg + "' " + "data-name='" + itemTitle + "' data-message='" + itemContent + "' " +
+        "data-location-text='" + eventLocation + "' data-location='" + locationData + "' data-location-info='" +
+        locationInfo + "'>" + '<div class="event-li-img" style="height: 100%; width: auto;">' + itemImg + '</div>'
+        + '<div class="event-li-details">' + '<span class="event-li-title">' + itemTitle + '</span>' + dateDisplayRow +
+        '<span class="event-li-place">' + '<img alt="" src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-li-icon">' +
+        eventLocation + '</span>' + '</div>' + '</a>' + '</li>';
     $('#keskiEventsUl').append(listItem);
     eventCityList = $.unique(eventCityList);
 
