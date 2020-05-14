@@ -190,6 +190,8 @@ function bindNewsModalFunctionality() {
     }
 
     $(".news-item-link").on('click', function (e) {
+
+        console.log("CLICKED NEWS")
         var popupTitle = $(this).data('name');
         var popupText = $(this).data('message');
         // Remove multiple spaces
@@ -243,4 +245,5 @@ function bindNewsModalFunctionality() {
 
 if (isFrontPage || isNewsPage) {
     fetchNews();
+    $('.close-news-modal').text(i18n.get('Close'));
 }

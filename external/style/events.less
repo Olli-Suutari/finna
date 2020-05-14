@@ -213,7 +213,7 @@ body {
 }
 
 .events-front-page-nav-link {
-    margin-top: 100px;
+    margin-top: 85px;
     position: relative;
     left: 50%;
     top: 50%;
@@ -221,14 +221,17 @@ body {
 }
 
 .events-front-page-nav-button {
-    display: flex;
-    padding: .8em 15vmin;
+    min-width: 300px;
+    display: inline-block;
+    padding: .8em 2em;
     border: solid 2px @gray;
     background: none;
     font-weight: 600!important;
     font-size: 1.55em;
     color: @text-color;
     text-align: center;
+    align-content: center;
+    justify-content: space-between;
     font-variant-caps: all-petite-caps;
 }
 
@@ -253,6 +256,11 @@ body {
     .events-front-page {
         margin-left: 0;
         margin-right: 0;
+    }
+
+
+    .events-front-page-nav-button {
+        padding: .8em 15%;
     }
 
 
