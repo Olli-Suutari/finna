@@ -6,6 +6,7 @@ if (navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Tr
 }
 
 var isEventsPage = false;
+var isEventsFrontPage = false;
 var isEnglish = false;
 var eventTags = [];
 var eventLocations = [];
@@ -527,8 +528,11 @@ function generateEventItem(event, id) {
 
     var itemInfoBoxes = '<div class="event-info-box">' + dateDisplayRow + tagDisplay + eventPrice + itemLink + itemLocation + locationInfo +  linkToNavigation + '</div>';
     itemContent = '<div class="event-content">' + itemContent + itemInfoBoxes + '</div>';
-    locationData = JSON.stringify(locationData);
-    var listItem = '<li class="event-li" id="event-' + id + '">' + '<a class="event-item-link" href="javascript:void(0);"' + "data-url='" + event.perma_link + "' data-image='" + itemImg + "' " + "data-name='" + itemTitle + "' data-message='" + itemContent + "' data-location-text='" + eventLocation + "' data-location='" + locationData + "' data-location-info='" + locationInfo + "'>" + '<div class="event-li-img" style="height: 100%; width: auto;">' + itemImg + '</div>' + '<div class="event-li-details">' + '<span class="event-li-title">' + itemTitle + '</span>' + dateDisplayRow + '<span class="event-li-place">' + '<img alt="" src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-li-icon">' + eventLocation + '</span>' + '</div>' + '</a>' + '</li>';
+    var eventFrontPageClass = "";
+    if (isEventsFrontPage) {
+        eventFrontPageClass = "front-page-event"
+    }
+    var listItem = '<li class="event-li ' + eventFrontPageClass + '" id="event-' + id + '">' + '<a class="event-item-link" href="javascript:void(0);"' + "data-url='" + event.perma_link + "' data-image='" + itemImg + "' " + "data-name='" + itemTitle + "' data-message='" + itemContent + "' data-location-text='" + eventLocation + "' data-location='" + locationData + "' data-location-info='" + locationInfo + "'>" + '<div class="event-li-img" style="height: 100%; width: auto;">' + itemImg + '</div>' + '<div class="event-li-details">' + '<span class="event-li-title">' + itemTitle + '</span>' + dateDisplayRow + '<span class="event-li-place">' + '<img alt="" src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-li-icon">' + eventLocation + '</span>' + '</div>' + '</a>' + '</li>';
     $('#keskiEventsUl').append(listItem);
     eventCityList = $.unique(eventCityList);
 
@@ -628,7 +632,8 @@ function bindEventListEvents() {
             'src="' + faPath + 'map-marker.svg" class="fa-svg event-details-icon">' + locationText + '</p>';
 
         $('#eventModalTitle').replaceWith('<h1 class="modal-title" id="eventModalTitle">' + popupTitle + '</h1>');
-        $("#eventDescription").replaceWith('<div id="eventDescription">' + '<div> ' + '<div class="feed-content">' + '<div class="holder">' + popupText + '</div>' + '</div>' + '</div' + '></div>');
+        $("#eventDescription").replaceWith('<div id="eventDescription">' + '<div> ' + '<div class="feed-content">'
+            + '<div class="holder">' + popupText + '</div>' + '</div>' + '</div' + '></div>');
 
         $('#mapRow').css('display', 'block');
         asyncGenerateEventMap(locationData);
@@ -689,10 +694,14 @@ function generateEventList(events) {
         return dateA - dateB;
     });
 
-    for (var i = 0; i < events.length; i++) {
-        generateEventItem(events[i].acf, events[i].id);
+    var maxEventsToList = events.length;
+    if (isEventsFrontPage) {
+        maxEventsToList = 4;
     }
 
+    for (var i = 0; i < maxEventsToList; i++) {
+        generateEventItem(events[i].acf, events[i].id);
+    }
     bindEventListEvents();
     generateFilters();
 }
@@ -779,6 +788,7 @@ function addCoordinatesToMap(locations) {
                     }
                     catch (e) {
                         console.log(e);
+                        $('#mapRow').css('display', 'none');
                         addCoordinatesDeferred.resolve();
                     }
 
@@ -878,12 +888,12 @@ function asyncReplaceIdWithCity() {
 }
 
 $(document).ready(function () {
+    if (document.documentElement.lang == "en-gb") {
+        isEnglish = true;
+    }
     isEventsPage = $('.events-page').length === 1;
-
-    if (isEventsPage) {
-        if (document.documentElement.lang == "en-gb") {
-            isEnglish = true;
-        }
+    isEventsFrontPage = $('.events-front-page').length === 1;
+    if (isEventsPage || isEventsFrontPage) {
         // Fetch events once the library list is generated.
         $.when(fetchConsortiumLibraries(2113)).then(function () {
             $.when(asyncReplaceIdWithCity()).then(function () {
@@ -893,9 +903,15 @@ $(document).ready(function () {
                 $('.no-matching-events-div').text(i18n.get('No matching events'));
                 $('.sr-event-filters-title').text(i18n.get('Filter events'));
                 $('#toggleEventFilters').text(i18n.get('Filter events'));
-                $(".close-event-modal").text(i18n.get('Close'));
-                $(".event-category-filter-title").text(i18n.get('Category'));
-                $(".event-location-filter-title").text(i18n.get('Location'));
+                $('.close-event-modal').text(i18n.get('Close'));
+                $('.event-category-filter-title').text(i18n.get('Category'));
+                $('.event-location-filter-title').text(i18n.get('Location'));
+
+                if (isEventsFrontPage) {
+                    $('.events-front-page-nav-button').text(i18n.get('More events'));
+                    $('.events-front-page-nav-button').css('visibility', 'visible');
+                }
+
             });
         });
     }

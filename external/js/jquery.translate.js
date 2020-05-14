@@ -70,6 +70,10 @@ var dict = {
     fi: "Tapahtumat",
     en: "Events",
   },
+  "More events": {
+    fi: "Lisää tapahtumia",
+    en: "More events",
+  },
   "Starting": {
     fi: "alkaen",
     en: ">",
