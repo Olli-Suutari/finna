@@ -23,7 +23,7 @@ body {
     }
 
     #keskiEventsUl {
-        margin-left: 3em;
+        margin-left: 2em;
     }
 
 }
@@ -137,10 +137,14 @@ body {
 .event-item-link {
     display: flex;
     flex-direction: column;
-    background: #eaecef;
-    -webkit-box-shadow: 1px 1px 2px 0px rgba(194,194,194,1);
-    -moz-box-shadow: 1px 1px 2px 0px rgba(194,194,194,1);
-    box-shadow: 1px 1px 2px 0px rgba(194,194,194,1);
+    background: @infobox-background;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.17);
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.17);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,.17);
+    transition: .35s ease-in-out;
+
+
 }
 
 #toggleEventFilters {
@@ -180,6 +184,10 @@ body {
 .event-li {
     margin-top: 10px;
     margin-bottom: 10px;
+    min-width: 90%;
+}
+
+.events-page .event-li {
     min-width: 100%;
 }
 
@@ -190,7 +198,6 @@ body {
 
 @media screen and (max-width: 1300px) {
     .event-li {
-        min-width: 100%;
     }
 }
 
@@ -209,9 +216,19 @@ body {
 .nav-to-event-page-container {
     display: flex;
     justify-content: space-between;
-    width: 100%;
+    width: 100vmin;
+    margin-right: auto;
+    margin-left: auto;
 }
 
+.events-front-page-nav-link {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2em;
+}
+
+
+/*
 .events-front-page-nav-link {
     margin-top: 85px;
     position: relative;
@@ -220,10 +237,12 @@ body {
     transform: translate(-50%, -50%);
 }
 
+ */
+
 .events-front-page-nav-button {
     min-width: 300px;
     display: inline-block;
-    padding: .8em 2em;
+    padding: .6em 1.85em;
     border: solid 2px @gray;
     background: none;
     font-weight: 600!important;
@@ -289,29 +308,12 @@ body {
     font-size: 1.1em;
 }
 
-
-
-
-.front-page-event .event-item-link:hover {
-    margin-left: 2px;
-    -webkit-box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
-    -moz-box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
-    box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
-}
-
-.event-item-link {
-    //transition: all 0.35s ease-in-out; transform: rotate3d(0,0,0,0deg); > THIS WOULD BREAK 2 COL EVENT lIST HOVER
-    -webkit-box-shadow: 0px 0px 10px 2px rgba(240,240,240,0.82);
-    -moz-box-shadow: 0px 0px 10px 2px rgba(240,240,240,0.82);
-    box-shadow: 0px 0px 10px 2px rgba(240,240,240,0.82);
-}
-
-
 .event-li {
 }
 
 .event-item-link:hover {
-    margin-left: 5px;
+    margin-top: -4px;
+    margin-bottom: 4px;
     -webkit-box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
     -moz-box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
     box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
