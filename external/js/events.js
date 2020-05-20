@@ -593,7 +593,7 @@ function generateFilters() {
         if (isEnglish) {
             tagText = eventTags[i].nameEn;
         }
-        $('.event-tags-fieldset').append('<div id="tag_' + tagId + '" class="tag-checkbox-container">' +
+        $('#categoryFiltersContent').append('<div id="tag_' + tagId + '" class="tag-checkbox-container">' +
             '<label class="' + materialClass + '">' + '<input type="checkbox" name="tags" value="' +
             tagId + '">' + '<span>' + tagText + '</span>' + '</label>' + '</div>');
     }
@@ -605,17 +605,19 @@ function generateFilters() {
     for (var x = 0; x < eventLocations.length; x++) {
         //generateEventItem(events[i].acf);
         var cityName = eventLocations[x].id;
-        $('.event-locations-fieldset').append('<div id="location_' + cityName + '" class="location-checkbox-container">' +
+        $('#locationFiltersContent').append('<div id="location_' + cityName + '" class="location-checkbox-container">' +
             '<label class="' + materialClass + '">' + '<input id="' + cityName + '" type="checkbox" name="location" value="' + cityName + '">' + '<span>' + cityName + '</span>' + '</label>' + '</div>');
     }
     bindFilterEvents();
     // Hide the loader, display the filters.
     $('.loader').hide();
-    $('.event-filters').css('visibility', 'visible');
     if (window.innerWidth > 800) {
-        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-tags-filter').innerHeight();
+        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight();
         $('.event-filters').css('margin-bottom', LocationFiltersHeight + "px");
+        // Expand filters on larger screens.
+        $('.event-filters .collapsed').click();
     }
+    $('.event-filters').css('visibility', 'visible');
 
 }
 

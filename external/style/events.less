@@ -2,13 +2,18 @@ body {
 }
 
 /* Filters */
-
 .event-filters {
     min-width: 220px;
 }
 
+.event-category-filter {
+    margin-bottom: 2em;
+}
+
+
 @media screen and (min-width: 800px) {
     .event-filters {
+        margin-top: 90px;
         position: sticky;
         position: -webkit-sticky;
         top: 0;
@@ -33,6 +38,7 @@ body {
     //content: "\f0eb"; //Light bulb:
     content: "\f02c";
     margin-right: 11px;
+    margin-left: 2px;
     font-size: .9em;
 }
 
@@ -41,6 +47,7 @@ body {
     //content: "\f0eb"; //Light bulb:
     content: "\f041";
     margin-right: 11px;
+    margin-left: 4px;
     font-size: .9em;
 }
 
@@ -63,16 +70,37 @@ body {
     border-bottom: none!important;
 }
 
-.event-filter-container legend h3 {
-    border: none;
-    padding-left: 6px;
-    position: relative;
-    top: 2em;
-    margin-bottom: 2em;
-    font-size: .84em;
-    font-weight: 600;
+.event-filter-container {
+    background: #F5F7FA!important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+    padding: 0 1rem 0 1rem;
 }
 
+.event-filter-container button {
+    background: #F5F7FA!important;
+    border: none!important;
+    box-shadow: none!important;
+    font-size: 1.33em!important;
+    color: @text-color!important;
+}
+
+.event-filter-container .list-group.facet button.list-group-item.title {
+    text-transform: unset!important;
+    font-weight: 600!important;
+}
+
+.event-filter-container .list-group.facet button.list-group-item.title, .list-group.facets button.list-group-item.title {
+}
+
+.tag-checkbox-container label, .location-checkbox-container label  {
+    font-weight: 500!important;
+}
+
+.event-filter-container-body {
+    padding-left: .5rem;
+    padding-top: .1rem;
+    padding-bottom: .75em;
+}
 
 @keyframes popIn {
     from {
@@ -91,10 +119,6 @@ body {
 
 .event-tags-filter {
     margin-top: 4em;
-}
-
-.event-location-filter  {
-    margin-top: 1em;
 }
 
 .event-filter-container div input {
@@ -166,6 +190,11 @@ body {
     #collapseExample {
         display: block;
     }
+
+    .event-filters .facet-group [aria-expanded="true"]::after {
+        display: none;
+    }
+
 }
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
