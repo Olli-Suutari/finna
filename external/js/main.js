@@ -137,7 +137,7 @@ function leftNavigationScrollDisplay() {
         // Reference: http://www.html5rocks.com/en/tutorials/speed/animations/
         let last_known_scroll_position = 0;
         let ticking = false;
-        function doSomething(scroll_pos) {
+        function checkActiveSubNav(scroll_pos) {
             // Do something with the scroll position
             for (i = 0; i < navSectitionsWithPosEnd.length; i++) {
                 if (scroll_pos >= navSectitionsWithPosEnd[i].pos &&
@@ -153,7 +153,20 @@ function leftNavigationScrollDisplay() {
             last_known_scroll_position = window.scrollY;
             if (!ticking) {
                 window.requestAnimationFrame(function() {
-                    doSomething(last_known_scroll_position);
+                    checkActiveSubNav(last_known_scroll_position);
+                    // There is a bug in the attached navigation where the position of the element would start jumping after scrolling upwards from the bottom with some screen sizes.
+                    // This fixes the issue by setting the top position to 0 instead of "auto" as set by Finna.
+                    // If we are at the bottom of the page "bottom x px" style is applied to the navigation (to prevent overflow), thus top should be "auto".
+                    var bottomPos = $('.attached').css('bottom');
+                    if (bottomPos != undefined) {
+                        bottomPos = bottomPos.replace('px', '');
+                        if (bottomPos > 0) {
+                            $('.attached').css('top', 'auto');
+                        }
+                        else {
+                            $('.attached').css('top', '0');
+                        }
+                    }
                     ticking = false;
                 });
 
