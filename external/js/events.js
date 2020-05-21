@@ -163,6 +163,10 @@ function filterEvents(triggeredByTagFilter) {
             }
         });
     }
+
+    $('.events-section-title').replaceWith('<h1 class="events-page-title events-section-title">' + i18n.get('Events') +
+        ' <span class="events-count-small"> (' + filteredEvents.length  + ')</span></h1>');
+
 }
 
 function bindFilterEvents() {
@@ -553,6 +557,11 @@ function generateEventItem(event, id) {
         city: eventCityList,
         url: event.perma_link
     });
+    if (!isFrontPage) {
+        // Generate the title.
+        $('.events-section-title').replaceWith('<h1 class="events-page-title events-section-title">' + i18n.get('Events') +
+            ' <span class="events-count-small"> (' + allEvents.length  + ')</span></h1>');
+    }
 }
 
 // ARGS: Date in dd.mm.YYYY hh.mm (eq. 17.03.2020 14.00)
@@ -909,19 +918,19 @@ $(document).ready(function () {
             $.when(asyncReplaceIdWithCity()).then(function () {
                 fetchEvents();
                 // Translate the UI
-                $('.events-section-title').text(i18n.get('Events'));
-                $('.no-matching-events-div').text(i18n.get('No matching events'));
-                $('.sr-event-filters-title').text(i18n.get('Filter events'));
-                $('#toggleEventFilters').text(i18n.get('Filter events'));
-                $('.close-event-modal').text(i18n.get('Close'));
-                $('.event-category-filter-title').text(i18n.get('Category'));
-                $('.event-location-filter-title').text(i18n.get('Location'));
-
                 if (isEventsFrontPage) {
+                    $('.events-section-title').text(i18n.get('Events'));
                     $('.events-front-page-nav-button').text(i18n.get('More events'));
                     $('.events-front-page-nav-button').css('visibility', 'visible');
                 }
-
+                else {
+                    $('.no-matching-events-div').text(i18n.get('No matching events'));
+                    $('.sr-event-filters-title').text(i18n.get('Filter events'));
+                    $('#toggleEventFilters').text(i18n.get('Filter events'));
+                    $('.close-event-modal').text(i18n.get('Close'));
+                    $('.event-category-filter-title').text(i18n.get('Category'));
+                    $('.event-location-filter-title').text(i18n.get('Location'));
+                }
             });
         });
     }
