@@ -224,7 +224,6 @@ function generateEventItem(event, id) {
     var eventCityList = [];
     var tagDisplay = "";
 
-
     if (event.tags.length !== 0) {
         tags = event.tags;
 
@@ -625,6 +624,8 @@ function generateFilters() {
         $('.event-filters').css('margin-bottom', LocationFiltersHeight + "px");
         // Expand filters on larger screens.
         $('.event-filters .collapsed').click();
+        // Eventspage should not be smaller than the filters to prevent overflow to footer.
+        $('.events-page').css('min-height', LocationFiltersHeight + "px");
     }
     $('.event-filters').css('visibility', 'visible');
 
