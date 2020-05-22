@@ -154,22 +154,25 @@ function leftNavigationScrollDisplay() {
             if (!ticking) {
                 window.requestAnimationFrame(function() {
                     checkActiveSubNav(last_known_scroll_position);
-                    // There is a bug in the attached navigation where the position of the element would start jumping after scrolling upwards from the bottom with some screen sizes.
+                    /* There is a bug in the attached navigation where the position of the element would start jumping after scrolling upwards from the bottom with some screen sizes.
                     // This fixes the issue by setting the top position to 0 instead of "auto" as set by Finna.
                     // If we are at the bottom of the page "bottom x px" style is applied to the navigation (to prevent overflow), thus top should be "auto".
+                    // TO DO: This fix has issues on certain resolutions, find a better fix.
                     var bottomPos = $('.attached').css('bottom');
                     if (bottomPos != undefined) {
                         bottomPos = bottomPos.replace('px', '');
-                        if (bottomPos > 0) {
-                            $('.attached').css('top', 'auto');
+                        console.log(bottomPos)
+                        if (bottomPos > 0 && bottomPos > 100) {
+                            //$('.attached').css('top', 'auto');
+                            //$('.attached').css('top',  bottomPos + 'px');
                         }
                         else {
-                            $('.attached').css('top', '0');
+                            //$('.attached').css('top', '0');
                         }
                     }
+                    */
                     ticking = false;
                 });
-
                 ticking = true;
             }
         });
