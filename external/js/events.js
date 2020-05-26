@@ -928,10 +928,10 @@ $(document).ready(function () {
                     $('.no-matching-events-div').text(i18n.get('No matching events'));
                     $('.sr-event-filters-title').text(i18n.get('Filter events'));
                     $('#toggleEventFilters').text(i18n.get('Filter events'));
-                    $('.close-event-modal').text(i18n.get('Close'));
                     $('.event-category-filter-title').text(i18n.get('Category'));
                     $('.event-location-filter-title').text(i18n.get('Location'));
                 }
+                $('.close-event-modal').text(i18n.get('Close'));
             });
         });
     }
