@@ -334,8 +334,7 @@ function homeLibFunctionality() {
     });
 }
 
-locationUrl = window.location.href;
-console.log("locationurl: " + window.location.href);
+
 // Old /beta/
 if (locationUrl.indexOf('/beta/') > -1) {
     window.location = locationUrl.replace('/beta/', '/');
