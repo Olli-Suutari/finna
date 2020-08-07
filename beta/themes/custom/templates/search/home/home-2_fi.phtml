@@ -1,21 +1,21 @@
 <!-- Homepage events -->
 <div class="events-front-page">
-    <div class="events-container">
-        <div class="keski-events-archive" id="keskiEvents">
-            <h2 class="title-underlined-wide events-section-title"></h2>
-            <ul id="keskiEventsUl">
-                <li class="event-li no-matching-events" style="display: none">
-                    <div class="no-matching-events-div">
-                    </div>
-                </li>
-            </ul>
-            <div class="loader">Loading...</div>
-            <div class="nav-to-event-page-container">
-                <a class="events-front-page-nav-link" href="/Content/tapahtumat" style="visibility: hidden">
-                    <button class="events-front-page-nav-button"></button>
-                </a>
-            </div>
-        </div>
+    <h2 class="title-underlined-wide events-section-title"></h2>
+    <div class="events-container" id="keskiEvents">
+        <ul id="keskiEventsUl">
+            <li class="event-li no-matching-events" style="display: none">
+                <div class="no-matching-events-div">
+                </div>
+            </li>
+        </ul>
+        <div class="loader">Loading...</div>
+    </div>
+    <div class="news-page-link-container">
+            <a role="menuitem" href="/Content/tapahtumat" class="news-page-link btn btn-primary">
+                <span class="news-archive-text">
+                    <?= $this->transEsc("to_events_page") ?>
+                </span>
+            </a>
     </div>
 </div>
 <!-- Events modal -->

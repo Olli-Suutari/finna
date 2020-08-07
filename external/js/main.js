@@ -301,7 +301,7 @@ function homeLibFunctionality() {
     // Add transition style for smooth height adjustments.
     var css = document.createElement("style");
     css.type = "text/css";
-    css.innerHTML = '#libFrame { transition: height 500ms; margin-top: 2em; }';
+    css.innerHTML = '#libFrame { transition: height 500ms;}';
     document.head.appendChild(css);
     // Event listener for messages from the iframe.
     window.addEventListener('message', function(event) {
