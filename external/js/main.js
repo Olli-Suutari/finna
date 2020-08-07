@@ -18,6 +18,8 @@ function importJsOrCssFile(filename, filetype){
 /* Add your custom template javascript here */
 var locationUrl = "";
 
+locationUrl = window.location.href
+
 function importJsOrCssFile(filename, filetype){
     if (filetype=="js") { //if filename is a external JavaScript file
         var fileref=document.createElement('script');
@@ -381,6 +383,10 @@ function loadPolyfills() {
 function loadContentScripts() {
     setTimeout(function(){
         importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
+        if(locationUrl.indexOf('-test') > -1) {
+            importJsOrCssFile('https://keski-finna.fi/external/finna/js/newsNew.js', "js");
+            return
+        }
         importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");
     }, 1400);
 
