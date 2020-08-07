@@ -1,0 +1,224 @@
+/* All custom less-code here */
+//@import "eventsAndNews.less";
+
+@import url("http://keski-finna.fi/external/finna/style/newsAndEvents.less");
+
+html {
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 1.73rem;
+}
+
+h2 {
+  font-size: 1.43rem;
+}
+
+h3 {
+  font-size: 1.35rem;
+}
+
+h4, h5, h6 {
+  font-size: 1.25rem;
+}
+// Icon styles
+.white-fa-5 {
+  max-height: .85em;
+}
+
+.browsebar .nav>li a i.fa {
+  margin-right: 0.5em;
+}
+
+/* TAUSTAKUVAN MÄÄRITYKSET */
+.template-dir-search.template-name-home .search-form-container {
+  padding-top: 9em;
+  padding-bottom: 5em;
+}
+
+/* Browsebar marginaali */
+.browsebar nav.navbar .nav-wrapper {
+  margin-left: 0px;
+}
+
+/*Sinisen palkin kavennus*/
+.browsebar .navbar {
+  min-height: 44px;
+}
+.browsebar .navbar .navbar-nav > li > a {
+  height: 44px;
+  line-height: 44px;
+}
+.browsebar-title {
+  line-height: 44px;
+}
+
+/* FRONT PAGE */
+
+.template-name-home .container-fluid .container {
+  width: auto;
+  max-width: 1400px;
+}
+
+// Hide keski text from each search result holdings
+.holding-details {
+  .dedupInformation {
+    display: none;
+  }
+}
+
+// Piilota kartta tarkennetusta hausta
+.search-map-container {
+  display: none;
+}
+
+// Cookie-consent - Evästeet
+.cookie-consent {
+  padding: 1.6em 2.4em;
+  position: fixed!important;
+  bottom: 0!important;
+  top: unset!important;
+  left: 50%;
+  transform: translateX(-50%);
+  color: @text-color!important;
+  background-color: #ebebed;
+  font-size: 1.15em;
+  font-weight: 400;
+  flex-direction: row;
+  border-radius: 8px;
+  align-content: center;
+  vertical-align: center;
+  width: auto;
+  max-width: 100%!important;
+}
+
+@media screen and ( max-width: 1000px ){
+  .cookie-consent {
+    width: 65%;
+  }
+}
+
+@media screen and ( max-width: 768px ){
+  .cookie-consent {
+    width: 100%;
+  }
+}
+
+.cookie-consent p {
+  margin: 0;
+}
+
+.cookie-consent-button {
+  margin-left: 2.4em;
+}
+
+// Loader https://projects.lukehaas.me/css-loaders/
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: @gray;
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+/* .lib-home-container */
+.lib-home-container {
+  //padding: 1.3rem .1rem 2.1rem .1rem!important;
+  margin-bottom: 2em;
+}
+
+.title-underlined-wide {
+  display: inline-block;
+  border-bottom: 2px solid #414141;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  padding-bottom: 0.35em;
+  margin-bottom: 0.75em;
+  border-bottom: 2px solid #414141;
+  text-align: center;
+  color: @text-color;
+  font-weight: 600;
+  width: 100%;
+}
+
+.underlined-title {
+  padding-bottom: 7px!important;
+  padding-left: 9px!important;
+  padding-right: 18px!important;
+  border-bottom: 2px solid #414141;
+}
+
+@media screen and ( min-width: 800px) {
+  .keski-news-home, .lib-home-container {
+    min-height: 540px;
+  }
+}
+
+.infobox {
+  border-radius: 15px;
+  padding: 1.5rem 2rem 2.5rem 2.5rem!important;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.17);
+  padding: 48px 32px 40px;
+  transition: .2s ease-in-out;
+}
+
+/* Common modal styles */
+.modal-header {
+  border-bottom: none;
+  margin: 0;
+}

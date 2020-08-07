@@ -763,14 +763,6 @@
     flex-wrap: nowrap!important;
 }
 
-#keskiNews a {
-    color: @text-color;
-}
-
-#keskiNews a:hover {
-    color: @link-hover-color;
-}
-
 .news-date {
     font-size: .93em;
     font-weight: 400;
@@ -812,23 +804,15 @@
 
 
     .news-section-title {
-        padding: 0 12px 5px 12px!important;
         margin-bottom: 1.5em!important;
-        width: 100%;
     }
 
 }
 
 .news-section-title {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
-    padding-bottom: 0.25em;
-    margin-bottom: 0.75em;
-    border-bottom: 2px solid #414141;
-    text-align: center;
-    color: @text-color;
-    font-weight: 600;
+
 }
+
 
 
 #newsModal .modal-footer {
@@ -867,9 +851,15 @@
 .news-page-link-container {
     text-align: center;
     font-weight: 600;
-    font-size: 1.45em!important;
-    margin-top: 1.5em;
+    margin-top: 1.25em;
     margin-bottom: .25em;
+}
+
+.news-page-link {
+    width: 100%;
+    padding: .73em 0.65em;
+    font-size: 1.32em;
+    line-height: 1.5;
 }
 
 .news-page-link i {
@@ -878,6 +868,10 @@
 
 
 // Front page news
+
+.keski-news-home {
+    margin-right: 10%;
+}
 
 .keski-news-home #keskiNewsUl {
     margin: 0!important;
@@ -892,12 +886,19 @@
 .front-page-news-container {
     position: relative;
     text-align: center;
-    height: 200px;
+    height: 185px;
+}
+
+.front-page-news-container a {
+     color: @text-color;
+}
+.front-page-news-container a:hover {
+    color: @link-hover-color;
 }
 
 .front-page-news-container img {
     object-fit: cover;
-    height: 200px;
+    height: 185px;
     width: auto;
 }
 
