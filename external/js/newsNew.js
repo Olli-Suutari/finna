@@ -6,8 +6,6 @@ if (document.documentElement.lang.toLowerCase() !== "fi" ) {
     isEnglish = true;
 }
 
-console.log("NEW NEWS")
-
 // Remove httml & www from url and / # from the end.
 function generatePrettyUrl (url) {
     url = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");
@@ -41,10 +39,8 @@ function addFrontPageItems(array) {
         }
 
         itemContent = '<div class="news-content">' + itemContent + itemLink +  itemImg + '</div>';
-
-
+        // Use default image if image is missing.
         if (array[i].image == null) {
-            console.log("NULL IMG")
             array[i].image = "https://keski-finna.fi/wp-content/uploads/keskifinna_kuvapankki_poikalaulaakovaa-1024x683.jpg"
         }
 
@@ -52,7 +48,8 @@ function addFrontPageItems(array) {
             "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
             "<img class='front-page-news-image' alt='' src='" + array[i].image + "'> " +
-            "<div class='front-page-news-text-container'><span class='front-page-news-li-title'>" + itemTitle + "</span><span class='front-page-news-date'>" + itemDate + "</span>" +
+            "<div class='front-page-news-text-container'><span class='front-page-news-li-title'>" + itemTitle +
+            "</span><span class='front-page-news-date'>" + itemDate + "</span>" +
             "</div></a></div></li>";
 
         $('#keskiNewsUl').append(listItem);

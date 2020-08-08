@@ -288,12 +288,8 @@ function smartPaginationDisplay() {
         }
         else {
             $('#side-panel-subtitle_lng_str_mv button').click();
-
         }
     }, 800);
-
-
-
 }
 
 function homeLibFunctionality() {
@@ -341,7 +337,6 @@ function homeLibFunctionality() {
 if (locationUrl.indexOf('/beta/') > -1) {
     window.location = locationUrl.replace('/beta/', '/');
 }
-console.log("CHECK FOR CONTENT")
 // /Content/ should not be case sensitive...
 if (locationUrl.indexOf('/content/') > -1) {
     window.location = locationUrl.replace('/content/', '/Content/');
@@ -383,10 +378,11 @@ function loadPolyfills() {
 function loadContentScripts() {
     setTimeout(function(){
         importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
+        /*
         if(locationUrl.indexOf('-test') > -1) {
             importJsOrCssFile('https://keski-finna.fi/external/finna/js/newsNew.js', "js");
             return
-        }
+        }*/
         importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");
     }, 1400);
 

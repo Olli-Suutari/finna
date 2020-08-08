@@ -17,7 +17,7 @@ function generatePrettyUrl (url) {
 }
 
 function addFrontPageItems(array) {
-    for (var i = 0; i < 5; i++) {
+    for (var i = 0; i < 4; i++) {
         var itemDate = array[i].prettyDate;
         var itemImg = "";
         if (array[i].image !== null) {
@@ -39,11 +39,18 @@ function addFrontPageItems(array) {
         }
 
         itemContent = '<div class="news-content">' + itemContent + itemLink +  itemImg + '</div>';
+        // Use default image if image is missing.
+        if (array[i].image == null) {
+            array[i].image = "https://keski-finna.fi/wp-content/uploads/keskifinna_kuvapankki_poikalaulaakovaa-1024x683.jpg"
+        }
 
-        var listItem = "<li class='news-item'>" +
+        var listItem = "<li class='news-item front-page-news-li'><div class='front-page-news-container'>" +
             "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
-            "<span class='news-date'>" + itemDate + "</span><span class='news-li-title'>" + itemTitle + "</span></a></li>";
+            "<img class='front-page-news-image' alt='' src='" + array[i].image + "'> " +
+            "<div class='front-page-news-text-container'><span class='front-page-news-li-title'>" + itemTitle +
+            "</span><span class='front-page-news-date'>" + itemDate + "</span>" +
+            "</div></a></div></li>";
 
         $('#keskiNewsUl').append(listItem);
     }
@@ -240,7 +247,6 @@ function bindNewsModalFunctionality() {
         }
     });
 }
-
 
 if (isFrontPage || isNewsPage) {
     fetchNews();
