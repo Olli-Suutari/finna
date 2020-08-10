@@ -75,8 +75,8 @@ var dict = {
     en: "More events",
   },
   "Starting": {
-    fi: "alkaen",
-    en: ">",
+    fi: " alkaen",
+    en: " >",
   },
   "Filter events": {
     fi: "Tapahtumien rajaus",

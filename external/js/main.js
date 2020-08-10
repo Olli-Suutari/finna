@@ -14,7 +14,6 @@ function importJsOrCssFile(filename, filetype){
         document.getElementsByTagName("head")[0].appendChild(fileref)
 }
 
-
 /* Add your custom template javascript here */
 var locationUrl = "";
 
@@ -187,7 +186,6 @@ function smartPaginationDisplay() {
 
     var totalResults = $('.pagination-text .total').text();
     if (totalResults != "") {
-        console.log(totalResults)
         //$('.sort-option-container').prepend('<span class="total-count">' + totalResults + ' hakutulosta</span>');
     }
 
@@ -305,18 +303,27 @@ function homeLibFunctionality() {
         // Resize the window.
         if(data.type === "resize") {
             var height = data.value;
-            // Check if smaller than keskikirjastot slider.
-            var carouselHeight = $( ".newsCarousel-container" ).height();
-            // Minimum height of 320.
-            if(height < 320) {
-                height = 320;
+            // Minimum height of 520.
+            if (height < 520) {
+                height = 520;
             }
-            else if($(window).width() > 767 && height < carouselHeight) {
-                // Carousel height of keskikirjastot homepage.
-                var iframeHeight = $( "#libFrame" ).height();
-                if(iframeHeight < carouselHeight) {
-                    height = carouselHeight;
-                }
+            if ($(window).width() > 767) {
+                setTimeout(function(){
+                    // Carousel height of keskikirjastot homepage.
+                    var newsHeight = $( "#keskiNewsUl" ).height();
+                    newsHeight = $('.news-page-link-container').height() + newsHeight;
+                    newsHeight = Math.floor(newsHeight);
+                    var iframeHeight = $( "#libFrame" ).height();
+                    if (iframeHeight < newsHeight) {
+                        // If schedules are 120px or less smaller than news, make them equal. // TO DO; Does fix the UI as the btn position is not fixed to bottom.
+                        if (newsHeight - iframeHeight < 140) {
+                            height = newsHeight + 17;
+                            $('#libFrame').css('height', height +'px')
+                            $('#libFrame').attr("height", height + "px");
+                        }
+                    }
+                }, 1000);
+
             }
             container.style.height = (height) + "px";
         }
@@ -377,12 +384,14 @@ function loadPolyfills() {
 
 function loadContentScripts() {
     setTimeout(function(){
-        importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
-        /*
-        if(locationUrl.indexOf('-test') > -1) {
+
+        if (locationUrl.indexOf('-test') > -1) {
             importJsOrCssFile('https://keski-finna.fi/external/finna/js/newsNew.js', "js");
+            importJsOrCssFile('https://keski-finna.fi/external/finna/js/eventsNew.js', "js");
             return
-        }*/
+        }
+        importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
+
         importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");
     }, 1400);
 

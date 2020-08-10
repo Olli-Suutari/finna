@@ -70,12 +70,24 @@ h4, h5, h6 {
 }
 // Spacings for front page sections
 .home-1 {
-  margin-top: 2em;
+  margin-top: -.7em;
 }
 
-.home-1, .home-2, .home-3 {
+.keski-news-home, .lib-home-container, .events-front-page, .front-carousel-section {
   margin-bottom: 2.5rem;
 }
+// This would not add the margins on mobile in between the columns
+.home-1, .home-2, .home-3, .front-carousel-section {
+}
+
+.searchContent {
+  margin-bottom: 3em;
+}
+
+.template-name-results .searchContent {
+  margin-bottom: 0;
+}
+
 
 /* Footer stylings */
 footer {
@@ -314,10 +326,10 @@ footer h5 {
 /* .lib-home-container */
 .lib-home-container {
   //padding: 1.3rem .1rem 2.1rem .1rem!important;
-  margin-bottom: 2em;
+  //margin-bottom: 2em;
 }
 
-.title-underlined-wide {
+.title-underlined-wide, .template-name-home .carousel-header {
   display: inline-block;
   border-bottom: 2px solid #414141;
   padding-left: 1.2rem;
@@ -329,6 +341,20 @@ footer h5 {
   color: @text-color;
   font-weight: 600;
   width: 100%;
+}
+
+.title-underlined {
+  display: inline-block;
+  border-bottom: 2px solid #414141;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.35em;
+  margin-bottom: 0.65em;
+  border-bottom: 2px solid #414141;
+  text-align: center;
+  color: @text-color;
+  font-weight: 600;
+  font-size: 1.35em;
 }
 
 .underlined-title {
@@ -354,6 +380,16 @@ footer h5 {
   box-shadow: 0 1px 2px 0 rgba(0,0,0,.17);
   padding: 48px 32px 40px;
   transition: .2s ease-in-out;
+}
+
+@media (min-width: @screen-md-min) {
+  .template-name-home .infobox {
+    min-height: 444px;
+  }
+}
+
+.infobox h2 {
+  font-size: 1.5em;
 }
 
 /* Common modal styles */
