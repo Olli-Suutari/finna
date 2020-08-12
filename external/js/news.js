@@ -43,15 +43,13 @@ function addFrontPageItems(array) {
         if (array[i].image == null) {
             array[i].image = "https://keski-finna.fi/wp-content/uploads/keskifinna_kuvapankki_poikalaulaakovaa-1024x683.jpg"
         }
-
-        var listItem = "<li class='news-item front-page-news-li'><div class='front-page-news-container'>" +
+        var listItem = "<li class='news-item news-li front-page-news-li'><div class='news-container front-page-news-container'>" +
             "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
-            "<img class='front-page-news-image' alt='' src='" + array[i].image + "'> " +
-            "<div class='front-page-news-text-container'><span class='front-page-news-li-title'>" + itemTitle +
-            "</span><span class='front-page-news-date'>" + itemDate + "</span>" +
+            "<img class='news-li-image front-page-news-image' alt='' src='" + array[i].image + "'> " +
+            "<div class='news-text-container front-page-news-text-container'><span class='news-li-title front-page-news-li-title'>" + itemTitle +
+            "</span><span class='news-li-date front-page-news-date'>" + itemDate + "</span>" +
             "</div></a></div></li>";
-
         $('#keskiNewsUl').append(listItem);
     }
 }
@@ -81,12 +79,27 @@ function addNewsPageItems(array) {
         itemContent = '<div class="news-content">' + itemContent + itemLink +  itemImg + '</div>';
 
 
+        // Use default image if image is missing.
+        if (array[i].image == null) {
+            array[i].image = "https://keski-finna.fi/wp-content/uploads/keskifinna_kuvapankki_poikalaulaakovaa-1024x683.jpg"
+        }
+
+        var listItem = "<li class='news-item news-li news-page-news-li'><div class='news-container news-page-news-container'>" +
+            "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
+            "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
+            "<img class='news-li-image news-page-news-image' alt='' src='" + array[i].image + "'> " +
+            "<div class='news-text-container news-page-news-text-container'><span class='news-li-title news-page-news-li-title'>" + itemTitle +
+            "</span><span class='news-li-date news-page-news-date'>" + itemDate + "</span>" +
+            "</div></a></div></li>";
+        $('#keskiNewsUl').append(listItem);
+
+        /*
         var listItem = "<li class='news-item'>" +
             "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
             "<span class='news-date'>" + itemDate + "</span><span class='news-li-title'>" + itemTitle + "</span></a></li>";
 
-        $('#keskiNewsUl').append(listItem);
+        $('#keskiNewsUl').append(listItem);*/
     }
 }
 
@@ -247,6 +260,7 @@ function bindNewsModalFunctionality() {
         }
     });
 }
+
 
 if (isFrontPage || isNewsPage) {
     fetchNews();

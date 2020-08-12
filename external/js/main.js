@@ -384,19 +384,17 @@ function loadPolyfills() {
 
 function loadContentScripts() {
     setTimeout(function(){
-
+        /*
         if (locationUrl.indexOf('-test') > -1) {
             importJsOrCssFile('https://keski-finna.fi/external/finna/js/newsNew.js', "js");
             importJsOrCssFile('https://keski-finna.fi/external/finna/js/eventsNew.js', "js");
             return
-        }
-        importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
-
+        }*/
         importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");
+        importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
     }, 1400);
 
 }
-
 
 
 var isIOS = false;

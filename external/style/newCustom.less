@@ -1,6 +1,8 @@
 /* All custom less-code here */
 //@import "eventsAndNews.less";
 @import url("http://keski-finna.fi/external/finna/style/newsAndEvents.less");
+// CUSTOM VARIABLES.
+@link-hover-color: #0659c7;
 
 html {
   font-size: 1em;
@@ -10,8 +12,12 @@ body {
   overflow-x: hidden;
 }
 
+a:hover {
+  color: @link-hover-color;
+}
+
 h1 {
-  font-size: 1.73rem;
+  font-size: 1.73rem!important;
 }
 
 h2 {
@@ -101,7 +107,7 @@ footer {
   left: 0!important;
   display: flex;
   height: auto!important;
-  margin-top: 2em!important;
+  margin-top: 2.5em!important;
   min-height: 40vmin; // TO DO: https://keski.finna-test.fi/beta/Feedback/Home has empty space after the footer in 1080 * 1920.
 }
 
