@@ -192,10 +192,20 @@ function smartPaginationDisplay() {
     // Remove "Näytetään"
     $( ".pagination-text span" ).each(function( index ) {
         var value = $( this ).text();
-        if (value == "Näytetään ") {
+        if (value == "Näytetään " || value == "Showing " || value == " results of ") {
             $( this ).css('display', 'none');
         }
+        var strong = $( value + 'strong');
+        console.log(strong)
+        if (strong === " results of ") {
+            $( this ).css('display', 'none');
+        }
+
     });
+
+    var replaced = $(".pagination-text").html().replace(' results of ',' / ');
+    $('.pagination-text').html(replaced);
+
 
     // Remove space in 41-60.
     $( ".pagination-text strong" ).each(function( index ) {
@@ -205,8 +215,11 @@ function smartPaginationDisplay() {
 
     });
 
-    $('.sort-option-container .sort-button span').prepend('<span class="sort-by">Järjestys:</span>');
-    $('.limit-option-container .sort-button span').prepend('<span class="results-on-page">Tuloksia sivulla:</span>');
+    $('.pagination-container').css('visibility', 'visible');
+
+    $('.sort-option-container .sort-button span').prepend('<span class="sort-by">' + i18n.get('Order') + ':</span>');
+    $('.limit-option-container .sort-button span').prepend('<span class="results-on-page">' + i18n.get('Show') + ':</span>');
+    $('.control-container .view-dropdown .dropdown-toggle').prepend('<span class="results-on-page">' + i18n.get('View') + ':</span>');
 
 
 

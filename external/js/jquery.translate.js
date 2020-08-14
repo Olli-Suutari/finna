@@ -122,6 +122,18 @@ var dict = {
     fi: "Valituilla hakuehdoilla ei löytynyt yhtään tapahtumaa.",
     en: "No matching events found.",
   },
+  "Order": {
+    fi: "Järjestys",
+    en: "Order",
+  },
+  "Show": {
+    fi: "Näytä",
+    en: "Show",
+  },
+  "View": {
+    fi: "Näkymä",
+    en: "Display",
+  }
 };
 
 
