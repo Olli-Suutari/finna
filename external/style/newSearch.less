@@ -18,6 +18,15 @@
     color: @text-color!important;
 }
 
+.searchtools {
+    text-align: center!important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    font-size: .85rem;
+}
+
 .searchtools-background {
     background: none!important;
 }
@@ -348,21 +357,32 @@
 .paginationSimple .fa-arrow-alt-right, .paginationSimple .fa-last-page {
     margin-left: 6px;
 }
+
+.fa-last-page {
+}
+
 .paginationSimple i:hover {
     //background: @btn-primary-hover!important;
 }
 .pagination-button i, .search-controls i {
-    background: @btn-primary-bg!important;
+    //background: @btn-primary-bg!important;
 }
 
 .pagination-button i {
     color: @text-color!important;
     padding: .35em!important;
     border-radius: 11px!important;
+    background: none!important;
+}
+
+.pagination-button:hover {
+    color: @link-hover-color!important;
+
 }
 
 .pagination-button i:hover {
     //background: @btn-primary-hover!important;
+    color: @link-hover-color!important;
 }
 
 /* BOTTOM PAGINATION */
@@ -379,7 +399,7 @@
 
 .pagination li:not(.pagination-button) a:hover {
     background: none!important;
-    color: @text-color!important;
+    color: @link-hover-color!important;
     //border-bottom: solid 2px @nav-hover-border-color!important;
     margin-bottom: 0;
     border-radius: 0!important;
