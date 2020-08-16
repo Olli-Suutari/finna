@@ -1,6 +1,6 @@
 <!-- START of: content/help_asiakas_fi.phtml -->
 <?php if ($this->resolver('content/help-tabs.phtml')): ?>
-<?=$this->render('content/help-tabs.phtml', ['activeTab' => 'help_asiakas'])?>
+<?=$this->render('content/help-tabs.phtml', ['activeTab' => 'info'])?>
 <?php endif; ?>
 <div>
   <div class="sidebar left">
@@ -11,8 +11,7 @@
 <?php if ($this->resolver('content/Additions/helpBegin.phtml')): ?>
 <?=$this->render('content/Additions/helpBegin.phtml')?>
 <?php endif; ?>
-<h1>Asiakkaan opas</h1>
-
+<h1 class="sr-only">Asiakkaan opas</h1>
 <div id="libcard" class="content-section">
 <h2>Kirjastokortti ja PIN-koodi</h2>
   <p>Lainaamiseen tarvitset aina kirjastokortin. Henkilökohtaisen kirjastokortin ja PIN-koodin saat kaikista Keski-kirjastoista esittämällä kuvallisen henkilöllisyystodistuksen ja sitoutumalla kirjaston käyttösääntöihin (linkki puuttuu). Ensimmäinen kirjastokortti on maksuton, sen jälkeen annetusta kirjastokortista peritään maksu.</p>

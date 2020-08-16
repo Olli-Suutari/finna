@@ -30,11 +30,11 @@ h1 {
   font-size: 1.8em;
 }
 
-h2 {
+h2, .main.template-dir-feedcontent.template-name-content h2, .main.template-dir-content.template-name-content h2  {
   font-size: 1.6em;
 }
 
-h3 {
+h3, .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-content.template-name-content h3 {
   font-size: 1.35em;
 }
 
@@ -48,14 +48,11 @@ h4, h5, h6 {
   margin-bottom: 1em;
 }
 
-.main.template-dir-feedcontent.template-name-content h2, .main.template-dir-content.template-name-content h2 {
+h2 .main.template-dir-feedcontent.template-name-content h2, .main.template-dir-content.template-name-content h2 {
+  font-size: 1.55em;
 }
 
-.main.template-dir-feedcontent.template-name-content h2, .main.template-dir-content.template-name-content h2 {
-  font-size: 1.5em;
-}
-
-.main.template-dir-feedcontent.template-name-content h3, .main.template-dir-content.template-name-content h3 {
+h3 .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-content.template-name-content h3 {
   padding-bottom: 10px;
 }
 
@@ -132,8 +129,16 @@ h4, h5, h6 {
   margin-top: 2.2em;
 }
 
+.finna-main-header {
+  margin-bottom: 0;
+}
+
+.main.template-dir-feedcontent.template-name-content .finna-main-header, .main.template-dir-content.template-name-content .finna-main-header {
+  margin-bottom: 0;
+}
+
 .finna-main-header .main.template-dir-feedcontent.template-name-content .finna-main-header  h1, .main.template-dir-content.template-name-content .finna-main-header  h1{
-  margin-bottom: -2em!important;
+  margin-bottom: 0;
 }
 
 .searchContent {
@@ -448,8 +453,22 @@ footer h5 {
   font-size: 1.5em;
 }
 
+.infobox img {
+  padding-right: 1em;
+  margin-bottom: 1em;
+}
+
 /* Common modal styles */
 .modal-header {
   border-bottom: none;
   margin: 0;
+}
+
+.selected-sub-nav {
+  border-left: 5px solid @brand-third!important;
+}
+
+// Hide list navigation if only 1 page
+[aria-label="1 of 1"] {
+  display: none!important;
 }

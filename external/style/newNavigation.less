@@ -172,11 +172,16 @@ header li a {
 
 // Dropdowns
 [role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"] {
-  background: @nav-hover-bg!important;
-  border-left: solid 4px @nav-hover-border-color!important;
+  background: @nav-hover-bg;
+  border-left: solid 4px @nav-hover-border-color;
   margin-left: -4px;
 }
 
+#loginOptions a:hover {
+  background: @btn-primary-hover;
+  border-left: 0;
+  margin-left: 0;
+}
 
 .dropdown-menu li, .dropdown li {
   margin-left: 10px;
@@ -185,7 +190,7 @@ header li a {
   margin-bottom: 9px!important;
   margin-top: 0!important;
   border-bottom: none;
-  min-width: 210px;
+  //min-width: 210px;
 }
 
 .dropdown-menu li a:hover, .dropdown-menu li a:hover {
@@ -194,7 +199,6 @@ header li a {
   margin-left: -4px;
   border-bottom: none!important;
 }
-
 
 .dropdown-menu li a, .dropdown li a {
   margin-top: 0;
@@ -288,6 +292,11 @@ header .btn-primary {
 .navbar-header .selected-nav  {
   border-bottom: none;
   //border-left: solid 2px #78c57d;
+}
+
+.navbar-brand img {
+  //background-color: @nav-hover-bg;
+  margin-left: 4px;
 }
 
 .navbar-brand img:hover {
