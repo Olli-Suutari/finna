@@ -2,8 +2,13 @@
 //@import "eventsAndNews.less";
 @import url("http://keski-finna.fi/external/finna/style/newsAndEvents.less");
 @import url("http://keski-finna.fi/external/finna/style/newSearch.less");
+@import url("http://keski-finna.fi/external/finna/style/newNavigation.less");
+
 // CUSTOM VARIABLES.
 @link-hover-color: #0659c7;
+@nav-hover-bg: #d9f4ff;
+@nav-hover-border-color: #fcad95; // #fb9677;
+@btn-primary-hover: @nav-hover-border-color; //@nav-hover-bg;
 
 html {
   font-size: 1em;
@@ -17,21 +22,48 @@ a:hover {
   color: @link-hover-color;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 12px;
+}
+
 h1 {
-  font-size: 1.73rem;
+  font-size: 1.8em;
 }
 
 h2 {
-  font-size: 1.43rem;
+  font-size: 1.6em;
 }
 
 h3 {
-  font-size: 1.35rem;
+  font-size: 1.35em;
 }
 
 h4, h5, h6 {
-  font-size: 1.25rem;
+  font-size: 1.2em;
 }
+
+// Info page titles
+.main.template-dir-feedcontent.template-name-content h1, .main.template-dir-content.template-name-content h1 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+}
+
+.main.template-dir-feedcontent.template-name-content h2, .main.template-dir-content.template-name-content h2 {
+}
+
+.main.template-dir-feedcontent.template-name-content h2, .main.template-dir-content.template-name-content h2 {
+  font-size: 1.5em;
+}
+
+.main.template-dir-feedcontent.template-name-content h3, .main.template-dir-content.template-name-content h3 {
+  padding-bottom: 10px;
+}
+
+.content-section {
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+}
+
 // Icon styles
 .white-fa-5 {
   max-height: .85em;
@@ -75,6 +107,11 @@ h4, h5, h6 {
   width: auto;
   max-width: 1400px;
 }
+
+.wide-content-row {
+
+}
+
 // Spacings for front page sections
 .home-1 {
   margin-top: -.7em;
@@ -87,8 +124,20 @@ h4, h5, h6 {
 .home-1, .home-2, .home-3, .front-carousel-section {
 }
 
+.home-1 {
+  margin-top: 1.8em;
+}
+
+.finna-main-header {
+  margin-top: 2.2em;
+}
+
+.finna-main-header .main.template-dir-feedcontent.template-name-content .finna-main-header  h1, .main.template-dir-content.template-name-content .finna-main-header  h1{
+  margin-bottom: -2em!important;
+}
+
 .searchContent {
-  margin-bottom: 3em;
+  margin-bottom: 0;
 }
 
 .template-name-results .searchContent {
