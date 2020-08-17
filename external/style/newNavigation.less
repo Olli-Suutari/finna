@@ -58,11 +58,22 @@ header {
   //margin: 1em;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 360px) {
   #header-collapse {
     min-width: 100%;
   }
+}
 
+@media screen and (min-width: 401px) {
+  #header-collapse .nav-login {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 988px) {
+  #header-collapse {
+    margin-top: -5px!important;
+  }
 }
 
 .finna-navbar .navbar-collapse>ul>li {
@@ -123,7 +134,7 @@ header .fa-info-circle:before {
 header .in {
   height: auto!important;
   // Unless we set min-height the mobile nav becomes a scrollable "mess".
-  min-height: 400px;
+  min-height: 360px;
   padding-bottom: 1em;
 }
 

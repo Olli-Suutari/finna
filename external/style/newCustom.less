@@ -293,34 +293,23 @@ footer h5 {
 
 // Cookie-consent - Evästeet
 .cookie-consent {
-  padding: 1.6em 2.4em;
+  padding: 1.1em 1.4em;
   position: fixed!important;
   bottom: 0!important;
   top: unset!important;
   left: 50%;
   transform: translateX(-50%);
   color: @text-color!important;
-  background-color: #ebebed;
-  font-size: 1.15em;
-  font-weight: 400;
+  //background-color: #ebebed;
+  background-color: #FCF8E3;
+  font-size: 1.2em;
+  font-weight: 600;
   flex-direction: row;
-  border-radius: 8px;
+  border-radius: 4px;
   align-content: center;
   vertical-align: center;
   width: auto;
   max-width: 100%!important;
-}
-
-@media screen and ( max-width: 1000px ){
-  .cookie-consent {
-    width: 65%;
-  }
-}
-
-@media screen and ( max-width: 768px ){
-  .cookie-consent {
-    width: 100%;
-  }
 }
 
 .cookie-consent p {
@@ -330,6 +319,34 @@ footer h5 {
 .cookie-consent-button {
   margin-left: 2.4em;
 }
+
+@media screen and ( max-width: 768px ){
+  .cookie-consent {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cookie-consent-button {
+    margin-top: 1.2em;
+    margin-left: 0;
+  }
+}
+
+/*
+@media screen and ( max-width: 1000px ){
+  .cookie-consent {
+    //width: 65%;
+  }
+}
+
+@media screen and ( max-width: 768px ){
+  .cookie-consent {
+    //width: 100%;
+  }
+}
+
+ */
+
+
 
 // Loader https://projects.lukehaas.me/css-loaders/
 .loader,
