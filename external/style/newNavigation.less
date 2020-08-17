@@ -12,24 +12,34 @@ header {
 .finna-navbar, .navbar-header, header, [role=navigation] {
   //background-color: #ebebed;
   background-color: @body-bg!important;
+}
+
+#header-collapse {
   //height: 64px!important;
 }
 
+.navbar-collapse {
+  vertical-align: middle;
+  justify-content: center;
+  margin: 0!important;
+  padding: 0!important;
+}
 
 @media screen and (max-width: 1000px) {
   .finna-navbar {
     height: 64px!important;
   }
+
+  #header-collapse {
+    margin-top: -8px;
+    padding: .25em 2em !important;
+  }
+
 }
 
 .finna-navbar .navbar-collapse, #header-collapse {
   background-color: @body-bg!important;
   border-top: none;
-}
-
-#header-collapse {
-  margin-top: -8px;
-  padding: .25em 2em !important;
 }
 
 .navbar-nav.nav-login {
@@ -126,10 +136,6 @@ header .in {
 }
 // Margins for menu items on different screen sizes.
 @media screen and ( min-width: 1200px ){
-  [role=menubar] li {
-    margin-right: 4vmin!important;
-  }
-
   .navbar-header {
     margin-left: -20px!important;
     margin-right: 20px!important;
@@ -138,11 +144,7 @@ header .in {
 
 @media screen and ( min-width: 1400px ){
   .navbar-header {
-    margin-left: -80px!important;
-  }
-
-  [role=menubar] li {
-    margin-right: 5vmin!important;
+    margin-left: -70px!important;
   }
 }
 
@@ -157,6 +159,11 @@ header .in {
 
 header li a {
   padding-bottom: 5px!important;
+}
+
+.finna-navbar .navbar-nav.lang {
+  margin-right: 1.5em;
+  padding-top: 3px;
 }
 
 // Hovering links inside li
@@ -177,7 +184,7 @@ header li a {
   margin-left: -4px;
 }
 
-#loginOptions a:hover {
+#loginOptions a:hover, #loginOptions-navi a:hover {
   background: @btn-primary-hover;
   border-left: 0;
   margin-left: 0;
@@ -198,6 +205,10 @@ header li a {
   border-left: solid 4px @nav-hover-border-color!important;
   margin-left: -4px;
   border-bottom: none!important;
+}
+
+.finna-navbar .navbar-nav>li>a {
+  line-height: 24px!important;
 }
 
 .dropdown-menu li a, .dropdown li a {
@@ -243,7 +254,7 @@ header li a {
 
 .dropdown-menu li .selected-nav, .dropdown-menu li .selected-nav:hover {
   border-bottom: none!important;
-  border-left: solid 4px @brand-third!important;
+  border-left: solid 4px @nav-selected!important;
   margin-left: 0;
 }
 
@@ -257,7 +268,6 @@ header li a {
   }
 }
 
-
 .dropdown-menu li a div {
   padding-left: 10px!important;
 }
@@ -267,6 +277,10 @@ header li a {
 }
 
 header .btn-primary {
+}
+
+#logoutOptions {
+  //margin-left: 1.5em;
 }
 
 #logoutOptions, #logoutOptions a, #logoutOptions a span, .username, .caret {
@@ -281,12 +295,6 @@ header .btn-primary {
   padding-bottom: 12px!important;
   height: 52px!important;
   width: auto;
-}
-
-.navbar-brand {
-}
-
-.navbar-header {
 }
 
 .navbar-header .selected-nav  {
@@ -311,316 +319,6 @@ header .btn-primary {
 
 .mobile-lang-selector {
   display: none!important;
-}
-
-// Default config / modifications
-
-.swipe-arrow-navigation {
-  position: fixed;
-  width: 50px;
-  height: 50px;
-  background: @link-color;
-  top: 50%;
-  color: @body-bg;
-  border-radius: 50%;
-  &.arrow-navigation-left {
-    left: 0px;
-    border-top-left-radius: 0px;
-    border-bottom-left-radius: 0px;
-  }
-  &.arrow-navigation-right {
-    right: 0px;
-    border-top-right-radius: 0px;
-    border-bottom-right-radius: 0px
-  }
-  .fa-arrow-right, .fa-arrow-left {
-    color: @body-bg;
-    top: 10px;
-    left: 8px;
-    position: absolute;
-    font-size: 30px;
-  }
-}
-
-.nav {
-  margin-bottom: 12px;
-  margin-top: 12px;
-  > li {
-    display: block;
-    > a {
-      transition: background .2s ease-in-out;
-    }
-  }
-}
-@media (min-width:@screen-md-min) {
-  .nav > li {
-    display: inline-block;
-  }
-}
-@media (max-width: @screen-md-max) {
-  .finna-navbar .nav >li>a {
-    padding: 0 6px;
-  }
-}
-
-.navbar .navbar-logo {
-  height: @navbar-logo-height + 10;
-  margin-top: ((@navbar-height/2)-(@navbar-logo-height/2));
-  margin-right: 10px;
-}
-
-// fix navbar for logoutoptions
-.finna-navbar .navbar-nav .logoutOptions {
-  @media(max-width: @screen-sm) {
-    margin: 0;
-  }
-  a {
-    color: @action-link-color;
-  }
-  .dropdown-menu {
-    right: 5px;
-    left: auto;
-    > li {
-      > a {
-        color: @text-color;
-        width: 250px;
-        i {
-          padding-top: 3px;
-        }
-      }
-    }
-    @media (max-width: @screen-xxs) {
-      right: -30px;
-    }
-  }
-  .username {
-    display: inline-block;
-    max-width: 150px;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    vertical-align: top;
-    font-size: @font-size-base;
-    font-weight: 600;
-    @media (max-width: @screen-sm) {
-      max-width: 80px;
-    }
-    @media (max-width: @screen-xxs) {
-      display: none;
-    }
-  }
-  .description {
-    font-size: 0.9em;
-    line-height: 1.2em;
-  }
-}
-
-.navbar-brand {
-  padding: 0;
-  line-height: @navbar-height;
-  max-width: 200px;
-  .navbar-logo {
-    font-size: @navbar-logo-height;
-    color: @logo-color;
-  }
-  img {
-    height: @navbar-logo-height;
-    width: auto;
-  }
-}
-
-.navbar-toggle {
-  position: absolute;
-  z-index: 30;
-  right:0;
-  height: @navbar-height;
-  width: @navbar-height;
-  margin:0;
-  color: @nav-hover-bg;
-  background-color: @brand-primary;
-  padding: 0;
-  border-radius: 0;
-  i {
-    font-size: 24px;
-    cursor: pointer;
-  }
-  &.collapsed .fa.fa-times{
-    display: none;
-  }
-  &:not(.collapsed) .fa.fa-bars {
-    display: none;
-  }
-}
-
-&.dropdown-toggle:focus {
-  outline: 1px dotted #212121;
-  outline: 5px auto -webkit-focus-ring-color;
-}
-
-.navbar-nav {
-  > li > a {
-    padding-top: @navbar-padding-vertical;
-    padding-bottom: @navbar-padding-vertical;
-    line-height: @navbar-height / 2;
-    margin-top: @navbar-height / 4;
-    margin-bottom: @navbar-height / 4;
-    font-size: @navbar-font-size;
-    font-weight: @navbar-font-weight;
-    @media (min-width:@screen-md-min) {
-      margin-bottom: 0;
-    }
-  }
-  &.language:not(.lang-1):before {
-    color: @navbar-default-link-color;
-    content: '';
-    @media (min-width: @grid-float-breakpoint) {
-      border-left: solid 1px @navbar-default-link-color;
-    }
-    height: ((@navbar-height) - 24);
-    margin-top: ((@navbar-height - (@navbar-height - 24)) / 2);
-  }
-  &.lang-1 {
-    margin-left: 10px;
-  }
-  @media (max-width: @grid-float-breakpoint-max) {
-    &.lang-1 {
-      margin-left: -15px;
-      border-top: 1px solid #000;
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.25);
-      &:before {
-        border-left: none;
-      }
-    }
-    // Dropdowns get custom display when collapsed
-    .open:not(.logoutOptions):not(.browsebar-dropdown) .dropdown-menu {
-      position: static;
-      float: none;
-      width: auto;
-      margin-top: 0;
-      background-color: transparent;
-      border: 0;
-      box-shadow: none;
-      transition: background-color 0.2s ease-in-out;
-      padding: 0;
-      > li > a,
-      .dropdown-header {
-        padding: 5px 15px 5px 25px;
-      }
-      > li > a {
-        line-height: @line-height-computed;
-        white-space: normal;
-        &:hover,
-        &:focus {
-          background-image: none;
-          background-color: @nav-link-hover-bg;
-        }
-      }
-    }
-    .open .dropdown-menu {
-      position: absolute;
-      float: left;
-      width: initial;
-      margin-top: 0;
-      background-color: @dropdown-bg;
-      border: 1px solid @dropdown-fallback-border; // IE8 fallback
-      border: 1px solid @dropdown-border;
-      border-radius: @border-radius-base;
-      > li > a,
-      .dropdown-header {
-        padding: 5px 15px 5px 25px;
-      }
-      > li > a {
-        padding: 7px 15px;
-        line-height: @line-height-computed;
-        &:hover,
-        &:focus,
-        &:active {
-          text-decoration: none;
-          color: @dropdown-link-hover-color;
-          background-color: @dropdown-link-hover-bg;
-        }
-      }
-    }
-  }
-  // Uncollapse the nav
-  @media (min-width: @grid-float-breakpoint) {
-    flex-grow: 1;
-    flex-shrink: 1;
-    float: initial;
-    margin: 0;
-
-    &.navbar-main {
-      margin-bottom: @navbar-height / 4;
-    }
-  }
-  .btn {
-    vertical-align: baseline;
-  }
-}
-
-// Menu position and menu carets
-.navbar-nav > li > .dropdown-menu {
-  margin-top: 0;
-}
-
-// Fix dropdowns in navbar for wide screen
-@media (min-width: @screen-md-min) {
-  .navbar .dropdown-menu > li > a {
-    width: 280px;
-    white-space: normal;
-    transition: none;
-  }
-}
-
-//Finna breadcrumbs
-.breadcrumb {
-  display: none;
-  margin: 0px;
-  margin-top: 15px;
-  background-color: transparent;
-
-  > li {
-    background-color: @breadcrumb-bg;
-    margin: 0px -2px;
-    padding: @breadcrumb-padding-vertical @breadcrumb-padding-horizontal;
-    + li:before {
-      content: @breadcrumb-separator;
-      font-size: 12px;
-    }
-  }
-  > li a {
-    color: @breadcrumb-color;
-  }
-}
-
-.dropdown-menu {
-  padding: 0px 1px;
-  border: 1px solid @dropdown-border;
-  border-radius: @border-radius-base;
-  min-width: 0;
-
-  > li {
-    border-bottom: none;
-  }
-  > li:last-child > a, li:last-child {
-    border-bottom: none;
-  }
-  > li:first-child > a, li:first-child {
-  }
-
-  > li > a {
-    padding: 7px 15px;
-  }
-}
-
-.dropdown-menu > li > a {
-  &:hover,
-  &:focus,
-  &:active {
-    text-decoration: none;
-    color: @dropdown-link-hover-color;
-    background-color: @dropdown-link-hover-bg;
-  }
 }
 
 #my-info-dropdown-menu {
@@ -797,7 +495,8 @@ header .btn-primary {
 }
 
 .selected-nav {
-  border-bottom: solid 2px #7bc578!important;
+  //border-bottom: solid 2px #7bc578!important;
+  border-bottom: solid 2px @nav-selected!important;
 }
 
 .navbar-header .selected-nav {
@@ -820,3 +519,22 @@ header .btn-primary {
     transform: translateX(-50%);
   }
 }
+
+// BROWSEBAR
+.browsebar {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.browsebar-title {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.browsebar-title:after {
+  content: ':';
+}
+
+
+

@@ -88,24 +88,14 @@ function addSelectedNav() {
     else if (locationUrl.indexOf('/Content/help_keski') > -1) {
         $('header li a[href$="/info"]').addClass("selected-nav");
     }
-    else if (locationUrl.indexOf('/Content/ekirjasto') > -1) {
-        $('header li a[href$="/ekirjasto"]').addClass("selected-nav");
-    }
     else if (locationUrl.indexOf('/Feedback/Home') > -1) {
         $('header li a[href$="/Feedback/Home"]').addClass("selected-nav");
-    }
-    else if (locationUrl.indexOf('/Content/terms') > -1) {
-        $('footer li a[href$="/Content/terms"]').parent().addClass("selected-nav");
-    }
-    else if (locationUrl.indexOf('/Content/privacy') > -1) {
-        $('footer li a[href$="/Content/privacy"]').parent().addClass("selected-nav");
     }
     else if (locationUrl.indexOf('/Content/accessibility-statement') > -1) {
         $('footer li a[href$="/Content/accessibility-statement"]').parent().addClass("selected-nav");
     }
     else {
-        var linksInTipsMenu = [];
-        $('#menu_Vinkit a').each(function(){
+        $('#menu_Vinkit a').each(function() {
             //do something with the link element
             if (locationUrl.indexOf(this.href) > -1) {
                 $('#menu_Vinkit').addClass("selected-nav");
@@ -113,6 +103,32 @@ function addSelectedNav() {
                 $('li a[href$="' + linkEnding + '"]').addClass("selected-nav");
             }
         });
+        $('#menu_eaineisto a').each(function() {
+            //do something with the link element
+            if (locationUrl.indexOf(this.href) > -1) {
+                $('#menu_eaineisto').addClass("selected-nav");
+                var linkEnding = this.href.substring(this.href.lastIndexOf("/") + 1);
+                $('li a[href$="' + linkEnding + '"]').addClass("selected-nav");
+            }
+        });
+        // Footer links
+        $('footer a').each(function() {
+            //do something with the link element
+            if (locationUrl.indexOf(this.href) > -1) {
+                var linkEnding = this.href.substring(this.href.lastIndexOf("/") + 1);
+                $('li a[href$="' + linkEnding + '"]').addClass("selected-nav");
+            }
+        });
+
+        /*
+     if (locationUrl.indexOf('/Content/terms') > -1) {
+            $('footer li a[href$="/Content/terms"]').parent().addClass("selected-nav");
+        }
+        else if (locationUrl.indexOf('/Content/privacy') > -1) {
+            $('footer li a[href$="/Content/privacy"]').parent().addClass("selected-nav");
+        }
+        */
+
     }
 }
 
