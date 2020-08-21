@@ -52,6 +52,7 @@ function addFrontPageItems(array) {
             "</div></a></div></li>";
         $('#keskiNewsUl').append(listItem);
     }
+    $('#keskiNews .loader').css('display', 'none');
 }
 // Items on the separate news page.
 function addNewsPageItems(array) {
@@ -78,7 +79,6 @@ function addNewsPageItems(array) {
 
         itemContent = '<div class="news-content">' + itemContent + itemLink +  itemImg + '</div>';
 
-
         // Use default image if image is missing.
         if (array[i].image == null) {
             array[i].image = "https://keski-finna.fi/wp-content/uploads/keskifinna_kuvapankki_poikalaulaakovaa-1024x683.jpg"
@@ -92,15 +92,8 @@ function addNewsPageItems(array) {
             "</span><span class='news-li-date news-page-news-date'>" + itemDate + "</span>" +
             "</div></a></div></li>";
         $('#keskiNewsUl').append(listItem);
-
-        /*
-        var listItem = "<li class='news-item'>" +
-            "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
-            "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
-            "<span class='news-date'>" + itemDate + "</span><span class='news-li-title'>" + itemTitle + "</span></a></li>";
-
-        $('#keskiNewsUl').append(listItem);*/
     }
+    $('#keskiNews .loader').css('display', 'none');
 }
 
 

@@ -72,18 +72,12 @@ function addSelectedNav() {
     }
     else if (locationUrl.indexOf('/Content/info') > -1) {
         $('header li a[href$="/info"]').addClass("selected-nav");
-        $('[data-url="/Content/info"]').attr('aria-selected', 'true');
-        $('[data-url="/Content/info"]').addClass("active");
     }
     else if (locationUrl.indexOf('/Content/help_opac') > -1) {
         $('header li a[href$="/info"]').addClass("selected-nav");
-        $('[data-url="/Content/help_opac"]').attr('aria-selected', 'true');
-        $('[data-url="/Content/help_opac"]').addClass("active");
     }
     else if (locationUrl.indexOf('/Content/help_accessibility') > -1) {
         $('header li a[href$="/info"]').addClass("selected-nav");
-        $('[data-url="/Content/help_accessibility"]').attr('aria-selected', 'true');
-        $('[data-url="/Content/help_accessibility"]').addClass("active");
     }
     else if (locationUrl.indexOf('/Content/help_keski') > -1) {
         $('header li a[href$="/info"]').addClass("selected-nav");
