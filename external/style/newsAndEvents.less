@@ -550,8 +550,13 @@
 
 @media screen and ( max-width: 430px ) {
     .event-modal-header-text {
-         margin-left: 1.4em;
+         margin-left: 0;
      }
+
+    .event-modal-location-container, .event-modal-description {
+        margin-left: .55em;
+        margin-right: .55em;
+    }
 }
 
 @media screen and ( max-width: 380px ) {
@@ -650,10 +655,20 @@
     max-width: 80%;
 }
 
+.event-detail {
+    display: flex!important;
+    text-align: left;
+    align-content: center;
+}
+
 .event-details-icon {
     height: 1.04em;
-    width: auto;
-    margin-right: .25em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 12px;
+
 }
 
 .event-info-box {
