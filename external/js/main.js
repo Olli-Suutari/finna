@@ -482,7 +482,7 @@ function fixFooterPosition() {
     var bodyHeightMinusContent = Math.round((mainHeight + $('footer').innerHeight() + $('header').innerHeight()) - bodyHeight);
     if (bodyHeightMinusContent < 0) {
         bodyHeightMinusContent = Math.abs(bodyHeightMinusContent); // Convert negative value to a positive.
-        bodyHeightMinusContent = bodyHeightMinusContent - 45; // -50 to account margins.
+        bodyHeightMinusContent = bodyHeightMinusContent - 45; // -45 to account margins.
         $('#jsFootPositionFix').css('height', bodyHeightMinusContent +'px');
     }
     else {
