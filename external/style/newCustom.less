@@ -18,6 +18,7 @@ html {
 
 body {
   overflow-x: hidden;
+  height: 100vh;
 }
 
 a:hover {
@@ -163,15 +164,10 @@ footer {
   padding-top: 2.2em;
   padding-bottom: 2.73em!important;
   margin-bottom: -40px!important;
-  position: static!important;
-  bottom: 0!important;
-  left: 0!important;
   display: flex;
   height: auto!important;
-  margin-top: 2.5em!important;
-  min-height: 40vmin; // TO DO: https://keski.finna-test.fi/beta/Feedback/Home has empty space after the footer in 1080 * 1920.
+  margin-top: 3em!important;
 }
-
 
 .footer-container {
   margin-top: 1.6em;
@@ -229,11 +225,6 @@ footer h5 {
 }
 
 @media (max-width: @screen-sm-min) {
-  // Footer gradient should be able to fill 100% of mobile screen.
-  footer {
-    min-height: 100vh;
-  }
-
   .footer-links {
     align-items: center;
     flex-direction: column;

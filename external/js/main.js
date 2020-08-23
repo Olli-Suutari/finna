@@ -221,7 +221,6 @@ function smartPaginationDisplay() {
             $( this ).css('display', 'none');
         }
         var strong = $( value + 'strong');
-        console.log(strong)
         if (strong === " results of ") {
             $( this ).css('display', 'none');
         }
@@ -473,6 +472,24 @@ function require(url, callback) {
     document.getElementsByTagName("head")[0].appendChild(e);
 }
 
+function fixFooterPosition() {
+    var mainHeight = $('.main').innerHeight();
+    if (window.innerWidth < 769 || mainHeight > 1300) {
+        $('#jsFootPositionFix').css('height', 0 +'px');
+        return
+    }
+    var bodyHeight = window.innerHeight;
+    var bodyHeightMinusContent = Math.round((mainHeight + $('footer').innerHeight() + $('header').innerHeight()) - bodyHeight);
+    if (bodyHeightMinusContent < 0) {
+        bodyHeightMinusContent = Math.abs(bodyHeightMinusContent); // Convert negative value to a positive.
+        bodyHeightMinusContent = bodyHeightMinusContent - 45; // -50 to account margins.
+        $('#jsFootPositionFix').css('height', bodyHeightMinusContent +'px');
+    }
+    else {
+        $('#jsFootPositionFix').css('height', '0px');
+    }
+}
+
 function main() {
     addSelectedNav();
     appendSearchBar();
@@ -489,12 +506,34 @@ function main() {
         };
         $('#browseLi').css('display', 'none');
     }
-
     $('.autocomplete-results').addClass('hidden-search-autocomplete');
 
-// ios renders the margin above the login differently. :)
-    if (isIOS) {
-        $('.login-btn').addClass('ios-login');
+    // Hacky sticky footer fix since Finna does not like the modern ways..
+    $('.main').append('<div class="sr-hidden" aria-hidden="true" id="jsFootPositionFix" style="height: 0;">&nbsp;</div>');
+    fixFooterPosition();
+    // Add event listener for resizing the window, adjust parent when done so.
+    // https://stackoverflow.com/questions/5489946/jquery-how-to-wait-for-the-end-of-resize-event-and-only-then-perform-an-ac
+    var rtime;
+    var timeout = false;
+    var delta = 200;
+    $(window).resize(function() {
+        rtime = new Date();
+        if (timeout === false) {
+            timeout = true;
+            setTimeout(resizeend, delta);
+        }
+    });
+    function resizeend() {
+        if (new Date() - rtime < delta) {
+            setTimeout(resizeend, delta);
+        } else {
+            timeout = false;
+            // Occasionally the first time wont work, thus repeat.
+            fixFooterPosition();
+            setTimeout(function(){
+                fixFooterPosition();
+            }, 100);
+        }
     }
 }
 
