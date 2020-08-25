@@ -338,12 +338,14 @@ function generateEventItem(event, id) {
 
 
     var itemImg = "";
-
+    // Default image.
+    if (event.image == false) {
+        event.image = "https://keski-finna.fi/wp-content/uploads/keskifinna_kuvapankki_poikalaulaakovaa-1024x683.jpg"
+    }
     if (event.image !== null && event.image !== false) {
         itemImg = '<img class="event-image" loading="lazy" alt="" src="' + event.image + '">';
-    } else {
-        // TO DO: No image...
     }
+
 
     var itemTitle = event.title;
     if (isEnglish && event.english_title !== null && event.english_title != "") {
