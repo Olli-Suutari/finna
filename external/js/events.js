@@ -190,9 +190,6 @@ function bindFilterEvents() {
     if (window.innerWidth > 800) {
         $('#toggleEventFilters').click();
     }
-    else {
-
-    }
 }
 
 function fetchEvents() {
@@ -404,7 +401,6 @@ function generateEventItem(event, id) {
     for (var i = 0; i < event.organizer.length; i++) {
         // Check if libraryList contains the ID.
         var organizerIsLibrary = false;
-
         for (var x = 0; x < libraryList.length; x++) {
             if (event.organizer[i] == libraryList[x].id) {
                 // Replace the id with city name.
@@ -425,7 +421,6 @@ function generateEventItem(event, id) {
                 organizerIsLibrary = true;
             }
         }
-
         if (!organizerIsLibrary) {
             /*
             0 = "Other"
@@ -763,71 +758,88 @@ function generateEventList(events) {
 var eventMap;
 var layerGroup = null;
 
+function addCoordinateToMap(item) {
+    var text = "";
+    var street = "";
+    var zipcode = "";
+    var city = "";
+    var placeName = item.location;
+    if (item.address != undefined) {
+
+        if (item.address.street != undefined) {
+            street = item.address.street;
+        }
+        if (item.address.zipcode != undefined) {
+            zipcode = item.address.zipcode;
+        }
+        if (placeName.indexOf(item.address.street) > -1) {
+            placeName = "";
+        }
+        else {
+            placeName = '<strong>' + item.location + '</strong><br>';
+        }
+    }
+    else {
+        placeName = '<strong>' + item.location + '</strong><br>';
+    }
+
+    text = placeName + street + ', <br>' + zipcode + ', ' + item.city;
+    var markerIcon = L.divIcon({
+        html: '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" alt="" ' + 'src="' + faPath + 'book-reader.svg" class="fa-svg fa-leaflet-map-marker">',
+        iconSize: [24, 24],
+        popupAnchor: [0, 3],
+        // point from which the popup should open relative to the iconAnchor
+        //popupAnchor:  [-88, 3], // point from which the popup should open relative to the iconAnchor
+        className: 'event-map-marker'
+    });
+    if (item.coordinates != null) {
+        L.marker([item.coordinates.lat, item.coordinates.lon], {
+            icon: markerIcon
+        }).addTo(layerGroup).bindPopup(text, {
+            autoClose: false,
+            autoPan: false
+        }).openPopup();
+    }
+}
+
 function addCoordinatesToMap(locations) {
     var addCoordinatesDeferred = jQuery.Deferred();
     setTimeout(function () {
         if (locations.length !== 0) {
             var lastCoordinates = null;
-            var markerIcon = L.divIcon({
-                html: '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" alt="" ' + 'src="' + faPath + 'book-reader.svg" class="fa-svg fa-leaflet-map-marker">',
-                iconSize: [24, 24],
-                popupAnchor: [0, 3],
-                // point from which the popup should open relative to the iconAnchor
-                //popupAnchor:  [-88, 3], // point from which the popup should open relative to the iconAnchor
-                className: 'event-map-marker'
-            });
             var counter = 0;
 
+            console.log(locations)
             for (var i = 0; i < locations.length; i++) {
                 var placeName = locations[i].location;
                 if (placeName == "Verkkotapahtuma" || placeName == "Web event") {
-                    $('#mapRow').css('display', 'none');
-                    addCoordinatesDeferred.resolve();
-                    return;
-                }
-
-                var text = "";
-                var street = "";
-                var zipcode = "";
-                var city = "";
-                if (locations[i].address != undefined) {
-
-                    if (locations[i].address.street != undefined) {
-                        street = locations[i].address.street;
+                    if (locations.length == 1) {
+                        $('#mapRow').css('display', 'none');
+                        addCoordinatesDeferred.resolve();
+                        return;
                     }
-                    if (locations[i].address.zipcode != undefined) {
-                        zipcode = locations[i].address.zipcode;
-                    }
-                    if (placeName.indexOf(locations[i].address.street) > -1) {
-                        placeName = "";
-                    }
-                    else {
-                        placeName = '<strong>' + locations[i].location + '</strong><br>';
-                    }
+                    counter = counter + 1;
                 }
                 else {
-                    placeName = '<strong>' + locations[i].location + '</strong><br>';
+                    addCoordinateToMap(locations[i]);
+                    counter = counter + 1;
                 }
-
-                text = placeName + street + ', <br>' + zipcode + ', ' + locations[i].city;
-
-                if (locations[i].coordinates != null) {
-                    L.marker([locations[i].coordinates.lat, locations[i].coordinates.lon], {
-                        icon: markerIcon
-                    }).addTo(layerGroup).bindPopup(text, {
-                        autoClose: false,
-                        autoPan: false
-                    }).openPopup();
-                }
-
-                counter = counter + 1;
-
                 if (counter === locations.length) {
                     try {
-                        lastCoordinates = {
-                            lat: locations[i].coordinates.lat,
-                            lon: locations[i].coordinates.lon
-                        };
+                        // Use the index before "Web event" if the location is "Web event"
+                        if (placeName == "Verkkotapahtuma" || placeName == "Web event") {
+                            lastCoordinates = {
+                                lat: locations[i -1].coordinates.lat,
+                                lon: locations[i -1].coordinates.lon
+                            };
+                        }
+                        else {
+                            lastCoordinates = {
+                                lat: locations[i].coordinates.lat,
+                                lon: locations[i].coordinates.lon
+                            };
+                        }
+
                         eventMap.whenReady(function () {
                             setTimeout(function () {
                                 // Set map view and open popups.
