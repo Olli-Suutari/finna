@@ -106,6 +106,10 @@ var dict = {
     fi: "Verkkotapahtuma",
     en: "Web event",
   },
+  "Keski Libraries": {
+    fi: "Keski-kirjastot",
+    en: "Keski Libraries",
+  },
   "Location information": {
     fi: "Lisätietoja tapahtumapaikasta",
     en: "Location information",

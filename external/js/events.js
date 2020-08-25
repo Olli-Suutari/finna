@@ -166,7 +166,6 @@ function filterEvents(triggeredByTagFilter) {
 
     $('.events-section-title').replaceWith('<h1 class="events-page-title events-section-title">' + i18n.get('Events') +
         ' <span class="events-count-small"> (' + filteredEvents.length  + ')</span></h1>');
-
 }
 
 function bindFilterEvents() {
@@ -431,13 +430,20 @@ function generateEventItem(event, id) {
                 // TO DO: Other
                 //event.organizer[i] = { location: libraryList[x].text, coordinates: libraryList[x].coordinates,
                 //    city: libraryList[x].city };
-            }
-            else if (event.organizer[i] == 1) {
                 event.organizer[i] = {
-                    location: "Keski-kirjastot",
+                    location: i18n.get('Other location'),
                     coordinates: null,
                     city: null
                 };
+                eventCityList.push(i18n.get('Other location'));
+            }
+            else if (event.organizer[i] == 1) {
+                event.organizer[i] = {
+                    location: i18n.get('Keski Libraries'),
+                    coordinates: null,
+                    city: null
+                };
+                eventCityList.push(i18n.get('Keski Libraries'));
             }
             else if (event.organizer[i] == 2) {
                 //event.organizer[i] = { location: i18n.get('Web event'), coordinates: null,
@@ -639,7 +645,7 @@ function generateFilters() {
     // Hide the loader, display the filters.
     $('#keskiEvents .loader').css('display', 'none');
     if (window.innerWidth > 800) {
-        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight();
+        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight() + 150;
         $('.event-filters').css('margin-bottom', LocationFiltersHeight + "px");
         // Expand filters on larger screens.
         $('.event-filters .collapsed').click();
@@ -808,11 +814,8 @@ function addCoordinatesToMap(locations) {
         if (locations.length !== 0) {
             var lastCoordinates = null;
             var counter = 0;
-
-            console.log(locations)
             for (var i = 0; i < locations.length; i++) {
-                var placeName = locations[i].location;
-                if (placeName == "Verkkotapahtuma" || placeName == "Web event") {
+                if (locations[i].coordinates == null) {
                     if (locations.length == 1) {
                         $('#mapRow').css('display', 'none');
                         addCoordinatesDeferred.resolve();
@@ -827,7 +830,7 @@ function addCoordinatesToMap(locations) {
                 if (counter === locations.length) {
                     try {
                         // Use the index before "Web event" if the location is "Web event"
-                        if (placeName == "Verkkotapahtuma" || placeName == "Web event") {
+                        if (locations[i].coordinates == null) {
                             lastCoordinates = {
                                 lat: locations[i -1].coordinates.lat,
                                 lon: locations[i -1].coordinates.lon
