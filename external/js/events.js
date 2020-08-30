@@ -751,6 +751,9 @@ function generateEventList(events) {
     var maxEventsToList = events.length;
     if (isEventsFrontPage) {
         maxEventsToList = 4;
+        if (window.innerWidth > 1420) {
+            maxEventsToList = 6;
+        }
     }
 
     for (var i = 0; i < maxEventsToList; i++) {
