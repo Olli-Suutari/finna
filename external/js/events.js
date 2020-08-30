@@ -611,7 +611,7 @@ function formatEventTimeToDate(rawDate) {
 function generateFilters() {
     if (!isEnglish) {
         eventTags.sort(function (a, b) {
-            return a.nameFi.localeCompare(b.nameFi);
+            return a.nameFi.localeCompare(b.nameFi, 'fi', { sensitivity: 'base' });
         });
     } else {
         eventTags.sort(function (a, b) {
@@ -632,7 +632,7 @@ function generateFilters() {
     }
     // Sort locations and generate.
     eventLocations.sort(function (a, b) {
-        return a.id.localeCompare(b.id);
+        return a.id.localeCompare(b.id, 'fi', { sensitivity: 'base' });
     });
 
     for (var x = 0; x < eventLocations.length; x++) {
@@ -653,7 +653,6 @@ function generateFilters() {
         $('.events-page').css('min-height', LocationFiltersHeight + "px");
     }
     $('.event-filters').css('visibility', 'visible');
-
 }
 
 function bindEventListEvents() {
@@ -664,7 +663,7 @@ function bindEventListEvents() {
         var locationText = $(this).data('location-text');
         var locationData = $(this).data('location');
         var locationInfo = $(this).data('location-info');
-        var transitInfo = $(this).data('transit')
+        var transitInfo = $(this).data('transit');
         var image = $(this).data('image'); // Remove multiple spaces
 
         popupText = popupText.replace(/^(&nbsp;)+/g, ''); // This would remove br from <br>*:  popupText = popupText.replace(/(<|&lt;)br\s*\/*(>|&gt;)/g, ' ');
