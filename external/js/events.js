@@ -751,13 +751,31 @@ function generateEventList(events) {
     var maxEventsToList = events.length;
     if (isEventsFrontPage) {
         maxEventsToList = 4;
-        if (window.innerWidth > 1420) {
+        if (window.innerWidth > 767) {
             maxEventsToList = 6;
         }
     }
 
     for (var i = 0; i < maxEventsToList; i++) {
-        generateEventItem(events[i].acf, events[i].id);
+        if (maxEventsToList !== events.length) {
+            var eventStartingDate = events[i].acf.start_date;
+            eventStartingDate = moment(eventStartingDate,"DD.MM.YYYY");
+            // Display multi-date events for the first two dates. Eq. event between 1-21 of may will be hidden from the front page on 3rd of may at midnight.
+            var displayUpTo = eventStartingDate._d;
+            displayUpTo.setDate(displayUpTo.getDate() + 2);
+            var today = new Date();
+            // Increase the max counter in order to show the next event instead.
+            if (displayUpTo < today) {
+                maxEventsToList = maxEventsToList + 1
+            }
+            else {
+                generateEventItem(events[i].acf, events[i].id);
+            }
+        }
+        // Events page
+        else {
+            generateEventItem(events[i].acf, events[i].id);
+        }
     }
     bindEventListEvents();
     generateFilters();
