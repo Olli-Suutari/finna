@@ -362,7 +362,7 @@ function generateEventItem(event, id) {
         var customStreetNumber = customLocationData.street_number;
         var customZipcode = customLocationData.post_code;
         var customCity = customLocationData.city;
-
+        eventCityList.push(customCity);
         var customPlace = customLocationData.name;
         if (customPlace == undefined) {
             customPlace = "";
