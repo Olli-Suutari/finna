@@ -233,6 +233,10 @@
     border: solid 3px @gray!important;
 }
 
+.search-controls .dropdown-toggle span {
+    height: 20px; // Fixes bottom clipping on mobile.
+}
+
 .sort-button .fa, .view-option-container .view-dropdown i {
     color: @gray-dark!important;
     background: none!important;
@@ -291,7 +295,6 @@
 
 .limit-option-container .dropdown-menu li a {
     text-align: center!important;
-    max-width: 85%;
 }
 
 /* SEARCH TOOLS (RSS/EMAIL&SAVE BAR) */
@@ -311,6 +314,12 @@
 .searchtools a:hover {
     border-bottom: solid 2px @nav-hover-border-color;
     margin-bottom: 0;
+}
+// Fixes the search tools dropdown from being smaller than the dropdown
+@media screen and (min-width: 405px){
+    .view-options .dropdown-menu, .view-dropdown .dropdown-menu, .sort-button .dropdown-menu, .results-per-page-button .dropdown-menu {
+        width: 100%;
+    }
 }
 
 /* PAGINATION */

@@ -101,7 +101,6 @@ h3 .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-c
   max-height: .85em;
 }
 
-
 // TAUSTAKUVAN MÄÄRITYKSET
 @media (min-width: @screen-md-min) {
   .template-dir-search.template-name-home .search-form-container {
@@ -129,28 +128,10 @@ h3 .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-c
   margin-left: 0;
 }
 
-/*
-// Sinisen palkin kavennus > Nämä koodit rikkovat skaalautuvuuden mobiiliin > kommentoitu.
-.browsebar .navbar {
-  min-height: 44px;
-}
-.browsebar .navbar .navbar-nav > li > a {
-  height: 44px;
-  line-height: 44px;
-}
-.browsebar-title {
-  line-height: 44px;
-}
-*/
-
 /* Front page content area can be wider than 9xx pixels. */
 .template-name-home .container-fluid .container {
   width: auto;
   max-width: 1400px;
-}
-
-.wide-content-row {
-
 }
 
 // Spacings for front page sections
@@ -160,9 +141,6 @@ h3 .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-c
 
 .keski-news-home, .lib-home-container, .events-front-page, .front-carousel-section {
   margin-bottom: 2.5rem;
-}
-// This would not add the margins on mobile in between the columns
-.home-1, .home-2, .home-3, .front-carousel-section {
 }
 
 .home-1 {
@@ -193,6 +171,10 @@ h3 .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-c
   margin-bottom: 0;
 }
 
+// Browse page
+.browse .active {
+  color: #ffffff!important;//#f8fafd;
+}
 
 /* Footer stylings */
 footer {
@@ -204,6 +186,10 @@ footer {
   display: flex;
   height: auto!important;
   margin-top: 3em!important;
+}
+
+footer a:visited, footer a:focus {
+  color: #f8fafd!important;
 }
 
 .footer-container {
