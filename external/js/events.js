@@ -362,6 +362,10 @@ function generateEventItem(event, id) {
         var customStreetNumber = customLocationData.street_number;
         var customZipcode = customLocationData.post_code;
         var customCity = customLocationData.city;
+        // Sometimes Google maps says city is undefined. However, apparently the city is categorized as a "state" instead. (Eg. the state of "Joutsa".)
+        if (customCity == undefined) {
+            customCity = customLocationData.state;
+        }
         eventCityList.push(customCity);
         var customPlace = customLocationData.name;
         if (customPlace == undefined) {
@@ -381,13 +385,14 @@ function generateEventItem(event, id) {
             lat: customLocationData.lat,
             lon: customLocationData.lng
         };
+        var street = customStreet + ' ' + customStreetNumber;
+        if(customStreetNumber == undefined) {
+            street = customStreet;
+        }
         var customAddressObject = {
-            street: customStreet + ' ' + customStreetNumber,
+            street: street,
             zipcode: customZipcode
         };
-
-        if (customCity != null) {//eventCityList.push(customCity);
-        }
 
         customLocationObject.push({
             location: customPlace,
@@ -488,10 +493,6 @@ function generateEventItem(event, id) {
         eventLocation = customLocation;
         locationData = customLocationObject;
     }
-
-    var itemLocation = '<span class="event-detail event-location" aria-label="Location">' +
-        '<img data-toggle="tooltip" title="' + i18n.get("Location") + '" data-placement="top" alt="" ' +
-        'src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-details-icon">' + eventLocation + '</span>';
 
     function generateLinkToTransitInfo(coordinates, street, zipcode, city, text) {
         var linkToTransitInfo = street + ", " + city + "::" + coordinates.lat + ", " + coordinates.lon;
@@ -676,10 +677,8 @@ function bindEventListEvents() {
             '<img data-toggle="tooltip" title="' + i18n.get("Location") + '" data-placement="top" alt="" ' +
             'src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-details-icon">' + locationText + '</span>';
 
-
         var locationMetaContainer = '<div class="event-info-box event-location-info-box">' + itemLocation +
             locationInfo + transitInfo + '</div>';
-
 
         $('.event-modal-header-text').replaceWith('<div class="event-modal-header-text">' +
             '<h1 class="modal-title" id="eventModalTitle">' + popupTitle + '</h1>' + time + '</div>');
@@ -788,10 +787,8 @@ function addCoordinateToMap(item) {
     var text = "";
     var street = "";
     var zipcode = "";
-    var city = "";
     var placeName = item.location;
     if (item.address != undefined) {
-
         if (item.address.street != undefined) {
             street = item.address.street;
         }
@@ -884,7 +881,6 @@ function addCoordinatesToMap(locations) {
                         $('#mapRow').css('display', 'none');
                         addCoordinatesDeferred.resolve();
                     }
-
                 }
             }
         }

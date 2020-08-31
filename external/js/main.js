@@ -109,8 +109,7 @@ function addSelectedNav() {
         $('footer a').each(function() {
             //do something with the link element
             if (locationUrl.indexOf(this.href) > -1) {
-                var linkEnding = this.href.substring(this.href.lastIndexOf("/") + 1);
-                $('li a[href$="' + linkEnding + '"]').addClass("selected-nav");
+                $('li a[href$="' + window.location.pathname + '"]').addClass("selected-nav");
             }
         });
 

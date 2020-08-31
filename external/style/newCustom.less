@@ -6,11 +6,11 @@
 
 // CUSTOM VARIABLES.
 @link-hover-color: #0659c7;
-@nav-hover-bg: #d1f0fb;
-@nav-hover-border-color: #f9a789; // #fb9677;
-@nav-selected: rgba(88, 140, 238, 0.93);
 //@btn-primary-hover: @nav-hover-border-color; //@nav-hover-bg;
 @btn-primary-hover: #002438;
+@nav-hover-bg: #CECECE; //#d1f0fb;
+@nav-hover-border-color: @btn-primary-bg; //#f9a789; // #fb9677;
+@nav-selected: rgba(88, 140, 238, 0.93);
 
 html {
   font-size: 1em;
@@ -53,7 +53,6 @@ h4, h5, h6 {
   }
 }
 
-
 // Info page titles
 .main.template-dir-feedcontent.template-name-content h1, .main.template-dir-content.template-name-content h1 {
   font-size: 1.8em;
@@ -72,6 +71,7 @@ h3 .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-c
   margin-bottom: 1.5em;
   padding-bottom: 1em;
 }
+
 // Hide empty finna main header on advanced search.
 .template-name-advanced .finna-main-header {
   display: none;
@@ -90,16 +90,25 @@ h3 .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-c
     padding-bottom: 5em;
   }
 }
+
 // Browsebar
 .browsebar .nav>li a i.fa {
   margin-right: 0.5em;
+}
+
+.searchForm_lookfor {
+  padding-left: .85em!important;
+}
+
+.searchForm_lookfor::placeholder {
+  color: #616e76;
+  font-size: .9em;
 }
 
 // Browsebar marginaali
 .browsebar nav.navbar .nav-wrapper {
   margin-left: 0;
 }
-
 
 /*
 // Sinisen palkin kavennus > Nämä koodit rikkovat skaalautuvuuden mobiiliin > kommentoitu.
