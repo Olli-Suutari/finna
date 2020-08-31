@@ -646,7 +646,7 @@ function generateFilters() {
     // Hide the loader, display the filters.
     $('#keskiEvents .loader').css('display', 'none');
     if (window.innerWidth > 800) {
-        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight() + 150;
+        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight() + 300;
         $('.event-filters').css('margin-bottom', LocationFiltersHeight + "px");
         // Expand filters on larger screens.
         $('.event-filters .collapsed').click();

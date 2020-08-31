@@ -239,12 +239,9 @@ function smartPaginationDisplay() {
     });
 
     $('.pagination-container').css('visibility', 'visible');
-
     $('.sort-option-container .sort-button span').prepend('<span class="sort-by">' + i18n.get('Order') + ':</span>');
     $('.limit-option-container .sort-button span').prepend('<span class="results-on-page">' + i18n.get('Show') + ':</span>');
     $('.control-container .view-dropdown .dropdown-toggle').prepend('<span class="results-on-page">' + i18n.get('View') + ':</span>');
-
-
 
     if ($('.fa-last-page').length) {
         var parentLink = $('.fa-last-page').parent();
@@ -505,7 +502,12 @@ function main() {
         };
         $('#browseLi').css('display', 'none');
     }
-    $('.autocomplete-results').addClass('hidden-search-autocomplete');
+    /* TO DO: Use dropdown styles from search in advanced search
+    else if(locationUrl.indexOf(('Search/Advanced'))) {
+        //console.log("do smart")
+        //$('.limit').prepend('<span class="results-on-page">' + 'Näytä' + ':</span>');
+    } */
+    //$('.autocomplete-results').addClass('hidden-search-autocomplete');
 
     // Hacky sticky footer fix since Finna does not like the modern ways..
     $('.main').append('<div class="sr-hidden" aria-hidden="true" id="jsFootPositionFix" style="height: 0;">&nbsp;</div>');
