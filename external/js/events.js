@@ -593,7 +593,6 @@ function generateEventItem(event, id) {
 function formatEventTimeToDate(rawDate) {
     // 10 first chars = date.
     var startDateDay = rawDate.substr(0, 10); // 5 last chars = time.
-
     var startDateTime = rawDate.slice(-5);
     var day = startDateDay.substr(0, 2);
     var month = startDateDay.substr(3, 2);
@@ -604,8 +603,9 @@ function formatEventTimeToDate(rawDate) {
     standardDate.setDate(day);
     standardDate.setMonth(month - 1);
     standardDate.setYear(year);
-    standardDate.setHours(0);
-    standardDate.setMinutes(1);
+    standardDate.setHours(hours);
+    standardDate.setMinutes(minutes);
+    standardDate.setSeconds(0);
     return standardDate;
 }
 
