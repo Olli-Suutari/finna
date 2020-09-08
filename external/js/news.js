@@ -187,6 +187,7 @@ function  fetchNews() {
 function bindNewsModalFunctionality() {
     // Open the news if url contains a news link.
     var pageUrl = window.location.href;
+    pageUrl = decodeVal(pageUrl);
     if (pageUrl.indexOf('?news=') > -1) {
         // If we use simple indexOf match articles that contain other articles names are problematic,
         // eg. news=test and news=test-2

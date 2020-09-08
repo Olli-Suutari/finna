@@ -707,7 +707,7 @@ function bindEventListEvents() {
     });
     // Open the event if url contains an event link.
     var pageUrl = window.location.href;
-
+    pageUrl = decodeVal(pageUrl);
     if (pageUrl.indexOf('?event=') > -1) {
         // If we use simple indexOf match articles that contain other articles names are problematic,
         // eg. event=test and event=test-2
