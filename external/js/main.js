@@ -422,6 +422,10 @@ if (locationUrl.indexOf('/beta/') > -1) {
 if (locationUrl.indexOf('/content/') > -1) {
     window.location = locationUrl.replace('/content/', '/Content/');
 }
+// Redirect from the old "arena" -web library.
+if (locationUrl.indexOf('/web/arena') > -1) {
+    window.location = locationUrl.replace('/web/arena', '');
+}
 if (locationUrl.indexOf('?lng=fi') > -1) {
     locationUrl = locationUrl.replace('?lng=fi', '');
 }
