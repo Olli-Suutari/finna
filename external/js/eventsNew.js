@@ -643,14 +643,15 @@ function generateFilters() {
     $('.loader').hide();
     if (window.innerWidth > 800) {
         var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight();
+        //var eventListHeight = $('#keskiEventsUl').innerHeight();
         $('.event-filters').css('margin-bottom', LocationFiltersHeight + "px");
         // Expand filters on larger screens.
         $('.event-filters .collapsed').click();
         // Eventspage should not be smaller than the filters to prevent overflow to footer.
-        $('.events-page').css('min-height', LocationFiltersHeight + "px");
+        //$('.events-page').css('min-height', LocationFiltersHeight + "px");
+        $('#keskiEventsUl').css('min-height', LocationFiltersHeight + "px");
     }
     $('.event-filters').css('visibility', 'visible');
-
 }
 
 function bindEventListEvents() {
