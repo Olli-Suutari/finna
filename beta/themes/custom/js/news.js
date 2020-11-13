@@ -41,7 +41,7 @@ function addFrontPageItems(array) {
         itemContent = '<div class="news-content">' + itemContent + itemLink +  itemImg + '</div>';
         // Use default image if image is missing.
         if (array[i].image == null) {
-            array[i].image = "https://keski-finna.fi/wp-content/uploads/keskifinna_kuvapankki_poikalaulaakovaa-1024x683.jpg"
+            array[i].image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg"
         }
 
         var listItem = "<li class='news-item front-page-news-li'><div class='front-page-news-container'>" +

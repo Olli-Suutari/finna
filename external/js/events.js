@@ -336,7 +336,7 @@ function generateEventItem(event, id) {
     var itemImg = "";
     // Default image.
     if (event.image == false) {
-        event.image = "https://keski-finna.fi/wp-content/uploads/keskifinna_kuvapankki_poikalaulaakovaa-1024x683.jpg"
+        event.image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg"
     }
     if (event.image !== null && event.image !== false) {
         itemImg = '<img class="event-image" loading="lazy" alt="" src="' + event.image + '">';
@@ -646,12 +646,14 @@ function generateFilters() {
     // Hide the loader, display the filters.
     $('#keskiEvents .loader').css('display', 'none');
     if (window.innerWidth > 800) {
-        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight() + 300;
+        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight() + 500;
         $('.event-filters').css('margin-bottom', LocationFiltersHeight + "px");
         // Expand filters on larger screens.
         $('.event-filters .collapsed').click();
         // Eventspage should not be smaller than the filters to prevent overflow to footer.
         $('.events-page').css('min-height', LocationFiltersHeight + "px");
+        //$('#keskiEventsUl').css('min-height', LocationFiltersHeight + "px");
+
     }
     $('.event-filters').css('visibility', 'visible');
 }
