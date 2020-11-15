@@ -86,6 +86,10 @@ var dict = {
     fi: "Kategoria",
     en: "Category",
   },
+  "Show or hide category filter": {
+    fi: "Piilota/näytä kategoriat",
+    en: "Hide/show categories",
+  },
   "Event category": {
     fi: "Tapahtuman tyyppi",
     en: "Event category",
@@ -93,6 +97,10 @@ var dict = {
   "Event location": {
     fi: "Tapahtumapaikka",
     en: "Event location",
+  },
+  "Show or hide location filter": {
+    fi: "Piilota/näytä tapahtumapaikat",
+    en: "Hide/show categories",
   },
   "event locations": {
     fi: "tapahtumapaikkaa",

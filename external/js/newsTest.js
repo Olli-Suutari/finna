@@ -52,6 +52,7 @@ function addFrontPageItems(array) {
             "</div></a></div></li>";
         $('#keskiNewsUl').append(listItem);
     }
+    $('#keskiNews .loader').css('display', 'none');
 }
 // Items on the separate news page.
 function addNewsPageItems(array) {
@@ -78,7 +79,6 @@ function addNewsPageItems(array) {
 
         itemContent = '<div class="news-content">' + itemContent + itemLink +  itemImg + '</div>';
 
-
         // Use default image if image is missing.
         if (array[i].image == null) {
             array[i].image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg"
@@ -92,15 +92,8 @@ function addNewsPageItems(array) {
             "</span><span class='news-li-date news-page-news-date'>" + itemDate + "</span>" +
             "</div></a></div></li>";
         $('#keskiNewsUl').append(listItem);
-
-        /*
-        var listItem = "<li class='news-item'>" +
-            "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
-            "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
-            "<span class='news-date'>" + itemDate + "</span><span class='news-li-title'>" + itemTitle + "</span></a></li>";
-
-        $('#keskiNewsUl').append(listItem);*/
     }
+    $('#keskiNews .loader').css('display', 'none');
 }
 
 
@@ -194,6 +187,7 @@ function  fetchNews() {
 function bindNewsModalFunctionality() {
     // Open the news if url contains a news link.
     var pageUrl = window.location.href;
+    pageUrl = decodeVal(pageUrl);
     if (pageUrl.indexOf('?news=') > -1) {
         // If we use simple indexOf match articles that contain other articles names are problematic,
         // eg. news=test and news=test-2

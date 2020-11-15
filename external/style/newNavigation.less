@@ -550,8 +550,10 @@ header .btn-primary {
   border-bottom: none!important;
 }
 
-.floating-feedback-btn {
-  //display: none!important;
+@media screen and (max-width: @screen-sm-max) {
+  .floating-feedback-btn {
+    margin-top: 103px!important;
+  }
 }
 
 @media screen and ( max-width: 499px ){

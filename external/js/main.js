@@ -456,18 +456,16 @@ function loadPolyfills() {
     else {
         loadContentScripts();
     }
-
-
 }
 
 function loadContentScripts() {
     setTimeout(function(){
-        /*
+
         if (locationUrl.indexOf('-test') > -1) {
-            importJsOrCssFile('https://keski-finna.fi/external/finna/js/newsNew.js', "js");
-            importJsOrCssFile('https://keski-finna.fi/external/finna/js/eventsNew.js', "js");
+            importJsOrCssFile('https://keski-finna.fi/external/finna/js/newsTest.js', "js");
+            importJsOrCssFile('https://keski-finna.fi/external/finna/js/eventsTest.js', "js");
             return
-        }*/
+        }
         importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");
         importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
     }, 1400);
@@ -540,12 +538,18 @@ function main() {
         homeLibFunctionality();
     }
 
-
     if (locationUrl.indexOf('/Search/Results') > -1) {
         window.onload = function() {
             smartPaginationDisplay();
         };
         $('#browseLi').css('display', 'none');
+    }
+
+    if (locationUrl.indexOf('/Record/keski') > -1) {
+        window.onload = function() {
+            $('.finnaQrcodeLinkRecord').parent().css('display', 'none');
+            $('.export-toggle').parent().css('display', 'none');
+        };
     }
     /* TO DO: Use dropdown styles from search in advanced search
     else if(locationUrl.indexOf(('Search/Advanced'))) {

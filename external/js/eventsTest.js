@@ -166,7 +166,6 @@ function filterEvents(triggeredByTagFilter) {
 
     $('.events-section-title').replaceWith('<h1 class="events-page-title events-section-title">' + i18n.get('Events') +
         ' <span class="events-count-small"> (' + filteredEvents.length  + ')</span></h1>');
-
 }
 
 function bindFilterEvents() {
@@ -189,9 +188,6 @@ function bindFilterEvents() {
 
     if (window.innerWidth > 800) {
         $('#toggleEventFilters').click();
-    }
-    else {
-
     }
 }
 
@@ -268,10 +264,10 @@ function generateEventTimeDisplay(start, end) {
         }
     }
     /******************************************
-        needsTwoRows:
-        Date + start time = false
-        Date to date = false
-        Date + Start time to end time = true
+     needsTwoRows:
+     Date + start time = false
+     Date to date = false
+     Date + Start time to end time = true
      ******************************************/
     var needsTwoRows = false;
     var startDayDisplay = '<img alt="" src="' + faPath +
@@ -338,12 +334,14 @@ function generateEventItem(event, id) {
 
 
     var itemImg = "";
-
+    // Default image.
+    if (event.image == false) {
+        event.image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg"
+    }
     if (event.image !== null && event.image !== false) {
         itemImg = '<img class="event-image" loading="lazy" alt="" src="' + event.image + '">';
-    } else {
-        // TO DO: No image...
     }
+
 
     var itemTitle = event.title;
     if (isEnglish && event.english_title !== null && event.english_title != "") {
@@ -364,7 +362,11 @@ function generateEventItem(event, id) {
         var customStreetNumber = customLocationData.street_number;
         var customZipcode = customLocationData.post_code;
         var customCity = customLocationData.city;
-
+        // Sometimes Google maps says city is undefined. However, apparently the city is categorized as a "state" instead. (Eg. the state of "Joutsa".)
+        if (customCity == undefined) {
+            customCity = customLocationData.state;
+        }
+        eventCityList.push(customCity);
         var customPlace = customLocationData.name;
         if (customPlace == undefined) {
             customPlace = "";
@@ -383,13 +385,14 @@ function generateEventItem(event, id) {
             lat: customLocationData.lat,
             lon: customLocationData.lng
         };
+        var street = customStreet + ' ' + customStreetNumber;
+        if(customStreetNumber == undefined) {
+            street = customStreet;
+        }
         var customAddressObject = {
-            street: customStreet + ' ' + customStreetNumber,
+            street: street,
             zipcode: customZipcode
         };
-
-        if (customCity != null) {//eventCityList.push(customCity);
-        }
 
         customLocationObject.push({
             location: customPlace,
@@ -402,7 +405,6 @@ function generateEventItem(event, id) {
     for (var i = 0; i < event.organizer.length; i++) {
         // Check if libraryList contains the ID.
         var organizerIsLibrary = false;
-
         for (var x = 0; x < libraryList.length; x++) {
             if (event.organizer[i] == libraryList[x].id) {
                 // Replace the id with city name.
@@ -423,7 +425,6 @@ function generateEventItem(event, id) {
                 organizerIsLibrary = true;
             }
         }
-
         if (!organizerIsLibrary) {
             /*
             0 = "Other"
@@ -434,13 +435,20 @@ function generateEventItem(event, id) {
                 // TO DO: Other
                 //event.organizer[i] = { location: libraryList[x].text, coordinates: libraryList[x].coordinates,
                 //    city: libraryList[x].city };
-            }
-            else if (event.organizer[i] == 1) {
                 event.organizer[i] = {
-                    location: "Keski-kirjastot",
+                    location: i18n.get('Other location'),
                     coordinates: null,
                     city: null
                 };
+                eventCityList.push(i18n.get('Other location'));
+            }
+            else if (event.organizer[i] == 1) {
+                event.organizer[i] = {
+                    location: i18n.get('Keski Libraries'),
+                    coordinates: null,
+                    city: null
+                };
+                eventCityList.push(i18n.get('Keski Libraries'));
             }
             else if (event.organizer[i] == 2) {
                 //event.organizer[i] = { location: i18n.get('Web event'), coordinates: null,
@@ -485,10 +493,6 @@ function generateEventItem(event, id) {
         eventLocation = customLocation;
         locationData = customLocationObject;
     }
-
-    var itemLocation = '<span class="event-detail event-location" aria-label="Location">' +
-        '<img data-toggle="tooltip" title="' + i18n.get("Location") + '" data-placement="top" alt="" ' +
-        'src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-details-icon">' + eventLocation + '</span>';
 
     function generateLinkToTransitInfo(coordinates, street, zipcode, city, text) {
         var linkToTransitInfo = street + ", " + city + "::" + coordinates.lat + ", " + coordinates.lon;
@@ -589,7 +593,6 @@ function generateEventItem(event, id) {
 function formatEventTimeToDate(rawDate) {
     // 10 first chars = date.
     var startDateDay = rawDate.substr(0, 10); // 5 last chars = time.
-
     var startDateTime = rawDate.slice(-5);
     var day = startDateDay.substr(0, 2);
     var month = startDateDay.substr(3, 2);
@@ -600,15 +603,16 @@ function formatEventTimeToDate(rawDate) {
     standardDate.setDate(day);
     standardDate.setMonth(month - 1);
     standardDate.setYear(year);
-    standardDate.setHours(0);
-    standardDate.setMinutes(1);
+    standardDate.setHours(hours);
+    standardDate.setMinutes(minutes);
+    standardDate.setSeconds(0);
     return standardDate;
 }
 
 function generateFilters() {
     if (!isEnglish) {
         eventTags.sort(function (a, b) {
-            return a.nameFi.localeCompare(b.nameFi);
+            return a.nameFi.localeCompare(b.nameFi, 'fi', { sensitivity: 'base' });
         });
     } else {
         eventTags.sort(function (a, b) {
@@ -629,7 +633,7 @@ function generateFilters() {
     }
     // Sort locations and generate.
     eventLocations.sort(function (a, b) {
-        return a.id.localeCompare(b.id);
+        return a.id.localeCompare(b.id, 'fi', { sensitivity: 'base' });
     });
 
     for (var x = 0; x < eventLocations.length; x++) {
@@ -640,16 +644,16 @@ function generateFilters() {
     }
     bindFilterEvents();
     // Hide the loader, display the filters.
-    $('.loader').hide();
+    $('#keskiEvents .loader').css('display', 'none');
     if (window.innerWidth > 800) {
-        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight();
-        //var eventListHeight = $('#keskiEventsUl').innerHeight();
+        var LocationFiltersHeight = $('.event-location-filter').innerHeight() + $('.event-category-filter').innerHeight() + 500;
         $('.event-filters').css('margin-bottom', LocationFiltersHeight + "px");
         // Expand filters on larger screens.
         $('.event-filters .collapsed').click();
         // Eventspage should not be smaller than the filters to prevent overflow to footer.
-        //$('.events-page').css('min-height', LocationFiltersHeight + "px");
-        $('#keskiEventsUl').css('min-height', LocationFiltersHeight + "px");
+        $('.events-page').css('min-height', LocationFiltersHeight + "px");
+        //$('#keskiEventsUl').css('min-height', LocationFiltersHeight + "px");
+
     }
     $('.event-filters').css('visibility', 'visible');
 }
@@ -662,7 +666,7 @@ function bindEventListEvents() {
         var locationText = $(this).data('location-text');
         var locationData = $(this).data('location');
         var locationInfo = $(this).data('location-info');
-        var transitInfo = $(this).data('transit')
+        var transitInfo = $(this).data('transit');
         var image = $(this).data('image'); // Remove multiple spaces
 
         popupText = popupText.replace(/^(&nbsp;)+/g, ''); // This would remove br from <br>*:  popupText = popupText.replace(/(<|&lt;)br\s*\/*(>|&gt;)/g, ' ');
@@ -675,10 +679,8 @@ function bindEventListEvents() {
             '<img data-toggle="tooltip" title="' + i18n.get("Location") + '" data-placement="top" alt="" ' +
             'src="' + faPath + 'map-marker-alt.svg" class="fa-svg event-details-icon">' + locationText + '</span>';
 
-
         var locationMetaContainer = '<div class="event-info-box event-location-info-box">' + itemLocation +
             locationInfo + transitInfo + '</div>';
-
 
         $('.event-modal-header-text').replaceWith('<div class="event-modal-header-text">' +
             '<h1 class="modal-title" id="eventModalTitle">' + popupTitle + '</h1>' + time + '</div>');
@@ -707,7 +709,7 @@ function bindEventListEvents() {
     });
     // Open the event if url contains an event link.
     var pageUrl = window.location.href;
-
+    pageUrl = decodeVal(pageUrl);
     if (pageUrl.indexOf('?event=') > -1) {
         // If we use simple indexOf match articles that contain other articles names are problematic,
         // eg. event=test and event=test-2
@@ -740,6 +742,11 @@ function bindEventListEvents() {
 }
 
 function generateEventList(events) {
+
+    // Translate titles to filter expand/de-expand
+    $('.event-category-filter-title').prop('title', i18n.get("Show or hide category filter"));
+    $('.event-location-filter-title').prop('title', i18n.get("Show or hide location filter"));
+
     // Sort events and generate.
     events.sort(function (a, b) {
         var dateA = formatEventTimeToDate(a.acf.start_date),
@@ -750,10 +757,31 @@ function generateEventList(events) {
     var maxEventsToList = events.length;
     if (isEventsFrontPage) {
         maxEventsToList = 4;
+        if (window.innerWidth > 767) {
+            maxEventsToList = 6;
+        }
     }
 
     for (var i = 0; i < maxEventsToList; i++) {
-        generateEventItem(events[i].acf, events[i].id);
+        if (maxEventsToList !== events.length) {
+            var eventStartingDate = events[i].acf.start_date;
+            eventStartingDate = moment(eventStartingDate,"DD.MM.YYYY");
+            // Display multi-date events for the first two dates. Eq. event between 1-21 of may will be hidden from the front page on 3rd of may at midnight.
+            var displayUpTo = eventStartingDate._d;
+            displayUpTo.setDate(displayUpTo.getDate() + 2);
+            var today = new Date();
+            // Increase the max counter in order to show the next event instead.
+            if (displayUpTo < today) {
+                maxEventsToList = maxEventsToList + 1
+            }
+            else {
+                generateEventItem(events[i].acf, events[i].id);
+            }
+        }
+        // Events page
+        else {
+            generateEventItem(events[i].acf, events[i].id);
+        }
     }
     bindEventListEvents();
     generateFilters();
@@ -762,71 +790,83 @@ function generateEventList(events) {
 var eventMap;
 var layerGroup = null;
 
+function addCoordinateToMap(item) {
+    var text = "";
+    var street = "";
+    var zipcode = "";
+    var placeName = item.location;
+    if (item.address != undefined) {
+        if (item.address.street != undefined) {
+            street = item.address.street;
+        }
+        if (item.address.zipcode != undefined) {
+            zipcode = item.address.zipcode;
+        }
+        if (placeName.indexOf(item.address.street) > -1) {
+            placeName = "";
+        }
+        else {
+            placeName = '<strong>' + item.location + '</strong><br>';
+        }
+    }
+    else {
+        placeName = '<strong>' + item.location + '</strong><br>';
+    }
+
+    text = placeName + street + ', <br>' + zipcode + ', ' + item.city;
+    var markerIcon = L.divIcon({
+        html: '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" alt="" ' + 'src="' + faPath + 'book-reader.svg" class="fa-svg fa-leaflet-map-marker">',
+        iconSize: [24, 24],
+        popupAnchor: [0, 3],
+        // point from which the popup should open relative to the iconAnchor
+        //popupAnchor:  [-88, 3], // point from which the popup should open relative to the iconAnchor
+        className: 'event-map-marker'
+    });
+    if (item.coordinates != null) {
+        L.marker([item.coordinates.lat, item.coordinates.lon], {
+            icon: markerIcon
+        }).addTo(layerGroup).bindPopup(text, {
+            autoClose: false,
+            autoPan: false
+        }).openPopup();
+    }
+}
+
 function addCoordinatesToMap(locations) {
     var addCoordinatesDeferred = jQuery.Deferred();
     setTimeout(function () {
         if (locations.length !== 0) {
             var lastCoordinates = null;
-            var markerIcon = L.divIcon({
-                html: '<img data-toggle="tooltip" title="' + i18n.get("Event location") + '" alt="" ' + 'src="' + faPath + 'book-reader.svg" class="fa-svg fa-leaflet-map-marker">',
-                iconSize: [24, 24],
-                popupAnchor: [0, 3],
-                // point from which the popup should open relative to the iconAnchor
-                //popupAnchor:  [-88, 3], // point from which the popup should open relative to the iconAnchor
-                className: 'event-map-marker'
-            });
             var counter = 0;
-
             for (var i = 0; i < locations.length; i++) {
-                var placeName = locations[i].location;
-                if (placeName == "Verkkotapahtuma" || placeName == "Web event") {
-                    $('#mapRow').css('display', 'none');
-                    addCoordinatesDeferred.resolve();
-                    return;
-                }
-
-                var text = "";
-                var street = "";
-                var zipcode = "";
-                var city = "";
-                if (locations[i].address != undefined) {
-
-                    if (locations[i].address.street != undefined) {
-                        street = locations[i].address.street;
+                if (locations[i].coordinates == null) {
+                    if (locations.length == 1) {
+                        $('#mapRow').css('display', 'none');
+                        addCoordinatesDeferred.resolve();
+                        return;
                     }
-                    if (locations[i].address.zipcode != undefined) {
-                        zipcode = locations[i].address.zipcode;
-                    }
-                    if (placeName.indexOf(locations[i].address.street) > -1) {
-                        placeName = "";
-                    }
-                    else {
-                        placeName = '<strong>' + locations[i].location + '</strong><br>';
-                    }
+                    counter = counter + 1;
                 }
                 else {
-                    placeName = '<strong>' + locations[i].location + '</strong><br>';
+                    addCoordinateToMap(locations[i]);
+                    counter = counter + 1;
                 }
-
-                text = placeName + street + ', <br>' + zipcode + ', ' + locations[i].city;
-
-                if (locations[i].coordinates != null) {
-                    L.marker([locations[i].coordinates.lat, locations[i].coordinates.lon], {
-                        icon: markerIcon
-                    }).addTo(layerGroup).bindPopup(text, {
-                        autoClose: false,
-                        autoPan: false
-                    }).openPopup();
-                }
-
-                counter = counter + 1;
-
                 if (counter === locations.length) {
                     try {
-                        lastCoordinates = {
-                            lat: locations[i].coordinates.lat,
-                            lon: locations[i].coordinates.lon
-                        };
+                        // Use the index before "Web event" if the location is "Web event"
+                        if (locations[i].coordinates == null) {
+                            lastCoordinates = {
+                                lat: locations[i -1].coordinates.lat,
+                                lon: locations[i -1].coordinates.lon
+                            };
+                        }
+                        else {
+                            lastCoordinates = {
+                                lat: locations[i].coordinates.lat,
+                                lon: locations[i].coordinates.lon
+                            };
+                        }
+
                         eventMap.whenReady(function () {
                             setTimeout(function () {
                                 // Set map view and open popups.
@@ -848,7 +888,6 @@ function addCoordinatesToMap(locations) {
                         $('#mapRow').css('display', 'none');
                         addCoordinatesDeferred.resolve();
                     }
-
                 }
             }
         }
