@@ -5,6 +5,36 @@ var isEnglish = false;
 if (document.documentElement.lang.toLowerCase() !== "fi" ) {
     isEnglish = true;
 }
+var newsCacheStamp = localStorage.getItem('keskiNewsTimestamp');
+// Function for comparing newsCacheStamp to the latest available version / setting the timestamp after fetching events.
+function checkNewsCache() {
+    $.getJSON('https://keski-finna.fi/wp-json/acf/v3/cache', function (data) {
+        var newNewsStampValue = data[0].acf.news_stamp;
+        newsCacheStamp = localStorage.getItem('keskiNewsTimestamp');
+        if (newsCacheStamp === newNewsStampValue) {
+            var cachedNews = localStorage.getItem('keskiNews');
+            if (cachedNews !== null) {
+                // Use cached news
+                cachedNews = JSON.parse(cachedNews);
+                $(cachedNews).each(function () {
+                    var item = $(this)[0].acf;
+                    addNewsToArray(item);
+                });
+                afterNewsListIsGenerated()
+            }
+            else {
+                // If the news are missing for whatever reason.
+                localStorage.setItem('keskiNewsTimestamp', newNewsStampValue);
+                fetchNews();
+            }
+        }
+        else {
+            localStorage.setItem('keskiNewsTimestamp', newNewsStampValue);
+            fetchNews()
+        }
+    });
+}
+
 
 // Remove httml & www from url and / # from the end.
 function generatePrettyUrl (url) {
@@ -152,6 +182,21 @@ function addNewsToArray(item) {
         content: itemContentFi, titleEn: itemTitleEn, contentEn: itemContentEn, image: itemImg, link: itemLink } );
 }
 
+function afterNewsListIsGenerated() {
+    // Sort, generate list and bind modal functionality.
+    newsList.sort(function(a, b) {
+        var dateA = new Date(a.date), dateB = new Date(b.date);
+        return dateB - dateA;
+    });
+    if (isFrontPage) {
+        addFrontPageItems(newsList);
+    }
+    else {
+        addNewsPageItems(newsList)
+    }
+    bindNewsModalFunctionality();
+}
+
 function  fetchNews() {
     $.ajax("https://keski-finna.fi/wp-json/acf/v3/news?per_page=500", {
         accepts:{
@@ -159,6 +204,7 @@ function  fetchNews() {
         },
         dataType:"json",
         success: function(data) {
+            localStorage.setItem('keskiNews', JSON.stringify(data));
             $(data).each(function () {
                 var item = $(this)[0].acf;
                 addNewsToArray(item);
@@ -168,18 +214,7 @@ function  fetchNews() {
             console.log(error);
         },
         complete: function () {
-            // Sort, generate list and bind modal functionality.
-            newsList.sort(function(a, b) {
-                var dateA = new Date(a.date), dateB = new Date(b.date);
-                return dateB - dateA;
-            });
-            if (isFrontPage) {
-                addFrontPageItems(newsList);
-            }
-            else {
-                addNewsPageItems(newsList)
-            }
-            bindNewsModalFunctionality();
+            afterNewsListIsGenerated();
         }
     });
 }
@@ -255,8 +290,7 @@ function bindNewsModalFunctionality() {
     });
 }
 
-
 if (isFrontPage || isNewsPage) {
-    fetchNews();
+    checkNewsCache();
     $('.close-news-modal').text(i18n.get('Close'));
 }
