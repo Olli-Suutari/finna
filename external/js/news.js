@@ -20,7 +20,7 @@ function checkNewsCache() {
                     var item = $(this)[0].acf;
                     addNewsToArray(item);
                 });
-                afterNewsListIsGenerated()
+                afterNewsListIsGenerated();
             }
             else {
                 // If the news are missing for whatever reason.
@@ -30,7 +30,7 @@ function checkNewsCache() {
         }
         else {
             localStorage.setItem('keskiNewsTimestamp', newNewsStampValue);
-            fetchNews()
+            fetchNews();
         }
     });
 }
@@ -51,7 +51,7 @@ function addFrontPageItems(array) {
         var itemDate = array[i].prettyDate;
         var itemImg = "";
         if (array[i].image !== null) {
-            itemImg = '<img class="news-image" alt="" src="' + array[i].image + '">'
+            itemImg = '<img class="news-image" alt="" src="' + array[i].image + '">';
         }
         var itemLink = "";
         if (array[i].link !== null) {
@@ -71,7 +71,7 @@ function addFrontPageItems(array) {
         itemContent = '<div class="news-content">' + itemContent + itemLink +  itemImg + '</div>';
         // Use default image if image is missing.
         if (array[i].image == null) {
-            array[i].image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg"
+            array[i].image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg";
         }
         var listItem = "<li class='news-item news-li front-page-news-li'><div class='news-container front-page-news-container'>" +
             "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
@@ -90,7 +90,7 @@ function addNewsPageItems(array) {
         var itemDate = array[i].prettyDate;
         var itemImg = "";
         if (array[i].image !== null) {
-            itemImg = '<img class="news-image" alt="" src="' + array[i].image + '">'
+            itemImg = '<img class="news-image" alt="" src="' + array[i].image + '">';
         }
         var itemLink = "";
         if (array[i].link !== null) {
@@ -111,7 +111,7 @@ function addNewsPageItems(array) {
 
         // Use default image if image is missing.
         if (array[i].image == null) {
-            array[i].image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg"
+            array[i].image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg";
         }
 
         var listItem = "<li class='news-item news-li news-page-news-li'><div class='news-container news-page-news-container'>" +
@@ -192,7 +192,7 @@ function afterNewsListIsGenerated() {
         addFrontPageItems(newsList);
     }
     else {
-        addNewsPageItems(newsList)
+        addNewsPageItems(newsList);
     }
     bindNewsModalFunctionality();
 }

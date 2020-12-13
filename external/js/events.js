@@ -1,4 +1,3 @@
-"use strict";
 
 var materialClass = "pure-material-checkbox";
 if (navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1) {
@@ -40,7 +39,7 @@ function checkEventsCache() {
         }
         else {
             localStorage.setItem('keskiEventsTimestamp', newEventsStampValue);
-            fetchEvents()
+            fetchEvents();
         }
     });
 }
@@ -49,7 +48,7 @@ function fetchConsortiumLibraries(consortium) {
     var consortiumLibListDeferred = jQuery.Deferred();
     setTimeout(function () {
         if (libraryListCache !== null) {
-            libraryList = JSON.parse(libraryListCache)
+            libraryList = JSON.parse(libraryListCache);
             consortiumLibListDeferred.resolve();
         }
         $.getJSON("https://api.kirjastot.fi/v4/library?lang=" + lang + "&consortium=" + consortium + "&limit=1500", function (data) {
@@ -173,12 +172,6 @@ function filterEvents(triggeredByTagFilter) {
             var locationFilterId = $(this)[0].id;
             var cleanLocationId = locationFilterId.replace("location_", ""); //filteredEvents.push(allEvents[i]);
             var filterdEventsIncludesCity = locationExists(cleanLocationId);
-            if (!filterdEventsIncludesCity) {
-                //$(this).addClass('hidden-filter')
-            }
-            else {
-                //$(this).removeClass('hidden-filter')
-            }
         });
     }
     else {
@@ -186,11 +179,7 @@ function filterEvents(triggeredByTagFilter) {
             var tagFilterId = $(this)[0].id;
             var cleanTagId = tagFilterId.replace("tag_", "");
             var filterdEventsIncludesTag = tagExists(cleanTagId);
-
-            if (!filterdEventsIncludesTag) {
-                //$(this).addClass('hidden-filter')
-            }
-            else {
+            if (filterdEventsIncludesTag) {
                 $(this).removeClass('hidden-filter');
             }
         });
@@ -310,7 +299,7 @@ function generateEventTimeDisplay(start, end) {
         'calendar.svg" class="fa-svg event-details-icon"> ' + startDay;
     if (startTime != null) {
         startDayDisplay = startDayDisplay + '<img alt="" src="' + faPath +
-            'clock.svg" class="fa-svg event-details-icon event-li-clock"> ' + startTime
+            'clock.svg" class="fa-svg event-details-icon event-li-clock"> ' + startTime;
     }
     var endDayDisplay = '';
     if (endDay != null) {
@@ -325,7 +314,7 @@ function generateEventTimeDisplay(start, end) {
         }
         // Ends on different day and has no ending time.
         else if (!sameEndingDay && endTime == null) {
-            endDayDisplay = endDay
+            endDayDisplay = endDay;
         }
         // Ends on different day and has ending time
         else if (!sameEndingDay && endTime != null) {
@@ -366,13 +355,13 @@ function generateEventItem(event, id) {
         tagIdList = tags.tagList;
     }
 
-    var eventTimeDisplay = generateEventTimeDisplay(event.start_date, event.end_date)
+    var eventTimeDisplay = generateEventTimeDisplay(event.start_date, event.end_date);
 
 
     var itemImg = "";
     // Default image.
     if (event.image == false) {
-        event.image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg"
+        event.image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg";
     }
     if (event.image !== null && event.image !== false) {
         itemImg = '<img class="event-image" loading="lazy" alt="" src="' + event.image + '">';
@@ -554,7 +543,6 @@ function generateEventItem(event, id) {
 
     // Generate the transit info.
     var linkToNavigation = "";
-    var linksToNavigation = []; // TO DO: Multiple locations.
     if (locationData.length == 1) {
         var location = locationData[0];
         if (location.address != null && location.city != null && location.coordinates != null) {
@@ -571,14 +559,6 @@ function generateEventItem(event, id) {
     // If the event location is the library, do not display this information in the event list.
     var locationInfo = "";
     var locationHelpText = "";
-    if (lang === "en") {
-        if (event.english_location_info != "" && event.english_location_info != undefined) {
-            locationHelpText = event.english_location_info;
-            if (locationHelpText.charAt(locationHelpText.length - 1) != ".") {
-                locationHelpText = locationHelpText + ".";
-            }
-        }
-    }
     if (event.location_info != "" && event.location_info != undefined && locationHelpText == "") {
         locationHelpText = event.location_info;
         if (locationHelpText.charAt(locationHelpText.length - 1) != ".") {
@@ -595,7 +575,7 @@ function generateEventItem(event, id) {
         '<div class="event-info-box">' + tagDisplay + eventPrice + itemLink + '</div></div></div>';
     var eventFrontPageClass = "";
     if (isEventsFrontPage) {
-        eventFrontPageClass = "front-page-event"
+        eventFrontPageClass = "front-page-event";
     }
     locationData = JSON.stringify(locationData);
     var listItem = '<li class="event-li ' + eventFrontPageClass + '" id="event-' + id + '">' +
@@ -725,7 +705,7 @@ function bindEventListEvents() {
 
         $('#mapRow').css('display', 'block');
 
-        $('.event-location-info-box').replaceWith(locationMetaContainer)
+        $('.event-location-info-box').replaceWith(locationMetaContainer);
 
         asyncGenerateEventMap(locationData);
 
@@ -810,7 +790,7 @@ function generateEventList(events) {
             var today = new Date();
             // Increase the max counter in order to show the next event instead.
             if (displayUpTo < today) {
-                maxEventsToList = maxEventsToList + 1
+                maxEventsToList = maxEventsToList + 1;
             }
             else {
                 generateEventItem(events[i].acf, events[i].id);
@@ -1020,7 +1000,7 @@ function asyncFetchCityList() {
                 // Fetch names of all cities in kirkanta.
                 $.getJSON("https://api.kirjastot.fi/v4/city?lang=fi&limit=1500", function (data) {
                     localStorage.setItem('cityList', JSON.stringify(data));
-                    asyncReplaceIdWithCity(data)
+                    asyncReplaceIdWithCity(data);
                     citiesFetcDeferred.resolve();
                 });
             }
