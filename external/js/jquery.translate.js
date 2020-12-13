@@ -122,10 +122,6 @@ var dict = {
     fi: "Lisätietoja tapahtumapaikasta",
     en: "Location information",
   },
-  "Navigation to location": {
-    fi: "Navigointiohjeet",
-    en: "Navigation to location",
-  },
   "Show all events": {
     fi: "Näytä kaikki tapahtumat",
     en: "Show all events",

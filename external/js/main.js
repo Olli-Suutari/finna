@@ -429,8 +429,12 @@ if (!window.tileLayer) {
 }
 // Load JQuery Translate.
 if (!window.i18n) {
-    require("https://keski-finna.fi/external/finna/js/dist/jquery.translate.js", loadPolyfills());
-    //require("https://keski-finna.fi/external/finna/js/jquery.translate.js", loadPolyfills());
+    if (locationUrl.indexOf('-test') > -1) {
+        require("https://keski-finna.fi/external/finna/js/jquery.translate.js", loadPolyfills());
+    }
+    else {
+        require("https://keski-finna.fi/external/finna/js/dist/jquery.translate.js", loadPolyfills());
+    }
 }
 
 function loadPolyfills() {
