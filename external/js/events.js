@@ -17,10 +17,41 @@ var lang = "fi";
 var i18n;
 var libraryList = [];
 var faPath = "https://keski-finna.fi/external/finna/style/fa/svgs/solid/";
+var eventCacheStamp = localStorage.getItem('keskiEventsTimestamp');
+var libraryListCache = localStorage.getItem('keskiLibraries');
+var cityListCache = localStorage.getItem('cityList');
+
+// Function for comparing eventCacheStamp to the latest available version / setting the timestamp after fetching events.
+function checkEventsCache() {
+    $.getJSON('https://keski-finna.fi/wp-json/acf/v3/cache', function (data) {
+        var newEventsStampValue = data[0].acf.events_stamp;
+        eventCacheStamp = localStorage.getItem('keskiEventsTimestamp');
+        if (eventCacheStamp === newEventsStampValue) {
+            var cachedEvents = localStorage.getItem('keskiEvents');
+            if (cachedEvents !== null) {
+                // Use cached events
+                generateEventList(JSON.parse(cachedEvents));
+            }
+            else {
+                // If the events are missing for whatever reason.
+                localStorage.setItem('keskiEventsTimestamp', newEventsStampValue);
+                fetchEvents();
+            }
+        }
+        else {
+            localStorage.setItem('keskiEventsTimestamp', newEventsStampValue);
+            fetchEvents()
+        }
+    });
+}
 
 function fetchConsortiumLibraries(consortium) {
     var consortiumLibListDeferred = jQuery.Deferred();
     setTimeout(function () {
+        if (libraryListCache !== null) {
+            libraryList = JSON.parse(libraryListCache)
+            consortiumLibListDeferred.resolve();
+        }
         $.getJSON("https://api.kirjastot.fi/v4/library?lang=" + lang + "&consortium=" + consortium + "&limit=1500", function (data) {
             for (var i = 0; i < data.items.length; i++) {
                 // Include mobile libraries in consortium listings...
@@ -46,10 +77,11 @@ function fetchConsortiumLibraries(consortium) {
                     });
                 }
             }
+            // Update the cached results
+            localStorage.setItem('keskiLibraries', JSON.stringify(libraryList));
             consortiumLibListDeferred.resolve();
         });
     }, 1); // Return the Promise so caller can't change the Deferred
-
     return consortiumLibListDeferred.promise();
 }
 
@@ -198,7 +230,11 @@ function fetchEvents() {
         },
         dataType: "json",
         success: function success(data) {
+            // TO DO: IE?
+            localStorage.setItem('keskiEvents', JSON.stringify(data));
             generateEventList(data);
+            // Generate events cache timestamp
+            checkEventsCache();
         },
         error: function error(request, status, _error) {
             console.log(_error);
@@ -917,15 +953,6 @@ function asyncGenerateEventMap(locations) {
         $.when(addCoordinatesToMap(locations)).then(function () {
             // If we are in the contacts tab, set map view.
             // If we try to set view & open the popup in asyncLoadMap, things get messed.
-
-            /*
-            if(lat !== undefined) {
-                map.setView([lat, lon], 16);
-            } else {
-                map.setView(["62.750", "25.700"], 6);
-            }
-            */
-            //eventMap.setView(["62.750", "25.700"], 6);
             mapDeferred.resolve();
         });
     }, 1); // Return the Promise so caller can't change the Deferred
@@ -933,48 +960,68 @@ function asyncGenerateEventMap(locations) {
     return mapDeferred.promise();
 }
 
-function asyncReplaceIdWithCity() {
+function asyncReplaceIdWithCity(data) {
     var citiesDeferred = jQuery.Deferred();
     setTimeout(function () {
         try {
-            // Fetch names of all cities in kirkanta.
-            $.getJSON("https://api.kirjastot.fi/v4/city?lang=fi&limit=1500", function (data) {
-                var counter = 0;
-
-                for (var i = 0; i < data.items.length; i++) {
-                    // Check if libraryList contains the ID.
-                    for (var x = 0; x < libraryList.length; x++) {
-                        if (libraryList[x].city == data.items[i].id.toString()) {
-                            // Replace the id with city name.
-                            libraryList[x].city = data.items[i].name;
-                        }
-                    }
-
-                    counter = counter + 1;
-
-                    if (counter === data.items.length) {
-                        // Sort or the city listing wont be in  correct order...
-                        libraryList.sort(function (a, b) {
-                            if (a.city < b.city) {
-                                return -1;
-                            }
-
-                            if (a.city > b.city) {
-                                return 1;
-                            }
-
-                            return 0;
-                        });
-                        citiesDeferred.resolve();
+            var counter = 0;
+            for (var i = 0; i < data.items.length; i++) {
+                // Check if libraryList contains the ID.
+                for (var x = 0; x < libraryList.length; x++) {
+                    if (libraryList[x].city == data.items[i].id.toString()) {
+                        // Replace the id with city name.
+                        libraryList[x].city = data.items[i].name;
                     }
                 }
-            });
+                counter = counter + 1;
+                if (counter === data.items.length) {
+                    // Sort or the city listing wont be in  correct order...
+                    libraryList.sort(function (a, b) {
+                        if (a.city < b.city) {
+                            return -1;
+                        }
+
+                        if (a.city > b.city) {
+                            return 1;
+                        }
+
+                        return 0;
+                    });
+                    // If the events are missing for whatever reason.
+                    //localStorage.setItem('cityList', libraryList);
+                    citiesDeferred.resolve();
+                }
+            }
         } catch (e) {
             console.log("Error in fetching cities: " + e);
         }
     }, 1); // Return the Promise so caller can't change the Deferred
 
     return citiesDeferred.promise();
+}
+
+function asyncFetchCityList() {
+    var citiesFetcDeferred = jQuery.Deferred();
+    setTimeout(function () {
+        try {
+            // Use cached city list.
+            if (cityListCache !== null) {
+                asyncReplaceIdWithCity(JSON.parse(cityListCache));
+                citiesFetcDeferred.resolve();
+            }
+            else {
+                // Fetch names of all cities in kirkanta.
+                $.getJSON("https://api.kirjastot.fi/v4/city?lang=fi&limit=1500", function (data) {
+                    localStorage.setItem('cityList', JSON.stringify(data));
+                    asyncReplaceIdWithCity(data)
+                    citiesFetcDeferred.resolve();
+                });
+            }
+        } catch (e) {
+            console.log("Error in fetching cities: " + e);
+        }
+    }, 1); // Return the Promise so caller can't change the Deferred
+    return citiesFetcDeferred.promise();
 }
 
 $(document).ready(function () {
@@ -986,8 +1033,13 @@ $(document).ready(function () {
     if (isEventsPage || isEventsFrontPage) {
         // Fetch events once the library list is generated.
         $.when(fetchConsortiumLibraries(2113)).then(function () {
-            $.when(asyncReplaceIdWithCity()).then(function () {
-                fetchEvents();
+            $.when(asyncFetchCityList()).then(function () {
+                if (eventCacheStamp === null) {
+                    fetchEvents();
+                }
+                else {
+                    checkEventsCache();
+                }
                 // Translate the UI
                 if (isEventsFrontPage) {
                     $('.events-section-title').text(i18n.get('Events'));
