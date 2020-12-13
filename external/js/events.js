@@ -1,4 +1,3 @@
-
 var materialClass = "pure-material-checkbox";
 if (navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Trident/') > -1) {
     materialClass = "";
