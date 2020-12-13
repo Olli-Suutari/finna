@@ -6,6 +6,10 @@ if (document.documentElement.lang.toLowerCase() !== "fi" ) {
     isEnglish = true;
 }
 
+// Maintanence notification.
+//$('#keskiNews').append('<strong style="font-size: 1.3em; color: indianred"><br>Uutis ja tapahtumatoiminnoissa suoritetaan huoltotoimenpiteitä 22.11. klo. 23 alkaen. Uutisten ja tapahtumien haku voi tällöin olla poissa toiminnasta tilapäisesti.' +
+//    '<br>Pahoittelemme tästä mahdollisesti aiheutuvaa haittaa.</strong>')
+
 // Remove httml & www from url and / # from the end.
 function generatePrettyUrl (url) {
     url = url.replace(/^(?:https?:\/\/)?(?:www\.)?/i, "");

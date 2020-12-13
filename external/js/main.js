@@ -460,7 +460,6 @@ function loadPolyfills() {
 
 function loadContentScripts() {
     setTimeout(function(){
-
         if (locationUrl.indexOf('-test') > -1) {
             importJsOrCssFile('https://keski-finna.fi/external/finna/js/newsTest.js', "js");
             importJsOrCssFile('https://keski-finna.fi/external/finna/js/eventsTest.js', "js");

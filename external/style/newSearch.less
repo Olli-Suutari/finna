@@ -270,7 +270,6 @@
     font-size: 1.06em;
 }
 
-
 .sort-button .dropdown a, .view-option-container .view-dropdown a {
     padding: 6px 9px;
     font-size: 1.06em;
@@ -281,8 +280,20 @@
     border: solid 3px @nav-selected!important;
 }
 
+/* Fixes clipping of sorting buttons on mobile */
+.search-controls .view-options .dropdown>a span, .search-controls .view-dropdown .dropdown>a span, .search-controls .sort-button .dropdown>a span {
+    max-width: 100%;
+    height: unset;
+}
+.sort-by, .results-on-page {
+    overflow: visible;
+}
+
+.limit-option-container {
+    margin-right: 1em;
+}
+
 .limit-option-container .dropdown-menu {
-    //width: auto!important;
     margin: 0!important;
     padding: 0!important;
     width: 100%!important;
@@ -318,6 +329,11 @@
     margin-left: 1.15rem;
     width: auto;
     float: left;
+}
+
+/* Hide Finna -rating on record page */
+.template-dir-record .media-left .record-rating {
+    display: none;
 }
 
 #searchForm {

@@ -5,6 +5,40 @@ if (navigator.userAgent.indexOf('MSIE ') > -1 || navigator.userAgent.indexOf('Tr
     materialClass = "";
 }
 
+//JSON.parse(localStorage.getItem('keskiEventsTimestamp'));
+var eventCacheStamp = localStorage.getItem('keskiEventsTimestamp');
+console.log(eventCacheStamp)
+
+// Function for comparing eventCacheStamp to the latest available version / setting the timestamp after fetching events.
+function checkEventsCache() {
+    $.getJSON('https://keski-finna.fi/wp-json/acf/v3/cache', function (data) {
+        var newEventsStampValue = data[0].acf.events_stamp;
+        eventCacheStamp = localStorage.getItem('keskiEventsTimestamp');
+        if (eventCacheStamp === newEventsStampValue) {
+            console.log('Same timestamp!')
+            console.log(eventCacheStamp)
+            var cachedEvents = localStorage.getItem('keskiEvents');
+            if (cachedEvents !== null) {
+                // Use cached events
+                generateEventList(JSON.parse(cachedEvents));
+            }
+            else {
+                // If the events are missing for whatever reason.
+                localStorage.setItem('keskiEventsTimestamp', newEventsStampValue);
+                fetchEvents();
+            }
+        }
+        else {
+            console.log("Set new stamp")
+            console.log(newEventsStampValue)
+            console.log('eventCacheStamp')
+            console.log(eventCacheStamp)
+            localStorage.setItem('keskiEventsTimestamp', newEventsStampValue);
+            fetchEvents()
+        }
+    });
+}
+
 var isEventsPage = false;
 var isEventsFrontPage = false;
 var isEnglish = false;
@@ -198,7 +232,11 @@ function fetchEvents() {
         },
         dataType: "json",
         success: function success(data) {
+            // TO DO: IE?
+            localStorage.setItem('keskiEvents', JSON.stringify(data));
             generateEventList(data);
+            // Generate events cache timestamp
+            checkEventsCache();
         },
         error: function error(request, status, _error) {
             console.log(_error);
@@ -992,7 +1030,12 @@ $(document).ready(function () {
         // Fetch events once the library list is generated.
         $.when(fetchConsortiumLibraries(2113)).then(function () {
             $.when(asyncReplaceIdWithCity()).then(function () {
-                fetchEvents();
+                if (eventCacheStamp === null) {
+                    fetchEvents();
+                }
+                else {
+                    checkEventsCache();
+                }
                 // Translate the UI
                 if (isEventsFrontPage) {
                     $('.events-section-title').text(i18n.get('Events'));
