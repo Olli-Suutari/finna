@@ -777,7 +777,14 @@ function bindEventListEvents() {
     });
 }
 
+var eventsGenerated = false;
 function generateEventList(events) {
+    if (eventsGenerated) {
+        return
+    }
+    else {
+        eventsGenerated = true;
+    }
     // Sort events and generate.
     events.sort(function (a, b) {
         var dateA = formatEventTimeToDate(a.acf.start_date),

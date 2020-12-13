@@ -777,7 +777,14 @@ function bindEventListEvents() {
     });
 }
 
+var eventsGenerated = false;
 function generateEventList(events) {
+    if (eventsGenerated) {
+        return
+    }
+    else {
+        eventsGenerated = true;
+    }
     // Sort events and generate.
     events.sort(function (a, b) {
         var dateA = formatEventTimeToDate(a.acf.start_date),
@@ -1034,7 +1041,7 @@ $(document).ready(function () {
         // Fetch events once the library list is generated.
         $.when(fetchConsortiumLibraries(2113)).then(function () {
             $.when(asyncFetchCityList()).then(function () {
-                    if (eventCacheStamp === null) {
+                if (eventCacheStamp === null) {
                     fetchEvents();
                 }
                 else {
