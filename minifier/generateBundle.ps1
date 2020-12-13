@@ -1,0 +1,1 @@
+rollup --watch --config rollup.config.js

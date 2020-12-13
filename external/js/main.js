@@ -1,6 +1,5 @@
 /* Add your custom template javascript here */
 var locationUrl = "";
-
 locationUrl = window.location.href
 
 function importJsOrCssFile(filename, filetype){
@@ -430,7 +429,8 @@ if (!window.tileLayer) {
 }
 // Load JQuery Translate.
 if (!window.i18n) {
-    require("https://keski-finna.fi/external/finna/js/jquery.translate.js", loadPolyfills());
+    require("https://keski-finna.fi/external/finna/js/dist/jquery.translate.js", loadPolyfills());
+    //require("https://keski-finna.fi/external/finna/js/jquery.translate.js", loadPolyfills());
 }
 
 function loadPolyfills() {
@@ -449,8 +449,8 @@ function loadContentScripts() {
             importJsOrCssFile('https://keski-finna.fi/external/finna/js/eventsTest.js', "js");
             return
         }
-        importJsOrCssFile('https://keski-finna.fi/external/finna/js/news.js', "js");
-        importJsOrCssFile('https://keski-finna.fi/external/finna/js/events.js', "js");
+        importJsOrCssFile('https://keski-finna.fi/external/finna/js/dist/news.js', "js");
+        importJsOrCssFile('https://keski-finna.fi/external/finna/js/dist/events.js', "js");
     }, 1400);
 
 }
