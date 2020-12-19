@@ -141,6 +141,10 @@ var dict = {
   "View": {
     fi: "Näkymä",
     en: "Display",
+  },
+  "Opens in new tab": {
+    fi: "avautuu uudessa välilehdessä",
+    en: "opens in a new tab",
   }
 };
 

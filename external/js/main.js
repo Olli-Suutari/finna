@@ -30,6 +30,32 @@ function checkUrlForContent(url) {
     }
 }
 
+// Turn link into an _blank and set class + accessibility text.
+function generateAccessibleExternalLink(link) {
+    console.log(link)
+    //if (link.indexOf('@') !== -1) {
+    //    return
+    //}
+    var opensInNewTabText = 'avautuu uudessa välilehdessä';
+
+    if (document.documentElement.lang.toLowerCase() !== "fi") {
+        opensInNewTabText = 'opens in a new tab'
+    }
+
+    link.insertAdjacentHTML('beforeend', '<span class="sr-only"> (' + opensInNewTabText + ')</span>');
+
+    return link;
+}
+// https://codersblock.com/blog/external-links-new-tabs-and-accessibility/
+function addNoOpener(link) {
+    let linkTypes = (link.getAttribute('rel') || '').split(' ');
+    if (!linkTypes.includes('noopener')) {
+        linkTypes.push('noopener');
+    }
+    link.setAttribute('rel', linkTypes.join(' ').trim());
+}
+
+
 function appendSearchBar () {
     if (locationUrl.indexOf('/Search/Advanced') > -1 ||
         $('.adv_search_links').length) {
@@ -520,6 +546,12 @@ function main() {
     addSelectedNav();
     appendSearchBar();
     leftNavigationScrollDisplay();
+
+    // Turn external links into accessible external links + add noOpener:s
+    document.querySelectorAll('a[target="_blank"]').forEach(link => {
+        generateAccessibleExternalLink(link);
+        addNoOpener(link);
+    });
 
     if ($('.keski-news-home').length === 1) {
         homeLibFunctionality();
