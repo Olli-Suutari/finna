@@ -295,10 +295,9 @@
     font-variant-caps: all-petite-caps;
 }
 
-.events-front-page-nav-button:hover {
+.events-front-page-nav-button:hover, .events-front-page-nav-button:focus {
     border: solid 2px @nav-hover-border-color;
 }
-
 
 @media screen and (min-width: 1420px) {
     .events-front-page ul {
@@ -359,7 +358,7 @@
 }
 
 
-.event-item-link:hover {
+.event-item-link:hover, .event-item-link:focus {
     margin-top: -4px;
     margin-bottom: 4px;
     -webkit-box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
@@ -731,10 +730,9 @@
 }
 
 /* Hover, Focus */
-.pure-material-checkbox:hover > input {
+.pure-material-checkbox:hover > input, .pure-material-checkbox:focus > input  {
     opacity: 0.08;
 }
-
 
 /* Active */
 .pure-material-checkbox > input:active {

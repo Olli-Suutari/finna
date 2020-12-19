@@ -15,7 +15,7 @@ header {
   background-color: #00446b!important;
 }
 
-.btn-advanced:hover {
+.btn-advanced:hover, .btn-advanced:focus {
   background-color: @btn-primary-hover!important;
 }
 
@@ -214,24 +214,25 @@ header li a {
 }
 
 // Hovering links inside li
-.browsebar-custom div span:hover, #browseContainer ul li a:hover {
+.browsebar-custom div span:hover, #browseContainer ul li a:hover,
+.browsebar-custom div span:focus, #browseContainer ul li a:focus {
   border-bottom: solid 3px @nav-hover-border-color;
   background: none;
 }
 
 // Dropdowns
-[role=menubar] li a:not(.selected-nav):hover, [role=menubar] a[aria-expanded="true"] {
+[role=menubar] li a:not(.selected-nav):hover, [role=menubar] li a:not(.selected-nav):focus, [role=menubar] a[aria-expanded="true"] {
   border-bottom: none!important;
 }
 
 // Dropdowns
-[role=menubar] li a:hover, [role=menubar] a[aria-expanded="true"] {
+[role=menubar] li a:hover, [role=menubar] li a:focus, [role=menubar] a[aria-expanded="true"] {
   background: @nav-hover-bg;
   border-left: solid 4px @nav-hover-border-color;
   margin-left: -4px;
 }
 
-#loginOptions a:hover, #loginOptions-navi a:hover {
+#loginOptions a:hover, #loginOptions-navi a:hover, #loginOptions a:focus, #loginOptions-navi a:focus {
   background: @btn-primary-hover;
   border-left: 0;
   margin-left: 0;
@@ -247,7 +248,7 @@ header li a {
   //min-width: 210px;
 }
 
-.dropdown-menu li a:hover, .dropdown-menu li a:hover {
+.dropdown-menu li a:hover, .dropdown-menu li a:hover, .dropdown-menu li a:focus, .dropdown-menu li a:focus {
   background: @nav-hover-bg!important;
   border-left: solid 4px @nav-hover-border-color!important;
   margin-left: -4px;
@@ -270,14 +271,13 @@ header li a {
   border-color: @nav-hover-border-color;
 }
 
-
 .dropdown a[aria-expanded="true"] {
   border-bottom: solid 3px @nav-hover-border-color;
   background: none;
   margin-bottom: 0!important;
 }
 
-.dropdown a[aria-expanded="true"]:hover {
+.dropdown a[aria-expanded="true"]:hover, .dropdown a[aria-expanded="true"]:focus {
   border-bottom: none;
   background: none;
   margin-bottom: 0!important;
@@ -319,22 +319,6 @@ header li a {
   padding-left: 10px!important;
 }
 
-.dropdown-menu li a div:hover {
-  //border-left: solid 2px red;
-}
-
-header .btn-primary {
-}
-
-#logoutOptions {
-  //margin-left: 1.5em;
-}
-
-#logoutOptions, #logoutOptions a, #logoutOptions a span, .username, .caret {
-  //color: @text-color!important;
-}
-
-
 .navbar-brand img {
   padding-left: 12px!important;
   padding-bottom: 5px!important;
@@ -350,14 +334,20 @@ header .btn-primary {
 }
 
 .navbar-brand img {
-  //background-color: @nav-hover-bg;
   margin-left: 4px;
 }
 
-.navbar-brand img:hover {
-  //background-color: @nav-hover-bg;
+.navbar-brand img:hover, .navbar-brand:focus {
   margin-left: 0;
   border-left: solid 4px @nav-hover-border-color!important;
+}
+
+.navbar-brand:focus {
+  img{
+    margin-left: 0;
+    border-left: solid 4px @nav-hover-border-color!important;
+  }
+
 }
 
 [role=menubar] li  {
@@ -413,7 +403,7 @@ header .btn-primary {
     }
     a {
       width: 100%;
-      &:hover {
+      &:hover, &:focus {
         text-decoration: none;
         color: @dropdown-link-hover-color;
         background-color: @dropdown-link-hover-bg;
@@ -465,7 +455,7 @@ header .btn-primary {
     background: @body-bg;
     color: @gray;
     padding: 5px;
-    &:hover {
+    &:hover, &:focus {
       background-color: @gray-light;
     }
   }

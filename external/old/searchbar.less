@@ -16,12 +16,8 @@
   font-weight: 500!important;
 }
 
-.search-links .btn-advanced:hover {
+.search-links .btn-advanced:hover, .search-links .btn-advanced:focus {
   background: @btn-primary-hover!important;
-}
-
-.search-links .btn-advanced a {
-
 }
 
 .search-links .btn-advanced i {
@@ -64,11 +60,12 @@
   content: ':';
 }
 
-.browsebar .navbar .navbar-nav>li>a:hover {
+.browsebar .navbar .navbar-nav>li>a:hover, .browsebar .navbar .navbar-nav>li>a:focus {
   border-bottom: solid 4px @nav-hover-border-color;
   background: @nav-hover-bg;
   margin-bottom: 0;
 }
+
 .browsebar .navbar .navbar-nav>li>a:before {
   color: @gray;
   font-weight: 400;
@@ -88,8 +85,9 @@
 }
 
 // Custom browse button.
-.browsebar-custom div span:hover, #browseContainer ul li a:hover,  .type-dropdown span:hover,
-.type-dropdown ul li a:hover {
+.browsebar-custom div span:hover, #browseContainer ul li a:hover, .type-dropdown span:hover,
+.type-dropdown ul li a:hover, .browsebar-custom div span:focus, #browseContainer ul li a:focus,
+.type-dropdown span:focus, .type-dropdown ul li a:focus {
   margin-bottom: 0;
 }
 
@@ -224,9 +222,6 @@
       content: "\e613";
       vertical-align: middle;
       margin-left: 5px;
-    }
-    &:hover {
-      //background-color: darken(@finna-browsebar-background, 5%);
     }
     .nav-dropdown-label {
       min-width: 200px;

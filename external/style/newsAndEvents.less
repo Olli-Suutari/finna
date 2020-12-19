@@ -972,10 +972,9 @@
     //font-size: 1.1em;
 }
 
-.events-front-page-nav-button:hover {
+.events-front-page-nav-button:hover, .events-front-page-nav-button:focus {
     border-color: @brand-secondary;
 }
-
 
 
 /* News */
@@ -1054,8 +1053,12 @@
 .news-container a, .news-container a  {
     color: @text-color;
 }
-.news-container a:hover {
+.news-container a:hover, .news-container a:focus {
     color: @link-hover-color;
+}
+
+.news-container:focus {
+    color: @link-hover-color!important;
 }
 
 .news-text-container {
