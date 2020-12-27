@@ -115,7 +115,7 @@ function addNewsPageItems(array) {
         }
 
         var listItem = "<li class='news-item news-li news-page-news-li'><div class='news-container news-page-news-container'>" +
-            "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
+            "<a href='javascript:void(0);' class='news-item-link'  title='" + i18n.get('Read') + ": " + itemTitle + "' data-url='" + newsList[i].url + "' " +
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
             "<img class='news-li-image news-page-news-image' alt='' src='" + array[i].image + "'> " +
             "<div class='news-text-container news-page-news-text-container'><span class='news-li-title news-page-news-li-title'>" + itemTitle +
