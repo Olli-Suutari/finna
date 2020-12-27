@@ -502,13 +502,15 @@ function generateEventItem(event, id) {
     // Add price where available.
     if (event.price != "") {
         eventPrice = event.price + " €"; //eventPrice = '<span class="event-price">' + eventPrice + '</span>';
-        eventPrice = '<span class="event-detail event-price" aria-label="' + i18n.get("Price") + '">' + '<img data-toggle="tooltip" title="' + i18n.get("Price") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'money-bill-alt.svg" class="fa-svg event-details-icon">' + eventPrice + '</span>';
+        eventPrice = '<span class="event-detail event-price" aria-label="' + i18n.get("Price") + '">' +
+            '<img data-toggle="tooltip" title="' + i18n.get("Price") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'money-bill-alt.svg" class="fa-svg event-details-icon">' + eventPrice + '</span>';
     }
     // Website
     var itemLink = "";
     if (event.link_url !== null && event.link_url != "") {
         var prettyUrl = generatePrettyUrl(event.link_url);
-        itemLink = '<span class="event-detail event-link" aria-label="' + i18n.get("Website") + '">' + '<img data-toggle="tooltip" title="' + i18n.get("Website") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'globe.svg" class="fa-svg event-details-icon"><a href="' + event.link_url + '">' + prettyUrl + '</a></span>';
+        itemLink = '<span class="event-detail event-link" aria-label="' + i18n.get("Website") + '">' +
+            '<img data-toggle="tooltip" title="' + i18n.get("Website") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'globe.svg" class="fa-svg event-details-icon"><a href="' + event.link_url + '">' + prettyUrl + '</a></span>';
     }
 
     var locationData = event.organizer;

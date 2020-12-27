@@ -227,6 +227,13 @@
     display: none;
 }
 
+.dropdown-toggle:hover, .dropdown-toggle:focus {
+    background: @nav-hover-bg!important;
+    border-left: solid 4px @nav-hover-border-color!important;
+    margin-left: -4px;
+    border-bottom: none!important;
+}
+
 .sort-button .dropdown-toggle, .view-option-container .view-dropdown .dropdown-toggle {
     border: solid 3px @gray!important;
 }
@@ -320,7 +327,7 @@
     font-size: 1.1em!important;
 }
 
-.searchtools a:hover {
+.searchtools a:hover, .searchtools a:focus {
     border-bottom: solid 2px @nav-hover-border-color;
     margin-bottom: 0;
 }
@@ -341,6 +348,10 @@
     -webkit-box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
     -moz-box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
     box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
+}
+
+#searchForm .type-dropdown .dropdown-toggle {
+    padding-left: 3px;
 }
 
 // Fixes the search tools dropdown from being smaller than the dropdown
@@ -380,7 +391,7 @@
     background: transparent!important;
 }
 
-.paginationSimple li a i:hover {
+.paginationSimple li a i:hover, .paginationSimple li a i:focus {
     color: @link-hover-color;
 }
 
@@ -413,12 +424,11 @@
     background: none!important;
 }
 
-.pagination-button:hover {
+.pagination-button:hover, .pagination-button:focus {
     color: @link-hover-color!important;
-
 }
 
-.pagination-button i:hover {
+.pagination-button i:hover, .pagination-button i:focus {
     //background: @btn-primary-hover!important;
     color: @link-hover-color!important;
 }
@@ -435,7 +445,7 @@
     font-size: 1.5em!important;
 }
 
-.pagination li:not(.pagination-button) a:hover {
+.pagination li:not(.pagination-button) a:hover, .pagination li:not(.pagination-button) a:focus {
     background: none!important;
     color: @link-hover-color!important;
     //border-bottom: solid 2px @nav-hover-border-color!important;
@@ -443,7 +453,7 @@
     border-radius: 0!important;
 }
 
-.pagination .active  span, .pagination .active  span:hover {
+.pagination .active  span, .pagination .active  span:hover, .pagination .active  span:focus {
     background: none!important;
     color: @text-color!important;
     border-bottom: solid 2px @nav-selected;
@@ -486,7 +496,7 @@
     margin: 0 8px;
 }
 
-.template-dir-record #view-pager li a:hover {
+.template-dir-record #view-pager li a:hover, .template-dir-record #view-pager li a:focus {
     background: @btn-primary-hover;
 }
 
@@ -513,7 +523,7 @@
     font-size: 1.1em!important;
 }
 
-.record .nav-pills a:hover {
+.record .nav-pills a:hover, .record .nav-pills a:focus {
     //color: @link-hover-color!important;
     border-bottom: solid 2px @nav-hover-border-color;
     margin-bottom: 0;
@@ -569,11 +579,13 @@
     padding-right: 5px!important;
 }
 
-.template-dir-record .nav-pills li:not(.share-buttons) span:hover {
+.template-dir-record .nav-pills li:not(.share-buttons) span:hover,
+.template-dir-record .nav-pills li:not(.share-buttons) span:focus {
     color: @text-color!important;
 }
 
-.template-dir-record .nav-pills li:not(.share-buttons) a:hover{
+.template-dir-record .nav-pills li:not(.share-buttons) a:hover,
+.template-dir-record .nav-pills li:not(.share-buttons) a:focus{
     color: @text-color!important;
     font-size: 1.05em;
     margin-bottom: 0;
@@ -701,7 +713,7 @@
     margin-right: 5px;
 }
 
-.adv_search_links a:hover {
+.adv_search_links a:hover, .adv_search_links a:focus {
     //border-bottom: solid 2px @nav-hover-border-color;
     margin-bottom: 0;
 }

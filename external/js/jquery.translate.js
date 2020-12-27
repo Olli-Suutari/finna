@@ -138,6 +138,10 @@ var dict = {
     fi: "Näytä",
     en: "Show",
   },
+  "Read": {
+    fi: "Lue",
+    en: "Read",
+  },
   "View": {
     fi: "Näkymä",
     en: "Display",

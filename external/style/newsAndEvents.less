@@ -254,7 +254,7 @@
     margin-left: .14em;
 }
 
-.event-item-link:hover {
+.event-item-link:hover, .event-item-link:focus {
     margin-top: 4px;
     margin-bottom: -4px;
     -webkit-box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
@@ -266,7 +266,7 @@
     animation: popIn 300ms ease-in both;
 }
 
-.news-item-link:hover {
+.news-item-link:hover, .news-item-link:focus {
     -webkit-box-shadow: 3px 3px 10px 3px rgba(61, 62, 69, 0.33);
     -moz-box-shadow: 3px 3px 8px 3px rgba(61, 62, 69, 0.33);
     box-shadow: 3px 3px 10px 3px rgba(61, 62, 69, 0.33);
@@ -491,7 +491,7 @@
 }
 
 /* Hover, Focus */
-.pure-material-checkbox:hover > input {
+.pure-material-checkbox:hover > input, .pure-material-checkbox:focus > input {
     opacity: 0.08;
 }
 
@@ -1059,6 +1059,10 @@
 
 .news-container:focus {
     color: @link-hover-color!important;
+}
+
+.news-item-link:focus, .event-item-link:focus {
+    border-bottom: 7px solid @link-hover-color!important;
 }
 
 .news-text-container {

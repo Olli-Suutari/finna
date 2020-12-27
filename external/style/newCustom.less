@@ -21,8 +21,43 @@ body {
   height: 100vh;
 }
 
-a:hover {
+a:hover, a:focus, .search-tooltip button:hover, .news-item:focus, .search-tooltip button:focus {
   color: @link-hover-color;
+  //padding-bottom: 3px;
+  border-bottom: 3px solid @link-hover-color!important;
+  font-weight: 500;
+}
+
+.browsebar li a:focus, .browsebar ul li:focus, .browsebar ul li a:focus {
+  border-bottom: 5px solid @link-hover-color!important;
+}
+
+.search-tooltip button {
+  padding-bottom: 3px;
+}
+
+.search-tooltip button:hover, .search-tooltip button:focus {
+  padding-bottom: 0;
+}
+
+.btn-primary:hover, .navbar-brand:hover, .btn-link:hover,
+.btn-primary:focus, .navbar-brand:focus, .btn-link:focus {
+  border-bottom: none!important;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  border-left: none;
+}
+
+footer a:hover, footer a:focus {
+  text-decoration: none;
+  font-weight: 500!important;
+}
+
+a {
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
 }
 
 a[target="_blank"]::after {
@@ -104,12 +139,17 @@ h3 .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-c
 .template-name-advanced .finna-main-header {
   display: none;
 }
+
 @media screen and (max-width: 420px){
   .adv-search-bar .btn-primary {
     margin-top: 1.5em;
     text-align: center;
     width: 100%;
   }
+}
+
+.btn-primary:focus {
+  background: @btn-primary-hover!important;
 }
 
 .feedback-content {
