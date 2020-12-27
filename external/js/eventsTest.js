@@ -503,14 +503,16 @@ function generateEventItem(event, id) {
     if (event.price != "") {
         eventPrice = event.price + " €"; //eventPrice = '<span class="event-price">' + eventPrice + '</span>';
         eventPrice = '<span class="event-detail event-price" aria-label="' + i18n.get("Price") + '">' +
-            '<img data-toggle="tooltip" title="' + i18n.get("Price") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'money-bill-alt.svg" class="fa-svg event-details-icon">' + eventPrice + '</span>';
+            '<img data-toggle="tooltip" title="' + i18n.get("Price") + '" data-placement="top" alt="" ' + 'src="' +
+            faPath + 'money-bill-alt.svg" class="fa-svg event-details-icon">' + eventPrice + '</span>';
     }
     // Website
     var itemLink = "";
     if (event.link_url !== null && event.link_url != "") {
         var prettyUrl = generatePrettyUrl(event.link_url);
         itemLink = '<span class="event-detail event-link" aria-label="' + i18n.get("Website") + '">' +
-            '<img data-toggle="tooltip" title="' + i18n.get("Website") + '" data-placement="top" alt="" ' + 'src="' + faPath + 'globe.svg" class="fa-svg event-details-icon"><a href="' + event.link_url + '">' + prettyUrl + '</a></span>';
+            '<img data-toggle="tooltip" title="' + i18n.get("Website") + '" data-placement="top" alt="" ' + 'src="' +
+            faPath + 'globe.svg" class="fa-svg event-details-icon"><a href="' + event.link_url + '">' + prettyUrl + '</a></span>';
     }
 
     var locationData = event.organizer;
@@ -578,9 +580,13 @@ function generateEventItem(event, id) {
     if (isEventsFrontPage) {
         eventFrontPageClass = "front-page-event";
     }
-    locationData = JSON.stringify(locationData);
+
+    var linkTitle = i18n.get('Read') + ': ' + itemTitle.replace(/&quot;/g, '') + ' ' + event.start_date.replace('00.00', '');
+
+
+        locationData = JSON.stringify(locationData);
     var listItem = '<li class="event-li ' + eventFrontPageClass + '" id="event-' + id + '">' +
-        '<a class="event-item-link" href="javascript:void(0);"' + "data-url='" + event.perma_link + "' " +
+        '<a class="event-item-link" href="javascript:void(0);"  title="' + linkTitle + '" data-url="' + event.perma_link + '"' +
         "data-image='" + itemImg + "' " + "data-name='" + itemTitle + "' data-time='" + eventTimeDisplay + "' data-message='" + itemContent + "' " +
         "data-location-text='" + eventLocation + "' data-location='" + locationData + "' data-location-info='" +
         locationInfo + "' data-transit='" + linkToNavigation + "'>" + '<div class="event-li-img" style="height: 100%; width: auto;">' + itemImg + '</div>'
@@ -589,7 +595,6 @@ function generateEventItem(event, id) {
         eventLocation + '</span>' + '</div>' + '</a>' + '</li>';
     $('#keskiEventsUl').append(listItem);
     eventCityList = $.unique(eventCityList);
-
     for (var e = 0; e < eventCityList.length; e++) {
         addLocationsToLocationArray(eventCityList[e]);
     }
@@ -685,7 +690,6 @@ function bindEventListEvents() {
         var locationInfo = $(this).data('location-info');
         var transitInfo = $(this).data('transit');
         var image = $(this).data('image'); // Remove multiple spaces
-
         popupText = popupText.replace(/^(&nbsp;)+/g, ''); // This would remove br from <br>*:  popupText = popupText.replace(/(<|&lt;)br\s*\/*(>|&gt;)/g, ' ');
         // Remove empty paragraphs
         popupText = popupText.replace(/(<p>&nbsp;<\/p>)+/g, "");

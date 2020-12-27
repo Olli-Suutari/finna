@@ -32,7 +32,6 @@ function checkUrlForContent(url) {
 
 // Turn link into an _blank and set class + accessibility text.
 function generateAccessibleExternalLink(link) {
-    console.log(link)
     //if (link.indexOf('@') !== -1) {
     //    return
     //}
