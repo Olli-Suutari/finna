@@ -152,7 +152,6 @@ var dict = {
   }
 };
 
-
 (function($){
   $.fn.translate = function(options) {
 

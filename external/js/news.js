@@ -74,7 +74,7 @@ function addFrontPageItems(array) {
             array[i].image = "https://keski-finna.fi/wp-content/uploads/paakirjasto59_YouTube_820x461_acf_cropped.jpg";
         }
         var listItem = "<li class='news-item news-li front-page-news-li'><div class='news-container front-page-news-container'>" +
-            "<a href='javascript:void(0);' class='news-item-link' data-url='" + newsList[i].url + "' " +
+            "<a href='javascript:void(0);' class='news-item-link' title='" + i18n.get('Read') + ": " + itemTitle + "'  data-url='" + newsList[i].url + "' " +
             "data-name='" + itemTitle + "' data-message='" + itemContent + "'>" +
             "<img class='news-li-image front-page-news-image' alt='' src='" + array[i].image + "'> " +
             "<div class='news-text-container front-page-news-text-container'><span class='news-li-title front-page-news-li-title'>" + itemTitle +

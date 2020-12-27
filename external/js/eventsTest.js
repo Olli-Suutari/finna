@@ -738,7 +738,6 @@ function bindEventListEvents() {
         var matchingEventInUrl = pageUrl.match(reMatchEvents)[0];
         for (var i = 0; i < allEvents.length; i++) {
             var toMatch = "?event=" + allEvents[i].url;
-
             if (matchingEventInUrl === toMatch) {
                 var toClick = allEvents[i].url;
                 setTimeout(function () {
@@ -750,7 +749,6 @@ function bindEventListEvents() {
 
     $("#eventModal").on('hide.bs.modal', function () {
         var pageUrl = window.location.href;
-
         if (pageUrl.indexOf('?event=')) {
             var reMatchEvents = new RegExp(/\?event=.*/g);
             pageUrl = pageUrl.replace(reMatchEvents, '');
