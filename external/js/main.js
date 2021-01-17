@@ -546,13 +546,12 @@ function main() {
     addSelectedNav();
     appendSearchBar();
     leftNavigationScrollDisplay();
-
-    // Turn external links into accessible external links + add noOpener:s
-    //document.querySelectorAll('a[target="_blank"]').forEach(link => {
-    $('a[target="_blank"]').each(function() {
-        generateAccessibleExternalLink($(this));
-        addNoOpener($(this));
-    });
+    // Use the weird syntax for ie11 compatibility
+    var externalLinks = Array.prototype.slice.call(document.querySelectorAll('a[target="_blank"]'));
+    externalLinks.forEach(function(link, idx) {
+        generateAccessibleExternalLink(link);
+        //addNoOpener(link); Trust the links.
+    })
 
     if ($('.keski-news-home').length === 1) {
         homeLibFunctionality();
