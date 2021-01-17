@@ -548,9 +548,10 @@ function main() {
     leftNavigationScrollDisplay();
 
     // Turn external links into accessible external links + add noOpener:s
-    document.querySelectorAll('a[target="_blank"]').forEach(link => {
-        generateAccessibleExternalLink(link);
-        addNoOpener(link);
+    //document.querySelectorAll('a[target="_blank"]').forEach(link => {
+    $('a[target="_blank"]').each(function() {
+        generateAccessibleExternalLink($(this));
+        addNoOpener($(this));
     });
 
     if ($('.keski-news-home').length === 1) {
