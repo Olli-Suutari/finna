@@ -12,6 +12,11 @@
 @nav-hover-border-color: @btn-primary-bg; //#f9a789; // #fb9677;
 @nav-selected: rgba(88, 140, 238, 0.93);
 
+/* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
+* {
+  text-transform: unset!important;
+}
+
 html {
   font-size: 1em;
 }
@@ -26,6 +31,13 @@ a:hover, a:focus, .search-tooltip button:hover, .news-item:focus, .search-toolti
   //padding-bottom: 3px;
   border-bottom: 3px solid @link-hover-color!important;
   font-weight: 500;
+}
+
+/* Browse, eq. https://keski.finna.fi/Browse/Home */
+.browse a:hover {
+  //font-weight: unset!important;
+  font-weight: 400;
+  border-bottom: none!important;
 }
 
 .browsebar li a:focus, .browsebar ul li:focus, .browsebar ul li a:focus {

@@ -104,6 +104,7 @@ function addSelectedNav() {
         $('#menu_Vinkit a').each(function() {
             //do something with the link element
             if (locationUrl.indexOf(this.href) > -1) {
+                console.log(this.href)
                 $('#menu_Vinkit').addClass("selected-nav");
                 var linkEnding = this.href.substring(this.href.lastIndexOf("/") + 1);
                 $('#menu_Vinkit li a[href$="' + linkEnding + '"]').addClass("selected-nav");
@@ -454,7 +455,7 @@ if (!window.tileLayer) {
 }
 // Load JQuery Translate.
 if (!window.i18n) {
-    if (locationUrl.indexOf('-test') > -1) {
+    if (locationUrl.indexOf('a-pre.fi') > -1) {
         require("https://keski-finna.fi/external/finna/js/jquery.translate.js", loadPolyfills());
     }
     else {
@@ -473,7 +474,7 @@ function loadPolyfills() {
 
 function loadContentScripts() {
     setTimeout(function(){
-        if (locationUrl.indexOf('-test') > -1) {
+        if (locationUrl.indexOf('a-pre.fi') > -1) {
             importJsOrCssFile('https://keski-finna.fi/external/finna/js/newsTest.js', "js");
             importJsOrCssFile('https://keski-finna.fi/external/finna/js/eventsTest.js', "js");
             return

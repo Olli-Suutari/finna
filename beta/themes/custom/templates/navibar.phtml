@@ -27,16 +27,16 @@ function endsWith($string, $endString)
 <?php if (count($val['items']) > 1): ?>
   <li class="dropdown" id="<?= $val['label'] ?>">
      <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <?php
-            if ($val['label'] == 'menu_Vinkit') {
-                echo '<i class="fa fa-archive" aria-hidden="true"></i> ';
-            }?>
-            <?php
-            if ($val['label'] == 'menu_eaineisto') {
-                echo '<i class="fa fa-globe" aria-hidden="true"></i> ';
-            }?>
-            <i class="fa fa-nav-<?=$val['label'] ?>" aria-hidden="true"></i><?= $this->transEsc($val['label']) ?> <b class="caret" aria-hidden="true"></b>
-    </a>
+<?php
+if ($val['label'] == 'menu_Vinkit') {
+    echo '<i class="fa fa-archive" aria-hidden="true"></i> ';
+}?>
+<?php
+if ($val['label'] == 'menu_eaineisto') {
+    echo '<i class="fa fa-globe" aria-hidden="true"></i> ';
+}?>
+<i class="fa fa-nav-<?=$val['label'] ?>" aria-hidden="true"></i><?= $this->transEsc($val['label']) ?> <b class="caret" aria-hidden="true"></b>
+</a>
 <ul role="group" class="dropdown-menu" aria-labelledby="<?= $val['label'] ?>">
 <?php foreach ($val['items'] as $itemKey => $itemVal): ?>
 <?php
@@ -89,7 +89,7 @@ function endsWith($string, $endString)
 <?php if ($this->feedback()->tabEnabled()): ?>
     <li>
         <a  role="menuitem" id="feedback-link" href="<?=$this->url('feedback-home') ?>"> <i class="fa fa-comment" aria-hidden="true"></i>
-    <?=$this->transEsc("Feedback")?></a>
+<?=$this->transEsc("Feedback")?></a>
 </li>
 <?php endif; ?>
 <?php if (isset($this->layout()->themeOptions) && count($this->layout()->themeOptions) > 1): ?>
@@ -115,10 +115,10 @@ function endsWith($string, $endString)
 <?php foreach ($this->layout()->allLangs as $langCode => $langName): ?>
 <?php if ($this->layout()->userLang != $langCode): ?>
   <li class="lang">
-    <a role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
+    <a title='<?=$this->transEsc("lang_selector_title")?> <?=$this->displayLanguageOption($langName)?>' role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
      <i class="fa fa-language" aria-hidden="true"></i>
-    <?=$this->displayLanguageOption($langName)?></a>
-  </li>
+<?=$this->displayLanguageOption($langName)?></a>
+</li>
 <?php $i++; ?>
 <?php endif ?>
 <?php endforeach; ?>
