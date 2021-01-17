@@ -115,7 +115,7 @@ if ($val['label'] == 'menu_eaineisto') {
 <?php foreach ($this->layout()->allLangs as $langCode => $langName): ?>
 <?php if ($this->layout()->userLang != $langCode): ?>
   <li class="lang">
-    <a title='<?=$this->transEsc("lang_selector_title")?> <?=$this->displayLanguageOption($langName)?>' role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
+    <a title='<?=$this->transEsc("lang_selector_title")?>' role="menuitem" class="preserve-anchor" href="<?=$this->escapeHtmlAttr($this->navibar()->getLanguageUrl($langCode))?>">
      <i class="fa fa-language" aria-hidden="true"></i>
 <?=$this->displayLanguageOption($langName)?></a>
 </li>
