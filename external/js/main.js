@@ -218,6 +218,15 @@ function leftNavigationScrollDisplay() {
     }
 }
 
+function addClassesToAvailableOnWebFilter() {
+    // "Verkossa saatavilla" does not have .title-value-pair, and thus no styling.
+    $( ".filter-value" ).each(function( index ) {
+            !$(this).addClass('title-value-pair');
+            !$(this).removeClass('filter-value');
+        }
+    });
+}
+
 // Function for displaying last page number if more than 5 pages remain and hiding prev/next navigations if on 2nd last/first pages.
 function smartPaginationDisplay() {
 
@@ -310,13 +319,7 @@ function smartPaginationDisplay() {
             });
         }
     }
-    // "Verkossa saatavilla" does not have .title-value-pair, and thus no styling.
-    $( ".filter-value" ).each(function( index ) {
-        if (!$(this).hasClass('filters-and') && !$(this).hasClass('filters-or')) {
-            !$(this).addClass('title-value-pair');
-            !$(this).removeClass('filter-value');
-        }
-    });
+    addClassesToAvailableOnWebFilter()
     // Hide "Verkossa saatavilla" if none are available.
     var webCount = $('div [data-facet="online_boolean:1"] .avail-count').text();
     if (webCount == 0) {
@@ -347,8 +350,23 @@ function homeLibFunctionality() {
     window.addEventListener('message', function(event) {
         var data = event.data;
         // Resize the window.
-        if(data.type === "resize") {
+        if (data.type === "resize") {
             var height = data.value;
+            // For some reason, item height is reported incorrectly based on resolution... TO DO: Less hacky fix.
+            var itemWidth = window.innerWidth;
+            var heightOffset = 50;
+            if (itemWidth < 370) {
+                heightOffset = 245;
+            } else if (itemWidth < 470) {
+                heightOffset = 200;
+            } else if (itemWidth < 611) {
+                heightOffset = 180;
+            } else if (itemWidth < 768) {
+                heightOffset = 170;
+            } else if (itemWidth < 1340) {
+                heightOffset = 190;
+            }
+            height = height + heightOffset;
             // Minimum height of 520.
             if (height < 520) {
                 height = 520;
@@ -558,7 +576,8 @@ function main() {
     }
 
     if (locationUrl.indexOf('/Search/Results') > -1) {
-        window.onload = function() {
+        window.onload = function () {
+            console.log("DOO")
             smartPaginationDisplay();
         };
         $('#browseLi').css('display', 'none');
@@ -566,11 +585,12 @@ function main() {
 
     if (locationUrl.indexOf('/Record/keski') > -1) {
         window.onload = function() {
-            $('.finnaQrcodeLinkRecord').parent().css('display', 'none');
+           // Hide or show qr code link $('.finnaQrcodeLinkRecord').parent().css('display', 'none');
+            addClassesToAvailableOnWebFilter();
             $('.export-toggle').parent().css('display', 'none');
         };
     }
-    /* TO DO: Use dropdown styles from search in advanced search
+    /* TODO: Use dropdown styles from search in advanced search
     else if(locationUrl.indexOf(('Search/Advanced'))) {
         //console.log("do smart")
         //$('.limit').prepend('<span class="results-on-page">' + 'Näytä' + ':</span>');
