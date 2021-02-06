@@ -221,6 +221,7 @@ function leftNavigationScrollDisplay() {
 function addClassesToAvailableOnWebFilter() {
     // "Verkossa saatavilla" does not have .title-value-pair, and thus no styling.
     $( ".filter-value" ).each(function( index ) {
+        if (!$(this).hasClass('filters-and') && !$(this).hasClass('filters-or')) {
             !$(this).addClass('title-value-pair');
             !$(this).removeClass('filter-value');
         }
