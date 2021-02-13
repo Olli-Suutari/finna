@@ -139,6 +139,11 @@
 
 .filter-value {
     background: none!important;
+    color: #fff;
+}
+
+.filter-text {
+    color: #fff;
 }
 
 .title-value-pair {
@@ -230,7 +235,7 @@
 .dropdown-toggle:hover, .dropdown-toggle:focus {
     background: @nav-hover-bg!important;
     border-left: solid 4px @nav-hover-border-color!important;
-    margin-left: -4px;
+    // margin-left: -4px; TODO: Is this required?
     border-bottom: none!important;
 }
 
@@ -328,7 +333,7 @@
 }
 
 .searchtools a:hover, .searchtools a:focus {
-    border-bottom: solid 2px @nav-hover-border-color;
+    border-bottom: solid 2px @nav-hover-border-color!important;
     margin-bottom: 0;
 }
 
@@ -568,6 +573,12 @@
     top: -25px!important;
 }
 
+.finnaQrcodeLinkRecord:hover {
+    border-left: none!important;
+    background: none;
+    padding-left: 0;
+}
+
 .template-dir-record .nav-pills li:not(.share-buttons) a, .template-dir-record .nav-pills i {
     color: @text-color!important;
     font-size: 1.05em;
@@ -732,4 +743,32 @@
 .finna-main-header-wrapper.search-advanced {
     border-bottom: none;
     margin-bottom: 10px;
+}
+
+.searchtools a:hover, .searchtools a:focus {
+    font-weight: 600;
+}
+
+// Don't underline covers or filters.
+.recordcover-container a:hover, .recordcover-container a:focus,
+.side-facets-container-ajax a:hover, .side-facets-container-ajax a:focus  {
+    border-bottom: inherit;
+    font-weight: inherit;
+}
+
+.template-name-results a:hover, .template-name-results a:focus {
+
+}
+// Authors in search result
+.truncate-field a:hover, .truncate-field a:focus {
+    border-bottom: none;
+    text-decoration: underline;
+}
+
+.back-to-search a {
+    font-weight: 600!important;
+}
+
+.back-to-search a:hover, .back-to-search a:focus {
+    border-bottom: none;
 }

@@ -98,13 +98,12 @@ function addSelectedNav() {
     }
     else {
         // Tips might contain urls similar to search results
-        if (locationUrl.indexOf('/Search/Results') > -1) {
+        if (locationUrl.indexOf('/Search/Results') > -1 || locationUrl.indexOf('/Record/') > -1) {
             return
         }
         $('#menu_Vinkit a').each(function() {
             //do something with the link element
             if (locationUrl.indexOf(this.href) > -1) {
-                console.log(this.href)
                 $('#menu_Vinkit').addClass("selected-nav");
                 var linkEnding = this.href.substring(this.href.lastIndexOf("/") + 1);
                 $('#menu_Vinkit li a[href$="' + linkEnding + '"]').addClass("selected-nav");

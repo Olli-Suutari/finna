@@ -12,6 +12,10 @@
 @nav-hover-border-color: @btn-primary-bg; //#f9a789; // #fb9677;
 @nav-selected: rgba(88, 140, 238, 0.93);
 
+@feedback-btn-bg: #9DB136;
+@feedback-btn-hover-bg: #8c9d31;
+@feedback-btn-text: #272727;
+
 /* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
 * {
   text-transform: unset!important;
@@ -29,8 +33,13 @@ body {
 a:hover, a:focus, .search-tooltip button:hover, .news-item:focus, .search-tooltip button:focus {
   color: @link-hover-color;
   //padding-bottom: 3px;
-  border-bottom: 3px solid @link-hover-color!important;
+  border-bottom: 3px solid @link-hover-color;
   font-weight: 500;
+}
+
+// Do not de-bold bolded links
+strong a:hover, strong a:focus, b a:hover, b a:focus{
+  font-weight: bold;
 }
 
 /* Browse, eq. https://keski.finna.fi/Browse/Home */
@@ -52,19 +61,37 @@ a:hover, a:focus, .search-tooltip button:hover, .news-item:focus, .search-toolti
   padding-bottom: 0;
 }
 
+.btn-primary, .btn-primary:hover {
+  color: #fff!important;
+}
+
 .btn-primary:hover, .navbar-brand:hover, .btn-link:hover,
 .btn-primary:focus, .navbar-brand:focus, .btn-link:focus {
   border-bottom: none!important;
-  font-weight: 500;
+  font-weight: inherit;
 }
 
 .btn-primary:hover {
   border-left: none;
 }
 
+// Feedback color must be defined after btn-primary
+.floating-feedback-btn {
+  background: @feedback-btn-bg;
+  color: @feedback-btn-text!important;
+  font-weight: 600;
+}
+
+.floating-feedback-btn:hover {
+  background: @feedback-btn-hover-bg;
+  color: @feedback-btn-text!important;
+  font-weight: 600!important;
+}
+
 footer a:hover, footer a:focus {
   text-decoration: none;
   font-weight: 500!important;
+  border-color: #ffffff;
 }
 
 a {
