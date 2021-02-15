@@ -12,10 +12,6 @@
 @nav-hover-border-color: @btn-primary-bg; //#f9a789; // #fb9677;
 @nav-selected: rgba(88, 140, 238, 0.93);
 
-@feedback-btn-bg: #9DB136;
-@feedback-btn-hover-bg: #8c9d31;
-@feedback-btn-text: #272727;
-
 /* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
 * {
   text-transform: unset!important;
@@ -63,6 +59,14 @@ strong a:hover, strong a:focus, b a:hover, b a:focus{
 
 .btn-primary, .btn-primary:hover {
   color: #fff!important;
+}
+
+// Favourites of user
+.bulk-action-buttons-row .btn-primary {
+  color: @text-color!important;
+}
+.bulk-action-buttons-row .btn-primary:focus, .bulk-action-buttons-row .btn-primary:focus, #add-to-list {
+  background: #f7f7f7!important;
 }
 
 .btn-primary:hover, .navbar-brand:hover, .btn-link:hover,
@@ -297,6 +301,10 @@ footer {
 
 footer a:visited, footer a:focus {
   color: #f8fafd!important;
+}
+
+.footer-logo-container a:hover {
+  border-bottom: none;
 }
 
 .footer-container {
