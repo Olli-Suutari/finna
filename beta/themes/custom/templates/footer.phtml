@@ -1,73 +1,70 @@
 <div class="row">
-  <div class="col-sm-3">
-    <h5><?=$this->transEsc('About')?></h5>
-    <ul>
-      <li><a href="<?=$this->url('content-page', ['page' => 'kayttosaannot'])?>"><?=$this->transEsc('käyttösäännöt')?></a></li>
-      <li><a href="https://www.jyvaskyla.fi/sites/default/files/atoms/files/tss_keski-kirjastot_asiakasrekisteri.pdf"><?=$this->transEsc('rekisteriseloste')?></a></li>
-      <li><a href="<?=$this->url('content-page', ['page' => 'accessibility-statement'])?>"><?=$this->transEsc('saavutettavuusseloste')?></a></li>
-      <li><a href="<?=$this->url('content-page', ['page' => 'terms'])?>"><?=$this->transEsc('Terms')?></a></li>
-      <li><a href="<?=$this->url('content-page', ['page' => 'privacy'])?>"><?=$this->transEsc('Privacy')?></a></li>
-      <li><a href="<?=$this->url('content-page', ['page' => 'about_finna'])?>"><?=$this->transEsc('About Finna')?></a></li>
-    </ul>
-  </div>
-  <div class="col-sm-3">
-    <h5><?=$this->transEsc('Find More')?></h5>
-    <ul>
-        <li>
-<? if ($this->layout()->userLang === "fi"): ?>
-<a href="https://www.kirjastot.fi/kysy" target="_blank">Kysy kirjastonhoitajalta</a>
-<? endif; ?>
+ <nav>
+    <div class="col-sm-3">
+     <h5 aria-hidden="true"><?=$this->transEsc('About')?></h5>
+        <ul title="<?=$this->transEsc('About')?>">
+          <li><a href="<?=$this->url('content-page', ['page' => 'kayttosaannot'])?>"><?=$this->transEsc('käyttösäännöt')?></a></li>
+          <li><a href="https://www.jyvaskyla.fi/sites/default/files/atoms/files/tss_keski-kirjastot_asiakasrekisteri.pdf"><?=$this->transEsc('rekisteriseloste')?></a></li>
+          <li><a href="<?=$this->url('content-page', ['page' => 'accessibility-statement'])?>"><?=$this->transEsc('saavutettavuusseloste')?></a></li>
+          <li><a href="<?=$this->url('content-page', ['page' => 'terms'])?>"><?=$this->transEsc('Terms')?></a></li>
+          <li><a href="<?=$this->url('content-page', ['page' => 'privacy'])?>"><?=$this->transEsc('Privacy')?></a></li>
+          <li><a href="<?=$this->url('content-page', ['page' => 'about_finna'])?>"><?=$this->transEsc('About Finna')?></a></li>
+        </ul>
+    </div>
+    <div class="col-sm-3">
+        <h5 aria-hidden="true"><?=$this->transEsc('Find More')?></h5>
+        <ul title="<?=$this->transEsc('Find More')?>">
+            <li>
+            <? if ($this->layout()->userLang === "fi"): ?>
+            <a href="https://www.kirjastot.fi/kysy" target="_blank">Kysy kirjastonhoitajalta</a>
+            <? endif; ?>
 
-<? if ($this->layout()->userLang === "en-gb"): ?>
-<a href="https://www.libraries.fi/ask" target="_blank">Ask a Librarian</a>
-<? endif; ?>
-</li>
+            <? if ($this->layout()->userLang === "en-gb"): ?>
+            <a href="https://www.libraries.fi/ask" target="_blank">Ask a Librarian</a>
+            <? endif; ?>
+            </li>
 
-<li>
-<? if ($this->layout()->userLang === "fi"): ?>
-<a href="https://finna.fi/?lng=fi" target="_blank">Finna.fi-hakupalvelut</a>
-<? endif; ?>
+            <li>
+            <? if ($this->layout()->userLang === "fi"): ?>
+            <a href="https://finna.fi/?lng=fi" target="_blank">Finna.fi-hakupalvelut</a>
+            <? endif; ?>
 
-<? if ($this->layout()->userLang === "en-gb"): ?>
-<a href="https://finna.fi/?lng=en-gb" target="_blank">Finna.fi-search service</a>
-<? endif; ?>
-</li>
+            <? if ($this->layout()->userLang === "en-gb"): ?>
+            <a href="https://finna.fi/?lng=en-gb" target="_blank">Finna.fi-search service</a>
+            <? endif; ?>
+            </li>
+            <li><a href="<?=$this->url('search-history')?>"><?=$this->transEsc('Search History')?></a></li>
+            <li><a href="<?=$this->url('search-advanced')?>"><?=$this->transEsc('Advanced Search')?></a></li>
+            <li><a href="<?=$this->url('browse-home')?>"><?=$this->transEsc('Browse the Catalog')?></a></li>
+        </ul>
+    </div>
+    <div class="col-sm-3">
+        <h5 aria-hidden="true"><?=$this->transEsc('Need Help?')?></h5>
+        <ul title="<?=$this->transEsc('Need Help?')?>">
+            <li><a href="<?=$this->url('content-page', ['page' => 'help_opac'])?>" title="<?=$this->transEsc('Search Tips')?>"><?=$this->transEsc('Help')?></a></li>
+            <li><a href="<?=$this->url('content-page', ['page' => 'hakuohje'])?>" title="<?=$this->transEsc('search_help')?>"><?=$this->transEsc('search_help')?></a></li>
+            <li><a href="/Content/kirjastot"><?=$this->transEsc('footer_kirjastot')?></a></li>
+            <li><a class="modal-link" href="<?=$this->url('feedback-home') ?>"><?=$this->transEsc('Feedback')?></a></li>
+        </ul>
+    </div>
+    <div class="col-sm-3" aria-hidden="true">
+        <div class="footer-logo-container">
+            <img src="<?=$this->imageLink('Keski-kirjastot_vaakalogo_nega_rgb2.png')?>" alt="Keski-kirjastot logo" />
+        </div>
+        <div class="footer-logo-container">
+         <img src="<?=$this->imageLink('yleisten-kirjastojen-tunnus-fi-sv-en-rinnakkain-nega.png')?>" alt="Yleisten kirjastojen tunnus" title="" />
+        </div>
 
-<li><a href="<?=$this->url('search-history')?>"><?=$this->transEsc('Search History')?></a></li>
-  <li><a href="<?=$this->url('search-advanced')?>"><?=$this->transEsc('Advanced Search')?></a></li>
-  <li><a href="<?=$this->url('browse-home')?>"><?=$this->transEsc('Browse the Catalog')?></a></li>
-</ul>
-</div>
-
-<div class="col-sm-3">
-<h5><?=$this->transEsc('Need Help?')?></h5>
-<ul>
-<li><a href="<?=$this->url('content-page', ['page' => 'help_opac'])?>" title="<?=$this->transEsc('Search Tips')?>"><?=$this->transEsc('Help')?></a></li>
-<li><a href="<?=$this->url('content-page', ['page' => 'hakuohje'])?>" title="<?=$this->transEsc('search_help')?>"><?=$this->transEsc('search_help')?></a></li>
-<li><a href="/Content/kirjastot"><?=$this->transEsc('footer_kirjastot')?></a></li>
-<li><a class="modal-link" href="<?=$this->url('feedback-home') ?>"><?=$this->transEsc('Feedback')?></a></li>
-</ul>
-</div>
-
-<div class="col-sm-3">
-<div class="footer-logo-container">
-<img src="<?=$this->imageLink('Keski-kirjastot_vaakalogo_nega_rgb2.png')?>" alt="Keski-kirjastot logo" />
-</div>
-<div class="footer-logo-container">
-<img src="<?=$this->imageLink('yleisten-kirjastojen-tunnus-fi-sv-en-rinnakkain-nega.png')?>" alt="Yleisten kirjastojen tunnus" title="" />
-</div>
-
-<div class="footer-logo-container">
-<a href="<?=$this->url('content-page', ['page' => 'about_finna'])?>" title="<?=$this->escapeHtmlAttr($this->translate('About Finna'))?>">
-    <img src="<?=$this->imageLink('powered-by-finna_fi.png')?>" alt="Finna-logo" />
-</a>
-</div>
-
-<div class="footer-logo-container">
-<a href="https://vufind.org/" title="<?=$this->escapeHtmlAttr($this->translate('About VuFind'))?>">
-<img src="<?=$this->imageLink('vufind-logo.png')?>" alt="Vufind logo" />
-</a>
-</div>
-
-</div>
+        <div class="footer-logo-container">
+            <a href="<?=$this->url('content-page', ['page' => 'about_finna'])?>" title="<?=$this->escapeHtmlAttr($this->translate('About Finna'))?>">
+                <img src="<?=$this->imageLink('powered-by-finna_fi.png')?>" alt="Finna-logo" />
+            </a>
+        </div>
+        <div class="footer-logo-container">
+            <a href="https://vufind.org/" title="<?=$this->escapeHtmlAttr($this->translate('About VuFind'))?>">
+             <img src="<?=$this->imageLink('vufind-logo.png')?>" alt="Vufind logo" />
+            </a>
+        </div>
+    </div>
+  </nav>
 </div>
