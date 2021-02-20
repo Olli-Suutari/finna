@@ -1,0 +1,3205 @@
+/* All custom less-code here */
+
+// CUSTOM VARIABLES.
+@link-hover-color: #0659c7;
+//@btn-primary-hover: @nav-hover-border-color; //@nav-hover-bg;
+@btn-primary-hover: #002438;
+@nav-hover-bg: #CECECE; //#d1f0fb;
+@nav-hover-border-color: @btn-primary-bg; //#f9a789; // #fb9677;
+@nav-selected: rgba(88, 140, 238, 0.93);
+
+@feedback-btn-bg: #9DB136;
+@feedback-btn-hover-bg: #8c9d31;
+@feedback-btn-text: #272727;
+
+/* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
+* {
+  text-transform: unset!important;
+}
+
+html {
+  font-size: 1em;
+}
+
+body {
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+a:hover, a:focus, .search-tooltip button:hover, .news-item:focus, .search-tooltip button:focus {
+  color: @link-hover-color;
+  //padding-bottom: 3px;
+  border-bottom: 3px solid @link-hover-color;
+  font-weight: 500;
+}
+
+// Do not de-bold bolded links
+strong a:hover, strong a:focus, b a:hover, b a:focus{
+  font-weight: bold;
+}
+
+/* Browse, eq. https://keski.finna.fi/Browse/Home */
+.browse a:hover {
+  //font-weight: unset!important;
+  font-weight: 400;
+  border-bottom: none!important;
+}
+
+.browsebar li a:focus, .browsebar ul li:focus, .browsebar ul li a:focus {
+  border-bottom: 5px solid @link-hover-color!important;
+}
+
+.search-tooltip button {
+  padding-bottom: 3px;
+}
+
+.search-tooltip button:hover, .search-tooltip button:focus {
+  padding-bottom: 0;
+}
+
+.btn-primary, .btn-primary:hover {
+  color: #fff!important;
+}
+
+// Favourites of user
+.bulk-action-buttons-row .btn-primary {
+  color: @text-color!important;
+}
+.bulk-action-buttons-row .btn-primary:focus, .bulk-action-buttons-row .btn-primary:focus, #add-to-list {
+  background: #f7f7f7!important;
+}
+
+.btn-primary:hover, .navbar-brand:hover, .btn-link:hover,
+.btn-primary:focus, .navbar-brand:focus, .btn-link:focus {
+  border-bottom: none!important;
+  font-weight: inherit;
+}
+
+.btn-primary:hover {
+  border-left: none;
+}
+
+// Feedback color must be defined after btn-primary
+.floating-feedback-btn {
+  background: @feedback-btn-bg;
+  color: @feedback-btn-text!important;
+  font-weight: 600;
+}
+
+.floating-feedback-btn:hover {
+  background: @feedback-btn-hover-bg;
+  color: @feedback-btn-text!important;
+  font-weight: 600!important;
+}
+
+footer a:hover, footer a:focus {
+  text-decoration: none;
+  font-weight: 500!important;
+  border-color: #ffffff;
+}
+
+a {
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+
+a[target="_blank"]::after {
+  font-family: FontAwesome;
+  content: '\f08e';
+  font-weight: 400;
+  font-size: 0.7em;
+  padding-left: 3px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 12px;
+}
+
+h1 {
+  font-size: 1.8em;
+}
+
+h2, .main.template-dir-feedcontent.template-name-content h2, .main.template-dir-content.template-name-content h2  {
+  font-size: 1.6em;
+}
+
+h3, .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-content.template-name-content h3 {
+  font-size: 1.35em;
+}
+
+h4, h5, h6 {
+  font-size: 1.2em;
+}
+
+/* These differ a bit from the news/schedules/events */
+.front-page-button-link-container {
+  text-align: center;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 1.25em;
+}
+
+.front-page-button-link {
+  width: 100%;
+  padding: .73em 0.65em;
+  font-size: 1.32em;
+  line-height: 1.5;
+}
+
+// Wide content row
+@media screen and (min-width: 1200px) {
+  .wide-content-row {
+    margin-left: -15% !important;
+    margin-right: -10% !important;
+  }
+}
+
+// Info page titles
+.main.template-dir-feedcontent.template-name-content h1, .main.template-dir-content.template-name-content h1 {
+  font-size: 1.8em;
+  margin-bottom: 1em;
+}
+
+h2 .main.template-dir-feedcontent.template-name-content h2, .main.template-dir-content.template-name-content h2 {
+  font-size: 1.55em;
+}
+
+h3 .main.template-dir-feedcontent.template-name-content h3, .main.template-dir-content.template-name-content h3 {
+  padding-bottom: 10px;
+}
+
+// Add padding to all of the divs inside .mainbody so they are not so close to the left navigation bars
+.template-dir-content .main-content .mainbody div, .template-dir-content .main-content .col-sm-9 div {
+  padding-left: 1.6em;
+}
+
+.content-section {
+  margin-bottom: 1.5em;
+  padding-bottom: 1em;
+}
+
+// Hide empty finna main header on advanced search.
+.template-name-advanced .finna-main-header {
+  display: none;
+}
+
+@media screen and (max-width: 420px){
+  .adv-search-bar .btn-primary {
+    margin-top: 1.5em;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+.btn-primary:focus {
+  background: @btn-primary-hover!important;
+}
+
+.feedback-content {
+  margin-top: 3.5em;
+}
+
+.feedback-content h1 {
+  font-size: 1.8em!important;
+}
+
+#advSearchForm {
+  margin-top: 2.5em!important;
+}
+
+// Icon styles
+.white-fa-5 {
+  max-height: .85em;
+}
+
+// TAUSTAKUVAN MÄÄRITYKSET
+@media (min-width: @screen-md-min) {
+  .template-dir-search.template-name-home .search-form-container {
+    padding-top: 9em;
+    padding-bottom: 5em;
+  }
+}
+
+// Browsebar
+.browsebar .nav>li a i.fa {
+  margin-right: 0.5em;
+}
+
+.searchForm_lookfor {
+  padding-left: .85em!important;
+}
+
+.searchForm_lookfor::placeholder {
+  color: #616e76;
+  font-size: .9em;
+}
+
+// Browsebar marginaali
+.browsebar nav.navbar .nav-wrapper {
+  margin-left: 0;
+}
+
+/* Front page content area can be wider than 9xx pixels. */
+.template-name-home .container-fluid .container {
+  width: auto;
+  max-width: 1400px;
+}
+
+// Spacings for front page sections
+.home-1 {
+  margin-top: -.7em;
+}
+
+.keski-news-home, .lib-home-container, .events-front-page, .front-carousel-section {
+  margin-bottom: 2.5rem;
+}
+
+.home-1 {
+  margin-top: 1.8em;
+}
+
+.finna-main-header {
+  margin-top: 2.2em;
+}
+
+.finna-main-header {
+  margin-bottom: 0;
+}
+
+.main.template-dir-feedcontent.template-name-content .finna-main-header, .main.template-dir-content.template-name-content .finna-main-header {
+  margin-bottom: 0;
+}
+
+.finna-main-header .main.template-dir-feedcontent.template-name-content .finna-main-header  h1, .main.template-dir-content.template-name-content .finna-main-header  h1{
+  margin-bottom: 0;
+}
+
+.searchContent {
+  margin-bottom: 0;
+}
+
+.template-name-results .searchContent {
+  margin-bottom: 0;
+}
+
+// Browse page
+.browse .active {
+  color: #ffffff!important;//#f8fafd;
+}
+
+/* Footer stylings */
+footer {
+  font-size: 1.3em;
+  width: 100%;
+  padding-top: 2.2em;
+  padding-bottom: 2.73em!important;
+  margin-bottom: -40px!important;
+  display: flex;
+  height: auto!important;
+  margin-top: 3em!important;
+}
+
+footer a:visited, footer a:focus {
+  color: #f8fafd!important;
+}
+
+.footer-logo-container a:hover {
+  border-bottom: none;
+}
+
+.footer-container {
+  margin-top: 1.6em;
+  width: 100%;
+  justify-content: space-between;
+  display: flex!important;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-links li {
+  float: left;
+  display: block;
+  margin: 0 22px;
+  padding: 9px 11px;
+  margin-bottom: 3px;
+  //border-left: solid 1px black;
+}
+
+.footer-links li a {
+  text-decoration: none;
+}
+
+.footer-links li:hover {
+  border-bottom: solid 2px @brand-secondary;
+  margin-bottom: 0;
+}
+
+footer .selected-nav {
+  margin-bottom: 3px!important;
+}
+
+
+footer .selected-nav:hover {
+  margin-bottom: 3px!important;
+}
+
+footer .selected-nav a:hover {
+  text-decoration: none;
+}
+
+.footer-logo-container {
+  margin-bottom: 1.85em;
+}
+
+.foot-logo-link {
+  margin: .5em 3em!important;
+}
+
+
+footer h5 {
+  font-size: 1.17em;
+  margin-bottom: .7em;
+  color: #f8fafd;
+}
+
+@media (max-width: @screen-sm-min) {
+  .footer-links {
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-links li {
+    margin-bottom: 1rem!important;
+  }
+
+  li a[title="About VuFind"] {
+    padding-left: 20px!important;
+  }
+
+  footer li a {
+    line-height: 2em!important;
+  }
+
+  .footer-container li a {
+    width: auto
+  }
+
+  .footer-links .foot-logo-link {
+    width: 100%!important;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+  }
+
+  .footer-links .foot-logo-link:hover {
+    border-bottom: none;
+  }
+
+}
+
+// Main section should always be at least 60% of device height on higher resolutions.
+@media screen and ( min-height: 768px ) {
+  section[role=main] {
+    min-height: 60vmin!important;
+  }
+}
+
+// Hide keski text from each search result holdings
+.holding-details {
+  .dedupInformation {
+    display: none;
+  }
+}
+
+// Piilota kartta tarkennetusta hausta
+.search-map-container {
+  display: none;
+}
+
+// Cookie-consent - Evästeet
+.cookie-consent {
+  padding: 1.1em 1.4em;
+  position: fixed!important;
+  bottom: 0!important;
+  top: unset!important;
+  left: 50%;
+  transform: translateX(-50%);
+  color: @text-color!important;
+  //background-color: #ebebed;
+  background-color: #FCF8E3;
+  font-size: 1.2em;
+  font-weight: 600;
+  flex-direction: row;
+  border-radius: 4px;
+  align-content: center;
+  vertical-align: center;
+  width: auto;
+  max-width: 100%!important;
+}
+
+.cookie-consent p {
+  margin: 0;
+}
+
+.cookie-consent-button {
+  margin-left: 2.4em;
+}
+
+@media screen and ( max-width: 768px ){
+  .cookie-consent {
+    flex-direction: column;
+    width: 100%;
+  }
+  .cookie-consent-button {
+    margin-top: 1.2em;
+    margin-left: 0;
+  }
+}
+
+/*
+@media screen and ( max-width: 1000px ){
+  .cookie-consent {
+    //width: 65%;
+  }
+}
+
+@media screen and ( max-width: 768px ){
+  .cookie-consent {
+    //width: 100%;
+  }
+}
+
+ */
+
+
+
+// Loader https://projects.lukehaas.me/css-loaders/
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  width: 2.5em;
+  height: 2.5em;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+  -webkit-animation: load7 1.8s infinite ease-in-out;
+  animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+  color: @gray;
+  font-size: 10px;
+  margin: 80px auto;
+  position: relative;
+  text-indent: -9999em;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-animation-delay: -0.16s;
+  animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+  content: '';
+  position: absolute;
+  top: 0;
+}
+.loader:before {
+  left: -3.5em;
+  -webkit-animation-delay: -0.32s;
+  animation-delay: -0.32s;
+}
+.loader:after {
+  left: 3.5em;
+}
+@-webkit-keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+@keyframes load7 {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 2.5em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 2.5em 0 0;
+  }
+}
+
+/* .lib-home-container */
+.lib-home-container {
+  //padding: 1.3rem .1rem 2.1rem .1rem!important;
+  //margin-bottom: 2em;
+}
+
+.title-underlined-wide, .template-name-home .carousel-header {
+  display: inline-block;
+  border-bottom: 2px solid #414141;
+  padding-left: 1.2rem;
+  padding-right: 1.2rem;
+  padding-bottom: 0.35em;
+  margin-bottom: 0.75em;
+  border-bottom: 2px solid #414141;
+  text-align: center;
+  color: @text-color;
+  font-weight: 600;
+  width: 100%;
+}
+
+.title-underlined {
+  display: inline-block;
+  border-bottom: 2px solid #414141;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: 0.35em;
+  margin-bottom: 0.65em;
+  border-bottom: 2px solid #414141;
+  text-align: center;
+  color: @text-color;
+  font-weight: 600;
+  font-size: 1.35em;
+}
+
+.underlined-title {
+  padding-bottom: 7px!important;
+  padding-left: 9px!important;
+  padding-right: 18px!important;
+  border-bottom: 2px solid #414141;
+}
+
+@media screen and ( min-width: 800px) {
+  .keski-news-home, .lib-home-container {
+    min-height: 540px;
+  }
+}
+
+.infobox {
+  border-radius: 15px;
+  padding: 1.5rem 2rem 2.5rem 2.5rem!important;
+  -webkit-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+  box-shadow: 1px 1px 2px 0px rgba(0,0,0,0.25);
+  border-radius: 4px;
+  box-shadow: 0 1px 2px 0 rgba(0,0,0,.17);
+  padding: 48px 32px 40px;
+  transition: .2s ease-in-out;
+}
+
+@media (min-width: @screen-md-min) {
+  .template-name-home .infobox {
+    min-height: 475px;
+  }
+}
+
+.infobox h2 {
+  font-size: 1.5em;
+}
+
+.infobox img {
+  padding-right: 1em;
+  margin-bottom: 1em;
+}
+
+/* Common modal styles */
+.modal-header {
+  border-bottom: none;
+  margin: 0;
+}
+
+.selected-sub-nav {
+  border-left: 5px solid @nav-selected!important;
+}
+
+.finna-main-tabs .active {
+  border-color: @nav-selected!important;
+}
+
+// Hide list navigation if only 1 page
+[aria-label="1 of 1"] {
+  display: none!important;
+}
+// We cannot replace the original navigation .less, thus we have to manually replace everything..
+/*
+header {
+  padding: 0 .5em  .6em .5em;
+  justify-content: space-evenly;
+  margin-right: auto;
+  margin-left: 0;
+}*/
+
+.btn-advanced {
+  padding: 6px 10px!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  font-size: 14px!important;
+  background-color: #00446b!important;
+}
+
+.btn-advanced:hover, .btn-advanced:focus {
+  background-color: @btn-primary-hover!important;
+}
+
+  // Navigation background
+.finna-navbar, .navbar-header, header, [role=navigation] {
+  //background-color: #ebebed;
+  background-color: @body-bg!important;
+}
+
+#header-collapse {
+  //height: 64px!important;
+}
+
+.navbar-collapse {
+  vertical-align: middle;
+  justify-content: center;
+  margin: 0!important;
+  padding: 0!important;
+}
+
+@media screen and (max-width: 1000px) {
+  .finna-navbar {
+    height: 64px!important;
+  }
+
+  #header-collapse {
+    margin-top: -8px;
+    padding: .25em 2em !important;
+  }
+
+}
+
+.finna-navbar .navbar-collapse, #header-collapse {
+  background-color: @body-bg!important;
+  border-top: none;
+}
+
+.navbar-nav.nav-login {
+  border-top: none;
+}
+
+#header-collapse {
+  min-width: 260px;
+}
+
+.finna-navbar .navbar-collapse>ul {
+  padding-left: 2em!important;
+
+  //width: 100%;
+  //padding: 0;
+  //margin: 1em;
+}
+
+@media screen and (max-width: 360px) {
+  #header-collapse {
+    min-width: 100%;
+  }
+}
+
+@media screen and (min-width: 401px) {
+  #header-collapse .nav-login {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 988px) {
+  #header-collapse {
+    margin-top: -5px!important;
+  }
+}
+
+.browsebar li a:hover {
+  border-color: #ffffff;
+}
+
+@media screen and (max-width: 700px) {
+
+  .browsebar {
+    align-content: start;
+  }
+
+  .browsebar .container {
+    width: auto!important;
+    margin-left: 5vmin;
+  }
+}
+
+@media screen and (max-width: 768px) {
+
+  .browsebar .container {
+    width: 100%;
+  }
+
+  .navbar {
+    text-align: left;
+  }
+}
+
+.finna-navbar .navbar-collapse>ul>li {
+  border-bottom: none;
+}
+
+.navbar {
+  width: 100%;
+}
+
+/*
+.system-messages {
+  font-weight: 600;
+  font-size: 1.35rem;
+  position: relative!important;
+  left: 50%;
+  transform: translateX(-50%);
+  color: @brand-danger;
+  background: none;
+  flex-direction: row;
+  align-content: center;
+  vertical-align: center;
+  width: auto;
+  max-width: 100%;
+  display: inline-block;
+  padding: 0;
+  margin-bottom: 0;
+  margin-top: .15em;
+  z-index: 99999999;
+}
+
+
+@media screen and ( max-width: 1000px ){
+  .system-messages {
+    font-size: 1.15rem;
+
+    top: 0;
+
+  }
+}
+ */
+
+
+header i {
+  margin-right: 2px;
+}
+
+#account-icon {
+  color: @gray!important;
+}
+
+header .fa-info-circle:before {
+  font-family: inherit!important;
+  content: "\f05a";
+  font-size: 1.05em;
+}
+
+header .in {
+  height: auto!important;
+  // Unless we set min-height the mobile nav becomes a scrollable "mess".
+  min-height: 360px;
+  padding-bottom: 1em;
+}
+
+.navbar-toggle {
+  //background: none!important;
+  height: 48px!important;
+  width: 48px!important;
+  top: 8px!important;
+  right: 8px!important;
+}
+// Margins for menu items on different screen sizes.
+@media screen and ( min-width: 1200px ){
+  .navbar-header {
+    margin-left: -20px!important;
+    margin-right: 20px!important;
+  }
+}
+
+@media screen and ( min-width: 1400px ){
+  .navbar-header {
+    margin-left: -70px!important;
+  }
+}
+
+[role=menubar] li {
+  margin-right: 8px!important;
+}
+
+[role=menubar] li a {
+  padding-top: 6px!important;
+  padding-bottom: 6px!important;
+}
+
+header li a {
+  padding-bottom: 5px!important;
+}
+
+.finna-navbar .navbar-nav.lang {
+  margin-right: 1.5em;
+  padding-top: 3px;
+}
+
+// Hovering links inside li
+.browsebar-custom div span:hover, #browseContainer ul li a:hover,
+.browsebar-custom div span:focus, #browseContainer ul li a:focus {
+  border-bottom: solid 3px @nav-hover-border-color;
+  background: none;
+}
+
+// Dropdowns
+[role=menubar] li a:not(.selected-nav):hover, [role=menubar] li a:not(.selected-nav):focus, [role=menubar] a[aria-expanded="true"] {
+  border-bottom: none!important;
+}
+
+// Dropdowns
+[role=menubar] li a:hover, [role=menubar] li a:focus, [role=menubar] a[aria-expanded="true"] {
+  background: @nav-hover-bg;
+  border-left: solid 4px @nav-hover-border-color;
+  margin-left: -4px;
+}
+
+#loginOptions a:hover, #loginOptions-navi a:hover, #loginOptions a:focus, #loginOptions-navi a:focus {
+  background: @btn-primary-hover;
+  border-left: 0;
+  margin-left: 0;
+}
+
+.dropdown-menu li, .dropdown li {
+  margin-left: 10px;
+  width: auto!important;
+  margin-right: 8px!important;
+  margin-bottom: 9px!important;
+  margin-top: 0!important;
+  border-bottom: none;
+  //min-width: 210px;
+}
+
+.dropdown-menu li a:hover, .dropdown-menu li a:hover, .dropdown-menu li a:focus, .dropdown-menu li a:focus {
+  background: @nav-hover-bg!important;
+  border-left: solid 4px @nav-hover-border-color!important;
+  margin-left: -4px;
+  border-bottom: none!important;
+}
+
+.finna-navbar .navbar-nav>li>a {
+  line-height: 24px!important;
+}
+
+.dropdown-menu li a, .dropdown li a {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 10px;
+  padding-bottom: 10px!important;
+}
+
+
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+  border-color: @nav-hover-border-color;
+}
+
+.dropdown a[aria-expanded="true"] {
+  border-bottom: solid 3px @nav-hover-border-color;
+  background: none;
+  margin-bottom: 0!important;
+}
+
+.dropdown a[aria-expanded="true"]:hover, .dropdown a[aria-expanded="true"]:focus {
+  border-bottom: none;
+  background: none;
+  margin-bottom: 0!important;
+}
+
+.dropdown-menu > :first-child {
+  margin-top: 18px!important;
+}
+
+.dropdown-menu > :last-child {
+  margin-bottom: 16px!important;
+}
+
+.dropdown-menu > :first-child a, .dropdown-menu > :last-child a {
+  border-radius: 0!important;
+}
+
+.dropdown {
+  padding-bottom: 0!important;
+}
+
+.dropdown-menu li .selected-nav, .dropdown-menu li .selected-nav:hover {
+  border-bottom: none!important;
+  border-left: solid 4px @nav-selected!important;
+  margin-left: 0;
+}
+
+#my-info-dropdown-menu>li {
+  border-bottom: none!important;
+}
+
+@media screen and (max-width: @screen-sm-min) {
+  .card-selection a {
+    margin-left: 15px!important
+  }
+}
+
+.dropdown-menu li a div {
+  padding-left: 10px!important;
+}
+
+.navbar-brand img {
+  padding-left: 12px!important;
+  padding-bottom: 5px!important;
+  margin: 0;
+  padding-bottom: 12px!important;
+  height: 52px!important;
+  width: auto;
+}
+
+.navbar-header .selected-nav  {
+  border-bottom: none;
+  //border-left: solid 2px #78c57d;
+}
+
+.navbar-brand img {
+  margin-left: 4px;
+}
+
+.navbar-brand img:hover, .navbar-brand:focus {
+  margin-left: 0;
+  border-left: solid 4px @nav-hover-border-color!important;
+}
+
+.navbar-brand:focus {
+  img{
+    margin-left: 0;
+    border-left: solid 4px @nav-hover-border-color!important;
+  }
+
+}
+
+[role=menubar] li  {
+  font-size: 1.0718em;
+}
+
+.mobile-lang-selector {
+  display: none!important;
+}
+
+#my-info-dropdown-menu {
+  width: 280px;
+  background-color: @body-bg;
+  margin-top: 0;
+  @media (max-width: @screen-xxs) {
+    right: -90%;
+  }
+
+  .card-selection {
+    @media (max-width: @screen-sm-max) {
+      overflow-y: scroll;
+      overflow-x: hidden;
+      max-height: 200px;
+    }
+    p {
+      padding-left: 15px;
+      margin-bottom: 0px;
+    }
+    #select-card-label-dropdown {
+      display: none;
+    }
+    > a:not(.card-header) {
+      padding-left: 32px;
+    }
+    i.fa-check {
+      margin-left: -17px;
+      color: @brand-primary;
+    }
+  }
+  > li {
+    border-bottom: 1px solid @gray-lighter;
+    line-height: 30px;
+    cursor: pointer;
+
+    > ul {
+      line-height: 20px;
+      > li > a {
+        text-indent: 5%;
+        li {
+          height: 25px;
+        }
+      }
+    }
+    a {
+      width: 100%;
+      &:hover, &:focus {
+        text-decoration: none;
+        color: @dropdown-link-hover-color;
+        background-color: @dropdown-link-hover-bg;
+      }
+    }
+  }
+
+  > li:last-child > a, li:last-child {
+    border-bottom: none;
+  }
+  > li:first-child > a, li:first-child {
+  }
+}
+
+// Default styling of Finna Jump menus
+.jumpMenuForm {
+  height: 38px;
+  label {
+    font-weight: normal;
+    margin-left: 10px;
+  }
+}
+.jump-menu-style {
+  padding: 0;
+  position: relative;
+  width: auto;
+  z-index: 1;
+  display: inline-block;
+  min-width: 60px;
+  select {
+    background-color: transparent;
+    border: 0 none;
+    box-shadow: none;
+    display: block;
+    font-size: 100%;
+    font-weight: 600;
+    line-height: 1em;
+    margin: 0;
+    width: 100%;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  option {
+    background: @body-bg;
+    color: @gray;
+    padding: 5px;
+    &:hover, &:focus {
+      background-color: @gray-light;
+    }
+  }
+
+  &:before {
+    display: block;
+    font-size: 1em;
+    height: 100%;
+    padding: 0 20px 0px 2px;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    text-align: center;
+    width: 1em;
+    z-index: -1;
+  }
+  &.controls {
+    border-radius: @finna-button-radius;
+    background-color: @brand-primary;
+    padding-top: 0px;
+    transition: background-color .1s linear;
+    option:checked {
+      background: @btn-primary-bg;
+      color: @body-bg;
+    }
+  }
+  &.controls:before {
+    transition: background-color .1s linear;
+    background: @btn-primary-bg;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    color: @body-bg;
+    line-height: 40px;
+  }
+
+}
+.jump-menu-style select::-ms-expand {
+  display: none; /* to ie 10 */
+}
+:-moz-any(.prefilter-select,.jump-menu-style.controls):before {
+  background-color:  @body-bg; /* this is necessary for overcome the caret default browser */
+  pointer-events: none; /* https://developer.mozilla.org/en-US/docs/Web/CSS/pointer-events  */
+  z-index: 1; /* this is necessary for overcome the pseudo element */
+}
+
+
+/* Mobile navbar */
+@media(max-width: @grid-float-breakpoint-max) {
+
+  .navbar-collapse.in {
+    box-shadow: 0 3px 5px @gray;
+    max-height: ~"calc(100vh - "@navbar-height~")";
+  }
+  .navbar-header {
+    padding-left: 10px;
+  }
+  #header-collapse {
+    float: right;
+    width: auto;
+    padding: 3vmin 10vmin;
+    margin-bottom: 18px;
+  }
+  // Display the mobile language switcher and hide the default language switcher.
+  .mobile-lang-selector {
+    display: block!important;
+  }
+  .lang-selector {
+    display: none!important;
+  }
+}
+
+.navbar-nav>li>.dropdown-menu {
+  margin-top: -5px;
+}
+
+.selected-nav {
+  //border-bottom: solid 2px #7bc578!important;
+  border-bottom: solid 2px @nav-selected!important;
+}
+
+.navbar-header .selected-nav {
+  border-bottom: none!important;
+}
+
+@media screen and (max-width: @screen-sm-max) {
+  .floating-feedback-btn {
+    position: absolute;
+    top: 150px;
+  }
+}
+
+@media screen and ( max-width: 499px ){
+  .finna-navbar .navbar-nav .logoutOptions .dropdown-menu {
+    margin-left: 5%;
+  }
+}
+
+@media screen and ( min-width: 500px ){
+  .finna-navbar .navbar-nav .logoutOptions .dropdown-menu {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+// BROWSEBAR
+.browsebar {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.browsebar-title {
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.browsebar-title:after {
+  content: ':';
+}
+
+
+
+/************************************
+* Common styles for news and events *
+*************************************/
+
+/* Common styles for news and events */
+#newsModalTitle {
+    margin-top: 2em;
+    margin-left: 1em!important;
+    margin-bottom: 0!important;
+    font-size: 1.75em;
+    max-width: 90%;
+}
+
+#newsModalBody {
+    padding-top: 0!important;
+    margin-top: -1.3em;
+}
+
+#newsModal .modal-content .close, #eventModal .modal-content .close   {
+    //color: #ff461e;
+    color: #FF461E;
+    margin-top: .5em;
+    margin-right: .5em;
+    font-size: 1.6em!important;
+    opacity: .6;
+}
+
+#newsModal .modal-content .close:hover, #eventModal .modal-content .close:hover {
+    opacity: 1;
+}
+
+@media screen and (max-width: 500px) {
+    #newsModal, #eventModal {
+        padding: 0!important;
+        margin: 0!important;
+        width: 100vmin!important;
+    }
+}
+
+/***************
+*    EVENTS   *
+****************/
+
+/* Filters */
+.event-filters {
+    min-width: 220px;
+}
+
+.event-category-filter {
+    margin-bottom: 1.5em;
+}
+
+@media screen and (min-width: 800px) {
+    .event-filters {
+        margin-top: 90px;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        /* If we do not specify the height, sticky won't work because the element is 100% in height. */
+        height: 1px;
+    }
+
+    .events-page .events-container {
+        display: grid;
+        grid-template-columns: 230px auto;
+        grid-template-rows: auto auto;
+    }
+
+    #keskiEventsUl {
+        margin-left: 2em;
+    }
+
+    .event-category-filter {
+        margin-bottom: 2em;
+    }
+
+}
+
+.events-front-page #keskiEventsUl {
+    margin: 0!important;
+    padding: 0!important;
+    width: 100% !important;
+}
+
+.event-category-filter-title:before {
+    font-family: FontAwesome;
+    //content: "\f0eb"; //Light bulb:
+    content: "\f02c";
+    margin-right: 11px;
+    margin-left: 2px;
+    font-size: .9em;
+}
+
+.event-location-filter-title:before {
+    font-family: FontAwesome;
+    //content: "\f0eb"; //Light bulb:
+    content: "\f041";
+    margin-right: 11px;
+    margin-left: 4px;
+    font-size: .9em;
+}
+
+.event-filter-container fieldset {
+    background-color: #f5f7fa;
+    border: solid thin #aaaaaa;
+    box-sizing: border-box;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    position: relative;
+    padding: 1rem 1rem 1rem 2rem;
+    max-width: 300px;
+    width: auto;
+    animation: popIn 300ms ease-in both;
+    border-top: none;
+    border-left: none;
+}
+
+.event-filter-container legend {
+    border-bottom: none!important;
+}
+
+.event-filter-container {
+    background: #F5F7FA!important;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23) !important;
+    padding: 0 1rem 0 1rem;
+}
+
+.event-filter-container button {
+    background: #F5F7FA!important;
+    border: none!important;
+    box-shadow: none!important;
+    font-size: 1.33em!important;
+    color: @text-color!important;
+}
+
+.event-filter-container .list-group.facet button.list-group-item.title {
+    text-transform: unset!important;
+    font-weight: 600!important;
+}
+
+
+.tag-checkbox-container label, .location-checkbox-container label  {
+    font-weight: 500!important;
+}
+
+.event-filter-container-body {
+    padding-left: .5rem;
+    padding-top: .1rem;
+    padding-bottom: .75em;
+}
+
+.event-tags-filter {
+    margin-top: 4em;
+}
+
+.event-filter-container div input {
+    margin-bottom: .3em;
+}
+
+.event-filter-container fieldset div span {
+    font-weight: 500;
+    font-size: 1.05em;
+}
+
+.events-section-title {
+
+}
+
+.events-page-title {
+    font-size: 1.6rem!important;
+    clear: both;
+    display: inline-block;
+    padding: 0 55px 8px 55px!important;
+    margin-bottom: .75em!important;
+    border-bottom: 2px solid #414141!important;
+}
+
+.event-li {
+    display: inline-block;
+    animation: popIn 300ms ease-in both;
+}
+
+.event-li .fa {
+    margin-right: 8px;
+}
+
+.event-li .event-li-clock {
+    margin-left: 10px;
+    margin-right: 2px;
+}
+
+.event-item-link {
+    display: flex;
+    flex-direction: column;
+    background: @infobox-background;
+    border-radius: 4px;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.17);
+    -webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.17);
+    -moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,.17);
+    transition: .35s ease-in-out;
+}
+
+#toggleEventFilters {
+    display: block;
+}
+
+
+@media screen and (min-width: 800px) {
+    .event-item-link {
+        display: grid;
+        grid-template-columns: 310px auto;
+        grid-template-rows: 100% 100%;
+        border-radius: 18px;
+    }
+
+    #toggleEventFilters {
+        display: none;
+    }
+
+    #collapseExample {
+        display: block;
+    }
+
+    .event-filters .facet-group [aria-expanded="true"]::after {
+        display: none;
+    }
+
+}
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .event-item-link {
+        display: block;
+        width: 100%;
+    }
+}
+
+.event-li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    min-width: 100%;
+}
+
+.events-page .event-li {
+    min-width: 100%;
+}
+
+.event-item-link {
+    margin-right: 5%;
+}
+
+.events-count-small {
+    font-size: .78em;
+    //font-style: oblique;
+    margin-left: .14em;
+}
+
+.event-item-link:hover, .event-item-link:focus {
+    margin-top: 4px;
+    margin-bottom: -4px;
+    -webkit-box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
+    -moz-box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
+    box-shadow: 2px 2px 8px 2px rgba(61, 62, 69, 0.33);
+}
+
+.news-item-link {
+    animation: popIn 300ms ease-in both;
+}
+
+.news-item-link:hover, .news-item-link:focus {
+    -webkit-box-shadow: 3px 3px 10px 3px rgba(61, 62, 69, 0.33);
+    -moz-box-shadow: 3px 3px 8px 3px rgba(61, 62, 69, 0.33);
+    box-shadow: 3px 3px 10px 3px rgba(61, 62, 69, 0.33);
+}
+
+.news-li a {
+    background: none!important;
+}
+
+.event-li span {
+    width: 100%;
+}
+
+.event-li a {
+    text-decoration: none;
+}
+
+.event-li span {
+    width: auto;
+    display: block;
+    margin-bottom: 4px;
+    margin-top: 4px;
+    font-weight: 600;
+    color: black!important;
+
+}
+
+.event-li-icon {
+    height: .89em;
+    width: auto;
+    margin-right: .75em;
+}
+
+.event-li-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    margin-bottom: .65em!important;
+}
+
+.event-li-title img {
+    margin-right: 15px;
+}
+
+.event-li-place {
+    font-size: 1.05rem;
+    margin-top: .78em!important;
+}
+
+.event-li-img {
+    justify-content: center;
+    display: flex;
+}
+
+.event-li-img img {
+    max-height: 200px;
+    max-width: 310px;
+    width: auto;
+    position: relative;
+}
+
+.event-li-details {
+    /* padding: 2em 4em 2em  3em; */
+    vertical-align: middle;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    padding-left: 1.8em;
+    padding-right: 1em;
+}
+
+@media screen and (min-width: 800px) and (max-width: 1000px) {
+    .event-item-link {
+        grid-template-columns: 200px auto;
+    }
+
+    .event-li-img img {
+        max-width: 200px;
+    }
+}
+
+@media screen and (max-width: 799px) {
+    .event-item-link {
+        padding-bottom: 1.5em;
+    }
+
+    .event-li-title {
+        margin-top: 1.1em!important;
+    }
+
+
+    .event-li-details {
+        text-align: center;
+        align-content: center;
+    }
+
+    .event-li-img img {
+        max-width: 100%;
+        max-height: 280px;
+        width: auto;
+        height: auto;
+    }
+}
+
+.hidden-event, .hidden-filter {
+    visibility: hidden;
+    display: none;
+}
+
+.no-matching-events-div {
+    font-size: 1.5em;
+    margin-top: 3em;
+}
+
+@media screen and ( max-width: 600px ) {
+    .event-modal-title {
+        width: 100%;
+        margin-left: 0!important;
+    }
+}
+
+.event-content {
+    font-size: 1em;
+    margin-right: 1em;
+}
+
+/* Material checkboxes  https://codepen.io/finnhvman/pen/zpygBB */
+.pure-material-checkbox {
+    z-index: 0;
+    position: relative;
+    display: inline-block;
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.87);
+    font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+    font-size: 16px;
+    line-height: 1.5;
+    min-width: 95%;
+}
+
+/* Input */
+.pure-material-checkbox > input {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    z-index: -1;
+    position: absolute;
+    left: -10px;
+    top: -8px;
+    display: block;
+    margin: 0;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    box-shadow: none;
+    outline: none;
+    opacity: 0;
+    transform: scale(1);
+    pointer-events: none;
+    transition: opacity 0.3s, transform 0.2s;
+}
+
+/* Span */
+.pure-material-checkbox > span {
+    display: inline-flex;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Box */
+.pure-material-checkbox > span::before {
+    content: "";
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 3px 11px 3px 1px;
+    border: solid 2px; /* Safari */
+    border-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+    border-radius: 2px;
+    width: 18px;
+    height: 18px;
+    vertical-align: top;
+    transition: border-color 0.2s, background-color 0.2s;
+}
+
+/* Checkmark */
+.pure-material-checkbox > span::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 3px;
+    left: 1px;
+    width: 10px;
+    height: 5px;
+    border: solid 2px transparent;
+    border-right: none;
+    border-top: none;
+    transform: translate(3px, 4px) rotate(-45deg);
+}
+
+/* Checked, Indeterminate */
+.pure-material-checkbox > input:checked,
+.pure-material-checkbox > input:indeterminate {
+    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.pure-material-checkbox > input:checked + span::before,
+.pure-material-checkbox > input:indeterminate + span::before {
+    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+    background-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.pure-material-checkbox > input:checked + span::after,
+.pure-material-checkbox > input:indeterminate + span::after {
+    border-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
+}
+
+.pure-material-checkbox > input:indeterminate + span::after {
+    border-left: none;
+    transform: translate(4px, 3px);
+}
+
+/* Hover, Focus */
+.pure-material-checkbox:hover > input, .pure-material-checkbox:focus > input {
+    opacity: 0.08;
+}
+
+
+/* Active */
+.pure-material-checkbox > input:active {
+    opacity: 1;
+    transform: scale(0);
+    transition: transform 0s, opacity 0s;
+}
+
+.pure-material-checkbox > input:active + span::before {
+    border-color: rgb(var(--pure-material-primary-rgb, 33, 150, 243));
+}
+
+.pure-material-checkbox > input:checked:active + span::before {
+    border-color: transparent;
+    background-color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.6);
+}
+
+/* Disabled */
+.pure-material-checkbox > input:disabled {
+    opacity: 0;
+}
+
+.pure-material-checkbox > input:disabled + span {
+    color: rgba(var(--pure-material-onsurface-rgb, 0, 0, 0), 0.38);
+    cursor: initial;
+}
+
+.pure-material-checkbox > input:disabled + span::before {
+    border-color: currentColor;
+}
+
+.pure-material-checkbox > input:checked:disabled + span::before,
+.pure-material-checkbox > input:indeterminate:disabled + span::before {
+    border-color: transparent;
+    background-color: currentColor;
+}
+
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(.4);
+    }
+    60% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1)
+    }
+}
+/* Event modal */
+#eventModal {
+    margin-left: 1.55em;
+}
+
+#eventModalBody {
+    padding-top: 0;
+    font-size: 1.15em;
+}
+
+.event-modal-header-text {
+    margin-left: 2.4em;
+}
+
+@media screen and ( max-width: 430px ) {
+    .event-modal-header-text {
+         margin-left: 0;
+     }
+
+    .event-modal-location-container, .event-modal-description {
+        margin-left: .55em;
+        margin-right: .55em;
+    }
+}
+
+@media screen and ( max-width: 380px ) {
+    .event-modal-time-container {
+        margin-left: -1em!important;
+    }
+}
+
+@media screen and ( max-width: 350px ) {
+    .event-modal-time-container {
+       width: 115%!important;
+    }
+}
+
+@media screen and ( min-width: 400px ) {
+    .event-modal-description, .event-modal-location-container {
+        margin-left: 1em;
+        margin-right: 1.2em;
+    }
+}
+
+@media screen and ( min-width: 460px ) {
+    .event-modal-description, .event-modal-location-container {
+        padding-left: 1.3em;
+        margin-left: 1em;
+        margin-right: 1.5em;
+        border-left: solid 3px #0091c5;
+        padding-top: .2em;
+        padding-bottom: .3em;
+    }
+    .event-modal-description {
+        margin-left: 1.1em;
+    }
+
+}
+
+.event-modal-location-container {
+    padding-top: .1em;
+    margin-top: 1.75em;
+    border-color: #5f9ff5;
+}
+
+.event-modal-location-container {
+    font-size: 1.25em;
+}
+
+.event-modal-link {
+    margin-top: 1.7em;
+    font-size: 1.1em;
+}
+
+.event-modal-link i {
+    margin-left: -4px;
+    margin-right: 8px;
+    font-size: 1.15em;
+}
+
+#eventModalBody .event-image {
+    max-height: 65vmin;
+    max-width: 90%;
+    margin-top: 1.5em!important;
+    border: solid 1px transparent;
+    border-radius: 16px!important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#eventModal .modal-footer {
+    align-content: center;
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.event-modal-header-text {
+    padding: 15px;
+    text-align: left;
+    margin-top: 1.5em;
+}
+
+.event-modal-header-text .event-date-container {
+    margin-left: 5px;
+    text-align: left;
+    margin-top: .7em;
+    font-size: 1.2em;
+    margin-bottom: 0;
+    font-weight: 600;
+}
+
+#eventModalTitle {
+    font-size: 1.6em;
+    margin-bottom: 0;
+    max-width: 80%;
+}
+
+.event-detail {
+    display: flex!important;
+    text-align: left;
+    align-content: center;
+}
+
+.event-details-icon {
+    height: 1.04em;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-right: 12px;
+
+}
+
+.event-info-box {
+    font-weight: 600;
+}
+
+.event-info-box  span {
+    font-size: 1.05rem;
+    margin-top: .35em;
+}
+
+.event-info-box .time-row-splitter {
+    margin-top: 0;
+}
+
+
+.event-modal-time-container img {
+    margin-top: -3px;
+    margin-right: .15em;
+}
+
+.event-info-box img {
+    margin-right: .6em;
+}
+
+.event-modal-time-container .event-li-clock {
+
+}
+
+.event-modal-header-text .event-li-clock {
+    margin-left: 10px;
+    margin-right: 4px;
+}
+
+.start-end-divider {
+    margin-left: 1px;
+    margin-right: 1px;
+    font-weight: 800;
+    font-size: 1.05em;
+}
+
+.event-modal-time {
+    width: 100%;
+    display: inline-block;
+}
+
+.event-li-details .event-location {
+    margin-top: 16px;
+    font-size: .95rem;
+}
+
+.event-tags {
+    width: 100%;
+    display: block;
+    margin-top: 1.25em;
+    margin-bottom: .6em;
+    font-style: oblique!important;
+}
+
+.event-price, .event-link, .event-website, .event-location, .event-location-info, .event-transit {
+    width: 100%;
+    display: block;
+    margin-top: 1.25em;
+    margin-bottom: .6em;
+    font-style: oblique!important;
+}
+
+.event-modal-description .event-info-box {
+    margin-top: 1.5em;
+    font-size: 1em;
+    margin-bottom: .3em;
+}
+
+.event-price, .event-link, .event-website {
+}
+
+.event-info-box .event-li-clock {
+    margin-left: 2em;
+}
+
+.leaflet-popup-content-wrapper {
+    width: auto;
+    min-width: 195px;
+}
+
+.leaflet-popup-content {
+    width: auto!important;
+}
+
+.leaflet-popup-close-button {
+    height: 18px;
+    width: 22px;
+    margin-top: 3px;
+    margin-right: 3px;
+}
+
+#mapRow {
+    margin-top: 1.35em;
+}
+
+#eventMapContainer {
+    border-radius: 13px;
+    width: 99%;
+    height: 350px;
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+/* FRONT PAGE EVENTS */
+.events-front-page ul {
+    min-width: 90vmin;
+    padding-inline-start: 0;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    margin-left: 0!important;
+}
+
+.events-front-page {
+    margin-top: 3.5em;
+    margin-bottom: 3em;
+}
+
+.nav-to-event-page-container {
+    display: flex;
+    justify-content: space-between;
+    width: 90vmin;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.events-front-page-nav-link {
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 2em;
+}
+
+.events-front-page-nav-button {
+    min-width: 300px;
+    display: inline-block;
+    padding: .6em 1.85em;
+    border: solid 2px @gray;
+    background: none;
+    font-weight: 600!important;
+    font-size: 1.55em;
+    color: @text-color;
+    text-align: center;
+    align-content: center;
+    justify-content: space-between;
+    font-variant-caps: all-petite-caps;
+}
+
+
+@media screen and (min-width: 1420px) {
+    .events-front-page ul {
+        columns: 2;
+        -webkit-columns: 2;
+        -moz-columns: 2;
+        column-gap: 50px;
+    }
+
+    .events-front-page li {
+        margin-bottom: 15px;
+    }
+
+    .events-front-page #keskiEvents {
+        width: 100%;
+    }
+
+    .events-front-page {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .events-front-page-nav-button {
+        padding: .8em 15%;
+    }
+
+    .front-page-event .event-item-link {
+        min-height: 200px;
+    }
+}
+
+
+@media screen and (min-width: 768px) and (max-width: 1419px) {
+    .events-front-page ul {
+        margin: 0;
+        -webkit-column-count: 2; /* Chrome, Safari, Opera */
+        -moz-column-count: 2; /* Firefox */
+        column-count: 2;
+        column-gap: 50px;
+    }
+
+    .events-front-page li {
+        margin-bottom: 30px;
+        display: inline-block;
+        -webkit-column-break-inside: avoid;
+        page-break-inside: avoid;
+        break-inside: avoid;
+    }
+
+    .event-item-link {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .events-front-page #keskiEvents {
+        width: 100%;
+    }
+
+    .events-front-page {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .events-front-page-nav-button {
+        padding: .8em 15%;
+    }
+
+    .front-page-event .event-item-link {
+        min-height: 200px;
+    }
+
+    .front-page-event {
+        display: block;
+    }
+
+    .event-li-img {
+        max-width: 100%;
+        height: 250px;
+        width: auto;
+    }
+
+    .event-li-img img {
+        max-width: 100%;
+        height: 250px;
+        width: auto;
+    }
+
+    .event-li-details {
+        text-align: center;
+    }
+
+    .event-item-link {
+        //max-width: 495px;
+        //background: none;
+        //text-align: center;
+    }
+
+    .event-li {
+        margin-top: 0;
+        margin-bottom: 20px;
+    }
+
+    .event-li-details {
+        min-height: 150px;
+
+    }
+
+    .event-li-img {
+        width: 100% !important;
+        min-width: 100%;
+        max-width: 100%;
+        max-height: 280px;
+    }
+
+    .event-item-link {
+        //max-width: 445px!important;
+        //background: none!important;
+    }
+
+}
+
+
+
+.front-page-event .event-item-link {
+    margin-right: 0;
+    border-radius: 5px;
+}
+
+.front-page-event .event-li-title {
+    //font-size: 1.25em;
+}
+
+.front-page-event .event-date-container, .front-page-event .event-li-place  {
+    //font-size: 1.1em;
+}
+
+.events-front-page-nav-button:hover, .events-front-page-nav-button:focus {
+    border-color: @brand-secondary;
+}
+
+
+/* News */
+#keskiNews {
+    min-width: 85%;
+    padding-bottom: 1em!important;
+}
+
+@media screen and (max-width: 768px) {
+    #keskiNews {
+        min-width: 100%;
+    }
+}
+
+#keskiNews ul li {
+    padding-top: .33em;
+    padding-bottom: .33em;
+    font-size: 1.15em;
+    font-weight: 600;
+    color: @text-color;
+}
+
+#keskiNews ul {
+    padding-right: 15%;
+}
+
+#keskiNews ul li a {
+    display: flex!important;
+    flex-direction: column!important;
+    flex-wrap: nowrap!important;
+}
+
+.event-date-container {
+    font-weight: 600;
+    display: inline-block;
+    width: 100%;
+    color: @text-color;
+    font-size: 1.1em;
+}
+
+.event-time-row {
+    display: inline-block;
+    width: 100%;
+}
+
+.news-li {
+    width: 100% !important;
+    margin-bottom: .85em;
+}
+
+.news-container {
+    position: relative;
+    text-align: center;
+    height: 175px;
+}
+
+.news-container img {
+    object-fit: cover;
+    height: 175px;
+    width: auto;
+    border-radius: 5px;
+}
+
+.news-page-news-container img {
+    height: 250px;
+}
+
+.news-page-news-container {
+    height: 250px;
+}
+
+.news-page-news-date {
+    margin-top: -.4em;
+}
+
+.news-container a, .news-container a  {
+    color: @text-color;
+}
+.news-container a:hover, .news-container a:focus {
+    color: @link-hover-color;
+}
+
+.news-container:focus {
+    color: @link-hover-color!important;
+}
+
+.news-item-link:focus, .event-item-link:focus {
+    border-bottom: 7px solid @link-hover-color!important;
+}
+
+.news-text-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    //color: #f8fafd;
+    background: rgba(250, 252, 255, 0.91);
+    width: auto!important;
+    display: flex;
+    flex-direction: column;
+    //width: 100%;
+    padding: .27em 1.1em;
+    height: auto;
+    text-align: left!important;
+    max-width: 90%;
+    align-self: flex-start;
+    align-items: flex-start;
+    border-left: solid 5px @brand-secondary;
+    margin-left: 1em;
+    margin-bottom: 1em;
+    margin-right: auto;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 6px;
+    font-size: 1.16em;
+    font-weight: 600;
+}
+
+.news-text-container .news-li-title {
+    margin-bottom: .12em;
+}
+
+.news-text-container .news-li-date {
+    font-size: .75em;
+    margin-left: 2px;
+    margin-bottom: .1em;
+}
+
+.keski-news-archive {
+    margin-top: 3em;
+}
+
+.keski-news-archive .news-li-title {
+    //left: 105px;
+}
+
+.keski-news-archive #keskiNewsUl {
+    padding: 0;
+}
+
+.news-page-news-li {
+
+}
+
+.news-title {
+    border-bottom: solid 2px @brand-secondary!important;
+    clear: both;
+    display: inline-block;
+    padding: 2.78em 16px 3px 16px!important;
+    margin-left: 1em!important;
+    margin-bottom: .25em!important;
+}
+
+@media screen and ( max-width: 600px ) {
+    .news-title {
+        width: 100%;
+        margin-left: 0!important;
+    }
+}
+
+@media screen and ( max-width: 430px ) {
+
+    .news-date {
+        left: 0;
+    }
+
+    .news-li-title {
+        left: 50px;
+    }
+
+    .news-page-link .news-li-title {
+        left: 0;
+    }
+
+    .news-section-title {
+        margin-bottom: 1.5em!important;
+    }
+
+}
+
+#newsModal .modal-footer {
+    align-content: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: space-between;
+}
+
+.news-content {
+    padding: 1.8em;
+}
+
+.news-link {
+    margin-top: 1.7em;
+    font-size: 1.1em;
+}
+
+.news-link i {
+    margin-left: -4px;
+    margin-right: 8px;
+    font-size: 1.15em;
+}
+
+.news-image {
+    max-height: 65vmin;
+    margin-top: 3em!important;
+    border: solid 1px transparent;
+    border-radius: 33px!important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+.news-page-link-container {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 1.25em;
+    margin-bottom: .25em;
+}
+
+.news-page-link {
+    width: 100%;
+    padding: .73em 0.65em;
+    font-size: 1.32em;
+    line-height: 1.5;
+}
+
+.news-page-link i {
+    margin-left: .15em!important;
+}
+
+
+// Front page news
+
+.keski-news-home {
+    margin-right: 5%;
+}
+
+.keski-news-home #keskiNewsUl {
+    margin: 0!important;
+    padding: 0!important;
+}
+/* SEARCH RESULTS / GENERIC */
+.record-container, .record-container h1, .record-container h2, .record-container h3 {
+    //font-family: 'Open Sans', sans-serif!important;
+}
+
+.record-container .result-body {
+    margin-top: 5px;
+}
+
+/* FILTERING SECTION */
+@media screen and ( min-width: 1000px ) {
+    .side-facets-container-ajax {
+        margin-right: 1.9em;
+    }
+}
+
+.side-facets-container-ajax {
+    color: @text-color!important;
+}
+
+.searchtools {
+    text-align: center!important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    font-size: .85rem;
+}
+
+.searchtools-background {
+    background: none!important;
+}
+
+.list-group-item, .searchtools a {
+    color: @text-color!important;
+}
+
+// Expand filter category. // Minimize filter category. // Expand library group // Minimize library group.
+.list-group.facet .list-group-item.title.collapsed:after, .list-group.facets .list-group-item.title.collapsed:after,
+.list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after,
+.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before,
+.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
+    color: @gray-dark!important;
+}
+
+
+// Expand library group
+.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before {
+    font-family: finnaicons;
+    content: "\e91a";
+    font-size: 22px;
+    margin-left: 3px;
+    margin-right: 8px;
+}
+// Minimize library group.
+.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
+    font-size: 22px;
+    font-family: finnaicons;
+    content: "\e916";
+    margin-right: 8px;
+    margin-left: 3px;
+}
+
+.list-group.facet .list-group-item.title.collapsed:after, .list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after {
+    //color: transparent;
+}
+// Hide "Keski-kirjastot"
+#side-collapse-building .jstree-container-ul li:first-child i {
+    display: none;
+}
+
+#side-collapse-building .jstree-anchor .badge {
+    display: none;
+}
+
+.jstree-children .jstree-ocl, .jstree-children .badge, .jstree-children jstree-ocl:before  {
+    display: block!important;
+}
+
+.dedupInformation, span[title="Keski-kirjastot"], .dedupInformation, span[title="Keski Libraries"]  {
+    display: none;
+}
+
+#side-collapse-building  .jstree-children:not(.facet) {
+    //margin-left: -10px!important;
+}
+
+#side-collapse-building .fa-square-o {
+    //margin-left: -20px!important;
+}
+
+#side-collapse-building .jstree-children {
+    margin-left: -10px!important;
+}
+
+.list-group.facet .jstree-ocl:before, .list-group.facets .jstree-ocl:before {
+    margin-left: -20px!important;
+    margin-left: -20px!important;
+}
+
+
+.template-name-results .main-content {
+    margin-top: 0!important;
+}
+
+// Style the "Saatavilla verkossa" selector.
+.side-facets-container-ajax fieldset {
+    position: relative;
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    display: block;
+    background: #F7F7F7;
+    border: 1px solid #c6c6c6;
+
+}
+
+.side-facets-container-ajax fieldset label {
+    font-weight: 600!important;
+    text-transform: uppercase;
+}
+
+.side-facets-container-ajax fieldset input[type="checkbox"] {
+    margin-right: 2px!important;
+    margin-left: 3px!important;
+}
+
+/* SELECTED SEARCH FILTERS */
+.search-filters {
+    border-top: none;
+    position: relative;
+    //top: -22px;
+    //margin-top: 0!important;
+    margin-bottom: 0!important;
+    padding-top: 0!important;
+    background: none!important;
+    height: auto!important;
+}
+
+.filter-value {
+    background: none!important;
+    color: #fff;
+}
+
+.filter-text {
+    color: #fff;
+}
+
+.title-value-pair {
+    //background: rgba(135, 209, 239, 0.78);
+    //padding: .86em 1.2em;
+    //margin-bottom: .8em;
+    padding: 7px 10px;
+    margin: 5px 0 5px 5px;
+    font-weight: 600;
+    background: #00446b;
+    color: #fff;
+    border-radius: 5px;
+    display: table;
+    align-items: center;
+    white-space: nowrap;
+    font-size: 1.15em;
+}
+
+.filter-text {
+    //color: @text-color!important;
+    //font-size: 1em!important;
+    font-style: oblique;
+    line-height: unset!important;
+    padding: 0!important;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    font-weight: 400!important;
+}
+
+.search-filter-remove {
+    //color: @brand-danger!important;
+    margin-left: 5px!important;
+    margin-right: 6px!important;
+}
+
+// Filter-value = Things like "Verkossa saatavilla".
+.filters-title, .filters-or, .filter-value  {
+    //color: @text-color!important;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    margin-left: 2px!important;
+    margin-right: 3px!important;
+    padding: 0!important;
+    line-height: unset!important;
+}
+
+.filters-title {
+    margin-right: 0!important;
+}
+
+/*
+.sort-button .dropdown a[aria-expanded="true"] {
+    border: solid 3px @btn-primary-hover!important;
+    background: @btn-primary-hover!important;
+    border-bottom: solid 3px @nav-hover-border-color!important;
+}*/
+
+/* FILTERING TOOLS (SORT BY / DISPLAY TYPES & COUNT) */
+.search-controls {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.control-container {
+    order: 1;
+}
+
+.search-controls .pagination-container {
+    order: 2;
+}
+
+.search-controls .control-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.search-controls .view-option-container {
+    order: 0;
+    margin-right: 1em;
+}
+// Hide default labes as they are added inside the filters via js.
+.sort-option-container .button-label, .limit-option-container .button-label, .view-option-container .button-label {
+    display: none;
+}
+
+.dropdown-toggle:hover, .dropdown-toggle:focus {
+    background: @nav-hover-bg!important;
+    border-left: solid 4px @nav-hover-border-color!important;
+    // margin-left: -4px; TODO: Is this required?
+    border-bottom: none!important;
+}
+
+.sort-button .dropdown-toggle, .view-option-container .view-dropdown .dropdown-toggle {
+    border: solid 3px @gray!important;
+}
+
+.search-controls .dropdown-toggle span {
+    height: 20px; // Fixes bottom clipping on mobile.
+}
+
+.sort-button .fa, .view-option-container .view-dropdown i {
+    color: @gray-dark!important;
+    background: none!important;
+}
+  
+.sort-button .dropdown a, .view-option-container .view-dropdown a {
+    color: @text-color!important;
+    background: none!important;
+}
+
+.view-dropdown .fa-list, .view-dropdown .fa-condensed {
+    display: none!important;
+}
+
+.view-option-container, .sort-option-container {
+    margin-right: 1.2em;
+}
+
+// sort-button matches order and items per page.
+.sort-button span, .view-option-container .dropdown-toggle span, .view-option-container .view-dropdown span {
+    font-style: oblique;
+    font-weight: 600;
+    margin-right: 6px;
+}
+
+.sort-by, .results-on-page {
+    padding: 0!important;
+}
+
+.sort-by, .results-on-page {
+    //margin-right: -15px!important;
+    font-style:  normal!important;
+    font-size: 1.06em;
+}
+
+.sort-button .dropdown a, .view-option-container .view-dropdown a {
+    padding: 6px 9px;
+    font-size: 1.06em;
+}
+
+.sort-button .dropdown a[aria-expanded="true"], .view-option-container .view-dropdown a[aria-expanded="true"] {
+    background: none!important;
+    border: solid 3px @nav-selected!important;
+}
+
+/* Fixes clipping of sorting buttons on mobile */
+.search-controls .view-options .dropdown>a span, .search-controls .view-dropdown .dropdown>a span, .search-controls .sort-button .dropdown>a span {
+    max-width: 100%;
+    height: unset;
+}
+.sort-by, .results-on-page {
+    overflow: visible;
+}
+
+.limit-option-container {
+    margin-right: 1em;
+}
+
+.limit-option-container .dropdown-menu {
+    margin: 0!important;
+    padding: 0!important;
+    width: 100%!important;
+    text-align: center!important;
+    margin-block-start: 0!important;
+    margin-block-end: 0!important;
+}
+
+.limit-option-container .dropdown-menu li a {
+    text-align: center!important;
+}
+
+/* SEARCH TOOLS (RSS/EMAIL&SAVE BAR) */
+.searchtools i {
+    margin-right: 4px;
+}
+
+.searchtools a {
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 8px;
+    margin-top: 12px;
+    margin-bottom: 2px;
+    font-size: 1.1em!important;
+}
+
+.searchtools a:hover, .searchtools a:focus {
+    border-bottom: solid 2px @nav-hover-border-color!important;
+    margin-bottom: 0;
+}
+
+.searchbox-columns .search-tooltip a, .template-dir-record .searchbox .search-tooltip a {
+    margin-left: 1.15rem;
+    width: auto;
+    float: left;
+}
+
+/* Hide Finna -rating on record page */
+.template-dir-record .media-left .record-rating {
+    display: none;
+}
+
+.searchForm_lookfor:focus-within{
+    border-radius: 0!important;
+    -webkit-box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
+    -moz-box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
+    box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
+}
+
+#searchForm .type-dropdown .dropdown-toggle {
+    padding-left: 3px;
+}
+
+// Fixes the search tools dropdown from being smaller than the dropdown
+@media screen and (min-width: 405px){
+    .view-options .dropdown-menu, .view-dropdown .dropdown-menu, .sort-button .dropdown-menu, .results-per-page-button .dropdown-menu {
+        width: 100%;
+    }
+}
+
+/* PAGINATION */
+.total-count {
+    font-weight: 600;
+    font-size: 1.02rem;
+    margin-right: 1em;
+    margin-left: -10px;
+    font-style: oblique;
+}
+
+.pagination-container {
+    visibility: hidden;
+}
+
+.paginationSimple {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: .9em;
+    min-width: 50%;
+}
+
+.paginationSimple {
+    font-size: 1.05em;
+}
+
+.paginationSimple li a i {
+    color: @text-color;
+    font-size: 1.25rem;
+    background: transparent!important;
+}
+
+.paginationSimple li a i:hover, .paginationSimple li a i:focus {
+    color: @link-hover-color;
+}
+
+.paginationSimple i {
+
+}
+
+.paginationSimple .fa-arrow-alt-left, .paginationSimple .fa-first-page  {
+    margin-right: 6px;
+}
+
+.paginationSimple .fa-arrow-alt-right, .paginationSimple .fa-last-page {
+    margin-left: 6px;
+}
+
+.fa-last-page {
+}
+
+.paginationSimple i:hover {
+    //background: @btn-primary-hover!important;
+}
+.pagination-button i, .search-controls i {
+    //background: @btn-primary-bg!important;
+}
+
+.pagination-button i {
+    color: @text-color!important;
+    padding: .35em!important;
+    border-radius: 11px!important;
+    background: none!important;
+}
+
+.pagination-button:hover, .pagination-button:focus {
+    color: @link-hover-color!important;
+}
+
+.pagination-button i:hover, .pagination-button i:focus {
+    //background: @btn-primary-hover!important;
+    color: @link-hover-color!important;
+}
+
+/* BOTTOM PAGINATION */
+.pagination-background .mainbody {
+    width: 100% !important;
+    text-align: center;
+}
+
+.pagination {
+    margin-top: 1.8em;
+    text-align: center;
+    font-size: 1.5em!important;
+}
+
+.pagination li:not(.pagination-button) a:hover, .pagination li:not(.pagination-button) a:focus {
+    background: none!important;
+    color: @link-hover-color!important;
+    //border-bottom: solid 2px @nav-hover-border-color!important;
+    margin-bottom: 0;
+    border-radius: 0!important;
+}
+
+.pagination .active  span, .pagination .active  span:hover, .pagination .active  span:focus {
+    background: none!important;
+    color: @text-color!important;
+    border-bottom: solid 2px @nav-selected;
+    margin-bottom: 0;
+    border-radius: 0!important;
+}
+
+.pagination li a {
+    margin-right: 5px!important;
+    margin-left: 5px!important;
+}
+
+/* SINGLE RECORD STYLES */
+.record .export-toggle {
+    visibility: hidden;
+}
+
+.record-pagination-tools {
+    margin-top: 1em;
+    padding-bottom: 0!important;
+    font-size: 1.18em;
+    // TO DO: Proper fix for the added padding afterwards.
+    margin-bottom: -100px!important;
+}
+
+.back-to-search {
+    float: left;
+    margin-right: 18px;
+    padding: .35em!important;
+}
+
+.template-dir-record #view-pager {
+    margin-left: 1.5rem;
+}
+
+
+.template-dir-record #view-pager .pager-text {
+    font-weight: 600!important;
+    margin: 0 8px;
+}
+
+.template-dir-record #view-pager li a:hover, .template-dir-record #view-pager li a:focus {
+    background: @btn-primary-hover;
+}
+
+.record-pagination-tools .pager {
+    text-align: left;
+    font-weight: 600;
+}
+
+.record-pagination-tools .pager .disabled, .record-pagination-tools .pager:after {
+    display: none;
+}
+
+.record-pagination-tools .pager .pager-next-record a, .record-pagination-tools .pager .pager-previous-record a  {
+    background: @btn-primary-bg!important;
+    color: @text-color!important;
+    padding: .35em!important;
+    border-radius: 11px!important;
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.record .nav-pills  a {
+    margin-bottom: 2px;
+    font-size: 1.1em!important;
+}
+
+.record .nav-pills a:hover, .record .nav-pills a:focus {
+    //color: @link-hover-color!important;
+    border-bottom: solid 2px @nav-hover-border-color;
+    margin-bottom: 0;
+}
+
+.pagination-text, .button-label {
+    font-weight: 600;
+    font-size: 1.2em;
+}
+
+.template-dir-record .organisation-menu {
+    display: none;
+}
+
+.template-dir-record .mobile-toolbar {
+    border-top: none;
+}
+
+.template-dir-record .mobile-toolbar ul {
+    margin-left: 5%;
+}
+
+.template-dir-record .mobile-toolbar .library-link {
+    margin-right: 5%!important;
+}
+
+.template-dir-record .mobile-toolbar .library-link li {
+    font-weight: 600!important;
+    padding-right: 5%!important;
+}
+
+.template-dir-record .mobile-toolbar .fa {
+    color: #fdfdfd!important;
+}
+// Whatsapp share icon
+.mobile-toolbar .fa-phone {
+    background: none!important;
+    border: none!important;
+}
+
+.sourceSolr {
+    position: relative;
+    top: -25px!important;
+}
+
+.finnaQrcodeLinkRecord:hover {
+    border-left: none!important;
+    background: none;
+    padding-left: 0;
+}
+
+.template-dir-record .nav-pills li:not(.share-buttons) a, .template-dir-record .nav-pills i {
+    color: @text-color!important;
+    font-size: 1.05em;
+    margin-bottom: 2px;
+    border-radius: 0!important;
+    padding-bottom: 8px!important;
+    padding-left: 5px!important;
+    padding-right: 5px!important;
+}
+
+.template-dir-record .nav-pills li:not(.share-buttons) span:hover,
+.template-dir-record .nav-pills li:not(.share-buttons) span:focus {
+    color: @text-color!important;
+}
+
+.template-dir-record .nav-pills li:not(.share-buttons) a:hover,
+.template-dir-record .nav-pills li:not(.share-buttons) a:focus{
+    color: @text-color!important;
+    font-size: 1.05em;
+    margin-bottom: 0;
+    //border-bottom: solid 2px @nav-hover-border-color;
+}
+
+.template-dir-record .share-buttons {
+    display: none!important;
+}
+
+.template-dir-record .record-row {
+    margin-top: 4rem;
+}
+
+.template-dir-record .record-main {
+    margin-top: 1em;
+}
+.template-dir-record .sidebar {
+    margin-top: 1.5em;
+}
+
+@media screen and (min-width: @screen-md-min) {
+    .template-dir-record .record-accordions, .template-dir-record .record-accordions .recordTabs  {
+        max-width: 96%;
+    }
+}
+
+.template-dir-record .record-information .recordFormat {
+    margin-bottom: .55rem;
+    margin-top: -.75rem;
+}
+
+@media screen and (max-width: @screen-md-min) {
+
+    .record-main .record-title {
+        //margin-top: 2.5em;
+    }
+
+    .mobile-toolbar {
+
+
+    }
+}
+
+
+// Advanced search
+.template-name-advanced #advSearchForm {
+    margin-top: 0;
+}
+
+.template-name-advanced .header-container {
+    border-bottom: none;
+}
+
+.template-name-advanced .search-map-container {
+    display: none;
+}
+
+.template-name-advanced section[role=main] {
+    padding-top: 0;
+}
+
+.template-name-advanced .finna-main-header {
+    align-content: flex-start;
+    padding-top: 2em;
+    padding-bottom: 1.5em;
+}
+
+.template-name-advanced .content-header {
+    color: @text-color;
+    font-weight: 600;
+    padding-left: 50px;
+    text-align: left!important;
+    display: none;
+}
+
+.template-name-advanced h1:before {
+    display: none!important;
+}
+
+// Advanced search results
+.adv-search-header {
+    background: none;
+    padding: 0;
+    border-bottom: none;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.adv_search_terms {
+    display: inline-flex;
+    align-items: center;
+    max-width: 100%;
+    flex-wrap: wrap;
+    color: #4C4A41;
+    line-height: unset;
+    background: rgba(135,209,239,0.78);
+    padding: .86em 1.2em;
+    margin-top: 0;
+    margin-bottom: .8em;
+    margin-right: .96em;
+    margin-left: 20px;
+    border-radius: 16px;
+    font-size: 1rem;
+    font-weight: 600;
+    font-style: oblique;
+}
+
+.adv_search_terms strong {
+    font-style: normal;
+    font-size: 1rem;
+}
+
+
+.adv_search_links a {
+    font-size: 1.05rem;
+    margin-bottom: 2px;
+    padding-bottom: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.adv_search_links i {
+    color: @gray;
+    margin-right: 5px;
+}
+
+.adv_search_links a:hover, .adv_search_links a:focus {
+    //border-bottom: solid 2px @nav-hover-border-color;
+    margin-bottom: 0;
+}
+
+.search-result-header {
+    font-size: .65rem;
+}
+
+.finna-main-header-wrapper .search-advanced {
+    margin-bottom: 10px;
+}
+
+.finna-main-header-wrapper {
+    //background: @body-bg;
+}
+
+.finna-main-header-wrapper.search-advanced {
+    border-bottom: none;
+    margin-bottom: 10px;
+}
+
+.searchtools a:hover, .searchtools a:focus {
+    font-weight: 600;
+}
+
+// Don't underline covers or filters.
+.recordcover-container a:hover, .recordcover-container a:focus,
+.side-facets-container-ajax a:hover, .side-facets-container-ajax a:focus  {
+    border-bottom: inherit;
+    font-weight: inherit;
+}
+
+.template-name-results a:hover, .template-name-results a:focus {
+
+}
+// Authors in search result
+.truncate-field a:hover, .truncate-field a:focus {
+    border-bottom: none;
+    text-decoration: underline;
+}
+
+.back-to-search a {
+    font-weight: 600!important;
+}
+
+.back-to-search a:hover, .back-to-search a:focus {
+    border-bottom: none;
+}

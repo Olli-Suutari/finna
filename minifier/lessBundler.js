@@ -8,12 +8,8 @@ mergeFiles = require('merge-files');
 
 const fs = require( 'fs' );
 
-
- 
-var path = '../external/style/'
-
-
-const outputPath = __dirname + '/result.less';
+const path = '../external/style/'
+const outputPath = '../external/style/bundle.less';
  
 const inputPathList = [
   path + './newCustom.less',
