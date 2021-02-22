@@ -1,16 +1,15 @@
 <!-- START of: finna - search/home/home-1.phtml -->
-<div class="frontpage-info-msg"><?= $this->transEsc("front_page_msg") ?></div>
 <div class="row home-first-row">
     <div class="col-sm-5 col-md-push-7">
-        <div class="lib-home-container">
-            <h2 class="title-underlined-wide news-section-title"><?= $this->transEsc("organisation_info_schedules") ?></h2>
+        <section class="lib-home-container" aria-labelledby="homeSchedulesTitle">
+            <h2 id="homeSchedulesTitle" class="title-underlined-wide news-section-title"><?= $this->transEsc("organisation_info_schedules") ?></h2>
             <iframe title="Aukioloajat" allowfullscreen="" frameborder="0" height="760" id="libFrame" referrerpolicy="unsafe-url" scrolling="no"
             src="https://olli-suutari-jkl.github.io/jyvaskyla.fi.kirjasto/pages/homePageWeek.html?lib=85159&amp;consortium=2113&amp;lang=fi&amp;homePage=true&amp;libPageUrl=https://keski.finna.fi/Content/kirjastot&amp;primary=00446B&amp;btnHover=002438" width="100%" style="display: none; height: 340px" onload="this.style.display='block';" ></iframe>
-        </div>
+        </section>
     </div>
     <div class="col-sm-7 col-md-pull-5">
-        <div class="keski-news-home" id="keskiNews">
-            <h2 class="title-underlined-wide news-section-title"><?= $this->transEsc("news_section_title") ?></h2>
+        <section class="keski-news-home" id="keskiNews" aria-labelledby="keskiNewsTitle">
+            <h2 id="keskiNewsTitle" class="title-underlined-wide news-section-title"><?= $this->transEsc("news_section_title") ?></h2>
             <div class="loader">Loading...</div>
             <ul id="keskiNewsUl"></ul>
             <div class="news-page-link-container">
@@ -20,7 +19,7 @@
                    </span>
                 </a>
             </div>
-        </div>
+        </section>
     </div>
 </div>
 <!-- News modal -->
