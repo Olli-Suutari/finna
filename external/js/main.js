@@ -247,11 +247,8 @@ function smartPaginationDisplay() {
         }
 
     });
-
     var replaced = $(".pagination-text").html().replace(' results of ',' / ');
     $('.pagination-text').html(replaced);
-
-
     // Remove space in 41-60.
     $( ".pagination-text strong" ).each(function( index ) {
         var value = $( this ).text();
@@ -259,7 +256,6 @@ function smartPaginationDisplay() {
         $( this ).text(value);
 
     });
-
     $('.pagination-container').css('visibility', 'visible');
     $('.sort-option-container .sort-button span').prepend('<span class="sort-by">' + i18n.get('Order') + ':</span>');
     $('.limit-option-container .sort-button span').prepend('<span class="results-on-page">' + i18n.get('Show') + ':</span>');
@@ -320,9 +316,9 @@ function smartPaginationDisplay() {
         }
     }
     addClassesToAvailableOnWebFilter()
-    // Hide "Verkossa saatavilla" if none are available.
+    // Hide "Verkossa saatavilla" if none are available && not filtered already.
     var webCount = $('div [data-facet="online_boolean:1"] .avail-count').text();
-    if (webCount == 0) {
+    if (window.location.href.indexOf("online_boolean") === -1 && webCount == 0) {
         $('div [data-facet="online_boolean:1"]').parent().parent().css('display', 'none');
     }
     // Hide subtitle language if none are available.
@@ -577,7 +573,6 @@ function main() {
 
     if (locationUrl.indexOf('/Search/Results') > -1) {
         window.onload = function () {
-            console.log("DOO")
             smartPaginationDisplay();
         };
         $('#browseLi').css('display', 'none');
