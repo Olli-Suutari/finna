@@ -1,7 +1,7 @@
  <div class="row">
  <div role="navigation" aria-label="<?=$this->transEsc('Footer navigation')?>">
         <div class="col-sm-3">
-         <h5 aria-hidden="true"><?=$this->transEsc('About')?></h5>
+         <p class="footer-list-title" aria-hidden="true"><?=$this->transEsc('About')?></p>
             <ul title="<?=$this->transEsc('About')?>">
               <li><a href="<?=$this->url('content-page', ['page' => 'kayttosaannot'])?>"><?=$this->transEsc('käyttösäännöt')?></a></li>
               <li><a href="https://www.jyvaskyla.fi/sites/default/files/atoms/files/tss_keski-kirjastot_asiakasrekisteri.pdf"><?=$this->transEsc('rekisteriseloste')?></a></li>
@@ -12,7 +12,7 @@
             </ul>
         </div>
         <div class="col-sm-3">
-            <h5 aria-hidden="true"><?=$this->transEsc('Find More')?></h5>
+            <p class="footer-list-title" aria-hidden="true"><?=$this->transEsc('Find More')?></p>
             <ul title="<?=$this->transEsc('Find More')?>">
                 <li>
                 <? if ($this->layout()->userLang === "fi"): ?>
@@ -39,7 +39,7 @@
             </ul>
         </div>
         <div class="col-sm-3">
-            <h5 aria-hidden="true"><?=$this->transEsc('Need Help?')?></h5>
+            <p class="footer-list-title" aria-hidden="true"><?=$this->transEsc('Need Help?')?></p>
             <ul title="<?=$this->transEsc('Need Help?')?>">
                 <li><a href="<?=$this->url('content-page', ['page' => 'help_opac'])?>" title="<?=$this->transEsc('Search Tips')?>"><?=$this->transEsc('Help')?></a></li>
                 <li><a href="<?=$this->url('content-page', ['page' => 'hakuohje'])?>" title="<?=$this->transEsc('search_help')?>"><?=$this->transEsc('search_help')?></a></li>

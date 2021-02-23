@@ -1,23 +1,43 @@
+<h1>ahfha</h1>
+<section aria-label="<?= $this->transEsc("Frontpage collections") ?>">
+    <div class="row front-carousel-section">
+        <div class="col-xs-12">
+            <?= $this->feed('poimintoja'); ?>
+        </div>
+    </div>
+    <div class="row">
+    <div class="col-xs-12">
+        <?= $this->feed("varatuimmat"); ?>
+    </div>
+    </div>
+    <div class="front-page-button-link-container">
+        <a role="menuitem" href="<?=$this->url('content-page', ['page' => 'lainatuimmat'])?>" class="front-page-button-link btn btn-primary">
+          <span>
+              Uutuuksia ja TOP 20-listoja
+         </span>
+        </a>
+    </div>
+</section>
 <!-- Homepage events -->
-<div class="events-front-page">
-    <h2 class="title-underlined-wide events-section-title"></h2>
-    <div class="events-container" id="keskiEvents">
-        <ul id="keskiEventsUl">
-            <li class="event-li no-matching-events" style="display: none">
-                <div class="no-matching-events-div">
-                </div>
-            </li>
-        </ul>
-        <div class="loader">Loading...</div>
-    </div>
-    <div class="news-page-link-container">
-            <a role="menuitem" href="/Content/tapahtumat" class="news-page-link btn btn-primary">
-                <span class="news-archive-text">
-                    <?= $this->transEsc("to_events_page") ?>
-                </span>
-            </a>
-    </div>
+<section class="events-front-page" aria-labelledby="eventsTitle">
+<h2 id="eventsTitle" class="title-underlined-wide events-section-title"></h2>
+<div class="events-container" id="keskiEvents">
+<ul id="keskiEventsUl">
+  <li class="event-li no-matching-events" style="display: none">
+      <div class="no-matching-events-div">
+      </div>
+  </li>
+</ul>
+<div class="loader">Loading...</div>
 </div>
+<div class="news-page-link-container">
+<a role="menuitem" href="/Content/tapahtumat" class="news-page-link btn btn-primary">
+  <span class="news-archive-text">
+                <?= $this->transEsc("to_events_page") ?>
+            </span>
+        </a>
+    </div>
+</section>
 <!-- Events modal -->
 <div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
@@ -43,3 +63,34 @@
         </div>
     </div>
 </div>
+<!-- START of: finna - search/home/home-3.phtml -->
+<section aria-label="<?= $this->transEsc("Frontpage info collections") ?>">
+  <div class="info-col">
+    <div class="infobox">
+   <h2 class="title-underlined">E-kirjasto</h2>
+        <p>Olethan tutustunut e-kirjastoon? Keski-kirjastojen asiakkaille on tarjolla e-kirjoja, äänikirjoja, e-lehtiä, soitonopetuskursseja ja klassista musiikkia kotisohvalta käsin. Kirjastoissa lisäksi kattava kokoelma kotimaisia sanomalehtiä heti julkaisun jälkeen.</p>
+        <p><a href="<?=$this->url('content-page', ['page' => 'ekirjasto'])?>">Tutustu e-kirjastoon</a></p>
+        <p><img src="/themes/custom/images/ekirjasto.jpg" alt="E-lehti tabletissa" align="center" width="230px" style="margin-top: .65em; margin-bottom: -1.3em;"></p>
+    </div>
+  </div>
+  <div class="info-col">
+    <div class="infobox">
+      <h2 class="title-underlined">Uusi lainat </h2>
+      <p>Kirjaudu sisään oikeasta ylänurkasta kirjastokorttisi numerolla ja PIN-koodilla, jonka olet saanut kirjastosta.</p>
+      <p>Klikkaa uusi kaikki lainat.</p>
+      <p>Kaikki uusittavissa olevat lainasi uusitaan.</p>
+      <p>Lainat voi uusia viisi kertaa käyttämättä niitä kirjastossa.</p>
+      <p><a href="<?=$this->url('content-page', ['page' => 'help_opac'])?>">Lisää ohjeita verkkokirjaston käyttöön</a></p>
+    </div>
+  </div>
+ <div class="info-col">
+    <div class="infobox">
+     <h2 class="title-underlined">Näin varaat verkkokirjastossa</h2>
+    <p><div style="position: relative; padding-bottom: 56.25%; padding-top: 30px; margin-top: -10px; height: 0; overflow: hidden; border: 0;">
+        <iframe src="https://dreambroker.com/channel/dnys8oap/iframe/l6ymjfet" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" ></iframe></div></p>
+    <p>Video: <a href="https://dreambroker.com/channel/dnys8oap/s2y1zd17">Näin rajaat hakuja uudessa verkkokirjastossa.</a></p>
+    </div>
+  </div>
+</section>
+<h1>sujgbs</h1>
+<!-- END of: finna - search/home/home-3.phtml -->
