@@ -1,18 +1,15 @@
-/* All custom less-code here */
-
-// CUSTOM VARIABLES.
+/*
+* CUSTOM VARIABLES.
+*/
 @link-hover-color: #0659c7;
-//@btn-primary-hover: @nav-hover-border-color; //@nav-hover-bg;
 @btn-primary-hover: #002438;
-@nav-hover-bg: #CECECE; //#d1f0fb;
-@nav-hover-border-color: @btn-primary-bg; //#f9a789; // #fb9677;
+@nav-hover-bg: #CECECE;
+@nav-hover-border-color: @btn-primary-bg;
 @nav-selected: rgba(88, 140, 238, 0.93);
-
+// Feedback button
 @feedback-btn-bg: #9DB136;
 @feedback-btn-hover-bg: #8c9d31;
 @feedback-btn-text: #272727;
-
-
 
 /* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
 * {
@@ -30,7 +27,6 @@ body {
 
 a:hover, a:focus, .search-tooltip button:hover, .news-item:focus, .search-tooltip button:focus {
   color: @link-hover-color;
-  //padding-bottom: 3px;
   border-bottom: 3px solid @link-hover-color;
   font-weight: 500;
 }
@@ -42,7 +38,6 @@ strong a:hover, strong a:focus, b a:hover, b a:focus{
 
 /* Browse, eq. https://keski.finna.fi/Browse/Home */
 .browse a:hover {
-  //font-weight: unset!important;
   font-weight: 400;
   border-bottom: none!important;
 }
@@ -334,7 +329,6 @@ footer [role="navigation"] {
   margin: 0 22px;
   padding: 9px 11px;
   margin-bottom: 3px;
-  //border-left: solid 1px black;
 }
 
 .footer-links li a {
@@ -471,23 +465,6 @@ footer h5 {
     margin-left: 0;
   }
 }
-
-/*
-@media screen and ( max-width: 1000px ){
-  .cookie-consent {
-    //width: 65%;
-  }
-}
-
-@media screen and ( max-width: 768px ){
-  .cookie-consent {
-    //width: 100%;
-  }
-}
-
- */
-
-
 
 // Loader https://projects.lukehaas.me/css-loaders/
 .loader,

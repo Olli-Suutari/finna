@@ -1,12 +1,3 @@
-// We cannot replace the original navigation .less, thus we have to manually replace everything..
-/*
-header {
-  padding: 0 .5em  .6em .5em;
-  justify-content: space-evenly;
-  margin-right: auto;
-  margin-left: 0;
-}*/
-
 .btn-advanced {
   padding: 6px 10px!important;
   color: #fff!important;
@@ -21,12 +12,7 @@ header {
 
   // Navigation background
 .finna-navbar, .navbar-header, header, [role=navigation] {
-  //background-color: #ebebed;
   background-color: @body-bg!important;
-}
-
-#header-collapse {
-  //height: 64px!important;
 }
 
 .navbar-collapse {
@@ -63,10 +49,6 @@ header {
 
 .finna-navbar .navbar-collapse>ul {
   padding-left: 2em!important;
-
-  //width: 100%;
-  //padding: 0;
-  //margin: 1em;
 }
 
 @media screen and (max-width: 360px) {
@@ -121,39 +103,6 @@ header {
 .navbar {
   width: 100%;
 }
-
-/*
-.system-messages {
-  font-weight: 600;
-  font-size: 1.35rem;
-  position: relative!important;
-  left: 50%;
-  transform: translateX(-50%);
-  color: @brand-danger;
-  background: none;
-  flex-direction: row;
-  align-content: center;
-  vertical-align: center;
-  width: auto;
-  max-width: 100%;
-  display: inline-block;
-  padding: 0;
-  margin-bottom: 0;
-  margin-top: .15em;
-  z-index: 99999999;
-}
-
-
-@media screen and ( max-width: 1000px ){
-  .system-messages {
-    font-size: 1.15rem;
-
-    top: 0;
-
-  }
-}
- */
-
 
 header i {
   margin-right: 2px;
@@ -247,7 +196,6 @@ header li a {
   margin-bottom: 9px!important;
   margin-top: 0!important;
   border-bottom: none;
-  //min-width: 210px;
 }
 
 .dropdown-menu li a:hover, .dropdown-menu li a:hover, .dropdown-menu li a:focus, .dropdown-menu li a:focus {
@@ -332,7 +280,6 @@ header li a {
 
 .navbar-header .selected-nav  {
   border-bottom: none;
-  //border-left: solid 2px #78c57d;
 }
 
 .navbar-brand img {
@@ -349,7 +296,6 @@ header li a {
     margin-left: 0;
     border-left: solid 4px @nav-hover-border-color!important;
   }
-
 }
 
 [role=menubar] li  {
@@ -577,6 +523,3 @@ header li a {
 .browsebar-title:after {
   content: ':';
 }
-
-
-
