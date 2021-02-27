@@ -12,6 +12,8 @@
 @feedback-btn-hover-bg: #8c9d31;
 @feedback-btn-text: #272727;
 
+
+
 /* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
 * {
   text-transform: unset!important;
@@ -86,8 +88,8 @@ strong a:hover, strong a:focus, b a:hover, b a:focus{
   font-weight: 600;
 }
 
-.floating-feedback-btn:hover {
-  background: @feedback-btn-hover-bg;
+.floating-feedback-btn:hover, .floating-feedback-btn:focus {
+  background: @feedback-btn-hover-bg!important;
   color: @feedback-btn-text!important;
   font-weight: 600!important;
 }
