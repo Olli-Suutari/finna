@@ -437,9 +437,9 @@ function decodeVal(value) {
     return value;
 }
 
-// Old /beta/
-if (locationUrl.indexOf('/beta/') > -1) {
-    window.location = locationUrl.replace('/beta/', '/');
+// Old /keski/
+if (locationUrl.indexOf('/keski/') > -1) {
+    window.location = locationUrl.replace('/keski/', '/');
 }
 // /Content/ should not be case sensitive...
 if (locationUrl.indexOf('/content/') > -1) {
