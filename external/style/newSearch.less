@@ -1,725 +1,781 @@
 /* SEARCH RESULTS / GENERIC */
 .record-container .result-body {
-    margin-top: 5px;
+	margin-top: 5px;
 }
 
 /* FILTERING SECTION */
-@media screen and ( min-width: 1000px ) {
-    .side-facets-container-ajax {
-        margin-right: 1.9em;
-    }
+@media screen and (min-width: 1000px) {
+	.side-facets-container-ajax {
+		margin-right: 1.9em;
+	}
 }
 
 .side-facets-container-ajax {
-    color: @text-color!important;
+	color: @text-color!important;
 }
 
 .searchtools {
-    text-align: center!important;
-    flex-direction: row;
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-    font-size: .85rem;
+	text-align: center !important;
+	flex-direction: row;
+	flex-wrap: wrap;
+	display: flex;
+	justify-content: center;
+	font-size: 0.85rem;
 }
 
 .searchtools-background {
-    background: none!important;
+	background: none !important;
 }
 
-.list-group-item, .searchtools a {
-    color: @text-color!important;
+.list-group-item,
+.searchtools a {
+	color: @text-color!important;
 }
 
 // Expand filter category. // Minimize filter category. // Expand library group // Minimize library group.
-.list-group.facet .list-group-item.title.collapsed:after, .list-group.facets .list-group-item.title.collapsed:after,
-.list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after,
-.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before,
-.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
-    color: @gray-dark!important;
+.list-group.facet .list-group-item.title.collapsed:after,
+.list-group.facets .list-group-item.title.collapsed:after,
+.list-group.facet .list-group-item.title:after,
+.list-group.facets .list-group-item.title:after,
+.list-group.facet .jstree-closed > .jstree-ocl:before,
+.list-group.facets .jstree-closed > .jstree-ocl:before,
+.list-group.facet .jstree-open > .jstree-ocl:before,
+.list-group.facets .jstree-open > .jstree-ocl:before {
+	color: @gray-dark!important;
 }
 
 // Expand library group
-.list-group.facet .jstree-closed>.jstree-ocl:before, .list-group.facets .jstree-closed>.jstree-ocl:before {
-    font-family: finnaicons;
-    content: "\e91a";
-    font-size: 22px;
-    margin-left: 3px;
-    margin-right: 8px;
+.list-group.facet .jstree-closed > .jstree-ocl:before,
+.list-group.facets .jstree-closed > .jstree-ocl:before {
+	font-family: finnaicons;
+	content: '\e91a';
+	font-size: 22px;
+	margin-left: 3px;
+	margin-right: 8px;
 }
 // Minimize library group.
-.list-group.facet .jstree-open>.jstree-ocl:before, .list-group.facets .jstree-open>.jstree-ocl:before {
-    font-size: 22px;
-    font-family: finnaicons;
-    content: "\e916";
-    margin-right: 8px;
-    margin-left: 3px;
+.list-group.facet .jstree-open > .jstree-ocl:before,
+.list-group.facets .jstree-open > .jstree-ocl:before {
+	font-size: 22px;
+	font-family: finnaicons;
+	content: '\e916';
+	margin-right: 8px;
+	margin-left: 3px;
 }
 
 // "Valmistumisvuosi" submit button has bolded font
 .daterange-vis .btn {
-    font-weight: 600;
+	font-weight: 600;
 }
 
-.list-group.facet .list-group-item.title.collapsed:after, .list-group.facet .list-group-item.title:after, .list-group.facets .list-group-item.title:after {
-    //color: transparent;
+.list-group.facet .list-group-item.title.collapsed:after,
+.list-group.facet .list-group-item.title:after,
+.list-group.facets .list-group-item.title:after {
+	//color: transparent;
 }
 // Hide "Keski-kirjastot"
 #side-collapse-building .jstree-container-ul li:first-child i {
-    display: none;
+	display: none;
 }
 
 #side-collapse-building .jstree-anchor .badge {
-    display: none;
+	display: none;
 }
 
-.jstree-children .jstree-ocl, .jstree-children .badge, .jstree-children jstree-ocl:before  {
-    display: block!important;
+.jstree-children .jstree-ocl,
+.jstree-children .badge,
+.jstree-children jstree-ocl:before {
+	display: block !important;
 }
 
-.dedupInformation, span[title="Keski-kirjastot"], .dedupInformation, span[title="Keski Libraries"]  {
-    display: none;
+.dedupInformation,
+span[title='Keski-kirjastot'],
+.dedupInformation,
+span[title='Keski Libraries'] {
+	display: none;
 }
 
 #side-collapse-building .jstree-children {
-    margin-left: -10px!important;
+	margin-left: -10px !important;
 }
 
-.list-group.facet .jstree-ocl:before, .list-group.facets .jstree-ocl:before {
-    margin-left: -20px!important;
-    margin-left: -20px!important;
+.list-group.facet .jstree-ocl:before,
+.list-group.facets .jstree-ocl:before {
+	margin-left: -20px !important;
+	margin-left: -20px !important;
 }
-
 
 .template-name-results .main-content {
-    margin-top: 0!important;
+	margin-top: 0 !important;
 }
 
 // Style the "Saatavilla verkossa" selector.
 .side-facets-container-ajax fieldset {
-    position: relative;
-    vertical-align: middle;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    display: block;
-    background: #F7F7F7;
-    border: 1px solid #c6c6c6;
-
+	position: relative;
+	vertical-align: middle;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: block;
+	background: #f7f7f7;
+	border: 1px solid #c6c6c6;
 }
 
 .side-facets-container-ajax fieldset label {
-    font-weight: 600!important;
-    text-transform: uppercase;
+	font-weight: 600 !important;
+	text-transform: uppercase;
 }
 
-.side-facets-container-ajax fieldset input[type="checkbox"] {
-    margin-right: 2px!important;
-    margin-left: 3px!important;
+.side-facets-container-ajax fieldset input[type='checkbox'] {
+	margin-right: 2px !important;
+	margin-left: 3px !important;
 }
 
 /* SELECTED SEARCH FILTERS */
 .search-filters {
-    border-top: none;
-    position: relative;
-    margin-bottom: 0!important;
-    padding-top: 0!important;
-    background: none!important;
-    height: auto!important;
+	border-top: none;
+	position: relative;
+	margin-bottom: 0 !important;
+	padding-top: 0 !important;
+	background: none !important;
+	height: auto !important;
 }
 
-.active-filters .search-filter-remove:focus, .active-filters .search-filter-remove:hover {
-    border-bottom: none;
-    text-decoration: none;
-    color: #FE8F77;
+.active-filters .search-filter-remove:focus,
+.active-filters .search-filter-remove:hover {
+	border-bottom: none;
+	text-decoration: none;
+	color: #fe8f77;
 }
 
 .filter-value {
-    background: none!important;
-    color: #fff;
+	background: none !important;
+	color: #fff;
 }
 
 .filter-text {
-    color: #fff;
+	color: #fff;
 }
 
 .title-value-pair {
-    padding: 7px 10px;
-    margin: 5px 0 5px 5px;
-    font-weight: 600;
-    background: #00446b;
-    color: #fff;
-    border-radius: 5px;
-    display: table;
-    align-items: center;
-    white-space: nowrap;
-    font-size: 1.15em;
+	padding: 7px 10px;
+	margin: 5px 0 5px 5px;
+	font-weight: 600;
+	background: #00446b;
+	color: #fff;
+	border-radius: 5px;
+	display: table;
+	align-items: center;
+	white-space: nowrap;
+	font-size: 1.15em;
 }
 
 .filter-text {
-    font-style: oblique;
-    line-height: unset!important;
-    padding: 0!important;
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-    font-weight: 400!important;
+	font-style: oblique;
+	line-height: unset !important;
+	padding: 0 !important;
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	font-weight: 400 !important;
 }
 
 .search-filter-remove {
-    margin-left: 5px!important;
-    margin-right: 6px!important;
+	margin-left: 5px !important;
+	margin-right: 6px !important;
 }
 
 // Filter-value = Things like "Verkossa saatavilla".
-.filters-title, .filters-or, .filter-value  {
-    margin-top: 0!important;
-    margin-bottom: 0!important;
-    margin-left: 2px!important;
-    margin-right: 3px!important;
-    padding: 0!important;
-    line-height: unset!important;
+.filters-title,
+.filters-or,
+.filter-value {
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+	margin-left: 2px !important;
+	margin-right: 3px !important;
+	padding: 0 !important;
+	line-height: unset !important;
 }
 
 .filters-title {
-    margin-right: 0!important;
+	margin-right: 0 !important;
 }
 
 /* FILTERING TOOLS (SORT BY / DISPLAY TYPES & COUNT) */
 .search-controls {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
+	display: inline-flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 100%;
 }
 
 .control-container {
-    order: 1;
+	order: 1;
 }
 
 .search-controls .pagination-container {
-    order: 2;
+	order: 2;
 }
 
 .search-controls .control-container {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
 }
 
 .search-controls .view-option-container {
-    order: 0;
-    margin-right: 1em;
+	order: 0;
+	margin-right: 1em;
 }
 // Hide default labes as they are added inside the filters via js.
-.sort-option-container .button-label, .limit-option-container .button-label, .view-option-container .button-label {
-    display: none;
+.sort-option-container .button-label,
+.limit-option-container .button-label,
+.view-option-container .button-label {
+	display: none;
 }
 
-.dropdown-toggle:hover, .dropdown-toggle:focus {
-    background: @nav-hover-bg!important;
-    border-left: solid 4px @nav-hover-border-color!important;
-    // margin-left: -4px; TODO: Is this required?
-    border-bottom: none!important;
+.dropdown-toggle:hover,
+.dropdown-toggle:focus {
+	background: @nav-hover-bg!important;
+	border-left: solid 4px @nav-hover-border-color!important;
+	// margin-left: -4px; TODO: Is this required?
+	border-bottom: none !important;
 }
 
-.sort-button .dropdown-toggle, .view-option-container .view-dropdown .dropdown-toggle {
-    border: solid 3px @gray!important;
+.sort-button .dropdown-toggle,
+.view-option-container .view-dropdown .dropdown-toggle {
+	border: solid 3px @gray!important;
 }
 
 .search-controls .dropdown-toggle span {
-    height: 20px; // Fixes bottom clipping on mobile.
+	height: 20px; // Fixes bottom clipping on mobile.
 }
 
-.sort-button .fa, .view-option-container .view-dropdown i {
-    color: @gray-dark!important;
-    background: none!important;
-}
-  
-.sort-button .dropdown a, .view-option-container .view-dropdown a {
-    color: @text-color!important;
-    background: none!important;
+.sort-button .fa,
+.view-option-container .view-dropdown i {
+	color: @gray-dark!important;
+	background: none !important;
 }
 
-.view-dropdown .fa-list, .view-dropdown .fa-condensed {
-    display: none!important;
+.sort-button .dropdown a,
+.view-option-container .view-dropdown a {
+	color: @text-color!important;
+	background: none !important;
 }
 
-.view-option-container, .sort-option-container {
-    margin-right: 1.2em;
+.view-dropdown .fa-list,
+.view-dropdown .fa-condensed {
+	display: none !important;
+}
+
+.view-option-container,
+.sort-option-container {
+	margin-right: 1.2em;
 }
 
 // sort-button matches order and items per page.
-.sort-button span, .view-option-container .dropdown-toggle span, .view-option-container .view-dropdown span {
-    font-style: oblique;
-    font-weight: 600;
-    margin-right: 6px;
+.sort-button span,
+.view-option-container .dropdown-toggle span,
+.view-option-container .view-dropdown span {
+	font-style: oblique;
+	font-weight: 600;
+	margin-right: 6px;
 }
 
-.sort-by, .results-on-page {
-    padding: 0!important;
+.sort-by,
+.results-on-page {
+	padding: 0 !important;
 }
 
-.sort-by, .results-on-page {
-    //margin-right: -15px!important;
-    font-style:  normal!important;
-    font-size: 1.06em;
+.sort-by,
+.results-on-page {
+	//margin-right: -15px!important;
+	font-style: normal !important;
+	font-size: 1.06em;
 }
 
-.sort-button .dropdown a, .view-option-container .view-dropdown a {
-    padding: 6px 9px;
-    font-size: 1.06em;
+.sort-button .dropdown a,
+.view-option-container .view-dropdown a {
+	padding: 6px 9px;
+	font-size: 1.06em;
 }
 
-.sort-button .dropdown a[aria-expanded="true"], .view-option-container .view-dropdown a[aria-expanded="true"] {
-    background: none!important;
-    border: solid 3px @nav-selected!important;
+.sort-button .dropdown a[aria-expanded='true'],
+.view-option-container .view-dropdown a[aria-expanded='true'] {
+	background: none !important;
+	border: solid 3px @nav-selected!important;
 }
 
 /* Fixes clipping of sorting buttons on mobile */
-.search-controls .view-options .dropdown>a span, .search-controls .view-dropdown .dropdown>a span, .search-controls .sort-button .dropdown>a span {
-    max-width: 100%;
-    height: unset;
+.search-controls .view-options .dropdown > a span,
+.search-controls .view-dropdown .dropdown > a span,
+.search-controls .sort-button .dropdown > a span {
+	max-width: 100%;
+	height: unset;
 }
-.sort-by, .results-on-page {
-    overflow: visible;
+.sort-by,
+.results-on-page {
+	overflow: visible;
 }
 
 .limit-option-container {
-    margin-right: 1em;
+	margin-right: 1em;
 }
 
 .limit-option-container .dropdown-menu {
-    margin: 0!important;
-    padding: 0!important;
-    width: 100%!important;
-    text-align: center!important;
-    margin-block-start: 0!important;
-    margin-block-end: 0!important;
+	margin: 0 !important;
+	padding: 0 !important;
+	width: 100% !important;
+	text-align: center !important;
+	margin-block-start: 0 !important;
+	margin-block-end: 0 !important;
 }
 
 .limit-option-container .dropdown-menu li a {
-    text-align: center!important;
+	text-align: center !important;
 }
 
 /* SEARCH TOOLS (RSS/EMAIL&SAVE BAR) */
 .searchtools i {
-    margin-right: 4px;
+	margin-right: 4px;
 }
 
 .searchtools a {
-    padding-left: 12px;
-    padding-right: 12px;
-    padding-bottom: 8px;
-    margin-top: 12px;
-    margin-bottom: 2px;
-    font-size: 1.1em!important;
+	padding-left: 12px;
+	padding-right: 12px;
+	padding-bottom: 8px;
+	margin-top: 12px;
+	margin-bottom: 2px;
+	font-size: 1.1em !important;
 }
 
-.searchtools a:hover, .searchtools a:focus {
-    border-bottom: solid 2px @nav-hover-border-color!important;
-    margin-bottom: 0;
+.searchtools a:hover,
+.searchtools a:focus {
+	border-bottom: solid 2px @nav-hover-border-color!important;
+	margin-bottom: 0;
 }
 
-.searchbox-columns .search-tooltip a, .template-dir-record .searchbox .search-tooltip a {
-    margin-left: 1.15rem;
-    width: auto;
-    float: left;
+.searchbox-columns .search-tooltip a,
+.template-dir-record .searchbox .search-tooltip a {
+	margin-left: 1.15rem;
+	width: auto;
+	float: left;
 }
 
 /* Hide Finna -rating on record page */
 .template-dir-record .media-left .record-rating {
-    display: none;
+	display: none;
 }
 
-.searchForm_lookfor:focus-within{
-    border-radius: 0!important;
-    -webkit-box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
-    -moz-box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
-    box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
+.searchForm_lookfor:focus-within {
+	border-radius: 0 !important;
+	-webkit-box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
+	-moz-box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
+	box-shadow: -5px 5px 5px 5px @nav-hover-border-color!important;
 }
 
 #searchForm .type-dropdown .dropdown-toggle {
-    padding-left: 3px;
+	padding-left: 3px;
 }
 
 // Fixes the search tools dropdown from being smaller than the dropdown
-@media screen and (min-width: 405px){
-    .view-options .dropdown-menu, .view-dropdown .dropdown-menu, .sort-button .dropdown-menu, .results-per-page-button .dropdown-menu {
-        width: 100%;
-    }
+@media screen and (min-width: 405px) {
+	.view-options .dropdown-menu,
+	.view-dropdown .dropdown-menu,
+	.sort-button .dropdown-menu,
+	.results-per-page-button .dropdown-menu {
+		width: 100%;
+	}
 }
 
 /* PAGINATION */
 .total-count {
-    font-weight: 600;
-    font-size: 1.02rem;
-    margin-right: 1em;
-    margin-left: -10px;
-    font-style: oblique;
+	font-weight: 600;
+	font-size: 1.02rem;
+	margin-right: 1em;
+	margin-left: -10px;
+	font-style: oblique;
 }
 
 .pagination-container {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 .paginationSimple {
-    display: flex;
-    flex-wrap: nowrap;
-    margin-right: .9em;
-    min-width: 50%;
+	display: flex;
+	flex-wrap: nowrap;
+	margin-right: 0.9em;
+	min-width: 50%;
 }
 
 .paginationSimple {
-    font-size: 1.05em;
+	font-size: 1.05em;
 }
 
 .paginationSimple li a i {
-    color: @text-color;
-    font-size: 1.25rem;
-    background: transparent!important;
+	color: @text-color;
+	font-size: 1.25rem;
+	background: transparent !important;
 }
 
-.paginationSimple li a i:hover, .paginationSimple li a i:focus {
-    color: @link-hover-color;
+.paginationSimple li a i:hover,
+.paginationSimple li a i:focus {
+	color: @link-hover-color;
 }
 
 .paginationSimple i {
-
 }
 
-.paginationSimple .fa-arrow-alt-left, .paginationSimple .fa-first-page  {
-    margin-right: 6px;
+.paginationSimple .fa-arrow-alt-left,
+.paginationSimple .fa-first-page {
+	margin-right: 6px;
 }
 
-.paginationSimple .fa-arrow-alt-right, .paginationSimple .fa-last-page {
-    margin-left: 6px;
+.paginationSimple .fa-arrow-alt-right,
+.paginationSimple .fa-last-page {
+	margin-left: 6px;
 }
 
 .pagination-button i {
-    color: @text-color!important;
-    padding: .35em!important;
-    border-radius: 11px!important;
-    background: none!important;
+	color: @text-color!important;
+	padding: 0.35em !important;
+	border-radius: 11px !important;
+	background: none !important;
 }
 
-.pagination-button:hover, .pagination-button:focus {
-    color: @link-hover-color!important;
+.pagination-button:hover,
+.pagination-button:focus {
+	color: @link-hover-color!important;
 }
 
-.pagination-button i:hover, .pagination-button i:focus {
-    color: @link-hover-color!important;
+.pagination-button i:hover,
+.pagination-button i:focus {
+	color: @link-hover-color!important;
 }
 
 /* BOTTOM PAGINATION */
 .pagination-background .mainbody {
-    width: 100% !important;
-    text-align: center;
+	width: 100% !important;
+	text-align: center;
 }
 
 .pagination {
-    margin-top: 1.8em;
-    text-align: center;
-    font-size: 1.5em!important;
+	margin-top: 1.8em;
+	text-align: center;
+	font-size: 1.5em !important;
 }
 
-.pagination li:not(.pagination-button) a:hover, .pagination li:not(.pagination-button) a:focus {
-    background: none!important;
-    color: @link-hover-color!important;
-    margin-bottom: 0;
-    border-radius: 0!important;
+.pagination li:not(.pagination-button) a:hover,
+.pagination li:not(.pagination-button) a:focus {
+	background: none !important;
+	color: @link-hover-color!important;
+	margin-bottom: 0;
+	border-radius: 0 !important;
 }
 
-.pagination .active  span, .pagination .active  span:hover, .pagination .active  span:focus {
-    background: none!important;
-    color: @text-color!important;
-    border-bottom: solid 2px @nav-selected;
-    margin-bottom: 0;
-    border-radius: 0!important;
+.pagination .active span,
+.pagination .active span:hover,
+.pagination .active span:focus {
+	background: none !important;
+	color: @text-color!important;
+	border-bottom: solid 2px @nav-selected;
+	margin-bottom: 0;
+	border-radius: 0 !important;
 }
 
 .pagination li a {
-    margin-right: 5px!important;
-    margin-left: 5px!important;
+	margin-right: 5px !important;
+	margin-left: 5px !important;
 }
 
 /* SINGLE RECORD STYLES */
 .record .export-toggle {
-    visibility: hidden;
+	visibility: hidden;
 }
 
 .record-pagination-tools {
-    margin-top: 1em;
-    padding-bottom: 0!important;
-    font-size: 1.18em;
-    // TODO: Proper fix for the added padding afterwards.
-    margin-bottom: -100px!important;
+	margin-top: 1em;
+	padding-bottom: 0 !important;
+	font-size: 1.18em;
+	// TODO: Proper fix for the added padding afterwards.
+	margin-bottom: -100px !important;
 }
 
 .back-to-search {
-    float: left;
-    margin-right: 18px;
-    padding: .35em!important;
+	float: left;
+	margin-right: 18px;
+	padding: 0.35em !important;
 }
 
 .template-dir-record #view-pager {
-    margin-left: 1.5rem;
+	margin-left: 1.5rem;
 }
-
 
 .template-dir-record #view-pager .pager-text {
-    font-weight: 600!important;
-    margin: 0 8px;
+	font-weight: 600 !important;
+	margin: 0 8px;
 }
 
-.template-dir-record #view-pager li a:hover, .template-dir-record #view-pager li a:focus {
-    background: @btn-primary-hover;
+.template-dir-record #view-pager li a:hover,
+.template-dir-record #view-pager li a:focus {
+	background: @btn-primary-hover;
 }
 
 .record-pagination-tools .pager {
-    text-align: left;
-    font-weight: 600;
+	text-align: left;
+	font-weight: 600;
 }
 
-.record-pagination-tools .pager .disabled, .record-pagination-tools .pager:after {
-    display: none;
+.record-pagination-tools .pager .disabled,
+.record-pagination-tools .pager:after {
+	display: none;
 }
 
-.record-pagination-tools .pager .pager-next-record a, .record-pagination-tools .pager .pager-previous-record a  {
-    background: @btn-primary-bg!important;
-    color: @text-color!important;
-    padding: .35em!important;
-    border-radius: 11px!important;
-    margin-left: 3px;
-    margin-right: 3px;
+.record-pagination-tools .pager .pager-next-record a,
+.record-pagination-tools .pager .pager-previous-record a {
+	background: @btn-primary-bg!important;
+	color: @text-color!important;
+	padding: 0.35em !important;
+	border-radius: 11px !important;
+	margin-left: 3px;
+	margin-right: 3px;
 }
 
-.record .nav-pills  a {
-    margin-bottom: 2px;
-    font-size: 1.1em!important;
+.record .nav-pills a {
+	margin-bottom: 2px;
+	font-size: 1.1em !important;
 }
 
-.record .nav-pills a:hover, .record .nav-pills a:focus {
-    border-bottom: solid 2px @nav-hover-border-color;
-    margin-bottom: 0;
+.record .nav-pills a:hover,
+.record .nav-pills a:focus {
+	border-bottom: solid 2px @nav-hover-border-color;
+	margin-bottom: 0;
 }
 
-.pagination-text, .button-label {
-    font-weight: 600;
-    font-size: 1.2em;
+.pagination-text,
+.button-label {
+	font-weight: 600;
+	font-size: 1.2em;
 }
 
 .template-dir-record .organisation-menu {
-    display: none;
+	display: none;
 }
 
 .template-dir-record .mobile-toolbar {
-    border-top: none;
+	border-top: none;
 }
 
 .template-dir-record .mobile-toolbar ul {
-    margin-left: 5%;
+	margin-left: 5%;
 }
 
 .template-dir-record .mobile-toolbar .library-link {
-    margin-right: 5%!important;
+	margin-right: 5% !important;
 }
 
 .template-dir-record .mobile-toolbar .library-link li {
-    font-weight: 600!important;
-    padding-right: 5%!important;
+	font-weight: 600 !important;
+	padding-right: 5% !important;
 }
 
 .template-dir-record .mobile-toolbar .fa {
-    color: #fdfdfd!important;
+	color: #fdfdfd !important;
 }
 // Whatsapp share icon
 .mobile-toolbar .fa-phone {
-    background: none!important;
-    border: none!important;
+	background: none !important;
+	border: none !important;
 }
 
 .sourceSolr {
-    position: relative;
-    top: -25px!important;
+	position: relative;
+	top: -25px !important;
 }
 
 .finnaQrcodeLinkRecord:hover {
-    border-left: none!important;
-    background: none;
-    padding-left: 0;
+	border-left: none !important;
+	background: none;
+	padding-left: 0;
 }
 
-.template-dir-record .nav-pills li:not(.share-buttons) a, .template-dir-record .nav-pills i {
-    color: @text-color!important;
-    font-size: 1.05em;
-    margin-bottom: 2px;
-    border-radius: 0!important;
-    padding-bottom: 8px!important;
-    padding-left: 5px!important;
-    padding-right: 5px!important;
+.template-dir-record .nav-pills li:not(.share-buttons) a,
+.template-dir-record .nav-pills i {
+	color: @text-color!important;
+	font-size: 1.05em;
+	margin-bottom: 2px;
+	border-radius: 0 !important;
+	padding-bottom: 8px !important;
+	padding-left: 5px !important;
+	padding-right: 5px !important;
 }
 
 .template-dir-record .nav-pills li:not(.share-buttons) span:hover,
 .template-dir-record .nav-pills li:not(.share-buttons) span:focus {
-    color: @text-color!important;
+	color: @text-color!important;
 }
 
 .template-dir-record .nav-pills li:not(.share-buttons) a:hover,
-.template-dir-record .nav-pills li:not(.share-buttons) a:focus{
-    color: @text-color!important;
-    font-size: 1.05em;
-    margin-bottom: 0;
-    //border-bottom: solid 2px @nav-hover-border-color;
+.template-dir-record .nav-pills li:not(.share-buttons) a:focus {
+	color: @text-color!important;
+	font-size: 1.05em;
+	margin-bottom: 0;
+	//border-bottom: solid 2px @nav-hover-border-color;
 }
 
 .template-dir-record .share-buttons {
-    display: none!important;
+	display: none !important;
 }
 
 .template-dir-record .record-row {
-    margin-top: 4rem;
+	margin-top: 4rem;
 }
 
 .template-dir-record .record-main {
-    margin-top: 1em;
+	margin-top: 1em;
 }
 .template-dir-record .sidebar {
-    margin-top: 1.5em;
+	margin-top: 1.5em;
 }
 
 @media screen and (min-width: @screen-md-min) {
-    .template-dir-record .record-accordions, .template-dir-record .record-accordions .recordTabs  {
-        max-width: 96%;
-    }
+	.template-dir-record .record-accordions,
+	.template-dir-record .record-accordions .recordTabs {
+		max-width: 96%;
+	}
 }
 
 .template-dir-record .record-information .recordFormat {
-    margin-bottom: .55rem;
-    margin-top: -.75rem;
+	margin-bottom: 0.55rem;
+	margin-top: -0.75rem;
 }
 
 // Advanced search
 .template-name-advanced #advSearchForm {
-    margin-top: 0;
+	margin-top: 0;
 }
 
 .template-name-advanced .header-container {
-    border-bottom: none;
+	border-bottom: none;
 }
 
 .template-name-advanced .search-map-container {
-    display: none;
+	display: none;
 }
 
-.template-name-advanced section[role=main] {
-    padding-top: 0;
+.template-name-advanced section[role='main'] {
+	padding-top: 0;
 }
 
 .template-name-advanced .finna-main-header {
-    align-content: flex-start;
-    padding-top: 2em;
-    padding-bottom: 1.5em;
+	align-content: flex-start;
+	padding-top: 2em;
+	padding-bottom: 1.5em;
 }
 
 .template-name-advanced .content-header {
-    color: @text-color;
-    font-weight: 600;
-    padding-left: 50px;
-    text-align: left!important;
-    display: none;
+	color: @text-color;
+	font-weight: 600;
+	padding-left: 50px;
+	text-align: left !important;
+	display: none;
 }
 
 .template-name-advanced h1:before {
-    display: none!important;
+	display: none !important;
 }
 
 // Advanced search results
 .adv-search-header {
-    background: none;
-    padding: 0;
-    border-bottom: none;
-    margin-top: 20px;
-    margin-bottom: 10px;
+	background: none;
+	padding: 0;
+	border-bottom: none;
+	margin-top: 20px;
+	margin-bottom: 10px;
 }
 
 .adv_search_terms {
-    display: inline-flex;
-    align-items: center;
-    max-width: 100%;
-    flex-wrap: wrap;
-    color: #4C4A41;
-    line-height: unset;
-    background: rgba(135,209,239,0.78);
-    padding: .86em 1.2em;
-    margin-top: 0;
-    margin-bottom: .8em;
-    margin-right: .96em;
-    margin-left: 20px;
-    border-radius: 16px;
-    font-size: 1rem;
-    font-weight: 600;
-    font-style: oblique;
+	display: inline-flex;
+	align-items: center;
+	max-width: 100%;
+	flex-wrap: wrap;
+	color: #4c4a41;
+	line-height: unset;
+	background: rgba(135, 209, 239, 0.78);
+	padding: 0.86em 1.2em;
+	margin-top: 0;
+	margin-bottom: 0.8em;
+	margin-right: 0.96em;
+	margin-left: 20px;
+	border-radius: 16px;
+	font-size: 1rem;
+	font-weight: 600;
+	font-style: oblique;
 }
 
 .adv_search_terms strong {
-    font-style: normal;
-    font-size: 1rem;
+	font-style: normal;
+	font-size: 1rem;
 }
 
-
 .adv_search_links a {
-    font-size: 1.05rem;
-    margin-bottom: 2px;
-    padding-bottom: 5px;
-    padding-left: 5px;
-    padding-right: 5px;
+	font-size: 1.05rem;
+	margin-bottom: 2px;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
 }
 
 .adv_search_links i {
-    color: @gray;
-    margin-right: 5px;
+	color: @gray;
+	margin-right: 5px;
 }
 
-.adv_search_links a:hover, .adv_search_links a:focus {
-    margin-bottom: 0;
+.adv_search_links a:hover,
+.adv_search_links a:focus {
+	margin-bottom: 0;
 }
 
 .search-result-header {
-    font-size: .65rem;
+	font-size: 0.65rem;
 }
 
 .finna-main-header-wrapper .search-advanced {
-    margin-bottom: 10px;
+	margin-bottom: 10px;
 }
 
 .finna-main-header-wrapper.search-advanced {
-    border-bottom: none;
-    margin-bottom: 10px;
+	border-bottom: none;
+	margin-bottom: 10px;
 }
 
-.searchtools a:hover, .searchtools a:focus {
-    font-weight: 600;
+.searchtools a:hover,
+.searchtools a:focus {
+	font-weight: 600;
 }
 
 // Don't underline covers or filters.
-.recordcover-container a:hover, .recordcover-container a:focus,
-.side-facets-container-ajax a:hover, .side-facets-container-ajax a:focus  {
-    border-bottom: inherit;
-    font-weight: inherit;
+.recordcover-container a:hover,
+.recordcover-container a:focus,
+.side-facets-container-ajax a:hover,
+.side-facets-container-ajax a:focus {
+	border-bottom: inherit;
+	font-weight: inherit;
 }
 
-.template-name-results a:hover, .template-name-results a:focus {
-
+.template-name-results a:hover,
+.template-name-results a:focus {
 }
 // Authors in search result
-.truncate-field a:hover, .truncate-field a:focus {
-    border-bottom: none;
-    text-decoration: underline;
+.truncate-field a:hover,
+.truncate-field a:focus {
+	border-bottom: none;
+	text-decoration: underline;
 }
 
 .back-to-search a {
-    font-weight: 600!important;
+	font-weight: 600 !important;
 }
 
-.back-to-search a:hover, .back-to-search a:focus {
-    border-bottom: none;
+.back-to-search a:hover,
+.back-to-search a:focus {
+	border-bottom: none;
 }
