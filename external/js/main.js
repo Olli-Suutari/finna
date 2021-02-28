@@ -1,15 +1,14 @@
-/* Add your custom template javascript here */
 var locationUrl = '';
 locationUrl = window.location.href;
 
 function importJsOrCssFile(filename, filetype) {
 	if (filetype == 'js') {
-		//if filename is a external JavaScript file
+		// if filename is a external JavaScript file
 		var fileref = document.createElement('script');
 		fileref.setAttribute('type', 'text/javascript');
 		fileref.setAttribute('src', filename);
 	} else if (filetype == 'css') {
-		//if filename is an external CSS file
+		// if filename is an external CSS file
 		var fileref = document.createElement('link');
 		fileref.setAttribute('rel', 'stylesheet');
 		fileref.setAttribute('type', 'text/css');
@@ -31,17 +30,11 @@ function checkUrlForContent(url) {
 
 // Turn link into an _blank and set class + accessibility text.
 function generateAccessibleExternalLink(link) {
-	//if (link.indexOf('@') !== -1) {
-	//    return
-	//}
 	var opensInNewTabText = 'avautuu uudessa välilehdessä';
-
 	if (document.documentElement.lang.toLowerCase() !== 'fi') {
 		opensInNewTabText = 'opens in a new tab';
 	}
-
 	link.insertAdjacentHTML('beforeend', '<span class="sr-only"> (' + opensInNewTabText + ')</span>');
-
 	return link;
 }
 // https://codersblock.com/blog/external-links-new-tabs-and-accessibility/
@@ -92,7 +85,6 @@ function addSelectedNav() {
 			return;
 		}
 		$('#menu_Vinkit a').each(function () {
-			//do something with the link element
 			if (locationUrl.indexOf(this.href) > -1) {
 				$('#menu_Vinkit').addClass('selected-nav');
 				var linkEnding = this.href.substring(this.href.lastIndexOf('/') + 1);
@@ -100,7 +92,6 @@ function addSelectedNav() {
 			}
 		});
 		$('#menu_eaineisto a').each(function () {
-			//do something with the link element
 			if (locationUrl.indexOf(this.href) > -1) {
 				$('#menu_eaineisto').addClass('selected-nav');
 				var linkEnding = this.href.substring(this.href.lastIndexOf('/') + 1);
@@ -109,20 +100,10 @@ function addSelectedNav() {
 		});
 		// Footer links
 		$('footer a').each(function () {
-			//do something with the link element
 			if (locationUrl.indexOf(this.href) > -1) {
 				$('li a[href$="' + window.location.pathname + '"]').addClass('selected-nav');
 			}
 		});
-
-		/*
-     if (locationUrl.indexOf('/Content/terms') > -1) {
-            $('footer li a[href$="/Content/terms"]').parent().addClass("selected-nav");
-        }
-        else if (locationUrl.indexOf('/Content/privacy') > -1) {
-            $('footer li a[href$="/Content/privacy"]').parent().addClass("selected-nav");
-        }
-        */
 	}
 }
 
@@ -134,7 +115,6 @@ function leftNavigationScrollDisplay() {
 			try {
 				var selector = $(this.hash)[0].id;
 				if (selector !== undefined) {
-					//selector = selector.substr(1);
 					navSections.push(selector);
 				}
 			} catch (e) {
