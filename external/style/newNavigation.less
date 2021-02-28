@@ -73,32 +73,6 @@ header,
 	}
 }
 
-.browsebar li a:hover,
-.browsebar li a:focus {
-	border-color: #ffffff !important;
-}
-
-@media screen and (max-width: 700px) {
-	.browsebar {
-		align-content: start;
-	}
-
-	.browsebar .container {
-		width: auto !important;
-		margin-left: 5vmin;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.browsebar .container {
-		width: 100%;
-	}
-
-	.navbar {
-		text-align: left;
-	}
-}
-
 .finna-navbar .navbar-collapse > ul > li {
 	border-bottom: none;
 }
@@ -556,13 +530,67 @@ header li a {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
+	background: @footer-background;
 }
 
 .browsebar-title {
 	font-weight: 600;
 	font-size: 1.1em;
+	color: @btn-primary-color;
+	//padding-top: 4px !important;
+	//margin-bottom: -4px;
+	height: 100%;
+	vertical-align: middle;
+	align-content: center;
 }
 
 .browsebar-title:after {
 	content: ':';
+}
+
+@media screen and (min-width: 701px) {
+	.browsebar li a {
+		height: 100%;
+		vertical-align: middle;
+		align-content: center;
+		padding-top: 4px;
+		padding-bottom: 3px;
+		margin-bottom: -3px;
+		line-height: 57px !important; // Fixes the vertical align.
+	}
+
+	.browsebar .navbar .navbar-nav > li > a i.fa {
+		margin-right: 0.12em;
+		margin-left: 0.2em;
+	}
+
+	.browsebar li a:hover,
+	.browsebar li a:focus {
+		border-color: #ffffff !important;
+		border-top: solid 4px;
+		border-bottom: solid 3px;
+		padding-top: 0;
+		padding-bottom: 0;
+		background: #282828 !important;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.browsebar {
+		align-content: start;
+	}
+
+	.browsebar .container {
+		width: auto !important;
+		margin-left: 5vmin;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.browsebar .container {
+		width: 100%;
+	}
+	.navbar {
+		text-align: left;
+	}
 }
