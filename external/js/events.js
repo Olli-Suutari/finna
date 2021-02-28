@@ -10,7 +10,6 @@ var eventTags = [];
 var eventLocations = [];
 var allEvents = [];
 var filteredEvents = [];
-var eventMap;
 var lang = 'fi';
 var i18n;
 var libraryList = [];
@@ -553,17 +552,14 @@ function generateEventItem(event, id) {
 	function generateLinkToTransitInfo(coordinates, street, zipcode, city, text) {
 		var linkToTransitInfo = street + ', ' + city + '::' + coordinates.lat + ', ' + coordinates.lon;
 		var infoText = i18n.get('Route and transportation'); //var infoText = text;
-
 		linkToTransitInfo = 'https://opas.matka.fi/reitti/POS/' + linkToTransitInfo;
 		linkToTransitInfo = encodeURI(linkToTransitInfo); // Matka.fi does not support all cities for public transport details, see: https://www.traficom.fi/fi/asioi-kanssamme/reittiopas
 
 		if (city !== 'Jyväskylä') {
 			linkToTransitInfo = 'https://www.google.com';
-
 			if (!isEnglish) {
 				linkToTransitInfo = 'https://www.google.fi';
 			}
-
 			linkToTransitInfo = linkToTransitInfo + '/maps/dir//';
 			linkToTransitInfo =
 				linkToTransitInfo +
@@ -579,10 +575,8 @@ function generateEventItem(event, id) {
 				', 15z/';
 			infoText = i18n.get('Navigation to location');
 		}
-
 		return '<a target="_blank" class="external-navigation-link" href="' + linkToTransitInfo + '">' + infoText + '</a>'; //$('#transitBody').append('<p><a target="_blank" href="' + linkToTransitInfo + '">' + infoText + '</a></p>')
 	}
-
 	// Generate the transit info.
 	var linkToNavigation = '';
 	if (locationData.length == 1) {
@@ -611,7 +605,6 @@ function generateEventItem(event, id) {
 			linkToNavigation +
 			'</span>';
 	}
-
 	// Generate modal infoboxes.
 	// If the event location is the library, do not display this information in the event list.
 	var locationInfo = '';
@@ -1088,18 +1081,15 @@ function asyncGenerateEventMap(locations) {
 	setTimeout(function () {
 		if (!eventMap) {
 			eventMap = L.map('eventMapContainer'); // Add fallback layer to the default titles in case something goes wrong (err 429 etc.)
-
-			L.tileLayer.fallback('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(eventMap); //L.tileLayer('https://map-api.finna.fi/v1/rendered/{z}/{x}/{y}.png').addTo(map); < Blocked for non-finna.
+			L.tileLayer.fallback('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(eventMap);
+			//L.tileLayer('https://map-api.finna.fi/v1/rendered/{z}/{x}/{y}.png').addTo(map); < Blocked for non-finna.
 			// Limitations: free usage for up to 75,000 mapviews per month, none-commercial services only. For bigger usage and other cases contact CARTO sales for enterprise service key.
-			//L.tileLayer.fallback('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(eventMap);
-
-			L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(eventMap); //L.tileLayer('https://map-api.finna.fi/v1/rendered/{z}/{x}/{y}.png').addTo(eventMap); // Blocked for non-finna.
+			L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(eventMap);
 			// Min/max zoom levels + default focus.
 			eventMap.options.minZoom = 6;
 			eventMap.options.maxZoom = 18;
 			eventMap.setView(['62.750', '25.700'], 10.5);
 			layerGroup = L.layerGroup().addTo(eventMap); // Set the contribution text.
-
 			$('.leaflet-control-attribution').replaceWith(
 				'<div class="leaflet-control-attribution leaflet-control">© <a target="_blank" href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a target="_blank" href="https://carto.com/attributions">CARTO</a></div>'
 			);
@@ -1145,7 +1135,6 @@ function asyncReplaceIdWithCity(data) {
 						return 0;
 					});
 					// If the events are missing for whatever reason.
-					//localStorage.setItem('cityList', libraryList);
 					citiesDeferred.resolve();
 				}
 			}
