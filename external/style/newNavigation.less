@@ -73,8 +73,9 @@ header,
 	}
 }
 
-.browsebar li a:hover {
-	border-color: #ffffff;
+.browsebar li a:hover,
+.browsebar li a:focus {
+	border-color: #ffffff !important;
 }
 
 @media screen and (max-width: 700px) {
@@ -173,6 +174,27 @@ header li a {
 #browseContainer ul li a:focus {
 	border-bottom: solid 3px @nav-hover-border-color;
 	background: none;
+}
+
+/* Browse, eq. https://keski.finna.fi/Browse/Home */
+.browse a:hover {
+	font-weight: 400;
+	border-bottom: none !important;
+}
+
+.browsebar li a:focus,
+.browsebar ul li:focus,
+.browsebar ul li a:focus {
+	border-bottom: 5px solid #ffffff !important;
+}
+
+.search-tooltip button {
+	padding-bottom: 3px;
+}
+
+.search-tooltip button:hover,
+.search-tooltip button:focus {
+	padding-bottom: 0;
 }
 
 // Dropdowns

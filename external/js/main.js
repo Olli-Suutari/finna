@@ -435,7 +435,7 @@ if (!window.moment) {
 // Load moment tilefallback
 if (!window.tileLayer) {
 	console.log('Load Leaflet tile fallback.');
-	importJsOrCssFile('https://keski-finna.fi/external/finna/js/lib/leafletTileFallback.min.js', 'js');
+	importJsOrCssFile('https://keski-finna.fi/external/finna/js/dist/leaflet.tilelayer.fallback.js', 'js');
 }
 // Load JQuery Translate.
 if (!window.i18n) {

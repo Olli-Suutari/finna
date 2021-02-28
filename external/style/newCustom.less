@@ -43,27 +43,6 @@ b a:focus {
 	font-weight: bold;
 }
 
-/* Browse, eq. https://keski.finna.fi/Browse/Home */
-.browse a:hover {
-	font-weight: 400;
-	border-bottom: none !important;
-}
-
-.browsebar li a:focus,
-.browsebar ul li:focus,
-.browsebar ul li a:focus {
-	border-bottom: 5px solid @link-hover-color!important;
-}
-
-.search-tooltip button {
-	padding-bottom: 3px;
-}
-
-.search-tooltip button:hover,
-.search-tooltip button:focus {
-	padding-bottom: 0;
-}
-
 .btn-primary,
 .btn-primary:hover {
 	color: #fff !important;
@@ -91,20 +70,6 @@ b a:focus {
 
 .btn-primary:hover {
 	border-left: none;
-}
-
-// Feedback color must be defined after btn-primary
-.floating-feedback-btn {
-	background: @feedback-btn-bg;
-	color: @feedback-btn-text!important;
-	font-weight: 600;
-}
-
-.floating-feedback-btn:hover,
-.floating-feedback-btn:focus {
-	background: @feedback-btn-hover-bg!important;
-	color: @feedback-btn-text!important;
-	font-weight: 600 !important;
 }
 
 footer a:hover,
@@ -222,8 +187,23 @@ h3 .main.template-dir-feedcontent.template-name-content h3,
 	}
 }
 
-.btn-primary:focus {
+.btn-primary:focus,
+.btn-primary:hover {
 	background: @btn-primary-hover!important;
+}
+
+// Feedback color must be defined after btn-primary
+.floating-feedback-btn {
+	background: @feedback-btn-bg;
+	color: @feedback-btn-text!important;
+	font-weight: 600;
+}
+
+.floating-feedback-btn:hover,
+.floating-feedback-btn:focus {
+	background: @feedback-btn-hover-bg!important;
+	color: @feedback-btn-text!important;
+	font-weight: 600 !important;
 }
 
 .feedback-content {
