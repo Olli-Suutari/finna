@@ -25,60 +25,6 @@ body {
 	height: 100vh;
 }
 
-a:hover,
-a:focus,
-.search-tooltip button:hover,
-.news-item:focus,
-.search-tooltip button:focus {
-	color: @link-hover-color;
-	border-bottom: 3px solid @link-hover-color;
-	font-weight: 500;
-}
-
-// Do not de-bold bolded links
-strong a:hover,
-strong a:focus,
-b a:hover,
-b a:focus {
-	font-weight: bold;
-}
-
-.btn-primary,
-.btn-primary:hover {
-	color: #fff !important;
-}
-
-// Favourites of user
-.bulk-action-buttons-row .btn-primary {
-	color: @text-color!important;
-}
-.bulk-action-buttons-row .btn-primary:focus,
-.bulk-action-buttons-row .btn-primary:focus,
-#add-to-list {
-	background: #f7f7f7 !important;
-}
-
-.btn-primary:hover,
-.navbar-brand:hover,
-.btn-link:hover,
-.btn-primary:focus,
-.navbar-brand:focus,
-.btn-link:focus {
-	border-bottom: none !important;
-	font-weight: inherit;
-}
-
-.btn-primary:hover {
-	border-left: none;
-}
-
-footer a:hover,
-footer a:focus {
-	text-decoration: none;
-	font-weight: 500 !important;
-	border-color: #ffffff;
-}
-
 a {
 	-webkit-transition: all 0.1s linear;
 	transition: all 0.1s linear;
@@ -121,6 +67,62 @@ h4,
 h5,
 h6 {
 	font-size: 1.2em;
+}
+
+a:hover,
+a:focus,
+.search-tooltip button:hover,
+.news-item:focus,
+.search-tooltip button:focus {
+	color: @link-hover-color;
+	border-bottom: 3px solid @link-hover-color;
+	font-weight: 500;
+}
+
+// Title for tooltips
+.tooltip-inner h4 {
+	background: @footer-background;
+}
+
+// Do not de-bold bolded links
+strong a:hover,
+strong a:focus,
+b a:hover,
+b a:focus {
+	font-weight: bold;
+}
+
+.btn-primary,
+.btn-primary:hover {
+	color: @btn-primary-color !important;
+	font-weight: 600 !important;
+}
+
+// Favourites of user
+.bulk-action-buttons-row .btn-primary {
+	color: @text-color !important;
+}
+.bulk-action-buttons-row .btn-primary:focus,
+.bulk-action-buttons-row .btn-primary:focus,
+#add-to-list {
+	background: #f7f7f7 !important;
+}
+
+.btn-primary:hover,
+.navbar-brand:hover,
+.btn-link:hover,
+.btn-primary:focus,
+.navbar-brand:focus,
+.btn-link:focus {
+	border-bottom: none !important;
+	font-weight: inherit;
+}
+
+footer a:hover,
+footer a:focus {
+	text-decoration: none;
+	font-weight: 500 !important;
+	border-color: #ffffff;
 }
 
 /* These differ a bit from the news/schedules/events */
@@ -328,10 +330,6 @@ footer a:focus {
 	font-size: 1.1em;
 	font-weight: 600;
 	margin-bottom: 0.35em;
-}
-
-footer [role='navigation'] {
-	background: @footer-background!important;
 }
 
 .footer-container {

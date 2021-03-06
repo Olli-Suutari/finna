@@ -236,6 +236,11 @@ span[title='Keski Libraries'] {
 	border-bottom: none !important;
 }
 
+.sort-button,
+.view-dropdown {
+	margin-top: 1em;
+}
+
 .sort-button .dropdown-toggle,
 .view-option-container .view-dropdown .dropdown-toggle {
 	border: solid 3px @gray!important;
@@ -630,6 +635,18 @@ span[title='Keski Libraries'] {
 }
 .template-dir-record .sidebar {
 	margin-top: 1.5em;
+}
+
+@media (min-width: 768px) {
+	// "Rajaa hakua"
+	.sidebar :not(.recordProvidedBy) h1 {
+		background: @footer-background!important;
+		margin-top: 1em;
+	}
+}
+
+.sidebar .fa-info-big {
+	cursor: pointer;
 }
 
 @media screen and (min-width: @screen-md-min) {
