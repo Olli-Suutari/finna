@@ -362,6 +362,22 @@ span[title='Keski Libraries'] {
 	float: left;
 }
 
+.searchbox-columns .search-tooltip button.tooltip-button {
+	height: unset;
+	padding: 5px 4px 2px 1px; // Bottom and left needs less.
+	border-radius: 3px;
+}
+
+.search-tooltip button:hover,
+.search-tooltip button:focus {
+	background: @nav-hover-bg;
+}
+
+.search-tooltip button i:hover,
+.search-tooltip button i:focus {
+	color: @link-hover-color;
+}
+
 /* Hide Finna -rating on record page */
 .template-dir-record .media-left .record-rating {
 	display: none;
@@ -419,12 +435,14 @@ span[title='Keski Libraries'] {
 	background: transparent !important;
 }
 
+.paginationSimple li a:hover,
+.paginationSimple li a:focus {
+	border-bottom: none !important;
+}
+
 .paginationSimple li a i:hover,
 .paginationSimple li a i:focus {
 	color: @link-hover-color;
-}
-
-.paginationSimple i {
 }
 
 .paginationSimple .fa-arrow-alt-left,
@@ -787,4 +805,12 @@ span[title='Keski Libraries'] {
 .back-to-search a:hover,
 .back-to-search a:focus {
 	border-bottom: none;
+}
+
+// Eg "Tyhjennä rajaukset" in advanced search.
+.solr-adv-filter .btn-link:hover,
+.solr-adv-filter .btn-link:focus {
+	font-weight: 700 !important;
+	color: @link-hover-color!important;
+	text-decoration: underline;
 }
