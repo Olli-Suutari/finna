@@ -316,6 +316,10 @@ footer {
 	margin-top: 4em !important;
 }
 
+footer [role='navigation'] {
+	background: @footer-background!important;
+}
+
 footer a:visited,
 footer a:focus {
 	color: #f8fafd !important;
@@ -424,13 +428,6 @@ footer h5 {
 @media screen and (min-height: 768px) {
 	section[role='main'] {
 		min-height: 60vmin !important;
-	}
-}
-
-// Hide keski text from each search result holdings
-.holding-details {
-	.dedupInformation {
-		display: none;
 	}
 }
 
@@ -610,8 +607,29 @@ footer h5 {
 	padding-right: 1em;
 	margin-bottom: 1em;
 }
+// Logged in user
+.template-dir-myresearch {
+	margin-top: 2em;
+}
 
-/* Common modal styles */
+.template-dir-myresearch .mainbody {
+	padding-left: 3em;
+}
+
+.template-dir-myresearch .sidebar .menu-header h1 {
+	background: @footer-background;
+}
+
+/* Common modal styles, eg. login modal */
+.lightbox-header {
+	background: @footer-background!important;
+}
+
+.modal-content .close:hover {
+	color: #ff461e;
+}
+
+/*  News and events modal */
 .modal-header {
 	border-bottom: none;
 	margin: 0;
