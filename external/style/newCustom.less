@@ -11,6 +11,8 @@
 @feedback-btn-hover-bg: #8c9d31;
 @feedback-btn-text: #272727;
 
+@close-hover: #ff461e;
+
 /* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
 * {
 	text-transform: unset !important;
@@ -613,8 +615,14 @@ footer h5 {
 	background: @footer-background!important;
 }
 
-.modal-content .close:hover {
-	color: #ff461e;
+.modal-body > h1,
+.modal-body > h2 {
+	background: @footer-background;
+}
+
+.modal-content .close:hover,
+.modal-content .close:focus {
+	color: @close-hover;
 }
 
 /*  News and events modal */

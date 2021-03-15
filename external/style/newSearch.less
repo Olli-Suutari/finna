@@ -143,7 +143,7 @@ span[title='Keski Libraries'] {
 .active-filters .search-filter-remove:hover {
 	border-bottom: none;
 	text-decoration: none;
-	color: #fe8f77;
+	color: @close-hover; //#fe8f77;
 }
 
 .filter-value {
@@ -813,4 +813,12 @@ span[title='Keski Libraries'] {
 	font-weight: 700 !important;
 	color: @link-hover-color!important;
 	text-decoration: underline;
+}
+
+// When hovering over a selected filter in the sidebar, change text color
+.list-group.facet .jstree-container-ul .jstree-node.active > a:hover,
+.list-group.facets .jstree-container-ul .jstree-node.active > a:hover,
+.list-group.facet a.list-group-item.active:hover,
+.list-group.facets a.list-group-item.active:hover {
+	color: @close-hover;
 }
