@@ -1,15 +1,7 @@
-/*
-* CUSTOM VARIABLES.
-*/
-@link-hover-color: #0659c7;
-@btn-primary-hover: #002438;
-@nav-hover-bg: #cecece;
-@nav-hover-border-color: @btn-primary-bg;
-@nav-selected: rgba(88, 140, 238, 0.93);
-// Feedback button
-@feedback-btn-bg: #9db136;
-@feedback-btn-hover-bg: #8c9d31;
-@feedback-btn-text: #272727;
+/****************************************
+*	newCustom.less						*
+*	Generic styles						*
+****************************************/
 
 /* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
 * {
@@ -23,95 +15,6 @@ html {
 body {
 	overflow-x: hidden;
 	height: 100vh;
-}
-
-a:hover,
-a:focus,
-.search-tooltip button:hover,
-.news-item:focus,
-.search-tooltip button:focus {
-	color: @link-hover-color;
-	border-bottom: 3px solid @link-hover-color;
-	font-weight: 500;
-}
-
-// Do not de-bold bolded links
-strong a:hover,
-strong a:focus,
-b a:hover,
-b a:focus {
-	font-weight: bold;
-}
-
-/* Browse, eq. https://keski.finna.fi/Browse/Home */
-.browse a:hover {
-	font-weight: 400;
-	border-bottom: none !important;
-}
-
-.browsebar li a:focus,
-.browsebar ul li:focus,
-.browsebar ul li a:focus {
-	border-bottom: 5px solid @link-hover-color!important;
-}
-
-.search-tooltip button {
-	padding-bottom: 3px;
-}
-
-.search-tooltip button:hover,
-.search-tooltip button:focus {
-	padding-bottom: 0;
-}
-
-.btn-primary,
-.btn-primary:hover {
-	color: #fff !important;
-}
-
-// Favourites of user
-.bulk-action-buttons-row .btn-primary {
-	color: @text-color!important;
-}
-.bulk-action-buttons-row .btn-primary:focus,
-.bulk-action-buttons-row .btn-primary:focus,
-#add-to-list {
-	background: #f7f7f7 !important;
-}
-
-.btn-primary:hover,
-.navbar-brand:hover,
-.btn-link:hover,
-.btn-primary:focus,
-.navbar-brand:focus,
-.btn-link:focus {
-	border-bottom: none !important;
-	font-weight: inherit;
-}
-
-.btn-primary:hover {
-	border-left: none;
-}
-
-// Feedback color must be defined after btn-primary
-.floating-feedback-btn {
-	background: @feedback-btn-bg;
-	color: @feedback-btn-text!important;
-	font-weight: 600;
-}
-
-.floating-feedback-btn:hover,
-.floating-feedback-btn:focus {
-	background: @feedback-btn-hover-bg!important;
-	color: @feedback-btn-text!important;
-	font-weight: 600 !important;
-}
-
-footer a:hover,
-footer a:focus {
-	text-decoration: none;
-	font-weight: 500 !important;
-	border-color: #ffffff;
 }
 
 a {
@@ -156,6 +59,61 @@ h4,
 h5,
 h6 {
 	font-size: 1.2em;
+}
+
+a:hover,
+a:focus,
+.news-item:focus,
+.search-tooltip button:focus {
+	color: @link-hover-color;
+	border-bottom: 3px solid @link-hover-color;
+	font-weight: 500;
+}
+
+// Title for tooltips
+.tooltip-inner h4 {
+	background: @footer-background;
+}
+
+// Do not de-bold bolded links
+strong a:hover,
+strong a:focus,
+b a:hover,
+b a:focus {
+	font-weight: bold;
+}
+
+.btn-primary,
+.btn-primary:hover {
+	color: @btn-primary-color !important;
+	font-weight: 600 !important;
+}
+
+// Favourites of user
+.bulk-action-buttons-row .btn-primary {
+	color: @text-color !important;
+}
+.bulk-action-buttons-row .btn-primary:focus,
+.bulk-action-buttons-row .btn-primary:focus,
+#add-to-list {
+	background: #f7f7f7 !important;
+}
+
+.btn-primary:hover,
+.navbar-brand:hover,
+.btn-link:hover,
+.btn-primary:focus,
+.navbar-brand:focus,
+.btn-link:focus {
+	border-bottom: none !important;
+	font-weight: inherit;
+}
+
+footer a:hover,
+footer a:focus {
+	text-decoration: none;
+	font-weight: 500 !important;
+	border-color: #ffffff;
 }
 
 /* These differ a bit from the news/schedules/events */
@@ -222,8 +180,23 @@ h3 .main.template-dir-feedcontent.template-name-content h3,
 	}
 }
 
-.btn-primary:focus {
+.btn-primary:focus,
+.btn-primary:hover {
 	background: @btn-primary-hover!important;
+}
+
+// Feedback color must be defined after btn-primary
+.floating-feedback-btn {
+	background: @feedback-btn-bg;
+	color: @feedback-btn-text!important;
+	font-weight: 600;
+}
+
+.floating-feedback-btn:hover,
+.floating-feedback-btn:focus {
+	background: @feedback-btn-hover-bg!important;
+	color: @feedback-btn-text!important;
+	font-weight: 600 !important;
 }
 
 .feedback-content {
@@ -335,6 +308,10 @@ footer {
 	margin-top: 4em !important;
 }
 
+footer [role='navigation'] {
+	background: @footer-background!important;
+}
+
 footer a:visited,
 footer a:focus {
 	color: #f8fafd !important;
@@ -348,10 +325,6 @@ footer a:focus {
 	font-size: 1.1em;
 	font-weight: 600;
 	margin-bottom: 0.35em;
-}
-
-footer [role='navigation'] {
-	background: @footer-background!important;
 }
 
 .footer-container {
@@ -447,13 +420,6 @@ footer h5 {
 @media screen and (min-height: 768px) {
 	section[role='main'] {
 		min-height: 60vmin !important;
-	}
-}
-
-// Hide keski text from each search result holdings
-.holding-details {
-	.dedupInformation {
-		display: none;
 	}
 }
 
@@ -634,7 +600,22 @@ footer h5 {
 	margin-bottom: 1em;
 }
 
-/* Common modal styles */
+/* Common modal styles, eg. login modal */
+.lightbox-header {
+	background: @footer-background!important;
+}
+
+.modal-body > h1,
+.modal-body > h2 {
+	background: @footer-background;
+}
+
+.modal-content .close:hover,
+.modal-content .close:focus {
+	color: @close-hover;
+}
+
+/*  News and events modal */
 .modal-header {
 	border-bottom: none;
 	margin: 0;
@@ -652,18 +633,10 @@ footer h5 {
 [aria-label='1 of 1'] {
 	display: none !important;
 }
-.btn-advanced {
-	padding: 6px 10px !important;
-	color: #fff !important;
-	font-weight: 500 !important;
-	font-size: 14px !important;
-	background-color: #00446b !important;
-}
-
-.btn-advanced:hover,
-.btn-advanced:focus {
-	background-color: @btn-primary-hover!important;
-}
+/************************************************************
+*	newNavigation.less										*
+*	Styles for main navigation and common nav elements		*
+*************************************************************/
 
 // Navigation background
 .finna-navbar,
@@ -724,31 +697,6 @@ header,
 @media screen and (max-width: 988px) {
 	#header-collapse {
 		margin-top: -5px !important;
-	}
-}
-
-.browsebar li a:hover {
-	border-color: #ffffff;
-}
-
-@media screen and (max-width: 700px) {
-	.browsebar {
-		align-content: start;
-	}
-
-	.browsebar .container {
-		width: auto !important;
-		margin-left: 5vmin;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.browsebar .container {
-		width: 100%;
-	}
-
-	.navbar {
-		text-align: left;
 	}
 }
 
@@ -827,6 +775,41 @@ header li a {
 #browseContainer ul li a:focus {
 	border-bottom: solid 3px @nav-hover-border-color;
 	background: none;
+}
+
+/* Browse, eq. https://keski.finna.fi/Browse/Home */
+.browse a:hover {
+	font-weight: 400;
+	border-bottom: none !important;
+}
+
+.browsebar li a:focus,
+.browsebar ul li:focus,
+.browsebar ul li a:focus {
+	border-bottom: 5px solid #ffffff !important;
+}
+
+.search-tooltip button {
+	padding-bottom: 3px;
+}
+
+.search-tooltip button:hover,
+.search-tooltip button:focus {
+	padding-bottom: 0;
+}
+
+// Advanced search button
+.btn-advanced {
+	padding: 6px 10px !important;
+	color: #fff !important;
+	font-weight: 500 !important;
+	font-size: 14px !important;
+	background-color: #00446b !important;
+}
+
+.btn-advanced:hover,
+.btn-advanced:focus {
+	background-color: @btn-primary-hover!important;
 }
 
 // Dropdowns
@@ -1188,18 +1171,73 @@ header li a {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;
+	background: @footer-background;
 }
 
 .browsebar-title {
 	font-weight: 600;
 	font-size: 1.1em;
+	color: @btn-primary-color;
+	//padding-top: 4px !important;
+	//margin-bottom: -4px;
+	height: 100%;
+	vertical-align: middle;
+	align-content: center;
 }
 
 .browsebar-title:after {
 	content: ':';
 }
+
+@media screen and (min-width: 701px) {
+	.browsebar li a {
+		height: 100%;
+		vertical-align: middle;
+		align-content: center;
+		padding-top: 4px;
+		padding-bottom: 3px;
+		margin-bottom: -3px;
+		line-height: 57px !important; // Fixes the vertical align.
+	}
+
+	.browsebar .navbar .navbar-nav > li > a i.fa {
+		margin-right: 0.12em;
+		margin-left: 0.2em;
+	}
+
+	.browsebar li a:hover,
+	.browsebar li a:focus {
+		border-color: #ffffff !important;
+		border-top: solid 4px;
+		border-bottom: solid 3px;
+		padding-top: 0;
+		padding-bottom: 0;
+		background: #282828 !important;
+	}
+}
+
+@media screen and (max-width: 700px) {
+	.browsebar {
+		align-content: start;
+	}
+
+	.browsebar .container {
+		width: auto !important;
+		margin-left: 5vmin;
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.browsebar .container {
+		width: 100%;
+	}
+	.navbar {
+		text-align: left;
+	}
+}
 /************************************
-* Common styles for news and events *
+*	newsAndEvents.less				*
+*	Styles for news and events		*
 *************************************/
 
 /* Common styles for news and events */
@@ -1218,8 +1256,7 @@ header li a {
 
 #newsModal .modal-content .close,
 #eventModal .modal-content .close {
-	//color: #ff461e;
-	color: #ff461e;
+	color: @close-hover;
 	margin-top: 0.5em;
 	margin-right: 0.5em;
 	font-size: 1.6em !important;
@@ -2532,24 +2569,24 @@ span[title='Keski Libraries'] {
 .active-filters .search-filter-remove:hover {
 	border-bottom: none;
 	text-decoration: none;
-	color: #fe8f77;
+	color: @close-hover; //#fe8f77;
 }
 
 .filter-value {
 	background: none !important;
-	color: #fff;
+	color: @btn-primary-color;
 }
 
 .filter-text {
-	color: #fff;
+	color: @btn-primary-color;
 }
 
 .title-value-pair {
 	padding: 7px 10px;
 	margin: 5px 0 5px 5px;
 	font-weight: 600;
-	background: #00446b;
-	color: #fff;
+	background: @footer-background;
+	color: @btn-primary-color;
 	border-radius: 5px;
 	display: table;
 	align-items: center;
@@ -2623,6 +2660,11 @@ span[title='Keski Libraries'] {
 	border-left: solid 4px @nav-hover-border-color!important;
 	// margin-left: -4px; TODO: Is this required?
 	border-bottom: none !important;
+}
+
+.sort-button,
+.view-dropdown {
+	margin-top: 1em;
 }
 
 .sort-button .dropdown-toggle,
@@ -2740,9 +2782,26 @@ span[title='Keski Libraries'] {
 
 .searchbox-columns .search-tooltip a,
 .template-dir-record .searchbox .search-tooltip a {
-	margin-left: 1.15rem;
+	margin-left: 0.85rem;
+	margin-right: 0.95rem;
 	width: auto;
 	float: left;
+}
+
+.searchbox-columns .search-tooltip button.tooltip-button {
+	height: unset;
+	padding: 5px 4px 2px 1px; // Bottom and left needs less.
+	border-radius: 3px;
+}
+
+.search-tooltip button:hover,
+.search-tooltip button:focus {
+	background: @nav-hover-bg;
+}
+
+.search-tooltip button i:hover,
+.search-tooltip button i:focus {
+	color: @link-hover-color;
 }
 
 /* Hide Finna -rating on record page */
@@ -2784,15 +2843,16 @@ span[title='Keski Libraries'] {
 	visibility: hidden;
 }
 
-.paginationSimple {
-	display: flex;
-	flex-wrap: nowrap;
-	margin-right: 0.9em;
-	min-width: 50%;
+.search-controls .pagination-container {
+	margin-right: 0;
 }
 
 .paginationSimple {
+	display: flex;
+	flex-wrap: nowrap;
+	min-width: 50%;
 	font-size: 1.05em;
+	margin-top: 1em;
 }
 
 .paginationSimple li a i {
@@ -2801,12 +2861,14 @@ span[title='Keski Libraries'] {
 	background: transparent !important;
 }
 
+.paginationSimple li a:hover,
+.paginationSimple li a:focus {
+	border-bottom: none !important;
+}
+
 .paginationSimple li a i:hover,
 .paginationSimple li a i:focus {
 	color: @link-hover-color;
-}
-
-.paginationSimple i {
 }
 
 .paginationSimple .fa-arrow-alt-left,
@@ -2871,154 +2933,31 @@ span[title='Keski Libraries'] {
 	margin-left: 5px !important;
 }
 
-/* SINGLE RECORD STYLES */
-.record .export-toggle {
-	visibility: hidden;
+@media (min-width: 768px) {
+	// "Rajaa hakua"
+	.template-dir-search .sidebar :not(.recordProvidedBy) h1 {
+		background: @footer-background!important;
+		margin-top: 1em;
+	}
 }
 
-.record-pagination-tools {
-	margin-top: 1em;
-	padding-bottom: 0 !important;
-	font-size: 1.18em;
-	// TODO: Proper fix for the added padding afterwards.
-	margin-bottom: -100px !important;
+.sidebar .fa-info-big {
+	cursor: pointer;
 }
 
-.back-to-search {
-	float: left;
-	margin-right: 18px;
-	padding: 0.35em !important;
+// When hovering over a selected filter in the sidebar, change text color
+.list-group.facet .jstree-container-ul .jstree-node.active > a:hover,
+.list-group.facets .jstree-container-ul .jstree-node.active > a:hover,
+.list-group.facet a.list-group-item.active:hover,
+.list-group.facets a.list-group-item.active:hover {
+	color: @close-hover;
 }
 
-.template-dir-record #view-pager {
-	margin-left: 1.5rem;
-}
-
-.template-dir-record #view-pager .pager-text {
-	font-weight: 600 !important;
-	margin: 0 8px;
-}
-
-.template-dir-record #view-pager li a:hover,
-.template-dir-record #view-pager li a:focus {
-	background: @btn-primary-hover;
-}
-
-.record-pagination-tools .pager {
-	text-align: left;
-	font-weight: 600;
-}
-
-.record-pagination-tools .pager .disabled,
-.record-pagination-tools .pager:after {
-	display: none;
-}
-
-.record-pagination-tools .pager .pager-next-record a,
-.record-pagination-tools .pager .pager-previous-record a {
-	background: @btn-primary-bg!important;
-	color: @text-color!important;
-	padding: 0.35em !important;
-	border-radius: 11px !important;
-	margin-left: 3px;
-	margin-right: 3px;
-}
-
-.record .nav-pills a {
-	margin-bottom: 2px;
-	font-size: 1.1em !important;
-}
-
-.record .nav-pills a:hover,
-.record .nav-pills a:focus {
-	border-bottom: solid 2px @nav-hover-border-color;
-	margin-bottom: 0;
-}
-
-.pagination-text,
-.button-label {
-	font-weight: 600;
-	font-size: 1.2em;
-}
-
-.template-dir-record .organisation-menu {
-	display: none;
-}
-
-.template-dir-record .mobile-toolbar {
-	border-top: none;
-}
-
-.template-dir-record .mobile-toolbar ul {
-	margin-left: 5%;
-}
-
-.template-dir-record .mobile-toolbar .library-link {
-	margin-right: 5% !important;
-}
-
-.template-dir-record .mobile-toolbar .library-link li {
-	font-weight: 600 !important;
-	padding-right: 5% !important;
-}
-
-.template-dir-record .mobile-toolbar .fa {
-	color: #fdfdfd !important;
-}
-// Whatsapp share icon
-.mobile-toolbar .fa-phone {
-	background: none !important;
-	border: none !important;
-}
-
-.sourceSolr {
-	position: relative;
-	top: -25px !important;
-}
-
-.finnaQrcodeLinkRecord:hover {
-	border-left: none !important;
-	background: none;
-	padding-left: 0;
-}
-
-.template-dir-record .nav-pills li:not(.share-buttons) a,
-.template-dir-record .nav-pills i {
-	color: @text-color!important;
-	font-size: 1.05em;
-	margin-bottom: 2px;
-	border-radius: 0 !important;
-	padding-bottom: 8px !important;
-	padding-left: 5px !important;
-	padding-right: 5px !important;
-}
-
-.template-dir-record .nav-pills li:not(.share-buttons) span:hover,
-.template-dir-record .nav-pills li:not(.share-buttons) span:focus {
-	color: @text-color!important;
-}
-
-.template-dir-record .nav-pills li:not(.share-buttons) a:hover,
-.template-dir-record .nav-pills li:not(.share-buttons) a:focus {
-	color: @text-color!important;
-	font-size: 1.05em;
-	margin-bottom: 0;
-	//border-bottom: solid 2px @nav-hover-border-color;
-}
-
-.template-dir-record .share-buttons {
-	display: none !important;
-}
-
-.template-dir-record .record-row {
-	margin-top: 4rem;
-}
-
-.template-dir-record .record-main {
-	margin-top: 1em;
-}
-.template-dir-record .sidebar {
-	margin-top: 1.5em;
+.list-group.facet .jstree-container-ul .jstree-node.active > a:hover,
+.list-group.facets .jstree-container-ul .jstree-node.active > a:hover,
+.list-group.facet a.list-group-item.active:hover,
+.list-group.facets a.list-group-item.active:hover {
+	color: @close-hover!important;
 }
 
 @media screen and (min-width: @screen-md-min) {
@@ -3143,9 +3082,6 @@ span[title='Keski Libraries'] {
 	font-weight: inherit;
 }
 
-.template-name-results a:hover,
-.template-name-results a:focus {
-}
 // Authors in search result
 .truncate-field a:hover,
 .truncate-field a:focus {
@@ -3160,4 +3096,12 @@ span[title='Keski Libraries'] {
 .back-to-search a:hover,
 .back-to-search a:focus {
 	border-bottom: none;
+}
+
+// Eg "Tyhjennä rajaukset" in advanced search.
+.solr-adv-filter .btn-link:hover,
+.solr-adv-filter .btn-link:focus {
+	font-weight: 700 !important;
+	color: @link-hover-color!important;
+	text-decoration: underline;
 }
