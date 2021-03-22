@@ -67,18 +67,25 @@ function appendSearchBar() {
 function addSelectedNav() {
 	if (locationUrl.indexOf('/Content/kirjastot') > -1) {
 		$('header li a[href$="/kirjastot"]').addClass('selected-nav');
+		$('header li a[href$="/kirjastot"]').attr('aria-current', 'page');
 	} else if (locationUrl.indexOf('/Content/info') > -1) {
 		$('header li a[href$="/info"]').addClass('selected-nav');
+		$('header li a[href$="/info"]').attr('aria-current', 'page');
 	} else if (locationUrl.indexOf('/Content/help_opac') > -1) {
 		$('header li a[href$="/info"]').addClass('selected-nav');
+		$('header li a[href$="/info"]').attr('aria-current', 'page');
 	} else if (locationUrl.indexOf('/Content/help_accessibility') > -1) {
 		$('header li a[href$="/info"]').addClass('selected-nav');
+		$('header li a[href$="/info"]').attr('aria-current', 'page');
 	} else if (locationUrl.indexOf('/Content/help_keski') > -1) {
 		$('header li a[href$="/info"]').addClass('selected-nav');
+		$('header li a[href$="/info"]').attr('aria-current', 'page');
 	} else if (locationUrl.indexOf('/Feedback/Home') > -1) {
 		$('header li a[href$="/Feedback/Home"]').addClass('selected-nav');
+		$('header li a[href$="/Feedback/Home"]').attr('aria-current', 'page');
 	} else if (locationUrl.indexOf('/Content/accessibility-statement') > -1) {
 		$('footer li a[href$="/Content/accessibility-statement"]').parent().addClass('selected-nav');
+		$('footer li a[href$="/Content/accessibility-statement"]').parent().attr('aria-current', 'page');
 	} else {
 		// Tips might contain urls similar to search results
 		if (locationUrl.indexOf('/Search/Results') > -1 || locationUrl.indexOf('/Record/') > -1) {
@@ -87,6 +94,7 @@ function addSelectedNav() {
 		$('#menu_Vinkit a').each(function () {
 			if (locationUrl.indexOf(this.href) > -1) {
 				$('#menu_Vinkit').addClass('selected-nav');
+				$('#menu_Vinkit').attr('aria-current', 'page');
 				var linkEnding = this.href.substring(this.href.lastIndexOf('/') + 1);
 				$('#menu_Vinkit li a[href$="' + linkEnding + '"]').addClass('selected-nav');
 			}
@@ -94,6 +102,7 @@ function addSelectedNav() {
 		$('#menu_eaineisto a').each(function () {
 			if (locationUrl.indexOf(this.href) > -1) {
 				$('#menu_eaineisto').addClass('selected-nav');
+				$('#menu_eaineisto').attr('aria-current', 'page');
 				var linkEnding = this.href.substring(this.href.lastIndexOf('/') + 1);
 				$('li a[href$="' + linkEnding + '"]').addClass('selected-nav');
 			}
@@ -102,6 +111,7 @@ function addSelectedNav() {
 		$('footer a').each(function () {
 			if (locationUrl.indexOf(this.href) > -1) {
 				$('li a[href$="' + window.location.pathname + '"]').addClass('selected-nav');
+				$('li a[href$="' + window.location.pathname + '"]').attr('aria-current', 'page');
 			}
 		});
 	}
