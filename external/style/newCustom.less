@@ -3,6 +3,22 @@
 *	Generic styles						*
 ****************************************/
 
+/****************************************
+*	Custom color variables				*
+****************************************/
+// Link hover
+@link-hover-color: #0659c7;
+// Btn hover
+@btn-primary-hover: #002438;
+// Hover of navigation elements
+@nav-hover-bg: #cecece;
+@nav-hover-border-color: @btn-primary-bg;
+@nav-selected: rgba(88, 140, 238, 0.93);
+// Feedback button
+@feedback-btn-hover-bg: #8c9d31;
+// Generic close element hover color
+@close-hover: #ff461e;
+
 /* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
 * {
 	text-transform: unset !important;
@@ -15,19 +31,6 @@ html {
 body {
 	overflow-x: hidden;
 	height: 100vh;
-}
-
-a {
-	-webkit-transition: all 0.1s linear;
-	transition: all 0.1s linear;
-}
-
-a[target='_blank']::after {
-	font-family: FontAwesome;
-	content: '\f08e';
-	font-weight: 400;
-	font-size: 0.7em;
-	padding-left: 3px;
 }
 
 h1,
@@ -59,6 +62,19 @@ h4,
 h5,
 h6 {
 	font-size: 1.2em;
+}
+
+a {
+	-webkit-transition: all 0.1s linear;
+	transition: all 0.1s linear;
+}
+
+a[target='_blank']::after {
+	font-family: FontAwesome;
+	content: '\f08e';
+	font-weight: 400;
+	font-size: 0.7em;
+	padding-left: 3px;
 }
 
 a:hover,
@@ -187,15 +203,14 @@ h3 .main.template-dir-feedcontent.template-name-content h3,
 
 // Feedback color must be defined after btn-primary
 .floating-feedback-btn {
-	background: @feedback-btn-bg;
-	color: @feedback-btn-text!important;
+	background: @finna-feedback-background;
+	color: @finna-feedback-color;
 	font-weight: 600;
 }
 
 .floating-feedback-btn:hover,
 .floating-feedback-btn:focus {
 	background: @feedback-btn-hover-bg!important;
-	color: @feedback-btn-text!important;
 	font-weight: 600 !important;
 }
 
@@ -468,71 +483,6 @@ footer h5 {
 	}
 }
 
-// Loader https://projects.lukehaas.me/css-loaders/
-.loader,
-.loader:before,
-.loader:after {
-	border-radius: 50%;
-	width: 2.5em;
-	height: 2.5em;
-	-webkit-animation-fill-mode: both;
-	animation-fill-mode: both;
-	-webkit-animation: load7 1.8s infinite ease-in-out;
-	animation: load7 1.8s infinite ease-in-out;
-}
-.loader {
-	color: @gray;
-	font-size: 10px;
-	margin: 80px auto;
-	position: relative;
-	text-indent: -9999em;
-	-webkit-transform: translateZ(0);
-	-ms-transform: translateZ(0);
-	transform: translateZ(0);
-	-webkit-animation-delay: -0.16s;
-	animation-delay: -0.16s;
-}
-.loader:before,
-.loader:after {
-	content: '';
-	position: absolute;
-	top: 0;
-}
-.loader:before {
-	left: -3.5em;
-	-webkit-animation-delay: -0.32s;
-	animation-delay: -0.32s;
-}
-.loader:after {
-	left: 3.5em;
-}
-@-webkit-keyframes load7 {
-	0%,
-	80%,
-	100% {
-		box-shadow: 0 2.5em 0 -1.3em;
-	}
-	40% {
-		box-shadow: 0 2.5em 0 0;
-	}
-}
-@keyframes load7 {
-	0%,
-	80%,
-	100% {
-		box-shadow: 0 2.5em 0 -1.3em;
-	}
-	40% {
-		box-shadow: 0 2.5em 0 0;
-	}
-}
-
-/* .lib-home-container */
-.lib-home-container {
-	//padding: 1.3rem .1rem 2.1rem .1rem!important;
-	//margin-bottom: 2em;
-}
-
 .title-underlined-wide,
 .template-name-home .carousel-header {
 	display: inline-block;
@@ -632,4 +582,63 @@ footer h5 {
 // Hide list navigation if only 1 page
 [aria-label='1 of 1'] {
 	display: none !important;
+}
+
+// Loader https://projects.lukehaas.me/css-loaders/
+.loader,
+.loader:before,
+.loader:after {
+	border-radius: 50%;
+	width: 2.5em;
+	height: 2.5em;
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation: load7 1.8s infinite ease-in-out;
+	animation: load7 1.8s infinite ease-in-out;
+}
+.loader {
+	color: @gray;
+	font-size: 10px;
+	margin: 80px auto;
+	position: relative;
+	text-indent: -9999em;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+	content: '';
+	position: absolute;
+	top: 0;
+}
+.loader:before {
+	left: -3.5em;
+	-webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s;
+}
+.loader:after {
+	left: 3.5em;
+}
+@-webkit-keyframes load7 {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 2.5em 0 -1.3em;
+	}
+	40% {
+		box-shadow: 0 2.5em 0 0;
+	}
+}
+@keyframes load7 {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 2.5em 0 -1.3em;
+	}
+	40% {
+		box-shadow: 0 2.5em 0 0;
+	}
 }
