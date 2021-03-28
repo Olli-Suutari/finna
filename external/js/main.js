@@ -339,7 +339,12 @@ function homeLibFunctionality() {
 			} else if (itemWidth < 1340) {
 				heightOffset = 190;
 			}
+			/*
+			console.log('heightOffset');
+			console.log(heightOffset);
 			height = height + heightOffset;
+		  */
+			height = height + 50;
 			// Minimum height of 520.
 			if (height < 520) {
 				height = 520;
@@ -494,22 +499,6 @@ if (isIPad || isIPhone) {
 	isIOS = true;
 }
 
-// This file is used to dynamically generate styles for library & homePage pages.
-// https://stackoverflow.com/questions/3922139/add-css-to-head-with-javascript
-function addCssToDocument(css) {
-	var head = document.getElementsByTagName('head')[0];
-	var s = document.createElement('style');
-	s.setAttribute('type', 'text/css');
-	if (s.styleSheet) {
-		// IE
-		s.styleSheet.cssText = css;
-	} else {
-		// the world
-		s.appendChild(document.createTextNode(css));
-	}
-	head.appendChild(s);
-}
-
 function require(url, callback) {
 	var e = document.createElement('script');
 	e.src = url;
@@ -572,7 +561,6 @@ function main() {
         //$('.limit').prepend('<span class="results-on-page">' + 'Näytä' + ':</span>');
     } */
 	//$('.autocomplete-results').addClass('hidden-search-autocomplete');
-
 	// Hacky sticky footer fix since Finna does not like the modern ways..
 	$('.main').append('<div class="sr-hidden" aria-hidden="true" id="jsFootPositionFix" style="height: 0;">&nbsp;</div>');
 	fixFooterPosition();

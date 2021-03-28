@@ -203,15 +203,14 @@ h3 .main.template-dir-feedcontent.template-name-content h3,
 
 // Feedback color must be defined after btn-primary
 .floating-feedback-btn {
-	background: @finna-feedback-background;
-	color: @finna-feedback-color;
-	font-weight: 600;
+	color: @finna-feedback-color!important;
+	font-weight: 600 !important;
 }
 
 .floating-feedback-btn:hover,
 .floating-feedback-btn:focus {
+	color: @finna-feedback-color!important;
 	background: @feedback-btn-hover-bg!important;
-	font-weight: 600 !important;
 }
 
 .feedback-content {
@@ -438,11 +437,6 @@ footer h5 {
 	}
 }
 
-// Piilota kartta tarkennetusta hausta
-.search-map-container {
-	display: none;
-}
-
 // Cookie-consent - Evästeet
 .cookie-consent {
 	padding: 1.1em 1.4em;
@@ -563,12 +557,6 @@ footer h5 {
 .modal-content .close:hover,
 .modal-content .close:focus {
 	color: @close-hover;
-}
-
-/*  News and events modal */
-.modal-header {
-	border-bottom: none;
-	margin: 0;
 }
 
 .selected-sub-nav {
