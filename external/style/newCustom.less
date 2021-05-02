@@ -1,3 +1,9 @@
+/* Muokkaushistoria:
+ * 3.5.2021. Käyttäjän profiilin navigoinnin taustavärit / OS
+ * 29.3.2021. Lisätty Ota yhteyttä -sivu 22.4./JH
+ */
+//@import url("http://keski-finna.fi/external/finna/style/importStyles.less");
+
 /****************************************
 *	newCustom.less						*
 *	Generic styles						*
@@ -19,6 +25,29 @@
 // Generic close element hover color
 @close-hover: #ff461e;
 
+/****************************************
+*	User defined styles 				*
+****************************************/
+// Ota yhteyttä -sivu
+#listOfFbPages {
+	list-style: none;
+}
+
+#listOfiGPages {
+	list-style: none;
+}
+
+#listOfFbPages li a {
+	line-height: 2em !important;
+}
+
+#listOfIgPages li a {
+	line-height: 2em !important;
+}
+
+/****************************************
+*	Customized generic styles			*
+*****************************************/
 /* Turn ALL CAPS into All caps, this is better for accessibility reasons. */
 * {
 	text-transform: unset !important;
