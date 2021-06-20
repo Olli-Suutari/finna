@@ -1,4 +1,5 @@
 /* Muokkaushistoria:
+*  20.6.2021. Varaukset / Noutopaikka & painikkeiden tyylit + ym. profiilisäätöjä
  * 3.5.2021. Käyttäjän profiilin navigoinnin taustavärit / OS
  * 29.3.2021. Lisätty Ota yhteyttä -sivu 22.4./JH
  */
@@ -3143,40 +3144,6 @@ span[title='Keski Libraries'] {
 	text-decoration: underline;
 }
 /************************************
-*	profile.less					*
-*	Styles for user pages			*
-*************************************/
-
-// Logged in user
-.template-dir-myresearch #content {
-	padding-top: 2em;
-}
-
-.template-dir-myresearch .mainbody {
-	padding-left: 3em;
-}
-
-.template-dir-myresearch .sidebar .menu-header h1 {
-	background: @footer-background;
-}
-
-.dropdown-menu .active a {
-	background-color: @nav-hover-bg;
-}
-// Fixes overflow of dropdown
-.history-controls .right-control {
-	width: auto;
-}
-
-.useraccount-nav li.menu-header,
-.useraccount-nav li.menu-header h1 {
-	background: @footer-background;
-}
-
-.mobile-main-tabs .dropdown-toggle {
-	background: @btn-primary-bg!important;
-}
-/************************************
 *	record.less						*
 *	Styles for single record		*
 *************************************/
@@ -3328,4 +3295,78 @@ span[title='Keski Libraries'] {
 }
 .template-dir-record .sidebar {
 	margin-top: 1.5em;
+}
+/************************************
+*	profile.less					*
+*	Styles for user pages			*
+*************************************/
+
+// Logged in user
+.template-dir-myresearch #content {
+	padding-top: 2em;
+}
+
+.template-dir-myresearch .mainbody {
+	padding-left: 3em;
+}
+
+.template-dir-myresearch .sidebar .menu-header h1 {
+	background: @footer-background;
+}
+
+.dropdown-menu .active a {
+	background-color: @nav-hover-bg;
+}
+// Fixes overflow of dropdown
+.history-controls .right-control {
+	width: auto;
+}
+
+.useraccount-nav li.menu-header,
+.useraccount-nav li.menu-header h1 {
+	background: @footer-background;
+}
+
+.mobile-main-tabs .dropdown-toggle {
+	background: @btn-primary-bg!important;
+}
+
+/*
+ *Varaukset
+*/
+// Main butttons
+.template-dir-holds .myresearch-table {
+	margin-bottom: 2em;
+}
+
+.template-dir-holds .btn-group input:hover,
+.template-dir-holds .btn-group input:focus {
+	background: @btn-primary-hover!important;
+	font-weight: 500 !important;
+	border-left: none !important;
+}
+
+// Noutopaikka
+.template-dir-holds .dropdown-toggle:hover,
+.template-dir-holds .dropdown-toggle:focus {
+	background: none !important;
+	border-left: none !important;
+}
+
+// Kirjastokortit
+.template-dir-librarycards .library-card-actions a:hover,
+.template-dir-librarycards .library-card-actions a:focus {
+	background: none !important;
+	border-left: none !important;
+	text-decoration: underline;
+	color: @link-hover-color;
+}
+
+// Favourite lists in nav bar
+.template-dir-myresearch .dropdown-menu a:hover,
+.template-dir-myresearch .dropdown-menu a:focus {
+	background: none !important;
+	border-left: none !important;
+	text-decoration: underline;
+	color: @link-hover-color;
 }

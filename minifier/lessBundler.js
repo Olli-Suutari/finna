@@ -11,8 +11,8 @@ const inputPathList = [
   path + './newNavigation.less',
   path + './newsAndEvents.less',
   path + './newSearch.less',
-  path + './profile.less',
-  path + './record.less'
+  path + './record.less',
+  path + './profile.less'
 ];
 
 mergeFiles(inputPathList, outputPath).then((status) => {
