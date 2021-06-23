@@ -77,7 +77,9 @@ function addFrontPageItems(array) {
 		}
 		var listItem =
 			"<li class='news-item news-li front-page-news-li'><div class='news-container front-page-news-container'>" +
-			"<a href='javascript:void(0);' class='news-item-link' title='" +
+			"<a href='/Content/uutiset?news=" +
+			newsList[i].url +
+			"' class='news-item-link' title='" +
 			i18n.get('Read') +
 			': ' +
 			itemTitle +
@@ -139,7 +141,9 @@ function addNewsPageItems(array) {
 
 		var listItem =
 			"<li class='news-item news-li news-page-news-li'><div class='news-container news-page-news-container'>" +
-			"<a href='javascript:void(0);' class='news-item-link'  title='" +
+			"<a href='/Content/uutiset?news=" +
+			newsList[i].url +
+			"' class='news-item-link'  title='" +
 			i18n.get('Read') +
 			': ' +
 			itemTitle +
@@ -289,6 +293,7 @@ function bindNewsModalFunctionality() {
 	}
 
 	$('.news-item-link').on('click', function (e) {
+		e.preventDefault();
 		var popupTitle = $(this).data('name');
 		var popupText = $(this).data('message');
 		// Remove multiple spaces
@@ -313,7 +318,6 @@ function bindNewsModalFunctionality() {
 		);
 
 		// Show modal.
-		//console.log("e.pageY " + e.pageY + " | ta "  +offSet);
 		$('#newsModal').modal('show');
 
 		// Update the page url.

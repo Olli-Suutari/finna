@@ -301,7 +301,7 @@ function generateEventTimeDisplay(start, end) {
      Date + start time = false
      Date to date = false
      Date + Start time to end time = true
-     ******************************************/
+	 ******************************************/
 	var needsTwoRows = false;
 	var startDayDisplay = '<img alt="" src="' + faPath + 'calendar.svg" class="fa-svg event-details-icon"> ' + startDay;
 	if (startTime != null) {
@@ -605,6 +605,7 @@ function generateEventItem(event, id) {
 			linkToNavigation +
 			'</span>';
 	}
+
 	// Generate modal infoboxes.
 	// If the event location is the library, do not display this information in the event list.
 	var locationInfo = '';
@@ -653,7 +654,9 @@ function generateEventItem(event, id) {
 		'" id="event-' +
 		id +
 		'">' +
-		'<a class="event-item-link" href="javascript:void(0);"  title="' +
+		'<a class="event-item-link" href="/Content/tapahtumat?event=' +
+		event.perma_link +
+		'" title="' +
 		linkTitle +
 		'" data-url="' +
 		event.perma_link +
@@ -817,6 +820,7 @@ function generateFilters() {
 
 function bindEventListEvents() {
 	$('.event-item-link').on('click', function (e) {
+		e.preventDefault();
 		var popupTitle = $(this).data('name');
 		var time = $(this).data('time');
 		var popupText = $(this).data('message');
@@ -1081,8 +1085,8 @@ function asyncGenerateEventMap(locations) {
 	setTimeout(function () {
 		if (!eventMap) {
 			eventMap = L.map('eventMapContainer'); // Add fallback layer to the default titles in case something goes wrong (err 429 etc.)
-			L.tileLayer.fallback('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(eventMap);
-			//L.tileLayer('https://map-api.finna.fi/v1/rendered/{z}/{x}/{y}.png').addTo(map); < Blocked for non-finna.
+
+			L.tileLayer.fallback('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(eventMap); //L.tileLayer('https://map-api.finna.fi/v1/rendered/{z}/{x}/{y}.png').addTo(map); < Blocked for non-finna.
 			// Limitations: free usage for up to 75,000 mapviews per month, none-commercial services only. For bigger usage and other cases contact CARTO sales for enterprise service key.
 			L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(eventMap);
 			// Min/max zoom levels + default focus.

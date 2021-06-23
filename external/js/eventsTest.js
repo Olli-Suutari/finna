@@ -10,7 +10,6 @@ var eventTags = [];
 var eventLocations = [];
 var allEvents = [];
 var filteredEvents = [];
-var eventMap;
 var lang = 'fi';
 var i18n;
 var libraryList = [];
@@ -578,7 +577,6 @@ function generateEventItem(event, id) {
 		}
 		return '<a target="_blank" class="external-navigation-link" href="' + linkToTransitInfo + '">' + infoText + '</a>'; //$('#transitBody').append('<p><a target="_blank" href="' + linkToTransitInfo + '">' + infoText + '</a></p>')
 	}
-
 	// Generate the transit info.
 	var linkToNavigation = '';
 	if (locationData.length == 1) {
@@ -656,7 +654,9 @@ function generateEventItem(event, id) {
 		'" id="event-' +
 		id +
 		'">' +
-		'<a class="event-item-link" href="javascript:void(0);"  title="' +
+		'<a class="event-item-link" href="/Content/tapahtumat?event=' +
+		event.perma_link +
+		'" title="' +
 		linkTitle +
 		'" data-url="' +
 		event.perma_link +
@@ -820,6 +820,7 @@ function generateFilters() {
 
 function bindEventListEvents() {
 	$('.event-item-link').on('click', function (e) {
+		e.preventDefault();
 		var popupTitle = $(this).data('name');
 		var time = $(this).data('time');
 		var popupText = $(this).data('message');
@@ -1087,15 +1088,12 @@ function asyncGenerateEventMap(locations) {
 
 			L.tileLayer.fallback('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(eventMap); //L.tileLayer('https://map-api.finna.fi/v1/rendered/{z}/{x}/{y}.png').addTo(map); < Blocked for non-finna.
 			// Limitations: free usage for up to 75,000 mapviews per month, none-commercial services only. For bigger usage and other cases contact CARTO sales for enterprise service key.
-			//L.tileLayer.fallback('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(eventMap);
-
-			L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(eventMap); //L.tileLayer('https://map-api.finna.fi/v1/rendered/{z}/{x}/{y}.png').addTo(eventMap); // Blocked for non-finna.
+			L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png').addTo(eventMap);
 			// Min/max zoom levels + default focus.
 			eventMap.options.minZoom = 6;
 			eventMap.options.maxZoom = 18;
 			eventMap.setView(['62.750', '25.700'], 10.5);
 			layerGroup = L.layerGroup().addTo(eventMap); // Set the contribution text.
-
 			$('.leaflet-control-attribution').replaceWith(
 				'<div class="leaflet-control-attribution leaflet-control">© <a target="_blank" href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> | <a target="_blank" href="https://carto.com/attributions">CARTO</a></div>'
 			);
@@ -1141,7 +1139,6 @@ function asyncReplaceIdWithCity(data) {
 						return 0;
 					});
 					// If the events are missing for whatever reason.
-					//localStorage.setItem('cityList', libraryList);
 					citiesDeferred.resolve();
 				}
 			}
