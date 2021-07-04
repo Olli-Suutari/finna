@@ -64,6 +64,7 @@ function appendSearchBar() {
 	}
 }
 
+// Sometimes the built in scroll to tag functionality scrolls to the top of the page instead of the tag.
 // This may be related to the language switching button.
 function scrollTagToView() {
 	if (locationUrl.indexOf('#') > -1) {
