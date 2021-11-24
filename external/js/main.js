@@ -326,6 +326,8 @@ function smartPaginationDisplay() {
 		} else {
 			$('#side-panel-subtitle_lng_str_mv button').click();
 		}
+		// Scroll to top
+		document.querySelector('.search').scrollIntoView();
 	}, 800);
 }
 
