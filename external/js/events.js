@@ -104,6 +104,9 @@ function addTagToTagArray(tag) {
 
 // Adds location to eventLocations array if they do not already exists. Increases count if already exists.
 function addLocationsToLocationArray(location) {
+	if (!location) {
+		return
+	}
 	var locationAlreadyExists = false;
 	for (var t = 0; t < eventLocations.length; t++) {
 		if (eventLocations[t].id == location) {
@@ -742,14 +745,11 @@ function formatEventTimeToDate(rawDate) {
 
 function generateFilters() {
 	if (!isEnglish) {
-		eventTags.sort(function (a, b) {
-			return a.nameFi.localeCompare(b.nameFi, 'fi', { sensitivity: 'base' });
-		});
+		eventTags.sort((a, b) => a.nameFi.localeCompare(b.nameFi, 'fi'))
 	} else {
-		eventTags.sort(function (a, b) {
-			return a.nameEn.localeCompare(b.nameEn);
-		});
+		eventTags.sort((a, b) => a.nameEn.localeCompare(b.nameEn, 'en', {sensitivity: 'base'}))
 	}
+
 	// Sort tags and generate.
 	for (var i = 0; i < eventTags.length; i++) {
 		//generateEventItem(events[i].acf);
@@ -776,9 +776,7 @@ function generateFilters() {
 		);
 	}
 	// Sort locations and generate.
-	eventLocations.sort(function (a, b) {
-		return a.id.localeCompare(b.id, 'fi', { sensitivity: 'base' });
-	});
+	eventLocations.sort((a, b) => a.id.localeCompare(b.id, 'fi', {sensitivity: 'base'}))
 
 	for (var x = 0; x < eventLocations.length; x++) {
 		//generateEventItem(events[i].acf);
