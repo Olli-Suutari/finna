@@ -326,7 +326,10 @@ function smartPaginationDisplay() {
 		} else {
 			$('#side-panel-subtitle_lng_str_mv button').click();
 		}
-		// Scroll to top
+		// Scroll to top unless we are returning from a record and the url ends in something like: #keski.3208804
+		if (window.location.href.indexOf('#') > -1 && !isNaN(window.location.href.substring(window.location.href.length - 4))) {
+			return
+		}
 		document.querySelector('.search').scrollIntoView();
 	}, 800);
 }
