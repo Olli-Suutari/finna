@@ -105,7 +105,7 @@ function addTagToTagArray(tag) {
 // Adds location to eventLocations array if they do not already exists. Increases count if already exists.
 function addLocationsToLocationArray(location) {
 	if (!location) {
-		return
+		return;
 	}
 	var locationAlreadyExists = false;
 	for (var t = 0; t < eventLocations.length; t++) {

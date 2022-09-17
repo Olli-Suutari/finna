@@ -746,7 +746,6 @@ function formatEventTimeToDate(rawDate) {
 
 function generateFilters() {
 	if (!isEnglish) {
-		eventTags.sort(function (a, b) {
 		eventTags.sort((a, b) => a.nameFi.localeCompare(b.nameFi, 'fi'));
 	} else {
 		eventTags.sort((a, b) => a.nameEn.localeCompare(b.nameEn, 'en', { sensitivity: 'base' }));
