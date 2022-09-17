@@ -104,6 +104,9 @@ function addTagToTagArray(tag) {
 
 // Adds location to eventLocations array if they do not already exists. Increases count if already exists.
 function addLocationsToLocationArray(location) {
+	if (!location) {
+		return;
+	}
 	var locationAlreadyExists = false;
 	for (var t = 0; t < eventLocations.length; t++) {
 		if (eventLocations[t].id == location) {
@@ -301,7 +304,7 @@ function generateEventTimeDisplay(start, end) {
      Date + start time = false
      Date to date = false
      Date + Start time to end time = true
-     ******************************************/
+	 ******************************************/
 	var needsTwoRows = false;
 	var startDayDisplay = '<img alt="" src="' + faPath + 'calendar.svg" class="fa-svg event-details-icon"> ' + startDay;
 	if (startTime != null) {
@@ -730,10 +733,11 @@ function formatEventTimeToDate(rawDate) {
 	var year = startDateDay.substr(6, 4);
 	var hours = startDateTime.substr(0, 2);
 	var minutes = startDateTime.substr(3, 2);
+
 	var standardDate = new Date();
-	standardDate.setDate(day);
-	standardDate.setMonth(month - 1);
 	standardDate.setYear(year);
+	standardDate.setMonth(month - 1);
+	standardDate.setDate(day);
 	standardDate.setHours(hours);
 	standardDate.setMinutes(minutes);
 	standardDate.setSeconds(0);
@@ -743,13 +747,11 @@ function formatEventTimeToDate(rawDate) {
 function generateFilters() {
 	if (!isEnglish) {
 		eventTags.sort(function (a, b) {
-			return a.nameFi.localeCompare(b.nameFi, 'fi', { sensitivity: 'base' });
-		});
+		eventTags.sort((a, b) => a.nameFi.localeCompare(b.nameFi, 'fi'));
 	} else {
-		eventTags.sort(function (a, b) {
-			return a.nameEn.localeCompare(b.nameEn);
-		});
+		eventTags.sort((a, b) => a.nameEn.localeCompare(b.nameEn, 'en', { sensitivity: 'base' }));
 	}
+
 	// Sort tags and generate.
 	for (var i = 0; i < eventTags.length; i++) {
 		//generateEventItem(events[i].acf);
@@ -776,9 +778,7 @@ function generateFilters() {
 		);
 	}
 	// Sort locations and generate.
-	eventLocations.sort(function (a, b) {
-		return a.id.localeCompare(b.id, 'fi', { sensitivity: 'base' });
-	});
+	eventLocations.sort((a, b) => a.id.localeCompare(b.id, 'fi', { sensitivity: 'base' }));
 
 	for (var x = 0; x < eventLocations.length; x++) {
 		//generateEventItem(events[i].acf);

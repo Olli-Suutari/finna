@@ -1,1 +1,0 @@
-rollup --watch --no-treeshake --config rollup.config.js

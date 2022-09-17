@@ -734,9 +734,9 @@ function formatEventTimeToDate(rawDate) {
 	var hours = startDateTime.substr(0, 2);
 	var minutes = startDateTime.substr(3, 2);
 	var standardDate = new Date();
-	standardDate.setDate(day);
-	standardDate.setMonth(month - 1);
 	standardDate.setYear(year);
+	standardDate.setMonth(month - 1);
+	standardDate.setDate(day);
 	standardDate.setHours(hours);
 	standardDate.setMinutes(minutes);
 	standardDate.setSeconds(0);
@@ -745,9 +745,9 @@ function formatEventTimeToDate(rawDate) {
 
 function generateFilters() {
 	if (!isEnglish) {
-		eventTags.sort((a, b) => a.nameFi.localeCompare(b.nameFi, 'fi'))
+		eventTags.sort((a, b) => a.nameFi.localeCompare(b.nameFi, 'fi'));
 	} else {
-		eventTags.sort((a, b) => a.nameEn.localeCompare(b.nameEn, 'en', {sensitivity: 'base'}))
+		eventTags.sort((a, b) => a.nameEn.localeCompare(b.nameEn, 'en', { sensitivity: 'base' }));
 	}
 
 	// Sort tags and generate.
@@ -776,7 +776,7 @@ function generateFilters() {
 		);
 	}
 	// Sort locations and generate.
-	eventLocations.sort((a, b) => a.id.localeCompare(b.id, 'fi', {sensitivity: 'base'}))
+	eventLocations.sort((a, b) => a.id.localeCompare(b.id, 'fi', { sensitivity: 'base' }));
 
 	for (var x = 0; x < eventLocations.length; x++) {
 		//generateEventItem(events[i].acf);
