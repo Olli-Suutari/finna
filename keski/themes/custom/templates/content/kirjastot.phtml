@@ -1,20 +1,20 @@
 <? $this->headTitle($this->transEsc("browsebar_kirjastot")); ?>
 
 <div class="row wide-content-row library-page">
-    <?
-    if ($this->layout()->userLang == "fi") {
-        ?>
-        <iframe title="Kirjastot" allowfullscreen="" frameborder="0" height="3500"
-        id="libFrame" referrerpolicy="unsafe-url" scrolling="no"src="https://olli-suutari-jkl.github.io/jyvaskyla.fi.kirjasto/pages/library.html?&amp;lib=85159&amp;consortium=2113&amp;lang=fi&amp;primary=414141&amp;links=1663d9&amp;
-        linksHover=0659C7&amp;linksExternal=1663d9&amp;btnBg=00446b&amp;btnHover=002438" width="100%"></iframe><script src="https://olli-suutari-jkl.github.io/jyvaskyla.fi.kirjasto/js/libParent.js"></script>
-        <?
-    }
-    else {
-        ?>
-        <iframe title="Libraries" allowfullscreen="" frameborder="0" height="3500"
-        id="libFrame" referrerpolicy="unsafe-url" scrolling="no"src="https://olli-suutari-jkl.github.io/jyvaskyla.fi.kirjasto/pages/library.html?&amp;lib=85159&amp;consortium=2113&amp;lang=en&amp;primary=414141&amp;links=1663d9&amp;
-        linksHover=0659C7&amp;linksExternal=1663d9&amp;btnBg=00446b&amp;btnHover=002438" width="100%"></iframe><script src="https://olli-suutari-jkl.github.io/jyvaskyla.fi.kirjasto/js/libParent.js"></script>
-        <?
-    }
+<?
+if ($this->layout()->userLang == "fi") {
     ?>
+    <iframe title="Kirjastot" allowfullscreen="" frameborder="0" height="3500"
+            id="libFrame" referrerpolicy="unsafe-url" scrolling="no"src="/themes/custom/files/library.html?&amp;lib=85159&amp;consortium=2113&amp;lang=fi&amp;primary=414141&amp;links=1663d9&amp;
+        linksHover=0659C7&amp;linksExternal=1663d9&amp;btnBg=00446b&amp;btnHover=002438" width="100%"></iframe><script src="https://olli-suutari-jkl.github.io/jyvaskyla.fi.kirjasto/js/libParent.js" nonce="<?=$this->cspNonce()?>"></script>
+    <?
+}
+else {
+    ?>
+    <iframe title="Libraries" allowfullscreen="" frameborder="0" height="3500"
+            id="libFrame" referrerpolicy="unsafe-url" scrolling="no"src="/themes/custom/files/library.html?&amp;lib=85159&amp;consortium=2113&amp;lang=en&amp;primary=414141&amp;links=1663d9&amp;
+        linksHover=0659C7&amp;linksExternal=1663d9&amp;btnBg=00446b&amp;btnHover=002438" width="100%"></iframe><script src="https://olli-suutari-jkl.github.io/jyvaskyla.fi.kirjasto/js/libParent.js" nonce="<?=$this->cspNonce()?>"></script>
+    <?
+}
+?>
 </div>
