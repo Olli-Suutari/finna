@@ -943,6 +943,7 @@ function generateEventList(events) {
 
 	for (var i = 0; i < maxEventsToList; i++) {
 		if (maxEventsToList !== events.length) {
+			// dd.mm.yyyy eg. 16.05.2023 16.05.2023 10.00
 			var eventStartingDate = events[i].acf.start_date;
 			// Get d/m/y/h/m
 			var eventDay = eventStartingDate.substring(2, 0);
