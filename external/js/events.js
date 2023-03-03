@@ -944,9 +944,29 @@ function generateEventList(events) {
 	for (var i = 0; i < maxEventsToList; i++) {
 		if (maxEventsToList !== events.length) {
 			var eventStartingDate = events[i].acf.start_date;
-			eventStartingDate = moment(eventStartingDate, 'DD.MM.YYYY');
+			// Get d/m/y/h/m
+			var eventDay = eventStartingDate.substring(2, 0);
+			var eventMonth = eventStartingDate.substring(3, 5);
+			var eventYear = eventStartingDate.substring(6, 10);
+			var eventHour = eventStartingDate.substring(11, 13);
+			var eventMinute = eventStartingDate.substring(14, 16);
+			// Remove leading zeroes
+			eventDay = eventDay.replace(/^0+/, '');
+			eventMonth = eventMonth.replace(/^0+/, '');
+			eventHour = eventHour.replace(/^0+/, '');
+			eventMinute = eventMinute.replace(/^0+/, '');
+			// remove 1 from month
+			eventMonth = Number(eventMonth -1)
+			// Convert to a new Date
+			var eventStartAsDate = new Date()
+			eventStartAsDate.setDate(eventDay)
+			eventStartAsDate.setMonth(eventMonth)
+			eventStartAsDate.setFullYear(eventYear)
+			eventStartAsDate.setHours(eventHour)
+			eventStartAsDate.setMinutes(eventMinute)
+			eventStartAsDate.setSeconds(0)
 			// Display multi-date events for the first two dates. Eq. event between 1-21 of may will be hidden from the front page on 3rd of may at midnight.
-			var displayUpTo = eventStartingDate._d;
+			var displayUpTo = eventStartAsDate
 			displayUpTo.setDate(displayUpTo.getDate() + 2);
 			var today = new Date();
 			// Increase the max counter in order to show the next event instead.

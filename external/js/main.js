@@ -464,12 +464,8 @@ if (locationUrl.indexOf('?lng=fi') > -1) {
 }
 // Load fonts.
 importJsOrCssFile('https://fonts.googleapis.com/css?family=Lato|Open+Sans&display=swap', 'css');
-// Load moment
-if (!window.moment) {
-	console.log('Load moment.');
-	importJsOrCssFile('/keski/themes/custom/js/lib/moment.min.js', 'js');
-}
-// Load moment tilefallback
+
+// Load tilefallback
 if (!window.tileLayer) {
 	console.log('Load Leaflet tile fallback.');
 	importJsOrCssFile('https://keski-finna.fi/external/finna/js/dist/leaflet.tilelayer.fallback.js', 'js');

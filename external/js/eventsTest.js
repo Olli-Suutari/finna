@@ -186,10 +186,10 @@ function filterEvents(triggeredByTagFilter) {
 
 	$('.events-section-title').replaceWith(
 		'<h1 class="events-page-title events-section-title">' +
-			i18n.get('Events') +
-			' <span class="events-count-small"> (' +
-			filteredEvents.length +
-			')</span></h1>'
+		i18n.get('Events') +
+		' <span class="events-count-small"> (' +
+		filteredEvents.length +
+		')</span></h1>'
 	);
 }
 
@@ -715,10 +715,10 @@ function generateEventItem(event, id) {
 		// Generate the title.
 		$('.events-section-title').replaceWith(
 			'<h1 class="events-page-title events-section-title">' +
-				i18n.get('Events') +
-				' <span class="events-count-small"> (' +
-				allEvents.length +
-				')</span></h1>'
+			i18n.get('Events') +
+			' <span class="events-count-small"> (' +
+			allEvents.length +
+			')</span></h1>'
 		);
 	}
 }
@@ -733,7 +733,6 @@ function formatEventTimeToDate(rawDate) {
 	var year = startDateDay.substr(6, 4);
 	var hours = startDateTime.substr(0, 2);
 	var minutes = startDateTime.substr(3, 2);
-
 	var standardDate = new Date();
 	standardDate.setYear(year);
 	standardDate.setMonth(month - 1);
@@ -761,19 +760,19 @@ function generateFilters() {
 		}
 		$('#categoryFiltersContent').append(
 			'<div id="tag_' +
-				tagId +
-				'" class="tag-checkbox-container">' +
-				'<label class="' +
-				materialClass +
-				'">' +
-				'<input type="checkbox" name="tags" value="' +
-				tagId +
-				'">' +
-				'<span>' +
-				tagText +
-				'</span>' +
-				'</label>' +
-				'</div>'
+			tagId +
+			'" class="tag-checkbox-container">' +
+			'<label class="' +
+			materialClass +
+			'">' +
+			'<input type="checkbox" name="tags" value="' +
+			tagId +
+			'">' +
+			'<span>' +
+			tagText +
+			'</span>' +
+			'</label>' +
+			'</div>'
 		);
 	}
 	// Sort locations and generate.
@@ -784,21 +783,21 @@ function generateFilters() {
 		var cityName = eventLocations[x].id;
 		$('#locationFiltersContent').append(
 			'<div id="location_' +
-				cityName +
-				'" class="location-checkbox-container">' +
-				'<label class="' +
-				materialClass +
-				'">' +
-				'<input id="' +
-				cityName +
-				'" type="checkbox" name="location" value="' +
-				cityName +
-				'">' +
-				'<span>' +
-				cityName +
-				'</span>' +
-				'</label>' +
-				'</div>'
+			cityName +
+			'" class="location-checkbox-container">' +
+			'<label class="' +
+			materialClass +
+			'">' +
+			'<input id="' +
+			cityName +
+			'" type="checkbox" name="location" value="' +
+			cityName +
+			'">' +
+			'<span>' +
+			cityName +
+			'</span>' +
+			'</label>' +
+			'</div>'
 		);
 	}
 	bindFilterEvents();
@@ -850,22 +849,22 @@ function bindEventListEvents() {
 
 		$('.event-modal-header-text').replaceWith(
 			'<div class="event-modal-header-text">' +
-				'<h1 class="modal-title" id="eventModalTitle">' +
-				popupTitle +
-				'</h1>' +
-				time +
-				'</div>'
+			'<h1 class="modal-title" id="eventModalTitle">' +
+			popupTitle +
+			'</h1>' +
+			time +
+			'</div>'
 		);
 		$('#eventDescription').replaceWith(
 			'<div id="eventDescription">' +
-				'<div> ' +
-				'<div class="feed-content">' +
-				'<div class="holder">' +
-				popupText +
-				'</div>' +
-				'</div>' +
-				'</div' +
-				'></div>'
+			'<div> ' +
+			'<div class="feed-content">' +
+			'<div class="holder">' +
+			popupText +
+			'</div>' +
+			'</div>' +
+			'</div' +
+			'></div>'
 		);
 
 		$('#mapRow').css('display', 'block');
@@ -944,10 +943,31 @@ function generateEventList(events) {
 
 	for (var i = 0; i < maxEventsToList; i++) {
 		if (maxEventsToList !== events.length) {
+			// dd.mm.yyyy eg. 16.05.2023 16.05.2023 10.00
 			var eventStartingDate = events[i].acf.start_date;
-			eventStartingDate = moment(eventStartingDate, 'DD.MM.YYYY');
+			// Get d/m/y/h/m
+			var eventDay = eventStartingDate.substring(2, 0);
+			var eventMonth = eventStartingDate.substring(3, 5);
+			var eventYear = eventStartingDate.substring(6, 10);
+			var eventHour = eventStartingDate.substring(11, 13);
+			var eventMinute = eventStartingDate.substring(14, 16);
+			// Remove leading zeroes
+			eventDay = eventDay.replace(/^0+/, '');
+			eventMonth = eventMonth.replace(/^0+/, '');
+			eventHour = eventHour.replace(/^0+/, '');
+			eventMinute = eventMinute.replace(/^0+/, '');
+			// remove 1 from month
+			eventMonth = Number(eventMonth -1)
+			// Convert to a new Date
+			var eventStartAsDate = new Date()
+			eventStartAsDate.setDate(eventDay)
+			eventStartAsDate.setMonth(eventMonth)
+			eventStartAsDate.setFullYear(eventYear)
+			eventStartAsDate.setHours(eventHour)
+			eventStartAsDate.setMinutes(eventMinute)
+			eventStartAsDate.setSeconds(0)
 			// Display multi-date events for the first two dates. Eq. event between 1-21 of may will be hidden from the front page on 3rd of may at midnight.
-			var displayUpTo = eventStartingDate._d;
+			var displayUpTo = eventStartAsDate
 			displayUpTo.setDate(displayUpTo.getDate() + 2);
 			var today = new Date();
 			// Increase the max counter in order to show the next event instead.
