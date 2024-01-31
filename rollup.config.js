@@ -8,7 +8,7 @@
 // Minify is no longer maintained, but the recommended terser breaks global variables :)
 import minify from 'rollup-plugin-babel-minify';
 
-const path = '../external/js/';
+const path = './external/js/';
 export default {
 	external: ['jquery'],
 	input: [path + './jquery.translate.js', path + './main.js', path + './news.js', path + './events.js'],

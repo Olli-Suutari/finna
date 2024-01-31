@@ -1,9 +1,0 @@
-{
-  "dependencies": {
-    "rollup": "^2.75.6",
-    "rollup-plugin-babel-minify": "^10.0.0"
-  },
-  "scripts": {
-    "rollup": "rollup --watch --no-treeshake --config rollup.config.js"
-  }
-}

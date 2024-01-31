@@ -734,9 +734,10 @@ function formatEventTimeToDate(rawDate) {
 	var hours = startDateTime.substr(0, 2);
 	var minutes = startDateTime.substr(3, 2);
 	var standardDate = new Date();
-	standardDate.setYear(year);
-	standardDate.setMonth(month - 1);
+	// Sidenote: Always set the month before setting the day: https://stackoverflow.com/questions/8224459/how-to-create-a-date-object-from-string-in-javascript
 	standardDate.setDate(day);
+	standardDate.setMonth(month - 1);
+	standardDate.setYear(year);
 	standardDate.setHours(hours);
 	standardDate.setMinutes(minutes);
 	standardDate.setSeconds(0);
@@ -957,17 +958,17 @@ function generateEventList(events) {
 			eventHour = eventHour.replace(/^0+/, '');
 			eventMinute = eventMinute.replace(/^0+/, '');
 			// remove 1 from month
-			eventMonth = Number(eventMonth -1)
+			eventMonth = Number(eventMonth - 1);
 			// Convert to a new Date
-			var eventStartAsDate = new Date()
-			eventStartAsDate.setDate(eventDay)
-			eventStartAsDate.setMonth(eventMonth)
-			eventStartAsDate.setFullYear(eventYear)
-			eventStartAsDate.setHours(eventHour)
-			eventStartAsDate.setMinutes(eventMinute)
-			eventStartAsDate.setSeconds(0)
+			var eventStartAsDate = new Date();
+			eventStartAsDate.setDate(eventDay);
+			eventStartAsDate.setMonth(eventMonth);
+			eventStartAsDate.setFullYear(eventYear);
+			eventStartAsDate.setHours(eventHour);
+			eventStartAsDate.setMinutes(eventMinute);
+			eventStartAsDate.setSeconds(0);
 			// Display multi-date events for the first two dates. Eq. event between 1-21 of may will be hidden from the front page on 3rd of may at midnight.
-			var displayUpTo = eventStartAsDate
+			var displayUpTo = eventStartAsDate;
 			displayUpTo.setDate(displayUpTo.getDate() + 2);
 			var today = new Date();
 			// Increase the max counter in order to show the next event instead.

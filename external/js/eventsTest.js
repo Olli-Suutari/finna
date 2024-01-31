@@ -186,10 +186,10 @@ function filterEvents(triggeredByTagFilter) {
 
 	$('.events-section-title').replaceWith(
 		'<h1 class="events-page-title events-section-title">' +
-		i18n.get('Events') +
-		' <span class="events-count-small"> (' +
-		filteredEvents.length +
-		')</span></h1>'
+			i18n.get('Events') +
+			' <span class="events-count-small"> (' +
+			filteredEvents.length +
+			')</span></h1>'
 	);
 }
 
@@ -715,10 +715,10 @@ function generateEventItem(event, id) {
 		// Generate the title.
 		$('.events-section-title').replaceWith(
 			'<h1 class="events-page-title events-section-title">' +
-			i18n.get('Events') +
-			' <span class="events-count-small"> (' +
-			allEvents.length +
-			')</span></h1>'
+				i18n.get('Events') +
+				' <span class="events-count-small"> (' +
+				allEvents.length +
+				')</span></h1>'
 		);
 	}
 }
@@ -734,9 +734,10 @@ function formatEventTimeToDate(rawDate) {
 	var hours = startDateTime.substr(0, 2);
 	var minutes = startDateTime.substr(3, 2);
 	var standardDate = new Date();
-	standardDate.setYear(year);
-	standardDate.setMonth(month - 1);
+	// Sidenote: Always set the month before setting the day: https://stackoverflow.com/questions/8224459/how-to-create-a-date-object-from-string-in-javascript
 	standardDate.setDate(day);
+	standardDate.setMonth(month - 1);
+	standardDate.setYear(year);
 	standardDate.setHours(hours);
 	standardDate.setMinutes(minutes);
 	standardDate.setSeconds(0);
@@ -760,19 +761,19 @@ function generateFilters() {
 		}
 		$('#categoryFiltersContent').append(
 			'<div id="tag_' +
-			tagId +
-			'" class="tag-checkbox-container">' +
-			'<label class="' +
-			materialClass +
-			'">' +
-			'<input type="checkbox" name="tags" value="' +
-			tagId +
-			'">' +
-			'<span>' +
-			tagText +
-			'</span>' +
-			'</label>' +
-			'</div>'
+				tagId +
+				'" class="tag-checkbox-container">' +
+				'<label class="' +
+				materialClass +
+				'">' +
+				'<input type="checkbox" name="tags" value="' +
+				tagId +
+				'">' +
+				'<span>' +
+				tagText +
+				'</span>' +
+				'</label>' +
+				'</div>'
 		);
 	}
 	// Sort locations and generate.
@@ -783,21 +784,21 @@ function generateFilters() {
 		var cityName = eventLocations[x].id;
 		$('#locationFiltersContent').append(
 			'<div id="location_' +
-			cityName +
-			'" class="location-checkbox-container">' +
-			'<label class="' +
-			materialClass +
-			'">' +
-			'<input id="' +
-			cityName +
-			'" type="checkbox" name="location" value="' +
-			cityName +
-			'">' +
-			'<span>' +
-			cityName +
-			'</span>' +
-			'</label>' +
-			'</div>'
+				cityName +
+				'" class="location-checkbox-container">' +
+				'<label class="' +
+				materialClass +
+				'">' +
+				'<input id="' +
+				cityName +
+				'" type="checkbox" name="location" value="' +
+				cityName +
+				'">' +
+				'<span>' +
+				cityName +
+				'</span>' +
+				'</label>' +
+				'</div>'
 		);
 	}
 	bindFilterEvents();
@@ -849,22 +850,22 @@ function bindEventListEvents() {
 
 		$('.event-modal-header-text').replaceWith(
 			'<div class="event-modal-header-text">' +
-			'<h1 class="modal-title" id="eventModalTitle">' +
-			popupTitle +
-			'</h1>' +
-			time +
-			'</div>'
+				'<h1 class="modal-title" id="eventModalTitle">' +
+				popupTitle +
+				'</h1>' +
+				time +
+				'</div>'
 		);
 		$('#eventDescription').replaceWith(
 			'<div id="eventDescription">' +
-			'<div> ' +
-			'<div class="feed-content">' +
-			'<div class="holder">' +
-			popupText +
-			'</div>' +
-			'</div>' +
-			'</div' +
-			'></div>'
+				'<div> ' +
+				'<div class="feed-content">' +
+				'<div class="holder">' +
+				popupText +
+				'</div>' +
+				'</div>' +
+				'</div' +
+				'></div>'
 		);
 
 		$('#mapRow').css('display', 'block');
@@ -957,17 +958,17 @@ function generateEventList(events) {
 			eventHour = eventHour.replace(/^0+/, '');
 			eventMinute = eventMinute.replace(/^0+/, '');
 			// remove 1 from month
-			eventMonth = Number(eventMonth -1)
+			eventMonth = Number(eventMonth - 1);
 			// Convert to a new Date
-			var eventStartAsDate = new Date()
-			eventStartAsDate.setDate(eventDay)
-			eventStartAsDate.setMonth(eventMonth)
-			eventStartAsDate.setFullYear(eventYear)
-			eventStartAsDate.setHours(eventHour)
-			eventStartAsDate.setMinutes(eventMinute)
-			eventStartAsDate.setSeconds(0)
+			var eventStartAsDate = new Date();
+			eventStartAsDate.setDate(eventDay);
+			eventStartAsDate.setMonth(eventMonth);
+			eventStartAsDate.setFullYear(eventYear);
+			eventStartAsDate.setHours(eventHour);
+			eventStartAsDate.setMinutes(eventMinute);
+			eventStartAsDate.setSeconds(0);
 			// Display multi-date events for the first two dates. Eq. event between 1-21 of may will be hidden from the front page on 3rd of may at midnight.
-			var displayUpTo = eventStartAsDate
+			var displayUpTo = eventStartAsDate;
 			displayUpTo.setDate(displayUpTo.getDate() + 2);
 			var today = new Date();
 			// Increase the max counter in order to show the next event instead.
