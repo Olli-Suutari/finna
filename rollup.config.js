@@ -11,7 +11,7 @@ import minify from 'rollup-plugin-babel-minify';
 const path = './external/js/';
 export default {
 	external: ['jquery'],
-	input: [path + './jquery.translate.js', path + './main.js', path + './news.js', path + './events.js'],
+	input: [path + './jquery.translate.js', path + './main.js', path + './news.js'],
 	output: [
 		{
 			dir: path + '/dist',

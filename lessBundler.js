@@ -9,7 +9,7 @@ const outputPath = './external/js/dist/bundle.less';
 const inputPathList = [
 	path + './newCustom.less',
 	path + './newNavigation.less',
-	path + './newsAndEvents.less',
+	path + './news.less',
 	path + './newSearch.less',
 	path + './record.less',
 	path + './profile.less'
