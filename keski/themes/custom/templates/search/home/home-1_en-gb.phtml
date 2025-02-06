@@ -7,8 +7,11 @@
             <iframe nonce="<?=$this->escapeHtmlAttr($this->cspNonce())?>" title="Schedules" allowfullscreen="" frameborder="0" height="760" id="libFrame" referrerpolicy="unsafe-url" scrolling="no"
                     src="https://olli-suutari-jkl.github.io/jyvaskyla.fi.kirjasto/pages/homePageWeek.html?lib=85159&amp;consortium=2113&amp;lang=en&amp;homePage=true&amp;libPageUrl=https://keski.finna.fi/Content/kirjastot&amp;primary=00446B&amp;btnHover=002438" width="100%"></iframe>
         </section>
+    <p><a href="https://www.cineast.fi/en/" target="_blank"> <img src="<?=$this->imageLink('Cineast.fi-EN.png');?>" width="100%" alt="Cineast-streaming service"> 
+        </a></p>
+    
     </div>
-    <div class="col-sm-7 col-md-pull-5">
+    <div class="col-sm-7 col-md-pull-5 order-md-first">
         <section class="keski-news-home" id="keskiNews" aria-labelledby="keskiNewsTitle">
             <h2 id="keskiNewsTitle" class="title-underlined-wide news-section-title"><?= $this->transEsc("news_section_title") ?></h2>
             <div class="loader">Loading...</div>

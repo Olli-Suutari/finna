@@ -1,0 +1,71 @@
+<? $this->headTitle($this->transEsc("events_page_title")); ?>
+<!-- Events -->
+<div class="events-page">
+    <div class="events-container">
+        <div class="event-filters" style="visibility: hidden;">
+
+            <h2 class="sr-only sr-event-filters-title"></h2>
+            <!-- Syntax for filter expanding mechanism is based on Finna search filters. -->
+            <div class="event-filter-container event-category-filter">
+                <div class="list-group facet facet-group" id="side-panel-category_facet">
+                    <button class="list-group-item title collapsed event-category-filter-title"
+                            data-toggle="collapse" data-target="#categoryFiltersContent" onclick="return false;"
+                            aria-owns="tagFiltersContent" aria-expanded="false">
+                    </button>
+                    <div id="categoryFiltersContent" class="event-filter-container-body collapse"
+                         data-facet="category_facet" role="tree" tabindex="0">
+                    </div>
+                </div>
+            </div>
+
+            <div class="event-filter-container event-location-filter">
+                <div class="list-group facet facet-group" id="side-panel-location_facet">
+                    <button class="list-group-item title collapsed event-location-filter-title"
+                            data-toggle="collapse" data-target="#locationFiltersContent" onclick="return false;"
+                            aria-owns="locationFiltersContent" aria-expanded="false">
+                    </button>
+                    <div id="locationFiltersContent" class="event-filter-container-body collapse"
+                         data-facet="location_facet" role="tree" tabindex="0">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="keski-events-archive" id="keskiEvents">
+            <h1 class="events-section-title" style="display: none"></h1>
+            <ul id="keskiEventsUl">
+                <li class="event-li no-matching-events" style="display: none">
+                    <div class="no-matching-events-div">
+                    </div>
+                </li>
+            </ul>
+            <div class="loader">Loading...</div>
+        </div>
+    </div>
+</div>
+
+<!-- Events modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="event-modal-header-text"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div id="eventModalBody" class="modal-body">
+                <div id="eventDescription"></div>
+                <div class="event-modal-location-container">
+                    <div class="event-location-info-box"></div>
+                    <div id="mapRow" class="">
+                        <div id="eventMapContainer" class=""></div>
+                    </div>
+                </div>
+                <div id="eventImageContainer"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary close-event-modal" data-dismiss="modal"></button>
+            </div>
+        </div>
+    </div>
+</div>

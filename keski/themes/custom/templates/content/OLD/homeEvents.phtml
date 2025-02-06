@@ -1,0 +1,42 @@
+<!-- Homepage events -->
+<div class="events-front-page">
+    <div class="events-container">
+        <div class="keski-events-archive" id="keskiEvents">
+            <h1 class="events-section-title"></h1>
+            <ul id="keskiEventsUl">
+                <li class="event-li no-matching-events" style="display: none">
+                    <div class="no-matching-events-div">
+                    </div>
+                </li>
+            </ul>
+            <div class="loader">Loading...</div>
+            <div class="nav-to-event-page-container">
+                <a class="events-front-page-nav-link" href="/Content/tapahtumat" style="visibility: hidden">
+                    <button class="events-front-page-nav-button"></button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Events modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" role="dialog" aria-labelledby="eventModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title" id="eventModalTitle"></h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                </button>
+            </div>
+            <div id="eventModalBody" class="modal-body">
+                <div id="eventDescription"></div>
+                <div id="mapRow" class="">
+                    <div id="eventMapContainer" class=""></div>
+                </div>
+                <div id="eventImageContainer"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary close-event-modal" data-dismiss="modal"></button>
+            </div>
+        </div>
+    </div>
+</div>

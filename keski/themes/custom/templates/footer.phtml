@@ -1,13 +1,14 @@
- <div class="row">
- <div role="navigation" aria-label="<?=$this->transEsc('Footer navigation')?>">
+<div class="row" role="navigation" aria-label="<?=$this->transEsc('Footer navigation')?>">
         <div class="col-sm-3">
          <p class="footer-list-title" aria-hidden="true"><?=$this->transEsc('About')?></p>
             <ul title="<?=$this->transEsc('About')?>">
               <li><a href="<?=$this->url('content-page', ['page' => 'kayttosaannot'])?>"><?=$this->transEsc('käyttösäännöt')?></a></li>
-              <li><a href="https://www.jyvaskyla.fi/sites/default/files/atoms/files/tss_keski-kirjastot_asiakasrekisteri.pdf"><?=$this->transEsc('rekisteriseloste')?></a></li>
               <li><a href="<?=$this->url('content-page', ['page' => 'accessibility-statement'])?>"><?=$this->transEsc('saavutettavuusseloste')?></a></li>
               <li><a href="<?=$this->url('content-page', ['page' => 'terms'])?>"><?=$this->transEsc('Terms')?></a></li>
               <li><a href="<?=$this->url('content-page', ['page' => 'privacy'])?>"><?=$this->transEsc('Privacy')?></a></li>
+               <?php if ($this->cookieConsent()->isEnabled()): ?>
+                <li><a href="#" type="button" data-cc="show-preferencesModal" aria-haspopup="dialog"><?=$this->transEsc('Cookie Settings')?></a></li>
+              <?php endif; ?>
               <li><a href="<?=$this->url('content-page', ['page' => 'about_finna'])?>"><?=$this->transEsc('About Finna')?></a></li>
             </ul>
         </div>
@@ -39,8 +40,8 @@
             </ul>
         </div>
         <div class="col-sm-3">
-            <p class="footer-list-title" aria-hidden="true"><?=$this->transEsc('Need Help?')?></p>
-            <ul title="<?=$this->transEsc('Need Help?')?>">
+            <p class="footer-list-title" aria-hidden="true"><?=$this->transEsc('footer_header_need_help')?></p>
+            <ul title="<?=$this->transEsc('footer_header_need_help')?>">
                 <li><a href="<?=$this->url('content-page', ['page' => 'help_opac'])?>" title="<?=$this->transEsc('Search Tips')?>"><?=$this->transEsc('Help')?></a></li>
                 <li><a href="<?=$this->url('content-page', ['page' => 'hakuohje'])?>" title="<?=$this->transEsc('search_help')?>"><?=$this->transEsc('search_help')?></a></li>
                 <li><a href="/Content/kirjastot"><?=$this->transEsc('footer_kirjastot')?></a></li>
