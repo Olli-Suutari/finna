@@ -1,6 +1,6 @@
 <div class="row" role="navigation" aria-label="<?=$this->transEsc('Footer navigation')?>">
         <div class="col-sm-3">
-         <p class="footer-list-title" aria-hidden="true"><?=$this->transEsc('About')?></p>
+         <h2 class="footer-list-title" aria-hidden="true"><strong><?=$this->transEsc('About')?></strong></h2>
             <ul title="<?=$this->transEsc('About')?>">
               <li><a href="<?=$this->url('content-page', ['page' => 'kayttosaannot'])?>"><?=$this->transEsc('käyttösäännöt')?></a></li>
               <li><a href="<?=$this->url('content-page', ['page' => 'accessibility-statement'])?>"><?=$this->transEsc('saavutettavuusseloste')?></a></li>
@@ -13,7 +13,7 @@
             </ul>
         </div>
         <div class="col-sm-3">
-            <p class="footer-list-title" aria-hidden="true"><?=$this->transEsc('Find More')?></p>
+            <h2 class="footer-list-title" aria-hidden="true"><strong><?=$this->transEsc('Find More')?></strong></h2>
             <ul title="<?=$this->transEsc('Find More')?>">
                 <li>
                 <? if ($this->layout()->userLang === "fi"): ?>
@@ -40,7 +40,7 @@
             </ul>
         </div>
         <div class="col-sm-3">
-            <p class="footer-list-title" aria-hidden="true"><?=$this->transEsc('footer_header_need_help')?></p>
+            <h2 class="footer-list-title" aria-hidden="true"><strong><?=$this->transEsc('footer_header_need_help')?></strong></h2>
             <ul title="<?=$this->transEsc('footer_header_need_help')?>">
                 <li><a href="<?=$this->url('content-page', ['page' => 'help_opac'])?>" title="<?=$this->transEsc('Search Tips')?>"><?=$this->transEsc('Help')?></a></li>
                 <li><a href="<?=$this->url('content-page', ['page' => 'hakuohje'])?>" title="<?=$this->transEsc('search_help')?>"><?=$this->transEsc('search_help')?></a></li>
