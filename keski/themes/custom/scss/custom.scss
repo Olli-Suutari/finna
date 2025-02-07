@@ -8,11 +8,6 @@
  */
 
 /****************************************
-*	newCustom.less						*
-*	Generic styles						*
-****************************************/
-
-/****************************************
 *	Custom color variables				*
 ****************************************/
 // Link hover
@@ -32,7 +27,7 @@ $close-hover: #ff461e !default;
 *	User defined styles 				*
 ****************************************/
 
-/* Piilottaa kohderyhmän tapahtumista, koska näyttää vain yhden */
+// Piilottaa kohderyhmän tapahtumista, koska näyttää vain yhden
 .linked-event-audience {
 	display: none;
 }
@@ -62,11 +57,6 @@ footer h2 {
 .infobox img {
 	padding-right: 1em;
 	margin-bottom: 1em;
-}
-
-/* Common modal styles, eg. login modal */
-.lightbox-header {
-	background: $footer-background!important;
 }
 
 // Feedback button
@@ -151,7 +141,6 @@ footer h2 {
 }
 
 /************************************
-*	news.less				        *
 *	Styles for news		            *
 *************************************/
 
@@ -167,7 +156,7 @@ footer h2 {
 	}
 }
 
-/* Common styles for news  */
+// Common styles for news
 #newsModalTitle {
 	margin-top: 2em;
 	margin-left: 1em !important;
@@ -201,13 +190,11 @@ footer h2 {
 	}
 }
 
-/*  News modal */
 .modal-header {
 	border-bottom: none;
 	margin: 0;
 }
 
-/* News */
 #keskiNews {
 	min-width: 85%;
 	padding-bottom: 1em !important;
@@ -411,7 +398,6 @@ footer h2 {
 	margin-left: 0.15em !important;
 }
 
-// Front page news
 .keski-news-home {
 	margin-right: 5%;
 }
