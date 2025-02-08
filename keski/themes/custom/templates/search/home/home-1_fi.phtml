@@ -1,11 +1,7 @@
 <!-- START of: finna - search/home/home-1.phtml -->
 <div class="row home-first-row">
     <div class="col-sm-5 col-md-push-7">
-        <section class="lib-home-container" aria-labelledby="homeSchedulesTitle">
-            <h2 id="homeSchedulesTitle" class="title-underlined-wide news-section-title"><?= $this->transEsc("organisation_info_schedules") ?></h2>
-            <iframe nonce="<?=$this->escapeHtmlAttr($this->cspNonce())?>" title="Aukioloajat" allowfullscreen="" frameborder="0" height="760" id="libFrame" referrerpolicy="unsafe-url" scrolling="no"
-                    src="https://olli-suutari-jkl.github.io/jyvaskyla.fi.kirjasto/pages/homePageWeek.html?lib=85159&amp;consortium=2113&amp;lang=fi&amp;homePage=true&amp;libPageUrl=https://keski.finna.fi/Content/kirjastot&amp;primary=00446B&amp;btnHover=002438" width="100%" ></iframe>
-        </section>
+        <?= $this->organisationInfo() ?>
     </div>
     <div class="col-sm-7 col-md-pull-5 order-md-first">
         <section class="keski-news-home" id="keskiNews" aria-labelledby="keskiNewsTitle">
