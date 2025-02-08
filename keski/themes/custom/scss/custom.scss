@@ -224,11 +224,6 @@ footer h2 {
 	flex-wrap: nowrap !important;
 }
 
-.news-li {
-	width: 100% !important;
-	margin-bottom: 0.85em;
-}
-
 .news-container {
 	position: relative;
 	text-align: center;
@@ -242,13 +237,28 @@ footer h2 {
 	border-radius: 5px;
 }
 
-.news-page-news-container img {
-	height: 250px;
+.news-page-news-container, .news-page-news-container img {
+	height: 300px;
 }
 
-.news-page-news-container {
-	height: 250px;
+@media screen and (max-width: 768px) {
+	.news-page-news-container img, .news-page-news-container  {
+		height: 250px;
+	}
 }
+
+@media screen and (max-width: 768px) {
+	.news-page-news-container img, .news-page-news-container  {
+		height: 250px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.news-page-news-container img, .news-page-news-container  {
+		height: 210px;
+	}
+}
+
 
 .news-page-news-date {
 	margin-top: -0.4em;
@@ -414,4 +424,9 @@ footer h2 {
 .keski-news-home #keskiNewsUl {
 	margin: 0 !important;
 	padding: 0 !important;
+}
+
+.keski-news-home .news-li {
+	width: 100% !important;
+	margin-bottom: 0.85em;
 }
