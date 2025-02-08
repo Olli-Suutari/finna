@@ -232,12 +232,12 @@ footer h2 {
 .news-container {
 	position: relative;
 	text-align: center;
-	height: 175px;
+	height: 125px;
 }
 
 .news-container img {
 	object-fit: cover;
-	height: 175px;
+	height: 125px;
 	width: auto;
 	border-radius: 5px;
 }
@@ -275,7 +275,7 @@ footer h2 {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	background: rgba(250, 252, 255, 0.91);
+	background: rgba(250, 252, 255, 0.95);
 	width: auto !important;
 	display: flex;
 	flex-direction: column;
@@ -345,6 +345,15 @@ footer h2 {
 	.news-section-title {
 		margin-bottom: 1.5em !important;
 	}
+
+	.front-page-news-date {
+		display: none;
+	}
+
+	.news-text-container {
+		margin: 0;
+		max-width: 100%;
+	}
 }
 
 #newsModal .modal-footer {
@@ -371,7 +380,7 @@ footer h2 {
 }
 
 .news-image {
-	max-height: 65vmin;
+	max-height: 55vmin;
 	margin-top: 3em !important;
 	border: solid 1px transparent;
 	border-radius: 33px !important;

@@ -44,7 +44,7 @@ function generatePrettyUrl(url) {
 }
 
 function addFrontPageItems(array) {
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < 6; i++) {
 		var itemDate = array[i].prettyDate;
 		var itemImg = '';
 		if (array[i].image !== null) {
