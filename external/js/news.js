@@ -346,5 +346,4 @@ function bindNewsModalFunctionality() {
 
 if (isFrontPage || isNewsPage) {
 	checkNewsCache();
-	$('.close-news-modal').text(i18n.get('Close'));
 }

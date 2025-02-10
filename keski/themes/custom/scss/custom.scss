@@ -32,7 +32,6 @@ $close-hover: #ff461e !default;
 	display: none;
 }
 
-
 // Background color for the "browse" -bar::after
 .browsebar {
 	background: $footer-background;
@@ -61,20 +60,20 @@ footer h2 {
 
 // Feedback button
 .floating-feedback-btn {
-	color: $finna-feedback-color!important;
+	color: $finna-feedback-color !important;
 	font-weight: 600 !important;
 }
 
 .floating-feedback-btn:hover,
 .floating-feedback-btn:focus {
-	color: $finna-feedback-color!important;
-	background: $feedback-btn-hover-bg!important;
+	color: $finna-feedback-color !important;
+	background: $feedback-btn-hover-bg !important;
 }
 
 .floating-feedback-btn {
-    @media (max-width: $screen-xs-max) {
-        display:none
-    }
+	@media (max-width: $screen-xs-max) {
+		display: none;
+	}
 }
 
 .feedback-content h1 {
@@ -176,6 +175,7 @@ footer h2 {
 	margin-right: 0.5em;
 	font-size: 1.6em !important;
 	opacity: 0.6;
+	border: none;
 }
 
 #newsModal .modal-content .close:hover {
@@ -203,6 +203,9 @@ footer h2 {
 @media screen and (max-width: 768px) {
 	#keskiNews {
 		min-width: 100%;
+	}
+	#keskiNewsUl .news-item:nth-child(n + 6) {
+		display: none;
 	}
 }
 
@@ -237,28 +240,24 @@ footer h2 {
 	border-radius: 5px;
 }
 
-.news-page-news-container, .news-page-news-container img {
+.news-page-news-container,
+.news-page-news-container img {
 	height: 300px;
 }
 
 @media screen and (max-width: 768px) {
-	.news-page-news-container img, .news-page-news-container  {
-		height: 250px;
-	}
-}
-
-@media screen and (max-width: 768px) {
-	.news-page-news-container img, .news-page-news-container  {
+	.news-page-news-container img,
+	.news-page-news-container {
 		height: 250px;
 	}
 }
 
 @media screen and (max-width: 500px) {
-	.news-page-news-container img, .news-page-news-container  {
+	.news-page-news-container img,
+	.news-page-news-container {
 		height: 210px;
 	}
 }
-
 
 .news-page-news-date {
 	margin-top: -0.4em;
@@ -274,11 +273,11 @@ footer h2 {
 }
 
 .news-container:focus {
-	color: $link-hover-color!important;
+	color: $link-hover-color !important;
 }
 
 .news-item-link:focus {
-	border-bottom: 7px solid $link-hover-color!important;
+	border-bottom: 7px solid $link-hover-color !important;
 }
 
 .news-text-container {
@@ -301,12 +300,17 @@ footer h2 {
 	margin-right: auto;
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 6px;
-	font-size: 1.16em;
 	font-weight: 600;
 }
 
 .news-text-container .news-li-title {
 	margin-bottom: 0.12em;
+	line-height: 1.4;
+}
+
+.news-page .news-text-container .news-li-title {
+	font-size: 1.1em;
+	padding-bottom: 0.4rem;
 }
 
 .news-text-container .news-li-date {
@@ -324,7 +328,7 @@ footer h2 {
 }
 
 .news-title {
-	border-bottom: solid 2px $brand-secondary!important;
+	border-bottom: solid 2px $brand-secondary !important;
 	clear: both;
 	display: inline-block;
 	padding: 2.78em 16px 3px 16px !important;

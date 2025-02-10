@@ -1,0 +1,21 @@
+<!-- Recommendations -->
+<section>
+    <?= $this->feed('Recommendations'); ?>
+</section>
+<section>
+      <?= $this->feed('External_resources'); ?>
+</section>
+<!-- Homepage events -->
+<section class="row mt-5">
+  <h2 style="margin-bottom: -1rem">Events</h2>
+    <?= $this->linkedEventsTabs(['tabs' => [
+        ['title' => 'Kaikki'],
+        ['title' => 'Kirjallisuus', 'params' => ['keyword' => 'c1962289-2bad-4171-bde1-43090af052e2']],
+        ['title' => 'Digitaidot', 'params' => ['keyword' => '3fb634f3-30d1-4ac7-944f-2a850adc5f82']],
+        ['title' => 'Musiikki', 'params' => ['keyword' => 'ffb44742-7df5-4c19-9892-cac79265750a']],
+        ['title' => 'Lastenkulttuuri', 'params' => ['keyword' => 'b0c48053-494e-4a8f-87a2-0642585fde45']],
+        ['title' => 'Muut tapahtumat', 'params' => ['keyword' => '202c9a07-62c6-4351-9392-e67cacef1c7f']] ], 'searchTools' => 'show', 'limit' => 12, 'navStyle' => 'pills',
+  'showMobileAccordion' => false,
+    ]); ?>
+    <!--<a class="text-bold" href="<?=$this->url('content-page',  ['page' => 'tapahtumat'])?>">Katso kaikki tapahtumat</a>-->
+</section>

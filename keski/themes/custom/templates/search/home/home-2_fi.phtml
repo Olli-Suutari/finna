@@ -1,24 +1,13 @@
-
-
-<div class="row">
-    <div class="col-xs-12">
-        <p><a href="https://www.kansalliskirjasto.fi/fi/e-kirjasto" target="_blank"> <img src="<?=$this->imageLink('E-kirjastomainos 1200x400 px.jpg');?>" width="100%" alt="Kuntien yhteinen e-kirjasto"> 
-        </a></p>
-    </div>
-</div>  
-
-<div class="row">
-    <div class="col-xs-12">
-        <h2>Cineast-elokuvapalvelu käytössäsi</h2>
-        <p><a href="https://www.cineast.fi/fi/" target="_blank"> <img src="<?=$this->imageLink('cineastfi_banner.jpg');?>" width="100%" alt="Cineast-elokuvapalvelu"> 
-        </a></p>
-    </div>
-</div> 
-
-<h2 class="title-underlined col-sm-12">Tapahtumat</h2>
+<section>
+    <a href="https://www.kansalliskirjasto.fi/fi/e-kirjasto" target="_blank"> <img src="<?=$this->imageLink('E-kirjastomainos 1200x400 px.jpg');?>" width="100%" alt="Kuntien yhteinen e-kirjasto"></a>
+    <!-- Hidden on desktop -->
+    <a class="d-block d-md-none mt-3" href="https://www.cineast.fi/" target="_blank"> 
+        <img src="<?=$this->imageLink('Cineast.fi.png');?>" width="100%" alt="Cineast-elokuvapalvelu">
+    </a>
+</section>
 <!-- Homepage events -->
-<div class="row">
-    <div class="col-xs-12">
+<section class="row mt-5">
+  <h2 style="margin-bottom: -1rem">Tapahtumat</h2>
     <?= $this->linkedEventsTabs(['tabs' => [
         ['title' => 'Kaikki'],
         ['title' => 'Kirjallisuus', 'params' => ['keyword' => 'c1962289-2bad-4171-bde1-43090af052e2']],
@@ -29,10 +18,8 @@
         ['title' => 'Näyttelyt', 'params' => ['keyword' => 'c3f97c03-d196-4598-b466-80ce7b900e53']] ],'searchTools' => 'hide', 'limit' => 9, 'navStyle' => 'pills',
   'showMobileAccordion' => false,
     ]); ?>
-    <h3><a class="text-bold" href="<?=$this->url('content-page',  ['page' => 'tapahtumat'])?>">Selaa ja hae tapahtumia</a></h3>
-    </div>
-</div>
-
+  <h3><a class="text-bold" href="<?=$this->url('content-page',  ['page' => 'tapahtumat'])?>">Selaa ja hae tapahtumia</a></h3>
+</section>
 <!-- Karusellit alkaa -->
 <section aria-label="<?= $this->transEsc("Frontpage collections") ?>">
     <div class="row front-carousel-section">
@@ -56,27 +43,27 @@
 <section aria-label="<?= $this->transEsc("Frontpage info collections") ?>">
   <div class="info-col">
     <div class="infobox">
-   <h2 class="title-underlined">E-aineistot</h2>
+   <h2>E-aineistot</h2>
         <p>Olethan tutustunut e-aineistoihin? Keski-kirjastojen asiakkaille on tarjolla e-kirjoja, äänikirjoja, e-lehtiä, soitonopetuskursseja ja klassista musiikkia kotisohvalta käsin. Kirjastoissa lisäksi kattava kokoelma kotimaisia sanomalehtiä heti julkaisun jälkeen.</p>
         <p><a href="<?=$this->url('content-page', ['page' => 'ekirjasto'])?>">Tutustu e-aineistoihin</a></p>
         <p><img src="/themes/custom/images/ekirjasto.jpg" alt="E-lehti tabletissa" align="center" width="230px" style="margin-top: .65em; margin-bottom: -1.3em;"></p>
     </div>
-  </div>
+  </div>  
   <div class="info-col">
     <div class="infobox">
-      <h2 class="title-underlined">Uusi lainat </h2>
+      <h2>Uusi lainat </h2>
       <p>Kirjaudu sisään oikeasta ylänurkasta kirjastokorttisi numerolla ja PIN-koodilla, jonka olet saanut kirjastosta.</p>
       <p>Klikkaa uusi kaikki lainat.</p>
       <p>Kaikki uusittavissa olevat lainasi uusitaan.</p>
       <p>Lainat voi uusia viisi kertaa käyttämättä niitä kirjastossa.</p>
       <p><a href="<?=$this->url('content-page', ['page' => 'help_opac'])?>">Lisää ohjeita verkkokirjaston käyttöön</a></p>
       <p><a href="<?=$this->url('content-page', ['page' => 'help_faq'])?>">Usein kysyttyjä kysymyksiä</a></p>
-    </div>
-  </div>
+    </div> 
+  </div> 
  <div class="info-col">
     <div class="infobox">
-     <h2 class="title-underlined">Vinkkejä käyttöön</h2>
-   <p>Unohtuiko kirjastokortti? Käytä kirjastossa asioidessasi mobiilikorttia muovisen kirjastokortin sijaan: <a href="https://keski.finna.fi/Content/help_opac#mobcard">Mobiilikortti</a></p>
+    <h2>Vinkkejä käyttöön</h2>
+    <p>Unohtuiko kirjastokortti? Käytä kirjastossa asioidessasi mobiilikorttia muovisen kirjastokortin sijaan: <a href="https://keski.finna.fi/Content/help_opac#mobcard">Mobiilikortti</a></p>
     <p>Omat ja lasten lainat samalla kirjautumisella: <a href="https://keski.finna.fi/Content/help_opac#cards">Perhetili</a></p>
     <p>Koska suosikkikirjailijani uutuus on varattavissa: <a href="https://keski.finna.fi/Content/help_opac#saved_searches">Uutuusvahti</a></p>
      <p><img src="/themes/custom/images/mobiilikortti.jpg" alt="mobiilikortti" align="center" width="230px" style="margin-top: .65em; margin-bottom: -1.3em;"></p>

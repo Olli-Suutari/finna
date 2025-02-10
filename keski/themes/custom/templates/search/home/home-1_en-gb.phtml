@@ -3,11 +3,12 @@
 <div class="row home-first-row">
     <div class="col-sm-5 col-md-push-7">
         <?= $this->organisationInfo() ?>
-        <p>
+        <!-- Also displayed mobile -->
+        <div class="mb-3">
             <a href="https://www.cineast.fi/en/" target="_blank"> <img src="<?=$this->imageLink('Cineast.fi-EN.png');?>" width="100%" alt="Cineast-streaming service"></a>
-        </p>
+        </div>
     </div>
-    <div class="col-sm-7 col-md-pull-5 order-md-first">
+    <div class="col-sm-7 col-md-pull-5 order-sm-first">
         <section class="keski-news-home" id="keskiNews" aria-labelledby="keskiNewsTitle">
             <h2 id="keskiNewsTitle" class="title-underlined-wide news-section-title"><?= $this->transEsc("news_section_title") ?></h2>
             <div class="loader">Loading...</div>
@@ -16,27 +17,26 @@
                 <a role="menuitem" href="/Content/uutiset" class="news-page-link btn btn-primary">
                     <span class="news-archive-text">
                         <?= $this->transEsc("to_news_archive") ?>
-                    </span>
+                   </span>
                 </a>
             </div>
         </section>
     </div>
 </div>
 <!-- News modal -->
-<div class="modal fade" id="newsModal" tabindex="-1" role="dialog" aria-labelledby="newsModalTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+<div class="modal fade" id="newsModal" tabindex="-1" aria-labelledby="newsModalTitle">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
                 <h1 class="modal-title" id="newsModalTitle"></h1>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                </button>
+                <button type="button" class="btn-close close" data-bs-dismiss="modal" aria-label="<?= $this->transEsc("modal_close") ?>"></button>
             </div>
             <div id="newsModalBody" class="modal-body">
                 <div id="newsDescription"></div>
                 <div id="newsImageContainer"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary close-news-modal" data-dismiss="modal"></button>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><?= $this->transEsc("modal_close") ?></button>
             </div>
         </div>
     </div>
