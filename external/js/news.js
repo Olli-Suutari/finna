@@ -44,7 +44,7 @@ function generatePrettyUrl(url) {
 }
 
 function addFrontPageItems(array) {
-	for (var i = 0; i < 4; i++) {
+	for (var i = 0; i < 6; i++) {
 		var itemDate = array[i].prettyDate;
 		var itemImg = '';
 		if (array[i].image !== null) {
@@ -104,7 +104,7 @@ function addFrontPageItems(array) {
 	}
 	$('#keskiNews .loader').css('display', 'none');
 }
-// Items on the separate news page.
+
 function addNewsPageItems(array) {
 	for (var i = 0; i < array.length; i++) {
 		var itemDate = array[i].prettyDate;
@@ -117,7 +117,7 @@ function addNewsPageItems(array) {
 			var prettyUrl = generatePrettyUrl(array[i].link);
 			itemLink =
 				'<p class="news-link"><i class="fa fa-globe" aria-hidden="true"></i>' +
-				'<a  href="' +
+				'<a href="' +
 				array[i].link +
 				'">' +
 				prettyUrl +
@@ -140,17 +140,17 @@ function addNewsPageItems(array) {
 		}
 
 		var listItem =
-			"<li class='news-item news-li news-page-news-li'><div class='news-container news-page-news-container'>" +
+			"<li class='news-item news-li news-page-news-li col-12 col-md-6'>" +
+			"<div class='news-container news-page-news-container'>" +
 			"<a href='/Content/uutiset?news=" +
 			newsList[i].url +
-			"' class='news-item-link'  title='" +
+			"' class='news-item-link' title='" +
 			i18n.get('Read') +
 			': ' +
 			itemTitle +
 			"' data-url='" +
 			newsList[i].url +
-			"' " +
-			"data-name='" +
+			"' data-name='" +
 			itemTitle +
 			"' data-message='" +
 			itemContent +
@@ -158,12 +158,17 @@ function addNewsPageItems(array) {
 			"<img class='news-li-image news-page-news-image' alt='' src='" +
 			array[i].image +
 			"'> " +
-			"<div class='news-text-container news-page-news-text-container'><span class='news-li-title news-page-news-li-title'>" +
+			"<div class='news-text-container news-page-news-text-container'>" +
+			"<span class='news-li-title news-page-news-li-title'>" +
 			itemTitle +
-			"</span><span class='news-li-date news-page-news-date'>" +
+			'</span>' +
+			"<span class='news-li-date news-page-news-date'>" +
 			itemDate +
 			'</span>' +
-			'</div></a></div></li>';
+			'</div></a>' +
+			'</div>' +
+			'</li>';
+
 		$('#keskiNewsUl').append(listItem);
 	}
 	$('#keskiNews .loader').css('display', 'none');

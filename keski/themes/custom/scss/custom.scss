@@ -1,4 +1,5 @@
 /* Muokkaushistoria:
+ * 11.2.2024 Uutisten tyylien hienosäätöä. / OS
  * 6.2.2024 Poistettu (lähes) kaikki kustomoidut tyylit uutisia ja linkedEvents:iä lukuunottamatta / OS
  * 27.1.2022 Palautettu näkyviin Tämän aineiston tarjoaa-laatikko .template-dir-record .organisation-menu / VM
  * 17.1.2022 Palautettu Keski-kirjastot -teksti näkyviin hakufasetin Kirjasto-valikkoon ja hakutulokseen, koska summa näkyi kuitenkin jo
@@ -284,11 +285,11 @@ footer h2 {
 	position: absolute;
 	bottom: 0;
 	left: 0;
-	background: rgba(250, 252, 255, 0.95);
+	background: rgba(250, 252, 255, 0.93);
 	width: auto !important;
 	display: flex;
 	flex-direction: column;
-	padding: 0.27em 1.1em;
+	padding: .2em .7em;
 	height: auto;
 	text-align: left !important;
 	max-width: 90%;
@@ -308,6 +309,10 @@ footer h2 {
 	line-height: 1.4;
 }
 
+.news-page .news-text-container {
+	padding: 0.27em 1.1em;
+}
+
 .news-page .news-text-container .news-li-title {
 	font-size: 1.1em;
 	padding-bottom: 0.4rem;
@@ -315,7 +320,7 @@ footer h2 {
 
 .news-text-container .news-li-date {
 	font-size: 0.75em;
-	margin-left: 2px;
+	margin-left: 4px;
 	margin-bottom: 0.1em;
 }
 
