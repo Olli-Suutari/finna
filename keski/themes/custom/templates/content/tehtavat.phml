@@ -1,0 +1,195 @@
+<?php
+/**
+ * Toteutettu: https://github.com/tsjl/KRSTL pohjalta
+ * Päivitetty 04/2026
+ */
+
+// 1. Haetaan tehtävät JSON-tiedostosta ja käsitellään.
+$jsonPath = __DIR__ . '/tehtavat.json';
+$jsonData = file_exists($jsonPath) ? file_get_contents($jsonPath) : '[]';
+$initScript = "
+    var otsikotRaw = $jsonData;
+    var otsikot = otsikotRaw.map(function(group) {
+        if (group.lomakkeet) {
+            group.lomakkeet.forEach(function(lomake) {
+                if (lomake.kysymykset) {
+                    lomake.kysymykset.forEach(function(q) {
+                        // Convert string to RegExp. 
+                        // If it doesn't start with ^, wrap it in standard padding.
+                        if (typeof q.vastaus === 'string') {
+                            if (q.vastaus.indexOf('^') === -1) {
+                                q.vastaus = new RegExp('^\\\\s*(' + q.vastaus + ')\\\\s*$', 'i');
+                            } else {
+                                q.vastaus = new RegExp(q.vastaus, 'i');
+                            }
+                        }
+                    });
+                }
+            });
+        }
+        return group;
+    });
+";
+echo $this->assetManager()->outputInlineScriptString($initScript);
+?>
+
+<style type="text/css">
+    #koepaikka { margin: 0; padding: 0; }
+    .alkukuva, .loppukuva { display: block; margin: 10px auto; max-width: 100%; }
+    #ohje { display:none; }
+    .ohje { margin-bottom: 20px; padding: 20px; border-radius: 7px; background: #BEF781; border: 2px solid #A2C75F; }
+    .boksi { border-radius: 7px; margin-top: 5px; padding: 10px; background: #ffffcc; border: 2px solid #FDD267; }
+    .oikea { border-radius: 7px; margin-top: 5px; padding: 10px; background: #BEF781; border: 2px solid #A2C75F; }
+    .vaara { border-radius: 7px; margin-top: 5px; padding: 10px; background: #f8d7da; border: 2px solid #E95F40; }
+    h1#otsikko { text-align: center; background: #FE642E; border: 2px solid #DE2E87; color: white; padding: 10px; border-radius: 7px; }
+    input[type='text'] { padding: 8px; border-radius: 3px; border: 1px solid #717171; width: 100%; max-width: 300px; }
+    .footer { margin-top: 2em; padding: 10px; padding-top: 1.5em; font-size: 80%; text-align: center; background: #eee; border-radius: 7px; }
+    #palaa-alkuun { margin-bottom: 2em; font-size: 1.3em; width: stretch; }
+</style>
+
+<div class="krstl-container">
+    <h1 id="otsikko">Ladataan...</h1>
+    <div id="ohje" class="ohje">
+        <p>Etsi vastaukset esimerkiksi Wikipediasta tai Googlesta. 
+        Oikea vastaus muuttuu vihreäksi, väärä punaiseksi.</p>
+    </div>
+    <div id="koepaikka">
+        <noscript>Tämä sivu vaatii JavaScriptin toimiakseen.</noscript>
+    </div>
+    <div class="footer">
+        <a href="#" class="btn btn-default" id="palaa-alkuun" style="display:none;">
+            <i class="fa fa-chevron-left"></i> Palaa tehtävienvalintaan
+        </a>
+        <p>
+            Kysymyslomake on kehitetty <a href="https://github.com/tsjl/KRSTL">KRSTL:stä (linkki GitHubiin)</a>. Lähdekoodi on käytettävissä MIT-lisenssillä. Vastauksia ei säilytetä missään, eikä sivu kerää käyttäjästä tietoja.
+            <br />
+        </p>
+        <p>
+            <a href="mobiilitehtavat-info.phtml">Tietoa mobiilitehtävistä</a><br />
+        </p>
+    </div>
+
+</div>
+
+<?php
+$engineLogic = <<<JS
+var oldHash = "";
+var vastaukset = [];
+
+var formStub = '<form class="tarkistus-lomake"><input type="text" class="vastaus-kentta" /> <button type="submit" class="btn btn-primary">Tarkista</button></form>';
+
+function tarkistaKysymys(inputElement) {
+    if (!inputElement) return;
+    
+    var form = inputElement.closest('form');
+    if (!form) return;
+
+    var allForms = Array.from(document.querySelectorAll('.tarkistus-lomake'));
+    var index = allForms.indexOf(form);
+    var val = inputElement.value.trim();
+    var div = form.parentElement; 
+    
+    if (index === -1 || !vastaukset[index]) {
+        console.warn("No answer found for index: " + index);
+        return;
+    }
+
+    if (val.length === 0) {
+        div.className = "boksi";
+    } else if (vastaukset[index].test(val)) {
+        div.className = "oikea";
+        inputElement.disabled = true;
+        var btn = form.querySelector('button');
+        if (btn) btn.disabled = true;
+    } else {
+        div.className = "vaara";
+    }
+}
+
+document.addEventListener('submit', function(e) {
+    if (e.target && e.target.classList.contains('tarkistus-lomake')) {
+        e.preventDefault();
+        var input = e.target.querySelector('input');
+        tarkistaKysymys(input);
+    }
+});
+
+document.addEventListener('focusout', function(e) {
+    if (e.target && e.target.classList.contains('vastaus-kentta')) {
+        tarkistaKysymys(e.target);
+    }
+});
+
+function kont() {
+    oldHash = window.location.hash;
+    var hash = window.location.hash.substring(1);
+    
+    if (!hash) {
+        naytaIndeksi();
+    } else {
+        var found = false;
+        otsikot.forEach(function(g) {
+            g.lomakkeet.forEach(function(l) {
+                if (l.llid === hash) {
+                    naytaLomake(l);
+                    found = true;
+                }
+            });
+        });
+        if (!found) naytaIndeksi();
+    }
+}
+
+function naytaLomake(lomake) {
+    document.getElementById("otsikko").innerHTML = lomake.otsikko;
+    document.getElementById("ohje").style.display = "block";
+    
+    // Näytä paluu-painike, kun lomake on auki.
+    var palaaBtn = document.getElementById("palaa-alkuun");
+    if (palaaBtn) palaaBtn.style.display = "inline-block";
+
+    var kp = document.getElementById("koepaikka");
+    kp.innerHTML = "";
+    vastaukset = [];
+
+    lomake.kysymykset.forEach(function(k) {
+        var div = document.createElement('div');
+        div.className = "boksi";
+        div.innerHTML = "<p><strong>" + k.kysymys + "</strong></p>" + formStub;
+        vastaukset.push(k.vastaus);
+        kp.appendChild(div);
+    });
+}
+
+function naytaIndeksi() {
+    document.getElementById("otsikko").innerHTML = "Tehtävät";
+    document.getElementById("ohje").style.display = "none";
+    
+    var palaaBtn = document.getElementById("palaa-alkuun");
+    if (palaaBtn) palaaBtn.style.display = "none";
+
+    var kp = document.getElementById("koepaikka");
+    kp.innerHTML = "";
+
+    otsikot.forEach(function(group) {
+        var div = document.createElement('div');
+        div.className = "ohje";
+        var html = "<h2>" + group.otsikko + "</h2><ul>";
+        group.lomakkeet.forEach(function(l) {
+            html += "<li><a href='#" + l.llid + "'>" + l.lomake + "</a></li>";
+        });
+        html += "</ul>";
+        div.innerHTML = html;
+        kp.appendChild(div);
+    });
+}
+
+window.addEventListener("hashchange", function() {
+    if (oldHash !== window.location.hash) kont();
+});
+
+kont();
+JS;
+
+echo $this->assetManager()->outputInlineScriptString($engineLogic);
+?>
