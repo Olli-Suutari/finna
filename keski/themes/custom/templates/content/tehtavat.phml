@@ -66,6 +66,11 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
     .boksi { margin-top: .75em; margin-bottom: .75em; border-radius: 7px; margin-top: 5px; padding: 10px; background: #ffffcc; border: 2px solid #FDD267; }
     .oikea { border-radius: 7px; margin-top: 5px; padding: 10px; background: #BEF781; border: 2px solid #A2C75F; }
     .vaara { border-radius: 7px; margin-top: 5px; padding: 10px; background: #f8d7da; border: 2px solid #E95F40; }
+    .vaara input:focus {
+        outline: none;
+        border-color: #E95F40;
+        box-shadow: 0 0 5px rgba(233, 95, 64, 0.5);
+    }
     input[type='text'] { padding: 8px; border-radius: 3px; border: 1px solid #717171; width: 100%; max-width: 300px; }
     .bottom-info-nav { 
         display: flex; 
@@ -128,40 +133,44 @@ var vastaukset = [];
 
 var formStub = '<form class="tarkistus-lomake"><input type="text" class="vastaus-kentta" /> <button type="submit" class="btn btn-primary">Tarkista</button></form>';
 
-function tarkistaKysymys(inputElement) {
+function tarkistaKysymys(inputElement, logicType = 'blur') {
     if (!inputElement) return;
-    var form = inputElement.closest('form');
+    const form = inputElement.closest('form');
     if (!form) return;
 
-    var allForms = Array.from(document.querySelectorAll('.tarkistus-lomake'));
-    var index = allForms.indexOf(form);
-    var val = inputElement.value.trim();
-    var div = form.parentElement;
+    const allForms = Array.from(document.querySelectorAll('.tarkistus-lomake'));
+    const index = allForms.indexOf(form);
+    const val = inputElement.value.trim();
+    const div = form.parentElement;
 
     if (index === -1 || !vastaukset[index]) return;
 
-    if (val.length === 0) {
-        div.className = "boksi";
-    } else if (vastaukset[index].test(val)) {
+    const isCorrect = vastaukset[index].test(val);
+
+    if (isCorrect) {
         div.className = "oikea";
         inputElement.disabled = true;
-        var btn = form.querySelector('button');
+        const btn = form.querySelector('button');
         if (btn) btn.disabled = true;
     } else {
-        div.className = "vaara";
+        if (logicType === 'blur') {
+            div.className = (val.length === 0) ? "boksi" : "vaara";
+        } else if (val.length === 0) {
+            div.className = "boksi";
+        }
     }
 }
 
 function kont() {
     oldHash = window.location.hash;
-    var hash = window.location.hash.substring(1);
+    const hash = window.location.hash.substring(1);
 
     if (!hash) {
         naytaIndeksi();
     } else {
-        var found = false;
-        otsikot.forEach(function(g) {
-            g.lomakkeet.forEach(function(l) {
+        let found = false;
+        otsikot.forEach(g => {
+            g.lomakkeet.forEach(l => {
                 if (l.llid === hash) {
                     naytaLomake(l);
                     found = true;
@@ -176,16 +185,16 @@ function naytaLomake(lomake) {
     document.getElementById("otsikko").innerHTML = lomake.otsikko;
     document.getElementById("ohje").style.display = "block";
 
-    document.querySelectorAll(".palaa-alkuun").forEach(function(btn) {
+    document.querySelectorAll(".palaa-alkuun").forEach(btn => {
         btn.style.display = "inline-block";
     });
 
-    var kp = document.getElementById("koepaikka");
+    const kp = document.getElementById("koepaikka");
     kp.innerHTML = "";
     vastaukset = [];
 
-    lomake.kysymykset.forEach(function(k) {
-        var div = document.createElement('div');
+    lomake.kysymykset.forEach(k => {
+        const div = document.createElement('div');
         div.className = "boksi";
         div.innerHTML = "<p><strong>" + k.kysymys + "</strong></p>" + formStub;
         vastaukset.push(k.vastaus);
@@ -197,19 +206,19 @@ function naytaIndeksi() {
     document.getElementById("otsikko").innerHTML = "Mobiilitehtävät";
     document.getElementById("ohje").style.display = "none";
 
-    document.querySelectorAll(".palaa-alkuun").forEach(function(btn) {
+    document.querySelectorAll(".palaa-alkuun").forEach(btn => {
         btn.style.display = "none";
     });
 
-    var kp = document.getElementById("koepaikka");
+    const kp = document.getElementById("koepaikka");
     kp.innerHTML = "";
 
-    otsikot.forEach(function(group) {
-        var div = document.createElement('div');
+    otsikot.forEach(group => {
+        const div = document.createElement('div');
         div.className = "tehtava-osio infobox";
-        var html = "<h2>" + group.otsikko + "</h2><ul class='tehtava-lista'>";
+        let html = "<h2>" + group.otsikko + "</h2><ul class='tehtava-lista'>";
 
-        group.lomakkeet.forEach(function(l) {
+        group.lomakkeet.forEach(l => {
             html += "<li>" +
                         "<a href='#" + l.llid + "'>" +
                             "<i class='fa fa-chevron-right' aria-hidden='true'></i>" +
@@ -223,35 +232,45 @@ function naytaIndeksi() {
     });
 }
 
-$('#confirmExitBtn').on('click', function() {
+const confirmModalEl = document.getElementById('confirmReturnModal');
+const confirmModal = confirmModalEl ? new bootstrap.Modal(confirmModalEl) : null;
+
+document.getElementById('confirmExitBtn')?.addEventListener('click', () => {
     window.location.hash = "";
-    $('#confirmReturnModal').modal('hide');
+    confirmModal?.hide();
 });
 
-document.addEventListener('submit', function(e) {
-    if (e.target && e.target.classList.contains('tarkistus-lomake')) {
+// Event Delegation for inputs
+document.addEventListener('input', e => {
+    if (e.target.classList.contains('vastaus-kentta')) {
+        tarkistaKysymys(e.target, 'input');
+    }
+});
+
+document.addEventListener('focusout', e => {
+    if (e.target.classList.contains('vastaus-kentta')) {
+        tarkistaKysymys(e.target, 'blur');
+    }
+});
+
+document.addEventListener('submit', e => {
+    if (e.target.classList.contains('tarkistus-lomake')) {
         e.preventDefault();
-        tarkistaKysymys(e.target.querySelector('input'));
+        tarkistaKysymys(e.target.querySelector('input'), 'blur');
     }
 });
 
-document.addEventListener('focusout', function(e) {
-    if (e.target && e.target.classList.contains('vastaus-kentta')) {
-        tarkistaKysymys(e.target);
-    }
-});
-
-window.addEventListener("hashchange", function() {
+window.addEventListener("hashchange", () => {
     if (oldHash !== window.location.hash) kont();
 });
 
-// Palataan tehtävienvalintaan, mutta varmistetaan ensin, ettei käyttäjä ole vahingossa jättänyt vastauksia kesken.
-document.addEventListener('click', function(e) {
-    if (e.target.closest('.palaa-alkuun')) {
+document.addEventListener('click', e => {
+    const palaaBtn = e.target.closest('.palaa-alkuun');
+    if (palaaBtn) {
         const remainingQuestions = document.querySelectorAll('.boksi').length;
         const wrongAnswers = document.querySelectorAll('.vaara').length;
         if (remainingQuestions > 0 || wrongAnswers > 0) {
-            $('#confirmReturnModal').modal('show');
+            confirmModal?.show();
         } else {
             window.location.hash = "";
         }
