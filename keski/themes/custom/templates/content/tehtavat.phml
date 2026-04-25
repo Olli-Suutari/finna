@@ -243,6 +243,16 @@ document.getElementById('confirmExitBtn')?.addEventListener('click', () => {
 // Event Delegation for inputs
 document.addEventListener('input', e => {
     if (e.target.classList.contains('vastaus-kentta')) {
+
+        const form = e.target.closest('form');
+        const allForms = Array.from(document.querySelectorAll('.tarkistus-lomake'));
+        const index = allForms.indexOf(form);
+        const regex = vastaukset[index];
+        // Jos vastaus on "vapaa teksti", ei lukita kenttää 1. merkin jälkeen.
+        const patternString = regex.toString();
+        if (patternString.includes('.+') || patternString.includes('.*')) {
+            return; // Lopetetaan tähän, odotetaan blur-tapahtumaa
+        }
         tarkistaKysymys(e.target, 'input');
     }
 });
@@ -280,6 +290,5 @@ document.addEventListener('click', e => {
 kont();
 JS;
 echo $this->assetManager()->outputInlineScriptString($engineLogic);
-
 
 ?>
