@@ -71,7 +71,9 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
             <i class="fa fa-chevron-left"></i> Palaa tehtävienvalintaan
         </button>
         <p class="link-to-about">
-            <a href="<?=$this->url('content-page',  ['page' => 'mobiilitehtavat-info'])?>" target="_blank">Tietoa mobiilitehtävistä</a><br />
+            <a href="<?= $this->url('content-page', [
+            	'page' => 'mobiilitehtavat-info',
+            ]) ?>" target="_blank">Tietoa mobiilitehtävistä</a><br />
         </p>
     </div>
 </div>
@@ -85,15 +87,15 @@ var formStub = '<form class="tarkistus-lomake"><input type="text" class="vastaus
 
 function tarkistaKysymys(inputElement) {
     if (!inputElement) return;
-    
+
     var form = inputElement.closest('form');
     if (!form) return;
 
     var allForms = Array.from(document.querySelectorAll('.tarkistus-lomake'));
     var index = allForms.indexOf(form);
     var val = inputElement.value.trim();
-    var div = form.parentElement; 
-    
+    var div = form.parentElement;
+
     if (index === -1 || !vastaukset[index]) {
         console.warn("No answer found for index: " + index);
         return;
@@ -114,7 +116,7 @@ function tarkistaKysymys(inputElement) {
 function kont() {
     oldHash = window.location.hash;
     var hash = window.location.hash.substring(1);
-    
+
     if (!hash) {
         naytaIndeksi();
     } else {
@@ -134,7 +136,7 @@ function kont() {
 function naytaLomake(lomake) {
     document.getElementById("otsikko").innerHTML = lomake.otsikko;
     document.getElementById("ohje").style.display = "block";
-    
+
     // Näytä paluu-painike, kun lomake on auki.
     var palaaBtns = document.querySelectorAll(".palaa-alkuun");
     palaaBtns.forEach(function(btn) {
@@ -157,7 +159,7 @@ function naytaLomake(lomake) {
 function naytaIndeksi() {
     document.getElementById("otsikko").innerHTML = "Huomaa! kirjasto -radat";
     document.getElementById("ohje").style.display = "none";
-    
+
    var palaaBtns = document.querySelectorAll(".palaa-alkuun");
     palaaBtns.forEach(function(btn) {
         btn.style.display = "none";
@@ -207,4 +209,6 @@ kont();
 JS;
 
 echo $this->assetManager()->outputInlineScriptString($engineLogic);
+
+
 ?>

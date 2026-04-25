@@ -1,6 +1,7 @@
 {
 	"devDependencies": {
-		"prettier": "^3.2.4",
+		"@prettier/plugin-php": "^0.25.0",
+		"prettier": "^3.8.3",
 		"rollup": "^2.75.6",
 		"rollup-plugin-babel-minify": "^10.0.0"
 	},

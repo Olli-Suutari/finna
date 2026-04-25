@@ -5,5 +5,9 @@
 	"semi": true,
 	"singleQuote": true,
 	"trailingComma": "none",
-	"bracketSpacing": true
+	"bracketSpacing": true,
+	"plugins": ["@prettier/plugin-php"],
+	"phpVersion": "8.1",
+	"trailingCommaPHP": true,
+	"braceStyle": "1tbs"
 }
