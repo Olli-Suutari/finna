@@ -63,6 +63,23 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
         position: relative;
         top: 0; 
     }
+    .btn-tarkista {
+        margin-left: 5px;
+    }
+    @media (max-width: 500px) {
+        .btn-tarkista {
+            display: block;
+            width: 100%;
+            margin-top: 1em;
+            margin-left: 0; 
+            padding: 5px;
+        }
+
+        input[type='text'].vastaus-kentta {
+            max-width: 100%;
+            width: 100%;
+        }
+    }
     .boksi { margin-top: .75em; margin-bottom: .75em; border-radius: 7px; margin-top: 5px; padding: 10px; background: #ffffcc; border: 2px solid #FDD267; }
     .oikea { border-radius: 7px; margin-top: 5px; padding: 10px; background: #BEF781; border: 2px solid #A2C75F; }
     .vaara { border-radius: 7px; margin-top: 5px; padding: 10px; background: #f8d7da; border: 2px solid #E95F40; }
@@ -118,8 +135,8 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
                     <p>Osa vastauksista puuttuu tai on virheellisiä. Haluatko varmasti palata ja nollata lomakkeen?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal">En</button>
-                    <button type="button" class="btn btn-primary" id="confirmExitBtn">Kyllä</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal" style="width: 110px;">En</button>
+                    <button type="button" class="btn btn-primary" id="confirmExitBtn" style="margin-left: 1em; width: 110px;">Kyllä</button>
                 </div>
             </div>
         </div>
@@ -131,7 +148,7 @@ $engineLogic = <<<JS
 var oldHash = "";
 var vastaukset = [];
 
-var formStub = '<form class="tarkistus-lomake"><input type="text" class="vastaus-kentta" /> <button type="submit" class="btn btn-primary">Tarkista</button></form>';
+var formStub = '<form class="tarkistus-lomake"><input type="text" class="vastaus-kentta" /> <button type="submit" class="btn btn-primary btn-tarkista">Tarkista</button></form>';
 
 function tarkistaKysymys(inputElement, logicType = 'blur') {
     if (!inputElement) return;
@@ -240,7 +257,6 @@ document.getElementById('confirmExitBtn')?.addEventListener('click', () => {
     confirmModal?.hide();
 });
 
-// Event Delegation for inputs
 document.addEventListener('input', e => {
     if (e.target.classList.contains('vastaus-kentta')) {
 
@@ -251,7 +267,7 @@ document.addEventListener('input', e => {
         // Jos vastaus on "vapaa teksti", ei lukita kenttää 1. merkin jälkeen.
         const patternString = regex.toString();
         if (patternString.includes('.+') || patternString.includes('.*')) {
-            return; // Lopetetaan tähän, odotetaan blur-tapahtumaa
+            return;
         }
         tarkistaKysymys(e.target, 'input');
     }
@@ -290,5 +306,6 @@ document.addEventListener('click', e => {
 kont();
 JS;
 echo $this->assetManager()->outputInlineScriptString($engineLogic);
+
 
 ?>

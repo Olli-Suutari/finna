@@ -634,7 +634,7 @@
 				"kysymykset": [
 					{
 						"kysymys": "Minkä niminen on Oskar Källnerin Imperiumin perilliset -kirjasarjan neljännen kirjan nimi?",
-						"vastaus": "^\\s*[Mm]uistisäiliö\\s*$"
+						"vastaus": "^\\s*(Muistisäiliö)\\s*$"
 					},
 					{
 						"kysymys": "Mikä on Vloggaajan käsikirjan hyllypaikan numero Jyväskylässä?",
@@ -643,6 +643,80 @@
 					{
 						"kysymys": "Kuka on kirjoittanut Merena ja rikottu peili?",
 						"vastaus": "^\\s*(Maami\\s+Snellman|Snellman\\,?\\s+Maami)\\s*$"
+					},
+					{
+						"kysymys": "Millä kulkupelillä lapset liikkuvat Palavan kaupungin lapset kirjan kannessa?",
+						"vastaus": "^\\s*(?:vene|veneellä)\\s*$"
+					},
+					{
+						"kysymys": "Kuinka monessa kirjassa Soturi Toive ja Velho Xar seikkailevat?",
+						"vastaus": "^\\s*(4|neljä)\\s*$"
+					},
+					{
+						"kysymys": "Kuinka monta sivua on Mariskan kirjoittamassa kirjassa Kummat ja kammot?",
+						"vastaus": "^\\s*52\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 11",
+				"otsikko": "Sarja 11",
+				"llid": "sc_v",
+				"kysymykset": [
+					{
+						"kysymys": "Minä vuonna ilmestyi J.J. Arcanjon kirja Varkaiden akatemia?",
+						"vastaus": "^\\s*(2022)\\s*$"
+					},
+					{
+						"kysymys": "Mikä on Timo Parvelan Ella-kirjojen hyllypaikan numero Jyväskylässä?",
+						"vastaus": "^\\s*(84.2|84,2)\\s*$"
+					},
+					{
+						"kysymys": "Miltä osastolta löytyy Erika Vikin kirja Olivia Online?",
+						"vastaus": "^\\s*(?:nuortenosasto|nuortenosastolta)\\s*$"
+					},
+					{
+						"kysymys": "Minkä väriset kirjaimet ovat Eva Amoreksen ja Matt Cosgroven kirjoittaman Karsein viikko ikinä -kirjasarjan osan Tiistain kannessa?",
+						"vastaus": "^\\s*(?:sininen|siniset)\\s*$"
+					},
+					{
+						"kysymys": "Mikä on Sankaritarinoita eläimistä, jotka muuttivat maailmaa -kirjan hyllypaikan numero Jyväskylässä?",
+						"vastaus": "^\\s*(58)\\s*$"
+					},
+					{
+						"kysymys": "Kuinka monta osaa on ilmestynyt lasten tietokirjasarjassa Suomen supernaisia?",
+						"vastaus": "^\\s*6\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja musiikki",
+				"otsikko": "Sarja musiikki",
+				"llid": "sc_w",
+				"kysymykset": [
+					{
+						"kysymys": "Leijonat 2011 -levyllä on Poika (saunoo) -niminen kappale. Kuka jyväskyläläinen on sen esittäjä?",
+						"vastaus": "^\\s*Poju\\s*$"
+					},
+					{
+						"kysymys": "Kuka on säveltänyt Minecraft-pelin musiikin? Vastaukseksi kelpaa joko taiteilijanimi tai oikea nimi.",
+						"vastaus": "^\\s*(?:(?:Daniel\\s+Rosenfeld|Rosenfeld\\,?\\s+Daniel)|C418)\\s*$"
+					},
+					{
+						"kysymys": "Risto Räppääjä ja polkupyörävaras -elokuvan soundtrackilla esiintyvät kuuluisat Suomi-rock-veljekset Martti ja Pantse. Mikä on heidän sukunimensä?",
+						"vastaus": "^\\s*Syrjä\\s*$"
+					},
+					{
+						"kysymys": "Kuka on säveltänyt musiikkia sekä Harry Potter - että Star Wars -elokuviin?",
+						"vastaus": "^\\s*(John\\s+Williams|Williams\\,?\\s+John)\\s*$"
+					},
+					{
+						"kysymys": "Kirjastossa käytetään hyllypaikkanumeroita eri aihealueille, esimerkiksi 40 on maantiede ja 59 lääketiede. Mikä numero tarkoittaa musiikkia?",
+						"vastaus": "^\\s*78\\s*$"
+					},
+					{
+						"kysymys": "Jake Shimabukuro on kuuluisa muusikko, mutta mikä on hänen soittimensa?",
+						"vastaus": "^\\s*ukulele\\s*$"
 					}
 				]
 			}
