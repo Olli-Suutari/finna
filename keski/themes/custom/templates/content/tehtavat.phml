@@ -1,7 +1,6 @@
 <?php
 $this->headTitle('Mobiilitehtävät');
 
-// Haetaan tehtävät JSON-tiedostoista.
 $tehtavatPath = __DIR__ . '/tehtavat.json';
 $huomaaPath = __DIR__ . '/huomaaTehtavat.json';
 $tehtavatData = file_exists($tehtavatPath) ? json_decode(file_get_contents($tehtavatPath), true) : [];
@@ -36,7 +35,7 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
 <style type="text/css">
     #koepaikka { margin: 0; padding: 0;}
     #ohje { display:none; }
-    .tehtava-osio { }
+    .tehtava-osio h2 { scroll-margin-top: 20px; }
     .tehtava-lista {
         list-style: none;
         margin-left: .5em;
@@ -65,6 +64,7 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
     }
     .btn-tarkista {
         margin-left: 5px;
+        margin-bottom: 2px;
     }
     @media (max-width: 500px) {
         .btn-tarkista {
@@ -74,13 +74,12 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
             margin-left: 0; 
             padding: 5px;
         }
-
         input[type='text'].vastaus-kentta {
             max-width: 100%;
             width: 100%;
         }
     }
-    .boksi { margin-top: .75em; margin-bottom: .75em; border-radius: 7px; margin-top: 5px; padding: 10px; background: #ffffcc; border: 2px solid #FDD267; }
+    .boksi { margin-top: .75em; margin-bottom: .75em; border-radius: 7px; padding: 10px; background: #ffffcc; border: 2px solid #FDD267; }
     .oikea { border-radius: 7px; margin-top: 5px; padding: 10px; background: #BEF781; border: 2px solid #A2C75F; }
     .vaara { border-radius: 7px; margin-top: 5px; padding: 10px; background: #f8d7da; border: 2px solid #E95F40; }
     .vaara input:focus {
@@ -98,6 +97,7 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
     }
     .link-to-about { margin-top: .1em; text-align: right; margin-left: auto; }
     .palaa-alkuun { font-size: 1.15em; }
+    html { scroll-behavior: smooth; }
 </style>
 
 <div class="krstl-container">
@@ -129,7 +129,7 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
             <div class="modal-content">
                 <div class="modal-header">
                     <h2 class="modal-title" id="confirmModalTitle" style="margin-top:0;">Vahvistus</h2>
-                    <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Sulje"></button>
+                    <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Sulje" style="border: none"></button>
                 </div>
                 <div class="modal-body" id="confirmModalBody">
                     <p>Osa vastauksista puuttuu tai on virheellisiä. Haluatko varmasti palata ja nollata lomakkeen?</p>
@@ -185,16 +185,36 @@ function kont() {
     if (!hash) {
         naytaIndeksi();
     } else {
-        let found = false;
+        let foundTask = false;
         otsikot.forEach(g => {
             g.lomakkeet.forEach(l => {
                 if (l.llid === hash) {
                     naytaLomake(l);
-                    found = true;
+                    foundTask = true;
                 }
             });
         });
-        if (!found) naytaIndeksi();
+
+        if (!foundTask) {
+            const isLandmark = otsikot.some(g => g.slug === hash);
+            if (isLandmark) {
+                naytaIndeksi();
+                const element = document.getElementById(hash);
+                if (element) {
+                    const offset = 100;
+                    const bodyRect = document.body.getBoundingClientRect().top;
+                    const elementRect = element.getBoundingClientRect().top;
+                    const elementPosition = elementRect - bodyRect;
+                    const offsetPosition = elementPosition - offset;
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            } else {
+                naytaIndeksi();
+            }
+        }
     }
 }
 
@@ -217,6 +237,7 @@ function naytaLomake(lomake) {
         vastaukset.push(k.vastaus);
         kp.appendChild(div);
     });
+    window.scrollTo(0, 0);
 }
 
 function naytaIndeksi() {
@@ -233,7 +254,9 @@ function naytaIndeksi() {
     otsikot.forEach(group => {
         const div = document.createElement('div');
         div.className = "tehtava-osio infobox";
-        let html = "<h2>" + group.otsikko + "</h2><ul class='tehtava-lista'>";
+        const landmarkId = group.slug || group.otsikko.toLowerCase().replace(/\s+/g, '-');
+
+        let html = "<h2 id='" + landmarkId + "'>" + group.otsikko + "</h2><ul class='tehtava-lista'>";
 
         group.lomakkeet.forEach(l => {
             html += "<li>" +
@@ -247,6 +270,12 @@ function naytaIndeksi() {
         div.innerHTML = html;
         kp.appendChild(div);
     });
+
+    const hash = window.location.hash.substring(1);
+    if (hash) {
+        const landmark = document.getElementById(hash);
+        if (landmark) landmark.scrollIntoView();
+    }
 }
 
 const confirmModalEl = document.getElementById('confirmReturnModal');
@@ -259,12 +288,10 @@ document.getElementById('confirmExitBtn')?.addEventListener('click', () => {
 
 document.addEventListener('input', e => {
     if (e.target.classList.contains('vastaus-kentta')) {
-
         const form = e.target.closest('form');
         const allForms = Array.from(document.querySelectorAll('.tarkistus-lomake'));
         const index = allForms.indexOf(form);
         const regex = vastaukset[index];
-        // Jos vastaus on "vapaa teksti", ei lukita kenttää 1. merkin jälkeen.
         const patternString = regex.toString();
         if (patternString.includes('.+') || patternString.includes('.*')) {
             return;

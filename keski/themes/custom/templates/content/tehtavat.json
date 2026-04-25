@@ -1,352 +1,7 @@
 [
 	{
-		"otsikko": "Yläkoululaisten tehtävät",
-		"lomakkeet": [
-			{
-				"lomake": "Sarja 1",
-				"otsikko": "Sarja 1",
-				"llid": "sc_a",
-				"kysymykset": [
-					{
-						"kysymys": "Kuka on kirjoittanut kirjan Varismiekka?",
-						"vastaus": "^\\s*(Jacob\\s+Grey|Grey\\,?\\s+Jacob)\\s*$"
-					},
-					{
-						"kysymys": "Minkä nimiseen kaupunkiin kirja sijoittuu?",
-						"vastaus": "^\\s*[Bb]lackstone\\s*$"
-					},
-					{
-						"kysymys": "Juha-Pekka Koskinen on kirjoittanut kirjan Lumottu lelutehdas. Minkä nimiselle kirjalle se on jatkoa?",
-						"vastaus": "^\\s*[Hh]aavekauppias\\s*$"
-					},
-					{
-						"kysymys": "Rakastaa, ei rakasta on kokoelma pohjoismaisia novelleja nuorille. Kuka on kirjoittanut novellin En halua menettää sinua?",
-						"vastaus": "^\\s*(Kirsi\\s+Paltto|Paltto\\,?\\s+Kirsi)\\s*$"
-					},
-					{
-						"kysymys": "Lumottu lukukausi kertoo aikamatkasta menneisyyteen. Mille vuosikymmenelle tarina sijoittuu?",
-						"vastaus": "^\\s*(1930-luku|1930)\\s*$"
-					},
-					{
-						"kysymys": "Katso verkkokirjastosta, mistä hyllypaikasta löytyy ruokaohjekirjoja kuppikakuista?",
-						"vastaus": "^\\s*(68.24|68,24)\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja 2",
-				"otsikko": "Sarja 2",
-				"llid": "sc_b",
-				"kysymykset": [
-					{
-						"kysymys": "Kuka on kirjoittanut kirjan Kirsikkasydän?",
-						"vastaus": "^\\s*(Cathy\\s+Cassidy|Cassidy\\,?\\s+Cathy)\\s*$"
-					},
-					{
-						"kysymys": "Minkä nimisen sarjan Kirsikkasydän kirja aloittaa?",
-						"vastaus": "^\\s*[Ss]uklaamuruset\\s*$"
-					},
-					{
-						"kysymys": "Salla Simukka on kirjoittanut jännityskirjan Valkea kuin lumi. Minkä nimiselle kirjalle se on jatkoa?",
-						"vastaus": "^\\s*[Pp]unainen kuin veri\\s*$"
-					},
-					{
-						"kysymys": "Kerstin Gier on kirjoittanut kirjan Rubiininpuna. Minkä nimisen sarjan kirja aloittaa?",
-						"vastaus": "^\\s*[Rr]akkaus ei katso aikaa\\s*$"
-					},
-					{
-						"kysymys": "Viivakoodi - 15 novellia on Krisztina Tóthin kirjoittama novellikokoelma. Minkä värisestä lumiukosta yhdessä novellissa kerrotaan?",
-						"vastaus": "^\\s*(musta|mustasta)\\s*$"
-					},
-					{
-						"kysymys": "Katso verkkokirjastoa, mistä hyllypaikasta löytyy kirjoja valokuvauksesta?",
-						"vastaus": "^\\s*(75.72|75,72)\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja 3",
-				"otsikko": "Sarja 3",
-				"llid": "sc_c",
-				"kysymykset": [
-					{
-						"kysymys": " Kuka on kirjoittanut kirjan Tyttö tulevaisuudesta?",
-						"vastaus": "^\\s*(Mila\\s+Teräs|Teräs\\,?\\s+Mila)\\s*$"
-					},
-					{
-						"kysymys": "Mihin vuoteen kirjan aikamatka sijoittuu?",
-						"vastaus": "^\\s*1889\\s*$"
-					},
-					{
-						"kysymys": "Minkä nimisestä hevosesta kertoo Michael Morpurgon kirjoittama kirja Sotahevonen?",
-						"vastaus": "^\\s*[Jj]oey\\s*$"
-					},
-					{
-						"kysymys": "Reija Kaskiahon kirjassa Tulitikkuihmisiä henkilöhahmona on Teemu. Minkä niminen kaveri Teemulla on?",
-						"vastaus": "^\\s*[Pp]ate\\s*$"
-					},
-					{
-						"kysymys": "Etsijät novelleja nuorille sisältää 15 novellia. Kuka on kirjoittanut novellin Viimeinen kesä?",
-						"vastaus": "^\\s*(Kirsti\\s+Kuronen|Kuronen\\,?\\s+Kirsti)\\s*$"
-					},
-					{
-						"kysymys": "Tutki verkkokirjastoa, mistä hyllypaikasta löytyy Tuija Pyhärannan kirjoitama kirja Adventista ramadaniin?",
-						"vastaus": "^\\s*20\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja 4",
-				"otsikko": "Sarja 4",
-				"llid": "sc_d",
-				"kysymykset": [
-					{
-						"kysymys": "Kuka on kirjoittanut kirjan Alex ja pelon aika?",
-						"vastaus": "^\\s*(Marja-Leena\\s+Tiainen|Tiainen\\,?\\s+Marja-Leena)\\s*$"
-					},
-					{
-						"kysymys": "Minkä väriset tennarit kirjan kannessa on?",
-						"vastaus": "^\\s*[Pp]unaiset|[Pp]unainen\\s*$"
-					},
-					{
-						"kysymys": "Kat Falls on kirjoittanut vedenalaiseen maailmaan sijoittuvia kirjoja. Minkä niminen kirja on jatkoa Vastavirta-kirja on sarjan toinen kirja, mikä on ensimmäinen?",
-						"vastaus": "^\\s*[Vv]eden alla\\s*$"
-					},
-					{
-						"kysymys": "Minkä nimisestä novellikokoelmasta löytyy novelli nimeltä Polttava rakkaus?",
-						"vastaus": "^\\s*[Jj]ulma rakkaus(:? novelleja nuorille)?\\s*$"
-					},
-					{
-						"kysymys": "Colin Meloy on kirjoittanut kirjan Sysimetsä. Minkä nimisen sarjan kirja aloittaa?",
-						"vastaus": "^\\s*[Ss]ysimetsän kronikat\\s*$"
-					},
-					{
-						"kysymys": "Tutki verkkokirjastoa, mistä hyllypaikasta löytyy tietokirjoja linnuista?",
-						"vastaus": "^\\s*(58.12|58,12)\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja 5",
-				"otsikko": "Sarja 5",
-				"llid": "sc_e",
-				"kysymykset": [
-					{
-						"kysymys": "Kuka on kirjoittanut kirjan Säbätalvi?",
-						"vastaus": "^\\s*(Kalle\\s+Veirto|Veirto\\,?\\s+Kalle)\\s*$"
-					},
-					{
-						"kysymys": "Kuinka monta sivua kirjassa Säbätalvi on?",
-						"vastaus": "^\\s*253\\s*$"
-					},
-					{
-						"kysymys": "Katariina Romppainen kirjoittaa Senja-nimisestä tytöstä. Mikä on kirjan nimi?",
-						"vastaus": "^\\s*Sori vaan,? se on totuus\\s*$"
-					},
-					{
-						"kysymys": "Taikuri ja taskuvaras aloittaa Anniina Mikaman kirjoittaman sarjan. Kuinka monta osaa sarjassa on?",
-						"vastaus": "^\\s*(3|kolme)\\s*$"
-					},
-					{
-						"kysymys": "Myös näin voi elää on kokoelma eurooppalaisia nykynovelleja. Kuka on kirjoittanut novellin Haloo, kirjailija!?",
-						"vastaus": "^\\s*(Tomi\\s+Kontio|Kontio\\,?\\s+Tomi)\\s*$"
-					},
-					{
-						"kysymys": "Mistä hyllypaikasta löytyy ufoja käsitteleviä tietokirjoja? ",
-						"vastaus": "^\\s*(15.7|15,7)\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja 6",
-				"otsikko": "Sarja 6",
-				"llid": "sc_f",
-				"kysymykset": [
-					{
-						"kysymys": "Kuka on kirjoittanut kirjan Hopearenkaan taika?",
-						"vastaus": "^\\s*(Raili\\s+Mikkanen|Mikkanen\\,?\\s+Raili)\\s*$"
-					},
-					{
-						"kysymys": "Kuinka monta sivua kirjassa Hopearenkaan taika on?",
-						"vastaus": "^\\s*252\\s*$"
-					},
-					{
-						"kysymys": "Smaragdinvihreä on kirjatrilogian viimeinen osa. Minkä niminen kirja aloittaa sarjan?",
-						"vastaus": "^\\s*[Rr]ubiininpuna\\s*$"
-					},
-					{
-						"kysymys": "Salla Simukan kirjoja voi lukea myös englanniksi. Mikä on kirjan As red as blood -kirjan nimi suomeksi?",
-						"vastaus": "^\\s*[Pp]unainen kuin veri\\s*$"
-					},
-					{
-						"kysymys": "Etsi novellikokoelma Nuoruus nyt! Kuka on kirjoittanut novellin Rangaistuspotku?",
-						"vastaus": "^\\s*(Jukka\\s+Pakkanen|Pakkanen\\,?\\s+Jukka)\\s*$"
-					},
-					{
-						"kysymys": "Mistä hyllypaikasta löytyy kirjoja koiraroduista?",
-						"vastaus": "^\\s*(67.451|67,451|67.45|67,45)\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja 7",
-				"otsikko": "Sarja 7",
-				"llid": "sc_g",
-				"kysymykset": [
-					{
-						"kysymys": "Andy Mulligan on kirjoittanut yhden kirjan. Mikä on kirjan nimi??",
-						"vastaus": "^\\s*[Rr]oskaa\\s*$"
-					},
-					{
-						"kysymys": "Minkä nimiseen kaupunkiin Roskaa nimisen kirjan tapahtumat sijoittuvat?",
-						"vastaus": "^\\s*[Bb]ehala\\s*$"
-					},
-					{
-						"kysymys": "Minkä värinen hevonen on kirjan Yhden dollarin hevonen kannessa?",
-						"vastaus": "^\\s*([Vv]alkoinen|[Kk]imo)\\s*$"
-					},
-					{
-						"kysymys": "Nemo Rossi on kirjoittanut arkeologian maailmaan sijoittuvia seikkailukirjoja. Mikä on kirjasarjan nimi?",
-						"vastaus": "^\\s*[Aa]rkeomysteeri\\s*$"
-					},
-					{
-						"kysymys": "Etsi teos Maailma raollaan. Kenen kirjoittama on Pajulintu?",
-						"vastaus": "^\\s*(Laura\\s+Lähteenmäki|Lähteenmäki\\,?\\s+Laura)\\s*$"
-					},
-					{
-						"kysymys": "Mistä hyllypaikasta löytyy tietokirjoja biljardista?",
-						"vastaus": "^\\s*(79.7|79,7)\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja 8",
-				"otsikko": "Sarja 8",
-				"llid": "sc_h",
-				"kysymykset": [
-					{
-						"kysymys": "Kuka on kirjoittanut kirjan Kadonnut Audrey?",
-						"vastaus": "^\\s*(Sophie\\s+Kinsella|Kinsella\\,?\\s+Sophie)\\s*$"
-					},
-					{
-						"kysymys": "Etsi kirja Kuka on Jenna Fox. Mikä kuva kirjan kannessa on?",
-						"vastaus": "^\\s*[Pp]erhonen|[Pp]erhosen\\s*$"
-					},
-					{
-						"kysymys": "Unna skeittaa kirjassa nimeltä Käärmeenlumooja. Mikä on tämän Annukka Salaman kirjoittaman kirjasarjan nimi?",
-						"vastaus": "^\\s*[Ff]aunoidit\\s*$"
-					},
-					{
-						"kysymys": "Montako sivua Käärmeenlumoojan kovakantisessa painoksessa (sid.)?",
-						"vastaus": "^\\s*330\\s*$"
-					},
-					{
-						"kysymys": "Etsi teos Rakkaustarinat. Minkä nimisen rakkaustarinan Pauliina Susi on kirjoittanut?",
-						"vastaus": "^\\s*[Ll]umikola\\s*$"
-					},
-					{
-						"kysymys": "Mistä hyllypaikasta löytyy Esko Maunon kirjoittama korjausopas Skootterimopot?",
-						"vastaus": "^\\s*(62.512|62,512)\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja 9",
-				"otsikko": "Sarja 9",
-				"llid": "sc_i",
-				"kysymykset": [
-					{
-						"kysymys": "Kenen kirjoittama on Routasisarukset?",
-						"vastaus": "^\\s*(Eija\\s+Lappalainen|Lappalainen\\,?\\s+Eija)\\s*$"
-					},
-					{
-						"kysymys": "Etsi kirja Ottopoikia ja työläistyttöjä, yhdeksän tarinaa Tampereelta. Kuinka monta ihmistä kirjan kannessa on?",
-						"vastaus": "^\\s*(4|[Nn]eljä)\\s*$"
-					},
-					{
-						"kysymys": "Nolo elämäni -sarjan ensimmäinen osa on nimeltään Olisinpa suosittu. Mikä on nimeltään sarjan toinen osa?",
-						"vastaus": "^\\s*[Oo]lisinpa bilehile\\s*$"
-					},
-					{
-						"kysymys": "Etsi kirja Piiraan maku makea. Kuinka monta lintua kirjan kannessa on?",
-						"vastaus": "^\\s*4\\s*$"
-					},
-					{
-						"kysymys": "Etsi kirja Taskunovellit. Minkä nimisen novellin Petri Tamminen on teokseen kirjoittanut?",
-						"vastaus": "^\\s*[Ee]rään ihailijan päiväkirjasta\\s*$"
-					},
-					{
-						"kysymys": "Tutki verkkokirjastoa, mistä hyllypaikasta löytyy tietoa linnuista?",
-						"vastaus": "^\\s*(58.12|58,12|58.1|58,1)\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja 10",
-				"otsikko": "Sarja 10",
-				"llid": "sc_j",
-				"kysymykset": [
-					{
-						"kysymys": "Kuka on kirjoittanut kirjan Nikottelua?",
-						"vastaus": "^\\s*(Reija\\s+Kaskiaho|Kaskiaho\\,?\\s+Reija)\\s*$"
-					},
-					{
-						"kysymys": "Kuinka monta sivua on kirjassa Tähtimosaiikki?",
-						"vastaus": "^\\s*255\\s*$"
-					},
-					{
-						"kysymys": "Alex Scarrow on kirjoittanut Time Riders –kirjasarjan. Minkä niminen on sarjan 3. osa?",
-						"vastaus": "^\\s*[Tt]uomiopäivän koodi\\s*$"
-					},
-					{
-						"kysymys": "Minkä nimiseen metsään kirjan Tuomiopäivän koodi tapahtumat sijoittuvat?",
-						"vastaus": "^\\s*[Ss]herwood\\s*$"
-					},
-					{
-						"kysymys": "Etsi novellikokoelma 16 tarinaa toivosta. Kuka on kirjoittanut novellin Syötti?",
-						"vastaus": "^\\s*(Hannele\\s+Huovi|Huovi\\,?\\s+Hannele)\\s*$"
-					},
-					{
-						"kysymys": "Mistä hyllypaikasta löydät Tukholman matkaoppaat?",
-						"vastaus": "^\\s*(43.11|43,11|43.1|43,1)\\s*$"
-					}
-				]
-			},
-			{
-				"lomake": "Sarja musiikki",
-				"otsikko": "Sarja musiikki",
-				"llid": "sc_k",
-				"kysymykset": [
-					{
-						"kysymys": "Suuri toivelaulukirja -sarjassa on julkaistu jo pitkälti päälle 20 nuottikokoelmaa. Minä vuonna julkaistiin ensimmäinen?",
-						"vastaus": "^\\s*1976\\s*$"
-					},
-					{
-						"kysymys": "Mozartin Taikahuilu-oopperassa on kuuluisa aaria nimeltään “Der Hölle Rache”. Millä suomenkielisellä nimellä aaria tunnetaan?",
-						"vastaus": "^\\s*[Yy]ön kuningattaren aaria( oopperasta [Tt]aikahuilu)?\\s*$"
-					},
-					{
-						"kysymys": "Englanninkielisissä julkaisuissa hänen sukunimensä kirjoitetaan Khachatryan tai Khachaturian. Hänen etunimensä on Aram ja Sapelitanssi on his kuuluisimpia sävellyksiään. Miten tämän säveltäjän sukunimi kirjoitetaan suomeksi ja verkkokirjastossamme?",
-						"vastaus": "^\\s*[Hh]atš?aturjan\\s*$"
-					},
-					{
-						"kysymys": "Antti Tuiskusta on kirjoitettu elämäkertakirja nimeltä Antti Tapani. Mikä on tuon kirjan hyllypaikka eli kirjastoluokkanumero?",
-						"vastaus": "^\\s*(78.993|78,993)\\s*$"
-					},
-					{
-						"kysymys": "Kirjastosta voi lainata Rytmikassin, joka sisältää erilaisia rytmisoittimia. Kirjoita vastaukseksi jonkun Rytmikassissa olevan soittimen nimi.",
-						"vastaus": "^\\s*(marakassit|marakassi|rytmikapulat|rytmikapula|guiro|triangeli|tamburiini|kulkuset|cabasa|hiekkaputki)\\s*$"
-					},
-					{
-						"kysymys": "Imus on Gasellit-yhtyeen levyttämä kappale. Kirjaston kokoelmassa on levy, jolla tuon kappaleen esittää eräs toinen artisti. Kuka?",
-						"vastaus": "^\\s*[Jj]anna\\s*$"
-					}
-				]
-			}
-		]
-	},
-	{
 		"otsikko": "4-6. -luokkalaisten tehtävät",
+		"slug": "luokat-4-6",
 		"lomakkeet": [
 			{
 				"lomake": "Sarja 1",
@@ -717,6 +372,353 @@
 					{
 						"kysymys": "Jake Shimabukuro on kuuluisa muusikko, mutta mikä on hänen soittimensa?",
 						"vastaus": "^\\s*ukulele\\s*$"
+					}
+				]
+			}
+		]
+	},
+	{
+		"otsikko": "Yläkoululaisten tehtävät",
+		"slug": "ylakoulu",
+		"lomakkeet": [
+			{
+				"lomake": "Sarja 1",
+				"otsikko": "Sarja 1",
+				"llid": "sc_a",
+				"kysymykset": [
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Varismiekka?",
+						"vastaus": "^\\s*(Jacob\\s+Grey|Grey\\,?\\s+Jacob)\\s*$"
+					},
+					{
+						"kysymys": "Minkä nimiseen kaupunkiin kirja sijoittuu?",
+						"vastaus": "^\\s*[Bb]lackstone\\s*$"
+					},
+					{
+						"kysymys": "Juha-Pekka Koskinen on kirjoittanut kirjan Lumottu lelutehdas. Minkä nimiselle kirjalle se on jatkoa?",
+						"vastaus": "^\\s*[Hh]aavekauppias\\s*$"
+					},
+					{
+						"kysymys": "Rakastaa, ei rakasta on kokoelma pohjoismaisia novelleja nuorille. Kuka on kirjoittanut novellin En halua menettää sinua?",
+						"vastaus": "^\\s*(Kirsi\\s+Paltto|Paltto\\,?\\s+Kirsi)\\s*$"
+					},
+					{
+						"kysymys": "Lumottu lukukausi kertoo aikamatkasta menneisyyteen. Mille vuosikymmenelle tarina sijoittuu?",
+						"vastaus": "^\\s*(1930-luku|1930)\\s*$"
+					},
+					{
+						"kysymys": "Katso verkkokirjastosta, mistä hyllypaikasta löytyy ruokaohjekirjoja kuppikakuista?",
+						"vastaus": "^\\s*(68.24|68,24)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 2",
+				"otsikko": "Sarja 2",
+				"llid": "sc_b",
+				"kysymykset": [
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Kirsikkasydän?",
+						"vastaus": "^\\s*(Cathy\\s+Cassidy|Cassidy\\,?\\s+Cathy)\\s*$"
+					},
+					{
+						"kysymys": "Minkä nimisen sarjan Kirsikkasydän kirja aloittaa?",
+						"vastaus": "^\\s*[Ss]uklaamuruset\\s*$"
+					},
+					{
+						"kysymys": "Salla Simukka on kirjoittanut jännityskirjan Valkea kuin lumi. Minkä nimiselle kirjalle se on jatkoa?",
+						"vastaus": "^\\s*[Pp]unainen kuin veri\\s*$"
+					},
+					{
+						"kysymys": "Kerstin Gier on kirjoittanut kirjan Rubiininpuna. Minkä nimisen sarjan kirja aloittaa?",
+						"vastaus": "^\\s*[Rr]akkaus ei katso aikaa\\s*$"
+					},
+					{
+						"kysymys": "Viivakoodi - 15 novellia on Krisztina Tóthin kirjoittama novellikokoelma. Minkä värisestä lumiukosta yhdessä novellissa kerrotaan?",
+						"vastaus": "^\\s*(musta|mustasta)\\s*$"
+					},
+					{
+						"kysymys": "Katso verkkokirjastoa, mistä hyllypaikasta löytyy kirjoja valokuvauksesta?",
+						"vastaus": "^\\s*(75.72|75,72)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 3",
+				"otsikko": "Sarja 3",
+				"llid": "sc_c",
+				"kysymykset": [
+					{
+						"kysymys": " Kuka on kirjoittanut kirjan Tyttö tulevaisuudesta?",
+						"vastaus": "^\\s*(Mila\\s+Teräs|Teräs\\,?\\s+Mila)\\s*$"
+					},
+					{
+						"kysymys": "Mihin vuoteen kirjan aikamatka sijoittuu?",
+						"vastaus": "^\\s*1889\\s*$"
+					},
+					{
+						"kysymys": "Minkä nimisestä hevosesta kertoo Michael Morpurgon kirjoittama kirja Sotahevonen?",
+						"vastaus": "^\\s*[Jj]oey\\s*$"
+					},
+					{
+						"kysymys": "Reija Kaskiahon kirjassa Tulitikkuihmisiä henkilöhahmona on Teemu. Minkä niminen kaveri Teemulla on?",
+						"vastaus": "^\\s*[Pp]ate\\s*$"
+					},
+					{
+						"kysymys": "Etsijät novelleja nuorille sisältää 15 novellia. Kuka on kirjoittanut novellin Viimeinen kesä?",
+						"vastaus": "^\\s*(Kirsti\\s+Kuronen|Kuronen\\,?\\s+Kirsti)\\s*$"
+					},
+					{
+						"kysymys": "Tutki verkkokirjastoa, mistä hyllypaikasta löytyy Tuija Pyhärannan kirjoitama kirja Adventista ramadaniin?",
+						"vastaus": "^\\s*20\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 4",
+				"otsikko": "Sarja 4",
+				"llid": "sc_d",
+				"kysymykset": [
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Alex ja pelon aika?",
+						"vastaus": "^\\s*(Marja-Leena\\s+Tiainen|Tiainen\\,?\\s+Marja-Leena)\\s*$"
+					},
+					{
+						"kysymys": "Minkä väriset tennarit kirjan kannessa on?",
+						"vastaus": "^\\s*[Pp]unaiset|[Pp]unainen\\s*$"
+					},
+					{
+						"kysymys": "Kat Falls on kirjoittanut vedenalaiseen maailmaan sijoittuvia kirjoja. Minkä niminen kirja on jatkoa Vastavirta-kirja on sarjan toinen kirja, mikä on ensimmäinen?",
+						"vastaus": "^\\s*[Vv]eden alla\\s*$"
+					},
+					{
+						"kysymys": "Minkä nimisestä novellikokoelmasta löytyy novelli nimeltä Polttava rakkaus?",
+						"vastaus": "^\\s*[Jj]ulma rakkaus(:? novelleja nuorille)?\\s*$"
+					},
+					{
+						"kysymys": "Colin Meloy on kirjoittanut kirjan Sysimetsä. Minkä nimisen sarjan kirja aloittaa?",
+						"vastaus": "^\\s*[Ss]ysimetsän kronikat\\s*$"
+					},
+					{
+						"kysymys": "Tutki verkkokirjastoa, mistä hyllypaikasta löytyy tietokirjoja linnuista?",
+						"vastaus": "^\\s*(58.12|58,12)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 5",
+				"otsikko": "Sarja 5",
+				"llid": "sc_e",
+				"kysymykset": [
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Säbätalvi?",
+						"vastaus": "^\\s*(Kalle\\s+Veirto|Veirto\\,?\\s+Kalle)\\s*$"
+					},
+					{
+						"kysymys": "Kuinka monta sivua kirjassa Säbätalvi on?",
+						"vastaus": "^\\s*253\\s*$"
+					},
+					{
+						"kysymys": "Katariina Romppainen kirjoittaa Senja-nimisestä tytöstä. Mikä on kirjan nimi?",
+						"vastaus": "^\\s*Sori vaan,? se on totuus\\s*$"
+					},
+					{
+						"kysymys": "Taikuri ja taskuvaras aloittaa Anniina Mikaman kirjoittaman sarjan. Kuinka monta osaa sarjassa on?",
+						"vastaus": "^\\s*(3|kolme)\\s*$"
+					},
+					{
+						"kysymys": "Myös näin voi elää on kokoelma eurooppalaisia nykynovelleja. Kuka on kirjoittanut novellin Haloo, kirjailija!?",
+						"vastaus": "^\\s*(Tomi\\s+Kontio|Kontio\\,?\\s+Tomi)\\s*$"
+					},
+					{
+						"kysymys": "Mistä hyllypaikasta löytyy ufoja käsitteleviä tietokirjoja? ",
+						"vastaus": "^\\s*(15.7|15,7)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 6",
+				"otsikko": "Sarja 6",
+				"llid": "sc_f",
+				"kysymykset": [
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Hopearenkaan taika?",
+						"vastaus": "^\\s*(Raili\\s+Mikkanen|Mikkanen\\,?\\s+Raili)\\s*$"
+					},
+					{
+						"kysymys": "Kuinka monta sivua kirjassa Hopearenkaan taika on?",
+						"vastaus": "^\\s*252\\s*$"
+					},
+					{
+						"kysymys": "Smaragdinvihreä on kirjatrilogian viimeinen osa. Minkä niminen kirja aloittaa sarjan?",
+						"vastaus": "^\\s*[Rr]ubiininpuna\\s*$"
+					},
+					{
+						"kysymys": "Salla Simukan kirjoja voi lukea myös englanniksi. Mikä on kirjan As red as blood -kirjan nimi suomeksi?",
+						"vastaus": "^\\s*[Pp]unainen kuin veri\\s*$"
+					},
+					{
+						"kysymys": "Etsi novellikokoelma Nuoruus nyt! Kuka on kirjoittanut novellin Rangaistuspotku?",
+						"vastaus": "^\\s*(Jukka\\s+Pakkanen|Pakkanen\\,?\\s+Jukka)\\s*$"
+					},
+					{
+						"kysymys": "Mistä hyllypaikasta löytyy kirjoja koiraroduista?",
+						"vastaus": "^\\s*(67.451|67,451|67.45|67,45)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 7",
+				"otsikko": "Sarja 7",
+				"llid": "sc_g",
+				"kysymykset": [
+					{
+						"kysymys": "Andy Mulligan on kirjoittanut yhden kirjan. Mikä on kirjan nimi??",
+						"vastaus": "^\\s*[Rr]oskaa\\s*$"
+					},
+					{
+						"kysymys": "Minkä nimiseen kaupunkiin Roskaa nimisen kirjan tapahtumat sijoittuvat?",
+						"vastaus": "^\\s*[Bb]ehala\\s*$"
+					},
+					{
+						"kysymys": "Minkä värinen hevonen on kirjan Yhden dollarin hevonen kannessa?",
+						"vastaus": "^\\s*([Vv]alkoinen|[Kk]imo)\\s*$"
+					},
+					{
+						"kysymys": "Nemo Rossi on kirjoittanut arkeologian maailmaan sijoittuvia seikkailukirjoja. Mikä on kirjasarjan nimi?",
+						"vastaus": "^\\s*[Aa]rkeomysteeri\\s*$"
+					},
+					{
+						"kysymys": "Etsi teos Maailma raollaan. Kenen kirjoittama on Pajulintu?",
+						"vastaus": "^\\s*(Laura\\s+Lähteenmäki|Lähteenmäki\\,?\\s+Laura)\\s*$"
+					},
+					{
+						"kysymys": "Mistä hyllypaikasta löytyy tietokirjoja biljardista?",
+						"vastaus": "^\\s*(79.7|79,7)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 8",
+				"otsikko": "Sarja 8",
+				"llid": "sc_h",
+				"kysymykset": [
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Kadonnut Audrey?",
+						"vastaus": "^\\s*(Sophie\\s+Kinsella|Kinsella\\,?\\s+Sophie)\\s*$"
+					},
+					{
+						"kysymys": "Etsi kirja Kuka on Jenna Fox. Mikä kuva kirjan kannessa on?",
+						"vastaus": "^\\s*[Pp]erhonen|[Pp]erhosen\\s*$"
+					},
+					{
+						"kysymys": "Unna skeittaa kirjassa nimeltä Käärmeenlumooja. Mikä on tämän Annukka Salaman kirjoittaman kirjasarjan nimi?",
+						"vastaus": "^\\s*[Ff]aunoidit\\s*$"
+					},
+					{
+						"kysymys": "Montako sivua Käärmeenlumoojan kovakantisessa painoksessa (sid.)?",
+						"vastaus": "^\\s*330\\s*$"
+					},
+					{
+						"kysymys": "Etsi teos Rakkaustarinat. Minkä nimisen rakkaustarinan Pauliina Susi on kirjoittanut?",
+						"vastaus": "^\\s*[Ll]umikola\\s*$"
+					},
+					{
+						"kysymys": "Mistä hyllypaikasta löytyy Esko Maunon kirjoittama korjausopas Skootterimopot?",
+						"vastaus": "^\\s*(62.512|62,512)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 9",
+				"otsikko": "Sarja 9",
+				"llid": "sc_i",
+				"kysymykset": [
+					{
+						"kysymys": "Kenen kirjoittama on Routasisarukset?",
+						"vastaus": "^\\s*(Eija\\s+Lappalainen|Lappalainen\\,?\\s+Eija)\\s*$"
+					},
+					{
+						"kysymys": "Etsi kirja Ottopoikia ja työläistyttöjä, yhdeksän tarinaa Tampereelta. Kuinka monta ihmistä kirjan kannessa on?",
+						"vastaus": "^\\s*(4|[Nn]eljä)\\s*$"
+					},
+					{
+						"kysymys": "Nolo elämäni -sarjan ensimmäinen osa on nimeltään Olisinpa suosittu. Mikä on nimeltään sarjan toinen osa?",
+						"vastaus": "^\\s*[Oo]lisinpa bilehile\\s*$"
+					},
+					{
+						"kysymys": "Etsi kirja Piiraan maku makea. Kuinka monta lintua kirjan kannessa on?",
+						"vastaus": "^\\s*4\\s*$"
+					},
+					{
+						"kysymys": "Etsi kirja Taskunovellit. Minkä nimisen novellin Petri Tamminen on teokseen kirjoittanut?",
+						"vastaus": "^\\s*[Ee]rään ihailijan päiväkirjasta\\s*$"
+					},
+					{
+						"kysymys": "Tutki verkkokirjastoa, mistä hyllypaikasta löytyy tietoa linnuista?",
+						"vastaus": "^\\s*(58.12|58,12|58.1|58,1)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 10",
+				"otsikko": "Sarja 10",
+				"llid": "sc_j",
+				"kysymykset": [
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Nikottelua?",
+						"vastaus": "^\\s*(Reija\\s+Kaskiaho|Kaskiaho\\,?\\s+Reija)\\s*$"
+					},
+					{
+						"kysymys": "Kuinka monta sivua on kirjassa Tähtimosaiikki?",
+						"vastaus": "^\\s*255\\s*$"
+					},
+					{
+						"kysymys": "Alex Scarrow on kirjoittanut Time Riders –kirjasarjan. Minkä niminen on sarjan 3. osa?",
+						"vastaus": "^\\s*[Tt]uomiopäivän koodi\\s*$"
+					},
+					{
+						"kysymys": "Minkä nimiseen metsään kirjan Tuomiopäivän koodi tapahtumat sijoittuvat?",
+						"vastaus": "^\\s*[Ss]herwood\\s*$"
+					},
+					{
+						"kysymys": "Etsi novellikokoelma 16 tarinaa toivosta. Kuka on kirjoittanut novellin Syötti?",
+						"vastaus": "^\\s*(Hannele\\s+Huovi|Huovi\\,?\\s+Hannele)\\s*$"
+					},
+					{
+						"kysymys": "Mistä hyllypaikasta löydät Tukholman matkaoppaat?",
+						"vastaus": "^\\s*(43.11|43,11|43.1|43,1)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja musiikki",
+				"otsikko": "Sarja musiikki",
+				"llid": "sc_k",
+				"kysymykset": [
+					{
+						"kysymys": "Suuri toivelaulukirja -sarjassa on julkaistu jo pitkälti päälle 20 nuottikokoelmaa. Minä vuonna julkaistiin ensimmäinen?",
+						"vastaus": "^\\s*1976\\s*$"
+					},
+					{
+						"kysymys": "Mozartin Taikahuilu-oopperassa on kuuluisa aaria nimeltään “Der Hölle Rache”. Millä suomenkielisellä nimellä aaria tunnetaan?",
+						"vastaus": "^\\s*[Yy]ön kuningattaren aaria( oopperasta [Tt]aikahuilu)?\\s*$"
+					},
+					{
+						"kysymys": "Englanninkielisissä julkaisuissa hänen sukunimensä kirjoitetaan Khachatryan tai Khachaturian. Hänen etunimensä on Aram ja Sapelitanssi on his kuuluisimpia sävellyksiään. Miten tämän säveltäjän sukunimi kirjoitetaan suomeksi ja verkkokirjastossamme?",
+						"vastaus": "^\\s*[Hh]atš?aturjan\\s*$"
+					},
+					{
+						"kysymys": "Antti Tuiskusta on kirjoitettu elämäkertakirja nimeltä Antti Tapani. Mikä on tuon kirjan hyllypaikka eli kirjastoluokkanumero?",
+						"vastaus": "^\\s*(78.993|78,993)\\s*$"
+					},
+					{
+						"kysymys": "Kirjastosta voi lainata Rytmikassin, joka sisältää erilaisia rytmisoittimia. Kirjoita vastaukseksi jonkun Rytmikassissa olevan soittimen nimi.",
+						"vastaus": "^\\s*(marakassit|marakassi|rytmikapulat|rytmikapula|guiro|triangeli|tamburiini|kulkuset|cabasa|hiekkaputki)\\s*$"
+					},
+					{
+						"kysymys": "Imus on Gasellit-yhtyeen levyttämä kappale. Kirjaston kokoelmassa on levy, jolla tuon kappaleen esittää eräs toinen artisti. Kuka?",
+						"vastaus": "^\\s*[Jj]anna\\s*$"
 					}
 				]
 			}

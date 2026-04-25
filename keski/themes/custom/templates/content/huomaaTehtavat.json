@@ -1,6 +1,7 @@
 [
 	{
 		"otsikko": "Huomaa! kirjasto -radat",
+		"slug": "huomaa",
 		"lomakkeet": [
 			{
 				"lomake": "Huom! kirjasto -rata 1",
