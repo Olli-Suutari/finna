@@ -1,12 +1,14 @@
 <?php
-/**
- * Toteutettu: https://github.com/tsjl/KRSTL pohjalta
- * Päivitetty 04/2026
- */
+$this->headTitle('Mobiilitehtävät');
 
-// 1. Haetaan tehtävät JSON-tiedostosta.
-$jsonPath = __DIR__ . '/tehtavat.json';
-$jsonData = file_exists($jsonPath) ? file_get_contents($jsonPath) : '[]';
+// Haetaan tehtävät JSON-tiedostoista.
+$tehtavatPath = __DIR__ . '/tehtavat.json';
+$huomaaPath = __DIR__ . '/huomaaTehtavat.json';
+$tehtavatData = file_exists($tehtavatPath) ? json_decode(file_get_contents($tehtavatPath), true) : [];
+$huomaaData = file_exists($huomaaPath) ? json_decode(file_get_contents($huomaaPath), true) : [];
+$kaikkiTehtavat = array_merge($tehtavatData, $huomaaData);
+$jsonData = json_encode($kaikkiTehtavat);
+
 $initScript = "
     var otsikotRaw = $jsonData;
     var otsikot = otsikotRaw.map(function(group) {
@@ -14,8 +16,6 @@ $initScript = "
             group.lomakkeet.forEach(function(lomake) {
                 if (lomake.kysymykset) {
                     lomake.kysymykset.forEach(function(q) {
-                        // Convert string to RegExp. 
-                        // If it doesn't start with ^, wrap it in standard padding.
                         if (typeof q.vastaus === 'string') {
                             if (q.vastaus.indexOf('^') === -1) {
                                 q.vastaus = new RegExp('^\\\\s*(' + q.vastaus + ')\\\\s*$', 'i');
@@ -36,20 +36,46 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
 <style type="text/css">
     #koepaikka { margin: 0; padding: 0;}
     #ohje { display:none; }
-    .ohje { margin-bottom: 20px; padding: 20px; border-radius: 7px; background: #BEF781; border: 2px solid #A2C75F; }
-    .boksi { border-radius: 7px; margin-top: 5px; padding: 10px; background: #ffffcc; border: 2px solid #FDD267; }
+    .tehtava-osio { }
+    .tehtava-lista {
+        list-style: none;
+        margin-left: .5em;
+        font-size: 1.1em;
+        font-weight: 500;
+    }
+    .tehtava-lista li {
+        margin: 0;
+        padding: 0;
+    }
+    .tehtava-lista li a {
+        display: inline-flex;
+        align-items: center;
+        padding-top: 0.2em;
+        width: 100%;
+    }
+    .tehtava-lista li a:hover {
+        background: rgba(0,0,0,0.03);
+        border-radius: 4px;
+    }
+    .tehtava-lista li i {
+        font-size: 0.7em;
+        margin-right: 8px;
+        position: relative;
+        top: 0; 
+    }
+    .boksi { margin-top: .75em; margin-bottom: .75em; border-radius: 7px; margin-top: 5px; padding: 10px; background: #ffffcc; border: 2px solid #FDD267; }
     .oikea { border-radius: 7px; margin-top: 5px; padding: 10px; background: #BEF781; border: 2px solid #A2C75F; }
     .vaara { border-radius: 7px; margin-top: 5px; padding: 10px; background: #f8d7da; border: 2px solid #E95F40; }
     input[type='text'] { padding: 8px; border-radius: 3px; border: 1px solid #717171; width: 100%; max-width: 300px; }
     .bottom-info-nav { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: flex-start;
-            margin-top: 1em;
-            width: 100%;
-        }
+        display: flex; 
+        justify-content: space-between; 
+        align-items: flex-start;
+        margin-top: 1em;
+        width: 100%;
+    }
     .link-to-about { margin-top: .1em; text-align: right; margin-left: auto; }
-    .palaa-alkuun { font-size: 1.15em; margin-top: .75em; margin-bottom: .75em; }
+    .palaa-alkuun { font-size: 1.15em; }
 </style>
 
 <div class="krstl-container">
@@ -60,14 +86,14 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
         <a href="https://play2.qbrick.com/qplayer/index.html?accountId=AccR0tgF9CDCUS0dTelfJoUHg&mediaId=0ffdbebe-04d9-45c9-9a5c-7843477d277d&configId=05864968-3366-4dc8-b4ac-d690adc49bc8&autoplay=true&sharing=true&downloadMedia=false&repeat=false&mute=false" target="_blank">Opastusvideo kirjan paikantamisesta kirjastossa (kesto 44 s)</a>. </p> 
         <p>Kun olet vastannut kaikkiin kysymyksiin oikein, olet selvittänyt radan!</p>
     </div>
-    <button type="button" class="btn btn-primary palaa-alkuun" style="display:none;">
+    <button type="button" class="btn btn-primary palaa-alkuun" style="display:none; margin-bottom: .75em;">
         <i class="fa fa-chevron-left"></i> Palaa tehtävienvalintaan
     </button>
     <div id="koepaikka">
         <noscript>Tämä sivu vaatii JavaScriptin toimiakseen.</noscript>
     </div>
     <div class="bottom-info-nav">
-        <button type="button" class="btn btn-primary palaa-alkuun" style="display:none;">
+        <button type="button" class="btn btn-primary palaa-alkuun" style="display:none; margin-top: .75em;">
             <i class="fa fa-chevron-left"></i> Palaa tehtävienvalintaan
         </button>
         <p class="link-to-about">
@@ -75,6 +101,23 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
             	'page' => 'mobiilitehtavat-info',
             ]) ?>" target="_blank">Tietoa mobiilitehtävistä</a><br />
         </p>
+    </div>
+    <div class="modal fade" id="confirmReturnModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="confirmModalTitle" style="margin-top:0;">Vahvistus</h2>
+                    <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Sulje"></button>
+                </div>
+                <div class="modal-body" id="confirmModalBody">
+                    <p>Osa vastauksista puuttuu tai on virheellisiä. Haluatko varmasti palata ja nollata lomakkeen?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" data-bs-dismiss="modal">En</button>
+                    <button type="button" class="btn btn-primary" id="confirmExitBtn">Kyllä</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -87,7 +130,6 @@ var formStub = '<form class="tarkistus-lomake"><input type="text" class="vastaus
 
 function tarkistaKysymys(inputElement) {
     if (!inputElement) return;
-
     var form = inputElement.closest('form');
     if (!form) return;
 
@@ -96,10 +138,7 @@ function tarkistaKysymys(inputElement) {
     var val = inputElement.value.trim();
     var div = form.parentElement;
 
-    if (index === -1 || !vastaukset[index]) {
-        console.warn("No answer found for index: " + index);
-        return;
-    }
+    if (index === -1 || !vastaukset[index]) return;
 
     if (val.length === 0) {
         div.className = "boksi";
@@ -137,9 +176,7 @@ function naytaLomake(lomake) {
     document.getElementById("otsikko").innerHTML = lomake.otsikko;
     document.getElementById("ohje").style.display = "block";
 
-    // Näytä paluu-painike, kun lomake on auki.
-    var palaaBtns = document.querySelectorAll(".palaa-alkuun");
-    palaaBtns.forEach(function(btn) {
+    document.querySelectorAll(".palaa-alkuun").forEach(function(btn) {
         btn.style.display = "inline-block";
     });
 
@@ -157,11 +194,10 @@ function naytaLomake(lomake) {
 }
 
 function naytaIndeksi() {
-    document.getElementById("otsikko").innerHTML = "Huomaa! kirjasto -radat";
+    document.getElementById("otsikko").innerHTML = "Mobiilitehtävät";
     document.getElementById("ohje").style.display = "none";
 
-   var palaaBtns = document.querySelectorAll(".palaa-alkuun");
-    palaaBtns.forEach(function(btn) {
+    document.querySelectorAll(".palaa-alkuun").forEach(function(btn) {
         btn.style.display = "none";
     });
 
@@ -170,10 +206,16 @@ function naytaIndeksi() {
 
     otsikot.forEach(function(group) {
         var div = document.createElement('div');
-        div.className = "ohje";
-        var html = "<h2>" + group.otsikko + "</h2><ul>";
+        div.className = "tehtava-osio infobox";
+        var html = "<h2>" + group.otsikko + "</h2><ul class='tehtava-lista'>";
+
         group.lomakkeet.forEach(function(l) {
-            html += "<li><a href='#" + l.llid + "'>" + l.lomake + "</a></li>";
+            html += "<li>" +
+                        "<a href='#" + l.llid + "'>" +
+                            "<i class='fa fa-chevron-right' aria-hidden='true'></i>" +
+                            "<span>" + l.lomake + "</span>" +
+                        "</a>" +
+                    "</li>";
         });
         html += "</ul>";
         div.innerHTML = html;
@@ -181,11 +223,15 @@ function naytaIndeksi() {
     });
 }
 
+$('#confirmExitBtn').on('click', function() {
+    window.location.hash = "";
+    $('#confirmReturnModal').modal('hide');
+});
+
 document.addEventListener('submit', function(e) {
     if (e.target && e.target.classList.contains('tarkistus-lomake')) {
         e.preventDefault();
-        var input = e.target.querySelector('input');
-        tarkistaKysymys(input);
+        tarkistaKysymys(e.target.querySelector('input'));
     }
 });
 
@@ -199,15 +245,21 @@ window.addEventListener("hashchange", function() {
     if (oldHash !== window.location.hash) kont();
 });
 
+// Palataan tehtävienvalintaan, mutta varmistetaan ensin, ettei käyttäjä ole vahingossa jättänyt vastauksia kesken.
 document.addEventListener('click', function(e) {
     if (e.target.closest('.palaa-alkuun')) {
-        window.location.hash = "";
+        const remainingQuestions = document.querySelectorAll('.boksi').length;
+        const wrongAnswers = document.querySelectorAll('.vaara').length;
+        if (remainingQuestions > 0 || wrongAnswers > 0) {
+            $('#confirmReturnModal').modal('show');
+        } else {
+            window.location.hash = "";
+        }
     }
 });
 
 kont();
 JS;
-
 echo $this->assetManager()->outputInlineScriptString($engineLogic);
 
 

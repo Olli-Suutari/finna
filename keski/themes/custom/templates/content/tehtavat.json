@@ -1,500 +1,648 @@
 [
 	{
-		"otsikko": "Huomaa! kirjasto -radat",
+		"otsikko": "Yläkoululaisten tehtävät",
 		"lomakkeet": [
 			{
-				"lomake": "Huom! kirjasto -rata 1",
-				"otsikko": "Huom! kirjasto -rata 1",
+				"lomake": "Sarja 1",
+				"otsikko": "Sarja 1",
 				"llid": "sc_a",
 				"kysymykset": [
 					{
-						"kysymys": "1. Mene kirjaston 3. kerrokseen lukuparven puolelle. Mitä kirjallisuutta löytyy ikkunaseinältä?",
-						"vastaus": "^\\s*(runot|runoja|runo|näytelmä|näytelmiä|näytelmät)\\s*$"
+						"kysymys": "Kuka on kirjoittanut kirjan Varismiekka?",
+						"vastaus": "^\\s*(Jacob\\s+Grey|Grey\\,?\\s+Jacob)\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta, Mila Teräksen kirjoittama kirja <i>Iso hyppy</i>. Mistä harrastuksesta kirja kertoo?",
-						"vastaus": "^\\s*tanssi|tanssimisesta|tanssista\\s*$"
+						"kysymys": "Minkä nimiseen kaupunkiin kirja sijoittuu?",
+						"vastaus": "^\\s*[Bb]lackstone\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit? ",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Juha-Pekka Koskinen on kirjoittanut kirjan Lumottu lelutehdas. Minkä nimiselle kirjalle se on jatkoa?",
+						"vastaus": "^\\s*[Hh]aavekauppias\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta kirjan <i>Kaupunki siipien alla: Jyväskylä vanhoissa ilmakuvissa</i> hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi? ",
-						"vastaus": "^\\s*Keski-Suomen paikallishistoria|keski-suomen paikallishistoria|paikallishistoria|Paikallishistoria\\s*$"
+						"kysymys": "Rakastaa, ei rakasta on kokoelma pohjoismaisia novelleja nuorille. Kuka on kirjoittanut novellin En halua menettää sinua?",
+						"vastaus": "^\\s*(Kirsi\\s+Paltto|Paltto\\,?\\s+Kirsi)\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Aihe voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Lumottu lukukausi kertoo aikamatkasta menneisyyteen. Mille vuosikymmenelle tarina sijoittuu?",
+						"vastaus": "^\\s*(1930-luku|1930)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Katso verkkokirjastosta, mistä hyllypaikasta löytyy ruokaohjekirjoja kuppikakuista?",
+						"vastaus": "^\\s*(68.24|68,24)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 2",
-				"otsikko": "Huom! kirjasto -rata 2",
+				"lomake": "Sarja 2",
+				"otsikko": "Sarja 2",
 				"llid": "sc_b",
 				"kysymykset": [
 					{
-						"kysymys": "1. Mikä on musiikkiosaston (3. kerros) keskellä olevan soitonharjoitteluhuoneen nimi?",
-						"vastaus": "^\\s*(Komppi|komppi)\\s*$"
+						"kysymys": "Kuka on kirjoittanut kirjan Kirsikkasydän?",
+						"vastaus": "^\\s*(Cathy\\s+Cassidy|Cassidy\\,?\\s+Cathy)\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta Siri Koulun kirja <i>Hohtavat</i>. Kuinka monta sivua kirjassa on?",
-						"vastaus": "^\\s*200*\\s*$"
+						"kysymys": "Minkä nimisen sarjan Kirsikkasydän kirja aloittaa?",
+						"vastaus": "^\\s*[Ss]uklaamuruset\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Salla Simukka on kirjoittanut jännityskirjan Valkea kuin lumi. Minkä nimiselle kirjalle se on jatkoa?",
+						"vastaus": "^\\s*[Pp]unainen kuin veri\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta <i>365: koko vuoden keittokirja</i> -kirjan hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Ruoanvalmistus|ruoanvalmistus\\s*$"
+						"kysymys": "Kerstin Gier on kirjoittanut kirjan Rubiininpuna. Minkä nimisen sarjan kirja aloittaa?",
+						"vastaus": "^\\s*[Rr]akkaus ei katso aikaa\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Viivakoodi - 15 novellia on Krisztina Tóthin kirjoittama novellikokoelma. Minkä värisestä lumiukosta yhdessä novellissa kerrotaan?",
+						"vastaus": "^\\s*(musta|mustasta)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Katso verkkokirjastoa, mistä hyllypaikasta löytyy kirjoja valokuvauksesta?",
+						"vastaus": "^\\s*(75.72|75,72)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 3",
-				"otsikko": "Huom! kirjasto -rata 3",
+				"lomake": "Sarja 3",
+				"otsikko": "Sarja 3",
 				"llid": "sc_c",
 				"kysymykset": [
 					{
-						"kysymys": "1. Kiipeä 3. kerrokseen musiikkiosastolle. Heti portaiden jälkeen käänny reilusti oikealle. Minkä musiikkityylin kirjoja voit lainata kirjahyllystä? Vinkin saat myös roikkuvasta, pyöreästä logosta.",
-						"vastaus": "^\\s*Hiphop-kirjasto|hiphop-kirjasto| hiphop kirjasto|Hiphop kirjasto| hip hop kirjasto|Hip hop kirjasto|Hiphop|hip hop|Hip hop|hiphop|HipHop|Hip Hop\\s*$"
+						"kysymys": " Kuka on kirjoittanut kirjan Tyttö tulevaisuudesta?",
+						"vastaus": "^\\s*(Mila\\s+Teräs|Teräs\\,?\\s+Mila)\\s*$"
 					},
 					{
-						"kysymys": "2. Löydä verkkokirjastosta sarjakuva nimeltä <i>Pnuk</i>. Mihin kaupunkiin kirja sijoittuu?",
-						"vastaus": "^\\s*Turkuun|Turku|turkuun|turku\\s*$"
+						"kysymys": "Mihin vuoteen kirjan aikamatka sijoittuu?",
+						"vastaus": "^\\s*1889\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Minkä nimisestä hevosesta kertoo Michael Morpurgon kirjoittama kirja Sotahevonen?",
+						"vastaus": "^\\s*[Jj]oey\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta Mirva Saukkolan kirjoittaman <i>Tuoksutarinoita</i>-kirjan hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Kauneudenhoito. Ulkonäkö|kauneudenhoito. ulkonäkö|kauneudenhoito, ulkonäkö|Kauneudenhoito, ulkonäkö|Kauneudenhoito ulkonäkö|kauneudenhoito ulkonäkö\\s*$"
+						"kysymys": "Reija Kaskiahon kirjassa Tulitikkuihmisiä henkilöhahmona on Teemu. Minkä niminen kaveri Teemulla on?",
+						"vastaus": "^\\s*[Pp]ate\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Etsijät novelleja nuorille sisältää 15 novellia. Kuka on kirjoittanut novellin Viimeinen kesä?",
+						"vastaus": "^\\s*(Kirsti\\s+Kuronen|Kuronen\\,?\\s+Kirsti)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Tutki verkkokirjastoa, mistä hyllypaikasta löytyy Tuija Pyhärannan kirjoitama kirja Adventista ramadaniin?",
+						"vastaus": "^\\s*20\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 4",
-				"otsikko": "Huom! kirjasto -rata 4",
+				"lomake": "Sarja 4",
+				"otsikko": "Sarja 4",
+				"llid": "sc_d",
+				"kysymykset": [
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Alex ja pelon aika?",
+						"vastaus": "^\\s*(Marja-Leena\\s+Tiainen|Tiainen\\,?\\s+Marja-Leena)\\s*$"
+					},
+					{
+						"kysymys": "Minkä väriset tennarit kirjan kannessa on?",
+						"vastaus": "^\\s*[Pp]unaiset|[Pp]unainen\\s*$"
+					},
+					{
+						"kysymys": "Kat Falls on kirjoittanut vedenalaiseen maailmaan sijoittuvia kirjoja. Minkä niminen kirja on jatkoa Vastavirta-kirja on sarjan toinen kirja, mikä on ensimmäinen?",
+						"vastaus": "^\\s*[Vv]eden alla\\s*$"
+					},
+					{
+						"kysymys": "Minkä nimisestä novellikokoelmasta löytyy novelli nimeltä Polttava rakkaus?",
+						"vastaus": "^\\s*[Jj]ulma rakkaus(:? novelleja nuorille)?\\s*$"
+					},
+					{
+						"kysymys": "Colin Meloy on kirjoittanut kirjan Sysimetsä. Minkä nimisen sarjan kirja aloittaa?",
+						"vastaus": "^\\s*[Ss]ysimetsän kronikat\\s*$"
+					},
+					{
+						"kysymys": "Tutki verkkokirjastoa, mistä hyllypaikasta löytyy tietokirjoja linnuista?",
+						"vastaus": "^\\s*(58.12|58,12)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 5",
+				"otsikko": "Sarja 5",
 				"llid": "sc_e",
 				"kysymykset": [
 					{
-						"kysymys": "1. Havainnoi 1. kerroksen lehtilukusalissa, miten aikakauslehdet on järjestetty. Mikä numero on kuutiossa, jossa säilytetään autoiluun liittyviä lehtiä?",
-						"vastaus": "^\\s*(06|6)\\s*$"
+						"kysymys": "Kuka on kirjoittanut kirjan Säbätalvi?",
+						"vastaus": "^\\s*(Kalle\\s+Veirto|Veirto\\,?\\s+Kalle)\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta J.S. Meresmaan kirjoittama kirja <i>Kenties tapan sinut vielä</i>. Mikä kirjain on yliviivattu kirjan kansikuvassa?",
-						"vastaus": "^\\s*A|a\\s*$"
+						"kysymys": "Kuinka monta sivua kirjassa Säbätalvi on?",
+						"vastaus": "^\\s*253\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Katariina Romppainen kirjoittaa Senja-nimisestä tytöstä. Mikä on kirjan nimi?",
+						"vastaus": "^\\s*Sori vaan,? se on totuus\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta kirjan <i> Eric Perrin: Lavalin leijona </i>hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Jääkiekko. Jääpallo|Jääkiekko, jääpallo|Jääkiekko jääpallo|jääkiekko jääpallo|jääkiekko, jääpallo \\s*$"
+						"kysymys": "Taikuri ja taskuvaras aloittaa Anniina Mikaman kirjoittaman sarjan. Kuinka monta osaa sarjassa on?",
+						"vastaus": "^\\s*(3|kolme)\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Myös näin voi elää on kokoelma eurooppalaisia nykynovelleja. Kuka on kirjoittanut novellin Haloo, kirjailija!?",
+						"vastaus": "^\\s*(Tomi\\s+Kontio|Kontio\\,?\\s+Tomi)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Mistä hyllypaikasta löytyy ufoja käsitteleviä tietokirjoja? ",
+						"vastaus": "^\\s*(15.7|15,7)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 5",
-				"otsikko": "Huom! kirjasto -rata 5",
+				"lomake": "Sarja 6",
+				"otsikko": "Sarja 6",
 				"llid": "sc_f",
 				"kysymykset": [
 					{
-						"kysymys": "1. Mene 1. kerrokseen ja etsi varaukset. Kaarevan hyllyn päällä on veistos, jonka on tehnyt Outi Markkanen. Mikä on veistoksen nimi?",
-						"vastaus": "^\\s*Piski|piski\\s*$"
+						"kysymys": "Kuka on kirjoittanut kirjan Hopearenkaan taika?",
+						"vastaus": "^\\s*(Raili\\s+Mikkanen|Mikkanen\\,?\\s+Raili)\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta Laura Suomelan kirja <i>Minä vastaan marraskuu</i>. Mihin kaupunkiin kirja sijoittuu?",
-						"vastaus": "^\\s*Tampere|Tampereelle|tampere|tampereelle\\s*$"
+						"kysymys": "Kuinka monta sivua kirjassa Hopearenkaan taika on?",
+						"vastaus": "^\\s*252\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Smaragdinvihreä on kirjatrilogian viimeinen osa. Minkä niminen kirja aloittaa sarjan?",
+						"vastaus": "^\\s*[Rr]ubiininpuna\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta hyllypaikka kirjalle <i>Pretty Little London : Eats</i>. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Brittein saaret|brittein saaret\\s*$"
+						"kysymys": "Salla Simukan kirjoja voi lukea myös englanniksi. Mikä on kirjan As red as blood -kirjan nimi suomeksi?",
+						"vastaus": "^\\s*[Pp]unainen kuin veri\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Etsi novellikokoelma Nuoruus nyt! Kuka on kirjoittanut novellin Rangaistuspotku?",
+						"vastaus": "^\\s*(Jukka\\s+Pakkanen|Pakkanen\\,?\\s+Jukka)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Mistä hyllypaikasta löytyy kirjoja koiraroduista?",
+						"vastaus": "^\\s*(67.451|67,451|67.45|67,45)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 6",
-				"otsikko": "Huom! kirjasto -rata 6",
+				"lomake": "Sarja 7",
+				"otsikko": "Sarja 7",
 				"llid": "sc_g",
 				"kysymykset": [
 					{
-						"kysymys": "1. Mene 1. kerroksen lehtilukusaliin ja etsi aikakauslehdet. Mikä numero on kuutiossa, jossa on luontoaiheisia lehtiä?",
-						"vastaus": "^\\s*07|7\\s*$"
+						"kysymys": "Andy Mulligan on kirjoittanut yhden kirjan. Mikä on kirjan nimi??",
+						"vastaus": "^\\s*[Rr]oskaa\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta kirja <i>Jalat ilmassa</i>, jonka on kirjoittanut Antti Rönkä. Mikä on kirjan päähenkilön etunimi?",
-						"vastaus": "^\\s*Aaro|aaro\\s*$"
+						"kysymys": "Minkä nimiseen kaupunkiin Roskaa nimisen kirjan tapahtumat sijoittuvat?",
+						"vastaus": "^\\s*[Bb]ehala\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Minkä värinen hevonen on kirjan Yhden dollarin hevonen kannessa?",
+						"vastaus": "^\\s*([Vv]alkoinen|[Kk]imo)\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta kirjan <i>Kakkuruletti</i> hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Leipominen. Makeiset. Jälkiruoat|Leipominen, makeiset, jälkiruoat|Leipominen Makeiset Jälkiruoat|Leipominen makeiset jälkiruoat| leipominen, makeiset, jälkiruoat|leipominen makeiset jälkiruoat|Leipominen makeiset jälkiruoat|Leipominen, Makeiset, Jälkiruoat|Leipominen|leipominen|Makeiset|makeiset|Jälkiruuat|jälkiruuat\\s*$"
+						"kysymys": "Nemo Rossi on kirjoittanut arkeologian maailmaan sijoittuvia seikkailukirjoja. Mikä on kirjasarjan nimi?",
+						"vastaus": "^\\s*[Aa]rkeomysteeri\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Etsi teos Maailma raollaan. Kenen kirjoittama on Pajulintu?",
+						"vastaus": "^\\s*(Laura\\s+Lähteenmäki|Lähteenmäki\\,?\\s+Laura)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Mistä hyllypaikasta löytyy tietokirjoja biljardista?",
+						"vastaus": "^\\s*(79.7|79,7)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 7",
-				"otsikko": "Huom! kirjasto -rata 7",
+				"lomake": "Sarja 8",
+				"otsikko": "Sarja 8",
 				"llid": "sc_h",
 				"kysymykset": [
 					{
-						"kysymys": "1. Nouse 3. kerrokseen opiskelukuutioiden luo. Kuutioiden takana on graffiti, jossa kerrotaan, kuinka monta askelta on Hip Hop -kirjastoon. Kuinka monta askelta on?",
-						"vastaus": "^\\s*seitsemän|7\\s*$"
+						"kysymys": "Kuka on kirjoittanut kirjan Kadonnut Audrey?",
+						"vastaus": "^\\s*(Sophie\\s+Kinsella|Kinsella\\,?\\s+Sophie)\\s*$"
 					},
 					{
-						"kysymys": "2. Etsi verkkokirjastosta Sayaka Muratan kirjoittama kirja <i>Lähikaupan nainen</i>. Tutkin kirjan teostietosivuja. Mihin kaupunkiin kirjan tapahtumat sijoittuvat?",
-						"vastaus": "^\\s*Tokio|Tokioon|tokio|tokioon\\s*$"
+						"kysymys": "Etsi kirja Kuka on Jenna Fox. Mikä kuva kirjan kannessa on?",
+						"vastaus": "^\\s*[Pp]erhonen|[Pp]erhosen\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Unna skeittaa kirjassa nimeltä Käärmeenlumooja. Mikä on tämän Annukka Salaman kirjoittaman kirjasarjan nimi?",
+						"vastaus": "^\\s*[Ff]aunoidit\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta Heikko Aittokosken kirjoittaman kirjan <i>Narrien laiva</i> hyllypaikka. Mene sitten oikealle hyllylle aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi? ",
-						"vastaus": "^\\s*Matkakuvaukset|matkakuvaukset\\s*$"
+						"kysymys": "Montako sivua Käärmeenlumoojan kovakantisessa painoksessa (sid.)?",
+						"vastaus": "^\\s*330\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Etsi teos Rakkaustarinat. Minkä nimisen rakkaustarinan Pauliina Susi on kirjoittanut?",
+						"vastaus": "^\\s*[Ll]umikola\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Mistä hyllypaikasta löytyy Esko Maunon kirjoittama korjausopas Skootterimopot?",
+						"vastaus": "^\\s*(62.512|62,512)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 8",
-				"otsikko": "Huom! kirjasto -rata 8",
+				"lomake": "Sarja 9",
+				"otsikko": "Sarja 9",
 				"llid": "sc_i",
 				"kysymykset": [
 					{
-						"kysymys": "1. Kolmannessa kerroksessa on lasiseinäisiä, varattavia opiskelukuutioita. Kuinka monta niitä on?",
-						"vastaus": "^\\s*3|kolme|4|neljä\\s*$"
+						"kysymys": "Kenen kirjoittama on Routasisarukset?",
+						"vastaus": "^\\s*(Eija\\s+Lappalainen|Lappalainen\\,?\\s+Eija)\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta Ulla Onervan <i>Hattaradilemma</i>. Minkä nimisen kirjasarjan se aloittaa?",
-						"vastaus": "^\\s*Oikukkaiden romantikkojen piiri|oikukkaiden romantikkojen piiri\\s*$"
+						"kysymys": "Etsi kirja Ottopoikia ja työläistyttöjä, yhdeksän tarinaa Tampereelta. Kuinka monta ihmistä kirjan kannessa on?",
+						"vastaus": "^\\s*(4|[Nn]eljä)\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Nolo elämäni -sarjan ensimmäinen osa on nimeltään Olisinpa suosittu. Mikä on nimeltään sarjan toinen osa?",
+						"vastaus": "^\\s*[Oo]lisinpa bilehile\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta kirjan <i> Merten jättiläinen: valaiden arvoitusta etsimässä</i> hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Nisäkkäät|nisäkkäät\\s*$"
+						"kysymys": "Etsi kirja Piiraan maku makea. Kuinka monta lintua kirjan kannessa on?",
+						"vastaus": "^\\s*4\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Etsi kirja Taskunovellit. Minkä nimisen novellin Petri Tamminen on teokseen kirjoittanut?",
+						"vastaus": "^\\s*[Ee]rään ihailijan päiväkirjasta\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Tutki verkkokirjastoa, mistä hyllypaikasta löytyy tietoa linnuista?",
+						"vastaus": "^\\s*(58.12|58,12|58.1|58,1)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 9",
-				"otsikko": "Huom! kirjasto -rata 9",
+				"lomake": "Sarja 10",
+				"otsikko": "Sarja 10",
 				"llid": "sc_j",
 				"kysymykset": [
 					{
-						"kysymys": "1. Nouse portaat 3. kerrokseen musiikkiosastolle ja etsi sieltä elokuvat. Kuinka monessa valkoisessa kuutiossa elokuvia on?",
-						"vastaus": "^\\s*(Kahdessa|kahdessa|kaksi|Kaksi|2)\\s*$"
+						"kysymys": "Kuka on kirjoittanut kirjan Nikottelua?",
+						"vastaus": "^\\s*(Reija\\s+Kaskiaho|Kaskiaho\\,?\\s+Reija)\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta kirja, jonka nimi on <i>Tästä Ihmemaahan</i>. Minkä nimisen novellin Akseli Heikkilä on kirjoittanut siihen?",
-						"vastaus": "^\\s*(Raatomaa|raatomaa)\\s*$"
+						"kysymys": "Kuinka monta sivua on kirjassa Tähtimosaiikki?",
+						"vastaus": "^\\s*255\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Alex Scarrow on kirjoittanut Time Riders –kirjasarjan. Minkä niminen on sarjan 3. osa?",
+						"vastaus": "^\\s*[Tt]uomiopäivän koodi\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta Juha T. Hakalan kirjoittaman kirjan <i>Hyvä, parempi, valmis</i> hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Opiskelutekniikka|opiskelutekniikka\\s*$"
+						"kysymys": "Minkä nimiseen metsään kirjan Tuomiopäivän koodi tapahtumat sijoittuvat?",
+						"vastaus": "^\\s*[Ss]herwood\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Etsi novellikokoelma 16 tarinaa toivosta. Kuka on kirjoittanut novellin Syötti?",
+						"vastaus": "^\\s*(Hannele\\s+Huovi|Huovi\\,?\\s+Hannele)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Mistä hyllypaikasta löydät Tukholman matkaoppaat?",
+						"vastaus": "^\\s*(43.11|43,11|43.1|43,1)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 10",
-				"otsikko": "Huom! kirjasto -rata 10",
+				"lomake": "Sarja musiikki",
+				"otsikko": "Sarja musiikki",
 				"llid": "sc_k",
 				"kysymykset": [
 					{
-						"kysymys": "1. Nouse portaat ylös 3. kerrokseen Lukuparven puolelle. Löydät sieltä maksuttomia, varattavia opiskelukuutioita. Kuinka monta kuutiota on?",
-						"vastaus": "^\\s*Kolme|kolme|3|Neljä|neljä|4\\s*$"
+						"kysymys": "Suuri toivelaulukirja -sarjassa on julkaistu jo pitkälti päälle 20 nuottikokoelmaa. Minä vuonna julkaistiin ensimmäinen?",
+						"vastaus": "^\\s*1976\\s*$"
 					},
 					{
-						"kysymys": "2. Mihin kaupunkiin Karla Malmin kirjoittama kirja <i>Lux</i> sijoittuu?",
-						"vastaus": "^\\s*Helsinkiin|helsinkiin|Helsinki|helsinki\\s*$"
+						"kysymys": "Mozartin Taikahuilu-oopperassa on kuuluisa aaria nimeltään “Der Hölle Rache”. Millä suomenkielisellä nimellä aaria tunnetaan?",
+						"vastaus": "^\\s*[Yy]ön kuningattaren aaria( oopperasta [Tt]aikahuilu)?\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Englanninkielisissä julkaisuissa hänen sukunimensä kirjoitetaan Khachatryan tai Khachaturian. Hänen etunimensä on Aram ja Sapelitanssi on his kuuluisimpia sävellyksiään. Miten tämän säveltäjän sukunimi kirjoitetaan suomeksi ja verkkokirjastossamme?",
+						"vastaus": "^\\s*[Hh]atš?aturjan\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta Stephen Hawkingin kirjoittaman kirjan <i>Ajan lyhyt historia</i> hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Maailmankaikkeus. Tähdet. Tähtijärjestelmät|maailmankaikkeus. tähdet. tähtijärjestelmät|maailmankaikkeus|Maailmankaikkeus|tähdet|Tähdet|tähtijärjestelmät|Tähtijärjestelmät\\s*$"
+						"kysymys": "Antti Tuiskusta on kirjoitettu elämäkertakirja nimeltä Antti Tapani. Mikä on tuon kirjan hyllypaikka eli kirjastoluokkanumero?",
+						"vastaus": "^\\s*(78.993|78,993)\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Kirjastosta voi lainata Rytmikassin, joka sisältää erilaisia rytmisoittimia. Kirjoita vastaukseksi jonkun Rytmikassissa olevan soittimen nimi.",
+						"vastaus": "^\\s*(marakassit|marakassi|rytmikapulat|rytmikapula|guiro|triangeli|tamburiini|kulkuset|cabasa|hiekkaputki)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Imus on Gasellit-yhtyeen levyttämä kappale. Kirjaston kokoelmassa on levy, jolla tuon kappaleen esittää eräs toinen artisti. Kuka?",
+						"vastaus": "^\\s*[Jj]anna\\s*$"
 					}
 				]
-			},
+			}
+		]
+	},
+	{
+		"otsikko": "4-6. -luokkalaisten tehtävät",
+		"lomakkeet": [
 			{
-				"lomake": "Huom! kirjasto -rata 11",
-				"otsikko": "Huom! kirjasto -rata 11",
+				"lomake": "Sarja 1",
+				"otsikko": "Sarja 1",
 				"llid": "sc_l",
 				"kysymykset": [
 					{
-						"kysymys": "1. Laskeudu portaat alas 1. kerrokseen. Pääsisäänkäynnin vieressä on asiakastietokoneita. Mikä on tietokonetilan nimi?",
-						"vastaus": "^\\s*Koneaula|koneaula\\s*$"
+						"kysymys": "Minkä nimisessä kirjassa seikkailee XR-935?",
+						"vastaus": "^\\s*[Vv]iimeinen ihminen\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta Martha Wellsin kirja <i>Murhabotin päiväkirjat</i>. Kuka on kääntänyt kirjat suomeksi? ",
-						"vastaus": "^\\s*Mika Kivimäki|mika kivimäki\\s*$"
+						"kysymys": "Kuka on kuvittanut Timo Parvelan kirjoittaman kirjan Merkitty lapsi?",
+						"vastaus": "^\\s*(Mari ja\\s+Luoma|Luoma ja\\s+Mari|Luoma\\s+Mari|Mari\\s+Luoma)\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Kuinka monta sivua on Anniina Mikaman kirjoittamassa kirjassa Myrrys?",
+						"vastaus": "^\\s*370\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta <i>Maailman parhaat luontokuvat</i>-nimisen kirjan hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Aiheet valokuvataiteessa|aiheet valokuvataiteessa\\s*$"
+						"kysymys": "Kuinka monta kirjaa on Sählymestarit-kirjasarjassa?",
+						"vastaus": "^\\s*([Ss]eitsemän|7)\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Mikä on kirjan ZoneVD kiehtovan tiedon jäljillä hyllypaikan numero Jyväskylän kirjastoissa?",
+						"vastaus": "^\\s*03\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Minkä nimiseen viihdeohjelmaan Vilho päätyy kirjassa Maailman hauskin?",
+						"vastaus": "^\\s*[Vv]itsivitsi\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 12",
-				"otsikko": "Huom! kirjasto -rata 12",
+				"lomake": "Sarja 2",
+				"otsikko": "Sarja 2",
 				"llid": "sc_m",
 				"kysymykset": [
 					{
-						"kysymys": "1. Mene 1. kerrokseen ja etsi aikakauslehdet. Missä hyllyssä on <i>Vogue Paris</i> lehti? Lehtihyllyn numero:",
-						"vastaus": "^\\s*04|4\\s*$"
+						"kysymys": "Kuka on kuvittanut Karoliina Suoniemen kirjan Ihan oikeat viikinkiajan lapset?",
+						"vastaus": "^\\s*(Emmi\\s+Kyytsönen|Kyytsönen\\,?\\s+Emmi)\\s*$"
 					},
 					{
-						"kysymys": "2. Etsi verkkokirjastosta kirja <i>Sielulintu</i>. Kirjan kirjoittaja on Henna Huovila. Mille paikkakunnalle kirjan tapahtumat sijoittuvat?",
-						"vastaus": "^\\s*Jyväskylä|jyväskylä|Jyväskylään|jyväskylään\\s*$"
+						"kysymys": "Kuinka monta sivua on Lee Baconin kirjassa viimeinen ihminen?",
+						"vastaus": "^\\s*278\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Kenen kirjoittamissa kirjoissa seikkailee Xar?",
+						"vastaus": "^\\s*(Cressida\\s+Cowell|Cowell\\,?\\s+Cressida)\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta <i>Northern California</i>-nimisen kirjan hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Yhdysvallat|yhdysvallat\\s*$"
+						"kysymys": "Kuinka monta kirjaa on Anu Holopaisen Iik-kirjasarjassa?",
+						"vastaus": "^\\s*([Kk]ymmenen|10)\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Mika on kirjan Hirviöiden käsikirja hyllypaikan numero Jyväskylän kirjastoissa?",
+						"vastaus": "^\\s*49\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Minkä väriset hiukset Romeo & Hirviöt -sarjakuvan Romeolla on?",
+						"vastaus": "^\\s*[Pp]unaiset\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 13",
-				"otsikko": "Huom! kirjasto -rata 13",
+				"lomake": "Sarja 3",
+				"otsikko": "Sarja 3",
 				"llid": "sc_n",
 				"kysymykset": [
 					{
-						"kysymys": "1. Mitä aineistoa on kolmannen kerroksen musiikkiosastolla hissin vieressä?",
-						"vastaus": "^\\s*TV-sarjoja|tv-sarjoja|tv-sarjat|TV-sarjat|Elokuvat|elokuvat|elokuvia|Elokuvia\\s*$"
+						"kysymys": "Kuka tekee Oravalaakson tarinat -sarjakuvaa?",
+						"vastaus": "^\\s*(Johanna\\s+Witick|Witick\\,?\\s+Johanna)\\s*$"
 					},
 					{
-						"kysymys": "2. Mikä suosittu suomalaiskirjailijan dekkari on käännetty englanniksi nimellä <i>The clues in the fjord?</i> Vinkki: etsi kirjan nimellä verkkokirjastosta.",
-						"vastaus": "^\\s*Satu Rämö Hildur|Hildur|hildur\\s*$"
+						"kysymys": "Kuinka monta sivua on Sari Peltoniemen Täältä minä karkaan -kirjassa?",
+						"vastaus": "^\\s*228\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Minkä nimiseen kylään Agnes muuttaa kirjassa Agnes ja unien avain?",
+						"vastaus": "^\\s*[Hh]armala\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta kirjan <i>Nimeni on Itohan</i> hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Kriminologia|kriminologia\\s*$"
+						"kysymys": "Mikä on kirjan Elonkirjo hyllypaikan numero Jyväskylän kirjastoissa?",
+						"vastaus": "^\\s*(56.9|56,9)\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Kuka on kuvittanut Anja Portinin Sumupuiden kirjan?",
+						"vastaus": "^\\s*(Paula\\s+Mela|Mela\\,?\\s+Paula)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Kuinka monta kirjaa on Cheertytöt -sarjakuvissa?",
+						"vastaus": "^\\s*([Nn]eljä|4)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 14",
-				"otsikko": "Huom! kirjasto -rata 14",
+				"lomake": "Sarja 4",
+				"otsikko": "Sarja 4",
 				"llid": "sc_o",
 				"kysymykset": [
 					{
-						"kysymys": "1. Mene 1. kerrokseen ja etsi aikakauslehdet. Minkä numeroisessa lehtikuutiossa luontoaiheiset (luontoilu) lehdet ovat? <i>World Soccer</i> -lehti?",
-						"vastaus": "^\\s*07|7|seitsemän|Seitsemän\\s*$"
+						"kysymys": "Kuka on kirjoittanut kirjan Lasilapset? ",
+						"vastaus": "^\\s*(Kristina\\s+Ohlsson|Ohlsson\\,?\\s+Kristina)\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta Jens Lapiduksen kirjoittama kirja <i>Grand final</i>. Kuka on kääntänyt kirjan suomeksi?",
-						"vastaus": "^\\s*Petri Stenman|petri stenman\\s*$"
+						"kysymys": "Kuinka monta sivua on Riikka Ala-Harjan kirjassa Kahden perheen Ebba? ",
+						"vastaus": "^\\s*110\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Minkä väriset hiukset on kansikuvan henkilöhahmolla Palacion kirjassa Ihme?",
+						"vastaus": "^\\s*[Mm]ustat\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta <i>Huimat päät</i>-nimisen kirjan hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Moottoripyörät. Mopedit. Moottorikelkat|moottoripyörät. mopedit. moottorikelkat|moottoripyörät|mopedit|moottorikelkat|Moottoripyörät|Mopedit|Moottorikelkat\\s*$"
+						"kysymys": "Mikä on kirjan Hirviöiden galleria hyllypaikan numero Jyväskylän kirjastoissa?",
+						"vastaus": "^\\s*49\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Kuka on kuvittanut Maailman viimeiset tyypit -kirjasarjan?",
+						"vastaus": "^\\s*(Douglas\\s+Holgate|Holgate\\,?\\s+Douglas)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Kuinka monta osaa on Harmaa hakkeri -sarjassa?",
+						"vastaus": "^\\s*([Kk]olme|3)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 15",
-				"otsikko": "Huom! kirjasto -rata 15",
+				"lomake": "Sarja 5",
+				"otsikko": "Sarja 5",
 				"llid": "sc_p",
 				"kysymykset": [
 					{
-						"kysymys": "1. Etsi 1. kerroksesta sanomalehdet. Minkä niminen saksankielinen sanomalehti hyllyssä on?",
-						"vastaus": "^\\s*Die Zeit|die zeit\\s*$"
+						"kysymys": "Kuka monta sivua on kirjassa Palavan kaupungin lapset? ",
+						"vastaus": "^\\s*135\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta Stefanie Tuurnan kirja <i>Maamaa</i>. Kenelle päähenkilö juttelee?",
-						"vastaus": "^\\s*nauhuri, sanelukone|nauhuri|sanelukone\\s*$"
+						"kysymys": "Kuka on kirjoittanut kirjan Osasto 23? ",
+						"vastaus": "^\\s*(Eva\\s+Frantz|Frantz\\,?\\s+Eva)\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Mikä rakennus on Zombikuume-kirjan kannessa?",
+						"vastaus": "^\\s*[Tt]uulimylly\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta kirjan <i>Poika 30529</i> hyllypaikka. Mene sitten oikean hyllyn aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Sotamuistelmat|sotamuistelmat\\s*$"
+						"kysymys": "Mikä on Messi: uskomaton tarina -teoksen hyllypaikan numero Jyväskylässä?",
+						"vastaus": "^\\s*(79.3109|79,3109)\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Monesko Miisa-sarjan osa on Lähes täydellinen Miisa?",
+						"vastaus": "^\\s*([Kk]uudes|6\\.?)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Kenen kuvittama on Minna!: Minna Canthin uskomaton elämä ja vaikuttavat teot?",
+						"vastaus": "^\\s*(Sanna\\s+Pellicioni|Pellicioni\\,?\\s+Sanna)\\s*$"
 					}
 				]
 			},
 			{
-				"lomake": "Huom! kirjasto -rata 16",
-				"otsikko": "Huom! kirjasto -rata 16",
+				"lomake": "Sarja 6",
+				"otsikko": "Sarja 6",
+				"llid": "sc_q",
+				"kysymykset": [
+					{
+						"kysymys": "Mikä on Nuoren antirastin käsikirjan hyllypaikan numero Jyväskylässä?",
+						"vastaus": "^\\s*(32.2|32,2)\\s*$"
+					},
+					{
+						"kysymys": "Kuka kirjoittaa Hereiset-sarjaa?",
+						"vastaus": "^\\s*(Siri\\s+Kolu|Kolu\\,?\\s+Siri)\\s*$"
+					},
+					{
+						"kysymys": "Mikä on Timo Parvelan Varjot-kirjan nimi?",
+						"vastaus": "^\\s*[Aa]uroria\\s*$"
+					},
+					{
+						"kysymys": "Minkä värinen eläin on Sarenbrantin Mira ja Kuu -kirjan kannessa?",
+						"vastaus": "^\\s*[Vv]alkoinen\\s*$"
+					},
+					{
+						"kysymys": "Kuka on kuvittanut Pia Krutsin Kaupunki kakaties -runokirjan?",
+						"vastaus": "^\\s*(Jani\\s+Ikonen|Ikonen\\,?\\s+Jani)\\s*$"
+					},
+					{
+						"kysymys": "Kuinka monta sivua on Tuula Kallioniemen Kaksoisolennot-kirjassa?",
+						"vastaus": "^\\s*175\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 7",
+				"otsikko": "Sarja 7",
 				"llid": "sc_r",
 				"kysymykset": [
 					{
-						"kysymys": "1. Mene 1. kerroksen lehtilukusaliin ja etsi aikakauslehdet. Minkä numeroisessa kuutiossa tekniikka-aiheiset lehdet ovat?",
-						"vastaus": "^\\s*9|09|kuusi\\s*$"
+						"kysymys": "Mikä Vuokolla on kädessä Vuokko Vehma: elämä ja teot kannessa?",
+						"vastaus": "^\\s*[Kk]amera\\s*$"
 					},
 					{
-						"kysymys": "2. Hae verkkokirjastosta Heli Laaksosen kirja nimeltä <i>Luonnos</i>. Millä murteella runot on kirjoitettu?",
-						"vastaus": "^\\s*Lounaismurteet|lounaismurteet|Lounaismurteella|lounaismurteella\\s*$"
+						"kysymys": "Kuinka monta sivua on Siri Pettersenin kirjassa Kupla?",
+						"vastaus": "^\\s*287\\s*$"
 					},
 					{
-						"kysymys": "3. Etsi 2. kerroksesta aikuisten genrehyllyt. Genrejä eli kirjallisuuden lajeja ovat jännitys, romantiikka, historia, erä, sota, novellit, scifi, kauhu ja fantasia. Valitse jokin sinua houkutteleva kirja mieleisestäsi genrestä. Minkä kirjan valitsit?",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Minkä nimisen sarjakuvasarjan ensimmäinen osa on nimeltään Peikkolaakso?",
+						"vastaus": "^\\s*[Pp]ohjantuli\\s*$"
 					},
 					{
-						"kysymys": "4. Katso ensin verkkokirjastosta kirjan <i>Puhe eläinten puolesta</i> -kirjan hyllypaikka. Mene sitten oikean hyllyn luo aikuistenosastolla. Mitä hyllynreunassa lukee numeron lisäksi?",
-						"vastaus": "^\\s*Ympäristönsuojelu. Luonnonsuojelu|ympäristönsuojelu. luonnonsuojelu|ympäristönsuojelu|Ympäristönsuojelu|Luonnonsuojelu|luonnonsuojelu\\s*$"
+						"kysymys": "Kuka on kirjoittanut kirjan Ujo elämäni?",
+						"vastaus": "^\\s*(Minna\\s+Levola|Levola\\,?\\s+Minna)\\s*$"
 					},
 					{
-						"kysymys": "5. Kulje aikuisten tietokirjahyllylle 2. kerroksessa. Mikä aihe sinua kiinnostaa? Se voi liittyä harrastukseesi tai opiskelemaasi alaan. Etsi hyllynpäädyistä kiinnostavan aiheen hyllypaikan numero. Aihe ja hyllypaikka:",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Mikä on Kiviä taskussa -kirjan hyllypaikan numero Jyväskylässä?",
+						"vastaus": "^\\s*(55.2|55,2)\\s*$"
 					},
 					{
-						"kysymys": "6. Minkä kirjan haluaisit lukea? Voit etsiä omaa luettavaa verkkokirjastosta ja kirjaston esittelyhyllyistä. Jos kirja ei ole paikalla, tee siihen varaus.",
-						"vastaus": "^\\s*.*\\s*$"
+						"kysymys": "Kuka on kuvittanut kirjan Koira nimeltä Kissa?",
+						"vastaus": "^\\s*(Elina\\s+Warsta|Warsta\\,?\\s+Elina)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 8",
+				"otsikko": "Sarja 8",
+				"llid": "sc_s",
+				"kysymykset": [
+					{
+						"kysymys": "Kuinka monta osaa on Maria Gripen Varjo-kirjasarjassa?",
+						"vastaus": "^\\s*(4|[Nn]eljä)\\s*$"
+					},
+					{
+						"kysymys": "Minkä nimisessä kirjasarjassa seikkailee Maxwell Nikki?",
+						"vastaus": "^\\s*[Nn]olo elämäni\\s*$"
+					},
+					{
+						"kysymys": "Mikä yllätys lahjalaatikosta paljastuu kirjassa Rex Dexter ja älyttömät kuolleet eläimet?",
+						"vastaus": "^\\s*[Kk]ana\\s*$"
+					},
+					{
+						"kysymys": "Kuinka monta sivua on Jacob Wegeliuksen kirjoittamassa kirjassa Merten Gorilla?",
+						"vastaus": "^\\s*646\\s*$"
+					},
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Silkkomaahan kadonneet?",
+						"vastaus": "^\\s*(Joonas\\s+Riekkola|Riekkola\\,?\\s+Joonas)\\s*$"
+					},
+					{
+						"kysymys": "Kuka on kirjoittanut ja kuvittanut kirjan Ihan tavallinen perhe?",
+						"vastaus": "^\\s*(Mari\\s+Luoma|Luoma\\,?\\s+Mari)\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 9",
+				"otsikko": "Sarja 9",
+				"llid": "sc_t",
+				"kysymykset": [
+					{
+						"kysymys": "Mikä eläin on Anu Ojalan kirjoittaman kirjan Kiristäjä kannessa?",
+						"vastaus": "^\\s*[Kk]oira\\s*$"
+					},
+					{
+						"kysymys": "Kuinka monta sivua on Hanna Kökön kirjassa Pallo on pyöreä, Niki Dundee?",
+						"vastaus": "^\\s*186\\s*$"
+					},
+					{
+						"kysymys": "Mitä Sorceline-sarjakuvasarjan päähenkilö opiskelee?",
+						"vastaus": "^\\s*[Kk]ryptoeläintiedettä?\\s*$"
+					},
+					{
+						"kysymys": "Mikä on kirjan Kayn anatomia hyllypaikan numero Jyväskylässä?",
+						"vastaus": "^\\s*(59.11|59,11)\\s*$"
+					},
+					{
+						"kysymys": "Kuka on kirjoittanut kirjan Unelmien muotitalo?",
+						"vastaus": "^\\s*(Lucy\\s+Ivison|Ivison\\,?\\s+Lucy)\\s*$"
+					},
+					{
+						"kysymys": "Minkä nimisessä kirjasarjassa seikkailee Cruz Coronado?",
+						"vastaus": "^\\s*[Ee]xplorer [Aa]cademy\\s*$"
+					}
+				]
+			},
+			{
+				"lomake": "Sarja 10",
+				"otsikko": "Sarja 10",
+				"llid": "sc_u",
+				"kysymykset": [
+					{
+						"kysymys": "Minkä niminen on Oskar Källnerin Imperiumin perilliset -kirjasarjan neljännen kirjan nimi?",
+						"vastaus": "^\\s*[Mm]uistisäiliö\\s*$"
+					},
+					{
+						"kysymys": "Mikä on Vloggaajan käsikirjan hyllypaikan numero Jyväskylässä?",
+						"vastaus": "^\\s*(61.72|61,72)\\s*$"
+					},
+					{
+						"kysymys": "Kuka on kirjoittanut Merena ja rikottu peili?",
+						"vastaus": "^\\s*(Maami\\s+Snellman|Snellman\\,?\\s+Maami)\\s*$"
 					}
 				]
 			}
