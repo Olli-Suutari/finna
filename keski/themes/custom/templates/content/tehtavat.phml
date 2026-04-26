@@ -179,14 +179,17 @@ function tarkistaKysymys(inputElement, logicType = 'blur') {
 
     const isCorrect = vastaukset[index].test(val);
 
-    // Poistutaan kentästä oikean vastauksen jälkeen, jos halutaan "disabloida" kenttä, poista "blur" ja poista kommentit disable -riveistä.
     if (isCorrect) {
         div.className = "oikea";
-        inputElement.blur();
-        //inputElement.disabled = true;
-        //const btn = form.querySelector('button');
-        //if (btn) btn.disabled = true;
+        const btn = form.querySelector('button');
+        if (btn) btn.disabled = true;
+        if (logicType === 'input' || logicType === 'submit') {
+            inputElement.blur();
+        }
     } else {
+        const btn = form.querySelector('button');
+        if (btn) btn.disabled = false;
+
         if (logicType === 'blur') {
             div.className = (val.length === 0) ? "boksi" : "vaara";
         } else if (val.length === 0) {
@@ -326,15 +329,13 @@ window.addEventListener("hashchange", () => {
 document.addEventListener('click', e => {
     const palaaBtn = e.target.closest('.palaa-alkuun');
     if (palaaBtn) {
-        const hasUnfinishedBusiness = Array.from(document.querySelectorAll('.vastaus-kentta')).some(el => {
+        const hasUnfinished = Array.from(document.querySelectorAll('.vastaus-kentta')).some(el => {
             const isCorrect = el.closest('.oikea') !== null;
             const hasText = el.value.trim() !== "";
             return hasText && !isCorrect;
         });
-
         const hasWrong = document.querySelectorAll('.vaara').length > 0;
-
-        if (hasUnfinishedBusiness || hasWrong) {
+        if (hasUnfinished || hasWrong) {
             confirmModal?.show();
         } else {
             window.location.hash = "";
