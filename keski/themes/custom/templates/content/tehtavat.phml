@@ -183,9 +183,7 @@ function tarkistaKysymys(inputElement, logicType = 'blur') {
         div.className = "oikea";
         const btn = form.querySelector('button');
         if (btn) btn.disabled = true;
-        if (logicType === 'input' || logicType === 'submit') {
-            inputElement.blur();
-        }
+        inputElement.blur();
     } else {
         const btn = form.querySelector('button');
         if (btn) btn.disabled = false;
@@ -317,7 +315,8 @@ document.addEventListener('focusout', e => {
 document.addEventListener('submit', e => {
     if (e.target.classList.contains('tarkistus-lomake')) {
         e.preventDefault();
-        tarkistaKysymys(e.target.querySelector('input'), 'blur');
+        const input = e.target.querySelector('input');
+        tarkistaKysymys(input, 'submit');
     }
 });
 
