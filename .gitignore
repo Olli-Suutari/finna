@@ -1,3 +1,10 @@
 .idea/
 node_modules/
 external/style/fa/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/

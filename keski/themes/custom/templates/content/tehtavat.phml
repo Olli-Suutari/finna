@@ -328,6 +328,10 @@ window.addEventListener("hashchange", () => {
 document.addEventListener('click', e => {
     const palaaBtn = e.target.closest('.palaa-alkuun');
     if (palaaBtn) {
+        if (document.activeElement && document.activeElement.classList.contains('vastaus-kentta')) {
+            tarkistaKysymys(document.activeElement, 'blur');
+        }
+
         const hasUnfinished = Array.from(document.querySelectorAll('.vastaus-kentta')).some(el => {
             const isCorrect = el.closest('.oikea') !== null;
             const hasText = el.value.trim() !== "";
@@ -340,6 +344,15 @@ document.addEventListener('click', e => {
             window.location.hash = "";
         }
     }
+});
+
+// Estetään taustasivun käyttö modalin ollessa auki.
+confirmModalEl?.addEventListener('show.bs.modal', () => {
+    document.querySelector('.krstl-container').setAttribute('aria-hidden', 'true');
+});
+
+confirmModalEl?.addEventListener('hide.bs.modal', () => {
+    document.querySelector('.krstl-container').removeAttribute('aria-hidden');
 });
 
 kont();
