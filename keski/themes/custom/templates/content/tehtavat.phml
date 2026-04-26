@@ -168,7 +168,10 @@ function tarkistaKysymys(inputElement, logicType = 'blur') {
         div.className = "oikea";
         inputElement.disabled = true;
         const btn = form.querySelector('button');
-        if (btn) btn.disabled = true;
+        inputElement.blur();
+        //inputElement.disabled = true;
+        //const btn = form.querySelector('button');
+        //if (btn) btn.disabled = true;
     } else {
         if (logicType === 'blur') {
             div.className = (val.length === 0) ? "boksi" : "vaara";
@@ -199,18 +202,7 @@ function kont() {
             const isLandmark = otsikot.some(g => g.slug === hash);
             if (isLandmark) {
                 naytaIndeksi();
-                const element = document.getElementById(hash);
-                if (element) {
-                    const offset = 100;
-                    const bodyRect = document.body.getBoundingClientRect().top;
-                    const elementRect = element.getBoundingClientRect().top;
-                    const elementPosition = elementRect - bodyRect;
-                    const offsetPosition = elementPosition - offset;
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-                }
+                smoothScrollTo(hash);
             } else {
                 naytaIndeksi();
             }
@@ -273,8 +265,7 @@ function naytaIndeksi() {
 
     const hash = window.location.hash.substring(1);
     if (hash) {
-        const landmark = document.getElementById(hash);
-        if (landmark) landmark.scrollIntoView();
+        setTimeout(() => { smoothScrollTo(hash); }, 50);
     }
 }
 
@@ -317,12 +308,19 @@ window.addEventListener("hashchange", () => {
     if (oldHash !== window.location.hash) kont();
 });
 
+// Vahvistusdialogi jos johonkin kenttään on syötetty tekstiä ja osa kentistä on kesken.
 document.addEventListener('click', e => {
     const palaaBtn = e.target.closest('.palaa-alkuun');
     if (palaaBtn) {
-        const remainingQuestions = document.querySelectorAll('.boksi').length;
-        const wrongAnswers = document.querySelectorAll('.vaara').length;
-        if (remainingQuestions > 0 || wrongAnswers > 0) {
+        const hasUnfinishedBusiness = Array.from(document.querySelectorAll('.vastaus-kentta')).some(el => {
+            const isCorrect = el.closest('.oikea') !== null;
+            const hasText = el.value.trim() !== "";
+            return hasText && !isCorrect;
+        });
+
+        const hasWrong = document.querySelectorAll('.vaara').length > 0;
+
+        if (hasUnfinishedBusiness || hasWrong) {
             confirmModal?.show();
         } else {
             window.location.hash = "";
