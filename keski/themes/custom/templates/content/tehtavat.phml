@@ -150,6 +150,21 @@ var vastaukset = [];
 
 var formStub = '<form class="tarkistus-lomake"><input type="text" class="vastaus-kentta" /> <button type="submit" class="btn btn-primary btn-tarkista">Tarkista</button></form>';
 
+function smoothScrollTo(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) return;
+    const offset = 100;
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = element.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+    });
+}
+
 function tarkistaKysymys(inputElement, logicType = 'blur') {
     if (!inputElement) return;
     const form = inputElement.closest('form');
@@ -164,10 +179,9 @@ function tarkistaKysymys(inputElement, logicType = 'blur') {
 
     const isCorrect = vastaukset[index].test(val);
 
+    // Poistutaan kentästä oikean vastauksen jälkeen, jos halutaan "disabloida" kenttä, poista "blur" ja poista kommentit disable -riveistä.
     if (isCorrect) {
         div.className = "oikea";
-        inputElement.disabled = true;
-        const btn = form.querySelector('button');
         inputElement.blur();
         //inputElement.disabled = true;
         //const btn = form.querySelector('button');
