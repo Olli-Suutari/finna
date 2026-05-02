@@ -103,10 +103,10 @@ echo $this->assetManager()->outputInlineScriptString($initScript);
 <div class="krstl-container">
     <h1 id="otsikko">Ladataan...</h1>
     <div id="ohje" class="infobox">
-        <p>Etsi vastaukset kirjastosalista sekä <a href="https://keski.finna.fi" target="_blank">verkkokirjastosta</a>.</p>
-        <p>Huom! Jos suljet tämän sivun, vastauksesi katoavat. Avaa verkkokirjasto toiseen välilehteen tai tee yhdessä parin kanssa. Oikeat vastaukset näkyvät vihreinä, väärät punaisina. 
-        <a href="https://play2.qbrick.com/qplayer/index.html?accountId=AccR0tgF9CDCUS0dTelfJoUHg&mediaId=0ffdbebe-04d9-45c9-9a5c-7843477d277d&configId=05864968-3366-4dc8-b4ac-d690adc49bc8&autoplay=true&sharing=true&downloadMedia=false&repeat=false&mute=false" target="_blank">Opastusvideo kirjan paikantamisesta kirjastossa (kesto 44 s)</a>. </p> 
-        <p>Kun olet vastannut kaikkiin kysymyksiin oikein, olet selvittänyt radan!</p>
+        <p>Etsi vastaukset <a href="https://keski.finna.fi" target="_blank">verkkokirjastosta</a>.</p>
+        <p>Muista, että jos suljet tämän sivun, vastauksesi katoavat. Oikeat vastaukset näkyvät vihreinä, väärät punaisina. 
+         </p> 
+        <p>Kun olet vastannut kaikkiin kysymyksiin oikein, olet selvittänyt sarjan!</p>
     </div>
     <button type="button" class="btn btn-primary palaa-alkuun" style="display:none; margin-bottom: .75em;">
         <i class="fa fa-chevron-left"></i> Palaa tehtävienvalintaan

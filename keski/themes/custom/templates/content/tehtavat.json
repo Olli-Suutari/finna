@@ -18,7 +18,7 @@
 					},
 					{
 						"kysymys": "Kuinka monta sivua on Anniina Mikaman kirjoittamassa kirjassa Myrrys?",
-						"vastaus": "^\\s*370\\s*$"
+						"vastaus": "^\\s*370|155\\s*$"
 					},
 					{
 						"kysymys": "Kuinka monta kirjaa on Sählymestarit-kirjasarjassa?",
@@ -91,8 +91,8 @@
 						"vastaus": "^\\s*(Paula\\s+Mela|Mela\\,?\\s+Paula)\\s*$"
 					},
 					{
-						"kysymys": "Kuinka monta kirjaa on Cheertytöt -sarjakuvissa?",
-						"vastaus": "^\\s*([Nn]eljä|4)\\s*$"
+						"kysymys": "Kuinka monta kirjaa on Cheertytöt -kirjasarjassa?",
+						"vastaus": "^\\s*([Kk]uusi|6)\\s*$"
 					}
 				]
 			},
@@ -154,7 +154,7 @@
 					},
 					{
 						"kysymys": "Kenen kuvittama on Minna!: Minna Canthin uskomaton elämä ja vaikuttavat teot?",
-						"vastaus": "^\\s*(Sanna\\s+Pellicioni|Pellicioni\\,?\\s+Sanna)\\s*$"
+						"vastaus": "^\\s*(Sanna\\s+Pelliccioni|Pelliccioni\\,?\\s+Sanna)\\s*$"
 					}
 				]
 			},
@@ -164,7 +164,7 @@
 				"llid": "sc_q",
 				"kysymykset": [
 					{
-						"kysymys": "Mikä on Nuoren antirastin käsikirjan hyllypaikan numero Jyväskylässä?",
+						"kysymys": "Mikä on Nuoren antirasistin käsikirjan hyllypaikan numero Jyväskylässä?",
 						"vastaus": "^\\s*(32.2|32,2)\\s*$"
 					},
 					{
@@ -172,15 +172,15 @@
 						"vastaus": "^\\s*(Siri\\s+Kolu|Kolu\\,?\\s+Siri)\\s*$"
 					},
 					{
-						"kysymys": "Mikä on Timo Parvelan Varjot-kirjan nimi?",
+						"kysymys": "Mikä on Timo Parvelan Varjot-kirjasarjan toisen osan nimi?",
 						"vastaus": "^\\s*[Aa]uroria\\s*$"
 					},
 					{
-						"kysymys": "Minkä värinen eläin on Sarenbrantin Mira ja Kuu -kirjan kannessa?",
+						"kysymys": "Minkä värinen eläin on Sarenbrantin kirjoittaman Mira ja Kuu -kirjan kannessa?",
 						"vastaus": "^\\s*[Vv]alkoinen\\s*$"
 					},
 					{
-						"kysymys": "Kuka on kuvittanut Pia Krutsin Kaupunki kakaties -runokirjan?",
+						"kysymys": "Kuka on kuvittanut Pia Krutsinin Kaupunki kukaties -runokirjan?",
 						"vastaus": "^\\s*(Jani\\s+Ikonen|Ikonen\\,?\\s+Jani)\\s*$"
 					},
 					{
@@ -246,7 +246,7 @@
 						"vastaus": "^\\s*(Joonas\\s+Riekkola|Riekkola\\,?\\s+Joonas)\\s*$"
 					},
 					{
-						"kysymys": "Kuka on kirjoittanut ja kuvittanut kirjan Ihan tavallinen perhe?",
+						"kysymys": "Kuka on kirjoittanut ja kuvittanut kirjan Ihan tavallinen hirviöperhe?",
 						"vastaus": "^\\s*(Mari\\s+Luoma|Luoma\\,?\\s+Mari)\\s*$"
 					}
 				]
@@ -296,7 +296,7 @@
 						"vastaus": "^\\s*(61.72|61,72)\\s*$"
 					},
 					{
-						"kysymys": "Kuka on kirjoittanut Merena ja rikottu peili?",
+						"kysymys": "Kuka on kirjoittanut Merena ja lumottu peili?",
 						"vastaus": "^\\s*(Maami\\s+Snellman|Snellman\\,?\\s+Maami)\\s*$"
 					},
 					{
@@ -340,7 +340,7 @@
 					},
 					{
 						"kysymys": "Kuinka monta osaa on ilmestynyt lasten tietokirjasarjassa Suomen supernaisia?",
-						"vastaus": "^\\s*6\\s*$"
+						"vastaus": "^\\s*7\\s*$"
 					}
 				]
 			},
@@ -391,7 +391,7 @@
 						"vastaus": "^\\s*(Jacob\\s+Grey|Grey\\,?\\s+Jacob)\\s*$"
 					},
 					{
-						"kysymys": "Minkä nimiseen kaupunkiin kirja sijoittuu?",
+						"kysymys": "Minkä nimiseen kaupunkiin kirja Varismiekka sijoittuu?",
 						"vastaus": "^\\s*[Bb]lackstone\\s*$"
 					},
 					{
@@ -403,7 +403,7 @@
 						"vastaus": "^\\s*(Kirsi\\s+Paltto|Paltto\\,?\\s+Kirsi)\\s*$"
 					},
 					{
-						"kysymys": "Lumottu lukukausi kertoo aikamatkasta menneisyyteen. Mille vuosikymmenelle tarina sijoittuu?",
+						"kysymys": "Lumottu lukukausi kertoo aikamatkasta menneisyyteen. Mille vuosikymmenelle höyryjuna Floran vie?",
 						"vastaus": "^\\s*(1930-luku|1930)\\s*$"
 					},
 					{
@@ -453,7 +453,7 @@
 						"vastaus": "^\\s*(Mila\\s+Teräs|Teräs\\,?\\s+Mila)\\s*$"
 					},
 					{
-						"kysymys": "Mihin vuoteen kirjan aikamatka sijoittuu?",
+						"kysymys": "Mihin vuoteen aikamatka tehdään kirjassa Tyttö tulevaisuudesta?",
 						"vastaus": "^\\s*1889\\s*$"
 					},
 					{
@@ -484,11 +484,11 @@
 						"vastaus": "^\\s*(Marja-Leena\\s+Tiainen|Tiainen\\,?\\s+Marja-Leena)\\s*$"
 					},
 					{
-						"kysymys": "Minkä väriset tennarit kirjan kannessa on?",
+						"kysymys": "Minkä väriset kengät kirjan Alex ja pelon aika kannessa on?",
 						"vastaus": "^\\s*[Pp]unaiset|[Pp]unainen\\s*$"
 					},
 					{
-						"kysymys": "Kat Falls on kirjoittanut vedenalaiseen maailmaan sijoittuvia kirjoja. Minkä niminen kirja on jatkoa Vastavirta-kirja on sarjan toinen kirja, mikä on ensimmäinen?",
+						"kysymys": "Kat Falls on kirjoittanut vedenalaiseen maailmaan sijoittuvia kirjoja. Vastavirta-kirja on sarjan toinen osa, mikä on ensimmäinen?",
 						"vastaus": "^\\s*[Vv]eden alla\\s*$"
 					},
 					{
@@ -589,7 +589,7 @@
 						"vastaus": "^\\s*[Aa]rkeomysteeri\\s*$"
 					},
 					{
-						"kysymys": "Etsi teos Maailma raollaan. Kenen kirjoittama on Pajulintu?",
+						"kysymys": "Etsi teos Maailma raollaan. Kenen kirjoittama on teoksen osa Pajulintu?",
 						"vastaus": "^\\s*(Laura\\s+Lähteenmäki|Lähteenmäki\\,?\\s+Laura)\\s*$"
 					},
 					{
@@ -616,7 +616,7 @@
 						"vastaus": "^\\s*[Ff]aunoidit\\s*$"
 					},
 					{
-						"kysymys": "Montako sivua Käärmeenlumoojan kovakantisessa painoksessa (sid.)?",
+						"kysymys": "Montako sivua on Käärmeenlumoojan kovakantisessa painoksessa (sid.)?",
 						"vastaus": "^\\s*330\\s*$"
 					},
 					{
@@ -705,8 +705,8 @@
 						"vastaus": "^\\s*[Yy]ön kuningattaren aaria( oopperasta [Tt]aikahuilu)?\\s*$"
 					},
 					{
-						"kysymys": "Englanninkielisissä julkaisuissa hänen sukunimensä kirjoitetaan Khachatryan tai Khachaturian. Hänen etunimensä on Aram ja Sapelitanssi on his kuuluisimpia sävellyksiään. Miten tämän säveltäjän sukunimi kirjoitetaan suomeksi ja verkkokirjastossamme?",
-						"vastaus": "^\\s*[Hh]atš?aturjan\\s*$"
+						"kysymys": "Englanninkielisissä julkaisuissa hänen sukunimensä kirjoitetaan Khachatryan tai Khachaturian. Hänen etunimensä on Aram ja Sapelitanssi on hänen kuuluisimpia sävellyksiään. Miten tämän säveltäjän sukunimi kirjoitetaan suomeksi ja verkkokirjastossamme?",
+						"vastaus": "^\\s*[Hh]atš?aturjan|[Hh]atsaturjan\\s*$"
 					},
 					{
 						"kysymys": "Antti Tuiskusta on kirjoitettu elämäkertakirja nimeltä Antti Tapani. Mikä on tuon kirjan hyllypaikka eli kirjastoluokkanumero?",
